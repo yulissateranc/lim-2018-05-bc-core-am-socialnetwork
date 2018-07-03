@@ -109,6 +109,7 @@ La interfaz debe permitir lo siguiente:
     información editada.
   - Al recargar la página debo de poder ver los textos editados
 * Perspectiva de interfaz:
+
   ![Muro](https://user-images.githubusercontent.com/9284690/40994768-c52c3442-68c2-11e8-99a5-9e127e700dee.png)
 
 #### Otras consideraciones
