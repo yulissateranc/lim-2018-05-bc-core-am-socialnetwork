@@ -3,7 +3,7 @@
 ## Preámbulo
 
 Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
+sociales han invadido nuestras vidas. Las amamos u odiamos, y muchxs no podemos
 vivir sin ellas.
 
 Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
@@ -114,10 +114,10 @@ La interfaz debe permitir lo siguiente:
 
 #### Otras consideraciones
 
-* La aplicación no debe dejar hacer publicaciones vacías de ningun tipo.
+* La aplicación no debe dejar hacer publicaciones vacías de ningún tipo.
 * El usuario debe poder agregar, editar y eliminar contenido de la red
   social.
-* El usuario debe poder definir la privacidad de lo que pública.
+* El usuario debe poder definir la privacidad de lo que publica.
 * Al editar contenido, el contenido editado se verá automáticamente e
   inmediatamente después de guardar.
 * Al recargar la página se deben poder ver los contenidos editados.
@@ -150,11 +150,11 @@ El corazón de este proyecto incluye:
 
 Además, podrías agregar algunas tareas nuevas de acuerdo a tus decisiones:
 
-* Recuerda que puedes usar una librería o  framework si así lo desea el equipo. Al navegar en internet te darás cuenta de que algunas de estas construyen un
+* Recuerda que puedes usar una librería o framework si así lo desea el equipo. Al navegar en internet te darás cuenta de que algunas de estas construyen un
   **boilerplate** por ti, tenlo presente al iniciar tu proyecto.
 * Recuerda que no hay un setup de **tests** definido, dependerá de
   la estructura de tu proyecto también, pero algo que no debes de olvidar es
-  pensar en éstas pruebas, incluso te podrían ayudar a definir la estructura y
+  pensar en estas pruebas, pues incluso te podrían ayudar a definir la estructura y
   nomenclatura de tu lógica.
 
 ### UX
@@ -187,7 +187,7 @@ Esta es una técnica muy simple que te ayudará a:
 
 Trabajar en equipo es un gran desafío porque coordinarse no es una tarea fácil,
 y es más difícil entre tres que entre dos. Trata que tu equipo te entienda,
-facilitando siempre el diálogo en dentro del squad.
+facilitando siempre el diálogo dentro del squad.
 
 Planifica enumerando las tareas y distribuyéndolas, considerando los
 recursos, las habilidades, y el tiempo del que dispones. Planifica de manera
@@ -217,7 +217,7 @@ empática e inmediata.
 
 Finalmente, deberás presentar el proyecto que creaste, al usuario que escogiste
 y las necesidades que lograste resolver en este proceso. Como siempre, sabemos
-que presentar puede ser una tarea difícil, esperamos que tengas capacidad de
+que presentar puede ser una tarea difícil, y esperamos que tengas capacidad de
 síntesis y articules tus ideas con claridad para que logres mostrar tu trabajo
 y que los demás lo comprendan.
 
@@ -347,7 +347,7 @@ habilidades blandas. Te aconsejamos revisar la rúbrica:
 El concepto de [_mobile first_](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
 hace referencia a un proceso de diseño y desarrollo donde partimos de cómo se ve
 y cómo funciona la aplicación en un dispositivo móvil primero, y más adelante se
-ve como adaptar la aplicación a pantallas progresivamente grandes y
+ve cómo adaptar la aplicación a pantallas progresivamente grandes y
 características específicas del entorno desktop. Esto es en contraposición al
 modelo tradicional, donde primero se diseñaban los websites (o webapps) para
 desktop y después se trataba de _arrugar_ el diseño para que entre en pantallas
