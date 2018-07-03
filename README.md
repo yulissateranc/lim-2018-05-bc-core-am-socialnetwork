@@ -58,16 +58,11 @@ la estructura de carpetas y archivos que consideres necesaria, puedes guiarte
 de los proyectos anteriores. Por lo tanto, los _tests_ y el _setup_ necesario
 para ejecutarlos serán hechos por ti misma :smiley:.
 
-En tu `README.md`, cuéntanos cómo pensaste y te acercaste a los usuarios,
-y cuál fue tu proceso para definir el producto final en términos de experiencia
-y de interfaz. Si tienes fotos de entrevistas, cuestionarios y/o
-sketches (bocetos) compártelos.
-
 ### Responsive
 
 Debe verse bien en dispositivos de pantallas grandes (computadoras/es, laptops, etc.) y pequeñas (tablets, celulares, etc.). Te sugerimos seguir la técnica de `mobile first` (más detalles sobre esta técnica al final).
 
-### Tests
+### Tests unitarios
 
 Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
 _lines_, y _branches_.
@@ -246,12 +241,12 @@ puedas haber encontrado en el camino.
 
 #### 1) Definición del producto
 
-En el `README.md` cómo conociste el mercado de las redes sociales, cómo
-descubriste las necesidades de los usuarios, cómo llegaste a la definición final
-de tu producto. Es importante que detalles:
+En el `README.md` debes colocar cómo conociste el mercado de las redes sociales, cómo descubriste las necesidades de los usuarios, y cómo llegaste a la definición final de tu producto. Si tienes fotos de entrevistas, cuestionarios y/o sketches
+(bocetos) compártelos. Es importante que detalles:
 
 * Cuáles son los elementos básicos que tiene una red social.
 * Quiénes son los principales usuarios de producto.
+* Cómo descubriste las necesidades de los usuarios.
 * Qué problema resuelve el producto para estos usuarios.
 * Cuáles son los objetivos de estos usuarios en relación con el producto.
 * Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
@@ -424,7 +419,15 @@ Otras:
 
 ### `README.md`
 
-* [ ] Definición del producto.
+* [ ] Definición del producto:
+  * [ ] Cuáles son los elementos básicos que tiene una red social.
+  * [ ] Quiénes son los principales usuarios de producto.
+  * [ ] Cómo descubriste las necesidades de los usuarios.
+  * [ ] Qué problema resuelve el producto para estos usuarios.
+  * [ ] Cuáles son los objetivos de estos usuarios en relación con el producto.
+  * [ ] Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
+  * [ ] Cómo verificaste que el producto les está resolviendo sus problemas.
+  * [ ] Cómo te asegurarás que estos usuarios usen este producto.
 * [ ] Benchmark de las principales redes sociales.
 * [ ] Resumen de entrevistas con usuarios.
 * [ ] Link/screenshots del prototipo de alta fidelidad.
@@ -458,4 +461,4 @@ Otras:
 * [ ] Pide confirmación antes de borrar posts.
 * [ ] Permite editar posts (in place).
 * [ ] Permite filtrar posts por público/amigos.
-* [ ] Permite marcar posts como _gustados_ (like).
+* [ ] Permite dar _like_ a los posts y llevar un conteo de ellos.
