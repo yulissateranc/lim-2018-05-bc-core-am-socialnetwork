@@ -90,6 +90,7 @@ La interfaz debe permitir lo siguiente:
   - Al recargar la aplicación, se debe verificar si el usuario está
     logueado antes de mostrarle el contenido privado.
 * Perspectiva de interfaz:
+
   ![Login](https://user-images.githubusercontent.com/9284690/40994765-c3cf9602-68c2-11e8-89ac-8254859b5ebb.png)
 
 #### Muro/timeline de la red social
@@ -101,7 +102,7 @@ La interfaz debe permitir lo siguiente:
   - Poder poner _like_ a una publicación.
   - Llevar un conteo de los _likes_.
   - Poder eliminar un post específico.
-  - Poder filtrar los posts sólo para mis amigos y para todo público.
+  - Poder publicar y mostrar los posts que son sólo para mi (o amigos - ver Hacker edition :wink:) y para todo público.
   - Pedir confirmación antes de eliminar un post.
   - Al darle click en el botón editar, debe cambiar el texto por un input que
     permita editar el texto y cambiar el link por guardar.
@@ -231,6 +232,11 @@ y que los demás lo comprendan.
   podrías implementar una base de datos pero el tiempo podría jugar en contra,
   para ello existen algunos servicios como [Firebase](https://firebase.google.com/products/database/)
   que te proveen soluciones rápidas a este problema y solo usando su SDK :scream:.
+* Agregar la funcionalidad de amistad dentro de la red social, debo poder:
+  + Agregar amigos.
+  + Aceptar solicitudes de amigos.
+  + Eliminar amigos.
+  + Mostrar los posts que son sólo para mis amigos.
 
 ## Entrega
 
@@ -461,5 +467,5 @@ Otras:
 * [ ] Permite eliminar posts.
 * [ ] Pide confirmación antes de borrar posts.
 * [ ] Permite editar posts (in place).
-* [ ] Permite filtrar posts por público/amigos.
+* [ ] Permite publicar y filtrar posts por público/yo.
 * [ ] Permite dar _like_ a los posts y llevar un conteo de ellos.
