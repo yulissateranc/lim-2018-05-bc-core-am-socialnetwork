@@ -1,10 +1,10 @@
 <html>
 
 <head>
-        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
     <link rel="stylesheet" href="css/mystyle.css">
 </head>
-<div class="wrapper fadeInDown">
+<div id="cuerpo" class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
         <h2 class="active"> Sign In </h2>
@@ -17,9 +17,12 @@
 
         <!-- Login Form -->
         <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+            <input type="text" id="email" class="fadeIn second" name="login" placeholder="login">
+            <div> <label class="underlineHover" id="msjValidation2"></label>validation2</div>
             <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
+           <div> <label class="underlineHover" id="msjValidation1"></label>validaction1</div>
+            <input id="buttonLogin" type="button" class="fadeIn fourth" value="Ingresar">
+
         </form>
 
         <!-- Remind Passowrd -->
@@ -29,5 +32,7 @@
 
     </div>
 </div>
+<script src="app.js"></script>
+<script src="main.js"></script>
 
 </html>
