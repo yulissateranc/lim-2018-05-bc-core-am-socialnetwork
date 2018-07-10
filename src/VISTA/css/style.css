@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: segoe UI;
+}
+
+body {
+    background: #fafafa;
+}
+
+header{
+    background: #333;
+    width: 100%;
+    position:fixed; 
+}
+.wrapperMenu{
+    width:inherit;
+    padding: 10px;
+    height: 70px;
+}
+
+.wrapper{
+    padding-top: 15px;
+    text-align: center;
+    height: 80%;
+    width:90%;
+    margin: auto;
+}
+.top {
+    padding-top: 80px;
+}
+.imgUser {
+    height: 50px;
+    float: right;
+    cursor: pointer;
+}
+
+header div { 
+float: left;
+}
+
+.icon-menu {
+   font-size: 35px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.icon-menu:hover {
+    background: darkslategray;
+}
+
+.icon-ok {
+    color: darkslategray;
+}
+
+.icon-ellipsis-vert {
+font-size: 15px;  
+}
+
+.comentary{
+/*    border: 3px solid gray ;*/
+     border-radius: 8px;
+     height: 190px;
+     box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);
+}
+
+.heigth {
+     height: 250px;
+}
+textarea {
+    border: none;
+    width: 100%;
+    resize: none;
+    padding: 15px ;
+    font-size: 16px ;
+    outline: none;
+}
+
+.comentary button, .comentary select {
+    cursor: pointer;
+    margin: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 7px;
+    float: right;
+    outline: none;
+}
+
+.comentary select  {
+    border: 2px solid darkslategray;
+    padding: 10px;
+    float: left;
+    outline: none;
+}
+
+#textValuefixed {
+    width: 10%;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid ;
+    float: right;
+    margin: 20px 10px;
+    
+}
+@media screen and (min-width:800px) {
+    .wrapper {
+        width: 50%;
+    }
+    
+}

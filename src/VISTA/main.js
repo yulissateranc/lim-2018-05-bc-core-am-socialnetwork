@@ -58,7 +58,7 @@ document.getElementById("facebook").addEventListener("click", () =>{
 //Mostrando interfaz de Google a travez de Popup
 document.getElementById("google").addEventListener("click", () =>{
 const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithRedirect(provider).then(function(result) {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
         console.log(result);
     }).catch(function(error){
         console.log(error);
