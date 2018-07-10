@@ -8,9 +8,6 @@ const verificar = () => {
         console.log(error);
     });
 };
-
-
-
 //***************************************funcion de registro de usuarios************************************************/
  register = () => {
     const email = document.getElementById('email').value;
@@ -34,7 +31,6 @@ const verificar = () => {
   });
     
 }
-
 //******evento que desencadena funciones************************************************/
  initEvents = () => {
     const buttonLogin1 = document.getElementById('buttonLogin');
@@ -74,3 +70,87 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
   // An error happened.
 });
 })*/
+
+/*const verificar = () => {
+    const user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(() => {
+        console.log('enviando correo');
+        // Email sent.
+    }).catch(function (error) {
+        // An error happened.
+        console.log(error);
+    });
+};
+
+const register = () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => {
+            verificar();
+        })
+        .catch(function (error) {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
+        });
+}
+const ingreso = () => {
+    const emailLogin = document.getElementById('email-login').value;
+    const passwordLogin = document.getElementById('password-login').value;
+    firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin).catch(function (error) {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+    });
+
+};
+const observer = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            aparece(user);
+            console.log('usuario existente');
+            console.log('********************');
+            console.log(user.emailVerified);
+            console.log('********************');
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            var providerData = user.providerData;
+
+
+        } else {
+            console.log('no existente usuario activo');
+            // User is signed out.
+            // ...
+        }
+    });
+};
+observer();
+const cerrar = () => {
+    firebase.auth().signOut()
+        .then(() => {
+            console.log('saliendo');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
+
+const aparece = (user) => {
+
+    if (user.emailVerified) {
+        const contenido = document.getElementById('contenido');
+        contenido.innerHTML = `<p>Bienvenida!</p><br><button onclick = "cerrar()" id="btn-cerrar-sesion">Cerrar sesion</button>`;
+
+    }
+}*/
