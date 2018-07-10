@@ -1,10 +1,26 @@
+const verificar = () => {
+    const user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(() => {
+        console.log('enviando correo');
+        // Email sent.
+    }).catch(function (error) {
+        // An error happened.
+        console.log(error);
+    });
+};
+
+
+
 //***************************************funcion de registro de usuarios************************************************/
  register = () => {
     const email = document.getElementById('email').value;
     const password= document.getElementById('password').value;
     console.log(email,password);
     
-firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(()=>{
+        verificar();
+    }).catch(function(error) {
     // Handle Errors here.
     let errorCode = error.code;
     let  errorMessage = error.message;
