@@ -3,7 +3,7 @@
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  background-color: #fafafa;
 }
 
 body {
@@ -16,6 +16,10 @@ a {
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
+}
+
+body {
+    font-family: Arial;
 }
 
 h2 {
@@ -31,7 +35,7 @@ h2 {
 
 #google , #facebook{
     border: none;
-    background: #56baed;
+    background: #052F5F;
     color: white;
     padding: 12px 10px;
     display: inline-block;
@@ -54,6 +58,16 @@ h2 {
   padding: 20px;
 }
 
+#contenido{
+    min-height: 20%;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    width:50%;
+    background: #F1A203;
+    color: white;
+    display: block;
+}
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
@@ -82,21 +96,23 @@ h2 {
 /* TABS */
 
 h2.inactive {
-  color: #cccccc;
+  color: #052F5F;
+  font-family: 'Segoe UI';
 }
 
 h2.active {
   color: #0d0d0d;
-  border-bottom: 2px solid #5fbae9;
+  border-bottom: 2px solid #F1A203;
+  font-family: 'Segoe UI';
 }
 
 
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit], input[type=reset]  {
+input[type=button], input[type=submit], input[type=reset] {
   cursor: pointer;
-  background-color: #56baed;
+  background-color: #052F5F;
   border: none;
   color: white;
   padding: 15px 80px;
@@ -118,7 +134,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #39ace7;
+  background-color: #F1A203;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -152,7 +168,7 @@ input[type=text], input[type=password]{
 
 input[type=text]:focus {
   background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
+  border-bottom: 2px solid #F1A203;
 }
 
 input[type=text]:placeholder {
@@ -250,7 +266,7 @@ input[type=text]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #F1A203;
   content: "";
   transition: width 0.2s;
 }

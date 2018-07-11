@@ -7,8 +7,8 @@
 <div id="wrapper" class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
-        <h2 class="active"> Sign In </h2>
-        <h2 class="inactive underlineHover">Sign Up </h2>
+        <h2 class="inactive underlineHover"> Iniciar sesión </h2>
+        <h2 class="inactive underlineHover">Registrarse </h2>
 
         <!-- Icon -->
         <div class="fadeIn first">
@@ -17,14 +17,16 @@
 
         <!-- Login Form -->
         <form>
-            <input type="text" id="email" class="fadeIn second" name="login" placeholder="EMAIL">
+            <input type="text" id="email" name="login" placeholder="EMAIL">
             <div> <label class="underlineHover" id="msjValidation2"></label></div>
             <input type="password" id="password" class="fadeIn third" name="login" placeholder="PASSWORD">
             <div> <label class="underlineHover" id="msjValidation1"></label></div>
-            <input id="buttonLogin" type="button" class="fadeIn fourth" value="Ingresar">
+            <input id="buttonLogin" type="button" class="fadeIn fourth" value="INICIAR SESIÓN">
             <button type="button" class="icon-facebook" id="facebook">Iniciar con Facebook</button>
             <button type="button" class="icon-google" id="google">Iniciar con Google</button>
         </form>
+
+        
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
@@ -33,6 +35,7 @@
 
     </div>
 </div>
+<div id="contenido"></div>
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <script src="app.js"></script>
 <script src="main.js"></script>
