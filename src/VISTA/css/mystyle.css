@@ -58,6 +58,16 @@ h2 {
   padding: 20px;
 }
 
+#contenido{
+    min-height: 20%;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    width:50%;
+    background: #F1A203;
+    color: white;
+    display: block;
+}
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
