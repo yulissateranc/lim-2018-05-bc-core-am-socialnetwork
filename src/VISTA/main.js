@@ -65,8 +65,10 @@ observer();
     
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(()=>{
-        verificar();
+        //verificar();
         aparece();
+        principal.style.display="none";
+        contenido.style.display="block";
     }).catch(function(error) {
     // Handle Errors here.
     let errorCode = error.code;
@@ -97,6 +99,7 @@ document.getElementById("facebook").addEventListener("click", () =>{
         console.log(result);
         aparece();
         principal.style.display="none";
+        contenido.style.display="block";
     }).catch(function(error){
         console.log(error);
     })
@@ -108,6 +111,8 @@ const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
         console.log(result);
         aparece();
+        principal.style.display="none";
+        contenido.style.display="block";
     }).catch(function(error){
         console.log(error);
     })
@@ -137,3 +142,4 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 };
 
 */
+
