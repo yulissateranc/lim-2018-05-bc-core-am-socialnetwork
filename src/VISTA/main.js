@@ -7,7 +7,7 @@ const btnGoogle = document.getElementById("google");
 observer();
 
 //***************************************funcion de registro de usuarios************************************************/
- register = () => {
+ /*register = () => {
     const email = document.getElementById('email').value;
     const password= document.getElementById('password').value;
     console.log(email,password);
@@ -30,7 +30,7 @@ observer();
      
     // ...
   });
-}
+}*/
 //******evento que desencadena funciones************************************************/
  initEvents = () => {
     const buttonLogin1 = document.getElementById('buttonLogin');
