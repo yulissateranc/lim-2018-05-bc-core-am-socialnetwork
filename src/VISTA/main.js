@@ -1,4 +1,4 @@
-const buttonRegister = document.getElementById('buttonLogin');
+const buttonRegister = document.getElementById('button-register');
 const posts = document.getElementById('posts');
 const principal = document.getElementById('wrapper');
 const contenido = document.getElementById('contenido');

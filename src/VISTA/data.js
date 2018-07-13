@@ -2,12 +2,9 @@
 const observer = () => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-            // aparece(user);
+
             console.log('usuario existente');
-            console.log('********************');
             console.log(user.emailVerified);
-            console.log('********************');
-            // User is signed in.
             var displayName = user.displayName;
             var email = user.email;
             var emailVerified = user.emailVerified;
@@ -26,9 +23,10 @@ const register = () => {
     const password = document.getElementById('password').value;
     console.log(email, password);
     firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(() => {
+        .then((result) => {
             verificar();
-            aparece();
+            console.log(result);
+            userProfile(result);
         }).catch(function (error) {
             // Handle Errors here.
             let errorCode = error.code;
@@ -46,8 +44,8 @@ const initFacebook = () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
         console.log(result);
-        aparece();
         principal.style.display = "none";
+        userProfile(result);
     }).catch(function (error) {
         console.log(error);
     })
@@ -58,7 +56,7 @@ const initGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
         console.log(result);
-        aparece();
+        userProfile(result);
     }).catch(function (error) {
         console.log(error);
     })
@@ -85,9 +83,14 @@ const cerrar = () => {
         });
 };
 /************************************************************Bienvenida *************************************************************************/
-const aparece = (objectUser) => {
-    if (objectUser)
+const userProfile = (objectUser) => {
+    if (objectUser.additionalUserInfo.isNewUser != false){
         contenido.innerHTML = `<p>Bienvenida!</p><br><button onclick = "cerrar()" id="btn-cerrar-sesion">Cerrar sesion</button>`;
+    }else{
+        contenido.style.display = "none";
+        console.log('usuario antiguo');
+    }
+        
 }
 
 
