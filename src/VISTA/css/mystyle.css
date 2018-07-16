@@ -2,36 +2,32 @@
   font-family:Gaegu;
   src: url('../fuentes/Gaegu/Gaegu-Bold.ttf');
 }
-
+/*
 html {
-background-color: #fafafa;
-}
+background: url(../img/Poblacion1_opt.png);
+}*/
 
 body {
 font-family: segoe UI;
-height: auto;
-box-sizing: border-box;
 background: url(../img/Poblacion1_opt.png);
-background-repeat: no-repeat;
-background-size: cover;
+height: auto;
 margin: 0;
 }
+
 #header-login{
   width: 100%; 
   background:#F1A203;
-  height: 10%;
+  overflow: auto;
 }
 
 h1 {
   font-family: Gaegu;
-  font-size: 60px;
+  font-size: 40px;
   color: white;
-  padding: 1%;
-  width: 28%;
 }
 
 a {
-color: #92badd;
+color: #333;
 display:inline-block;
 text-decoration: none;
 }
@@ -48,7 +44,7 @@ color: #cccccc;
 }
 h2.active {
    color: #052F5F;
-  border-bottom: 2px solid #F1A203;
+   border-bottom: 2px solid #F1A203;
 }
 h2.inactive {
   color: #F1A203;
@@ -57,17 +53,16 @@ h2.inactive {
 
 label {
   float: left;
-  padding-left: 38px;
+  padding: 10px 40px;
   font-size: 18px;
 }
 
 [type=button]{
   width: 60%;
-  height: auto;
-  margin: 2% auto;
+  margin: 5% auto;
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 4%;
   display: block;
   font-size: 16px;
   font-family: segoe UI;
@@ -90,8 +85,17 @@ label {
   width: 100%;
 }
 
+#form-registro, 
+#form-sesion {
+    margin: 0 5%;
+}
+
+#form-registro {
+    display: none;
+}
+
 #formContent {
-/*display: none;*/
+width: 90%; 
 -webkit-border-radius: 10px 10px 10px 10px;
 border-radius: 10px 10px 10px 10px;
 background: #fff;
@@ -99,7 +103,7 @@ position: relative;
 -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
 box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
 text-align: center;
-margin: 8%;
+margin: 1% auto;
 }
 
 #formFooter {
@@ -110,18 +114,18 @@ text-align: center;
 -webkit-border-radius: 0 0 10px 10px;
 border-radius: 0 0 10px 10px;
 }
-input[type=text], input[type=password]{
+
+input[type=text], 
+input[type=password]{
 background-color: #f6f6f6;
 border: none;
-color: #0d0d0d;
 padding: 15px 32px;
 font-family: segoe UI;
-text-align: center;
 text-decoration: none;
 display: inline-block;
 font-size: 16px;
-margin:2%;
-width: 85%;
+margin-bottom:4%;
+width: 65%;
 outline: none;
 border: 2px solid #f6f6f6;
 -webkit-transition: all 0.5s ease-in-out;
@@ -132,16 +136,25 @@ transition: all 0.5s ease-in-out;
 -webkit-border-radius: 5px 5px 5px 5px;
 border-radius: 5px 5px 5px 5px;
 }
-input[type=text]:focus, input[type=password]:focus{
+input[type=text]:focus,
+input[type=password]:focus{
 background-color: #fff;
-  border-bottom: 3px solid #F1A203;
+border-bottom: 3px solid #F1A203;
 }
+
+.message {
+    padding: 3%;
+    margin: 0% 15%;
+    display: none;
+}
+
 .underlineHover:hover {
 color: #052F5F;
 transition: 0.5s;
 }
+
 #icon {
-  width:50%;
+  width:30%;
   display: block;
   margin: auto;
 }
@@ -161,7 +174,13 @@ transition: 0.5s;
   font-family: Segoe UI;
 }
 
-@media screen  and (min-width:500px) {
+@media screen  and (min-width:600px) {
+  #formContent {
+       width: 60%; 
+  }
+}
+
+@media screen  and (min-width:800px) {
   .container-login{
   display: flex;
   justify-content: center;
@@ -170,7 +189,10 @@ transition: 0.5s;
   }
 
   #formContent {
-       margin: 1%;
+       width: 40%; 
   }
-  
+    
+  [type=button]{
+   padding: 2%;
+  }
 }
