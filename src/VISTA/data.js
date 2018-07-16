@@ -2,12 +2,9 @@
 const nuevaPagina = (url) => {
     window.location = (url);
 }
-
-
 const observer = () => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-
             console.log('usuario existente');
             console.log(user.emailVerified);
             var displayName = user.displayName;
@@ -40,11 +37,9 @@ const register = () => {
             errorCode = 'La dirección de correo electrónico está mal formada.';
             errorMessage = 'La contraseña debe tener una longitud de 6 caracteres o más .';
             document.getElementById("msjValidation1").style.display = "block"; document.getElementById("msjValidation1").innerHTML = errorMessage;
-
             document.getElementById("msjValidation2").style.display = "block"; document.getElementById("msjValidation2").innerHTML = errorCode;
         });
 }
-
 /***********************************************************Mostrando interfaz de Facebook a travez de Popup*********************************/
 const initFacebook = () => {
     const provider = new firebase.auth.FacebookAuthProvider();
@@ -57,7 +52,6 @@ const initFacebook = () => {
     })
 }
 /************************************************************Mostrando interfaz de Google a travez de Popup********************************/
-
 const initGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
@@ -101,12 +95,7 @@ const userProfile = (objectUser) => {
         contenido.style.display = "none";
         console.log('usuario antiguo');
     }
-
 }
-
-
-
-
 /* Forgot Password
 document.getElementById("forgotPassw").addEventListener("click", () => {
     var auth = firebase.auth();
@@ -129,3 +118,7 @@ const ingreso = () => {
     });
 };
 */
+
+
+
+

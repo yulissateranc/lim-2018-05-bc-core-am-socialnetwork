@@ -6,32 +6,27 @@
 html {
 background: url(../img/Poblacion1_opt.png);
 }*/
-
 body {
 font-family: segoe UI;
 background: url(../img/Poblacion1_opt.png);
 height: auto;
 margin: 0;
 }
-
 #header-login{
   width: 100%; 
   background:#F1A203;
   overflow: auto;
 }
-
 h1 {
   font-family: Gaegu;
   font-size: 40px;
   color: white;
 }
-
 a {
 color: #333;
 display:inline-block;
 text-decoration: none;
 }
-
 h2 {
 cursor: pointer;
 text-align: center;
@@ -50,13 +45,11 @@ h2.inactive {
   color: #F1A203;
   font-family: 'Segoe UI';
 }
-
 label {
   float: left;
   padding: 10px 40px;
   font-size: 18px;
 }
-
 [type=button]{
   width: 60%;
   margin: 5% auto;
@@ -70,31 +63,25 @@ label {
   border-radius: 3px;
   background: #052F5F;
 }
-
 #google {
   background: #d62d20;
 }
-
 [type=button]:hover {
   transition: 0.7s;
   background: #F1A203;
 }
-
 .container-login {
   align-items: center;
   width: 100%;
 }
-
 #form-registro, 
 #form-sesion {
     margin: 0 5%;
 }
-
 #form-registro {
     display: none;
 }
-
-#formContent {
+#form-content {
 width: 90%; 
 -webkit-border-radius: 10px 10px 10px 10px;
 border-radius: 10px 10px 10px 10px;
@@ -105,7 +92,6 @@ box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
 text-align: center;
 margin: 1% auto;
 }
-
 #formFooter {
 background-color: #f6f6f6;
 border-top: 1px solid #dce8f1;
@@ -114,7 +100,6 @@ text-align: center;
 -webkit-border-radius: 0 0 10px 10px;
 border-radius: 0 0 10px 10px;
 }
-
 input[type=text], 
 input[type=password]{
 background-color: #f6f6f6;
@@ -141,24 +126,20 @@ input[type=password]:focus{
 background-color: #fff;
 border-bottom: 3px solid #F1A203;
 }
-
 .message {
     padding: 3%;
     margin: 0% 15%;
     display: none;
 }
-
 .underlineHover:hover {
 color: #052F5F;
 transition: 0.5s;
 }
-
 #icon {
   width:30%;
   display: block;
   margin: auto;
 }
-
 #bienvenida{
   display: none;
   top: 50%;
@@ -173,13 +154,11 @@ transition: 0.5s;
   font-size: 30px;
   font-family: Segoe UI;
 }
-
 @media screen  and (min-width:600px) {
-  #formContent {
+  #form-content {
        width: 60%; 
   }
 }
-
 @media screen  and (min-width:800px) {
   .container-login{
   display: flex;
@@ -187,8 +166,7 @@ transition: 0.5s;
   width: 100%;
   min-height: 100%;
   }
-
-  #formContent {
+  #form-content {
        width: 40%; 
   }
     
