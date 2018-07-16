@@ -2,7 +2,6 @@
   font-family:Gaegu;
   src: url('../fuentes/Gaegu/Gaegu-Bold.ttf');
 }
-<<<<<<< HEAD
 /*
 html {
 background: url(../img/Poblacion1_opt.png);
@@ -46,55 +45,6 @@ color: #cccccc;
 h2.active {
    color: #052F5F;
    border-bottom: 2px solid #F1A203;
-=======
-
-html {
-background-color: #fafafa;
-}
-
-body {
-font-family: segoe UI;
-height: auto;
-box-sizing: border-box;
-background: url(../img/Poblacion1_opt.png);
-background-repeat: no-repeat;
-background-size: cover;
-margin: 0;
-}
-#header-login{
-  width: 100%; 
-  background:#F1A203;
-  height: 10%;
-}
-
-h1 {
-  font-family: Gaegu;
-  font-size: 60px;
-  color: white;
-  padding: 1%;
-  width: 28%;
-}
-
-a {
-color: #92badd;
-display:inline-block;
-text-decoration: none;
-}
-
-h2 {
-cursor: pointer;
-text-align: center;
-font-size: 17px;
-font-weight: 600;
-text-transform: uppercase;
-display:inline-block;
-margin: 40px 8px 10px 8px; 
-color: #cccccc;
-}
-h2.active {
-   color: #052F5F;
-  border-bottom: 2px solid #F1A203;
->>>>>>> ca807d1fcbf43381fe3b5c57fbc22fc10158641c
 }
 h2.inactive {
   color: #F1A203;
@@ -103,35 +53,22 @@ h2.inactive {
 
 label {
   float: left;
-<<<<<<< HEAD
   padding: 10px 40px;
-=======
-  padding-left: 38px;
->>>>>>> ca807d1fcbf43381fe3b5c57fbc22fc10158641c
   font-size: 18px;
 }
 
 [type=button]{
   width: 60%;
-<<<<<<< HEAD
   margin: 5% auto;
   border: none;
   color: white;
   padding: 4%;
-=======
-  height: auto;
-  margin: 2% auto;
-  border: none;
-  color: white;
-  padding: 10px 20px;
->>>>>>> ca807d1fcbf43381fe3b5c57fbc22fc10158641c
   display: block;
   font-size: 16px;
   font-family: segoe UI;
   cursor: pointer;
   border-radius: 3px;
   background: #052F5F;
-<<<<<<< HEAD
 }
 
 #google {
@@ -189,56 +126,6 @@ display: inline-block;
 font-size: 16px;
 margin-bottom:4%;
 width: 65%;
-=======
-}
-
-#google {
-  background: #d62d20;
-}
-
-[type=button]:hover {
-  transition: 0.7s;
-  background: #F1A203;
-}
-
-.container-login {
-  align-items: center;
-  width: 100%;
-}
-
-#formContent {
-/*display: none;*/
--webkit-border-radius: 10px 10px 10px 10px;
-border-radius: 10px 10px 10px 10px;
-background: #fff;
-position: relative;
--webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-text-align: center;
-margin: 8%;
-}
-
-#formFooter {
-background-color: #f6f6f6;
-border-top: 1px solid #dce8f1;
-padding: 25px;
-text-align: center;
--webkit-border-radius: 0 0 10px 10px;
-border-radius: 0 0 10px 10px;
-}
-input[type=text], input[type=password]{
-background-color: #f6f6f6;
-border: none;
-color: #0d0d0d;
-padding: 15px 32px;
-font-family: segoe UI;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin:2%;
-width: 85%;
->>>>>>> ca807d1fcbf43381fe3b5c57fbc22fc10158641c
 outline: none;
 border: 2px solid #f6f6f6;
 -webkit-transition: all 0.5s ease-in-out;
@@ -249,7 +136,6 @@ transition: all 0.5s ease-in-out;
 -webkit-border-radius: 5px 5px 5px 5px;
 border-radius: 5px 5px 5px 5px;
 }
-<<<<<<< HEAD
 input[type=text]:focus,
 input[type=password]:focus{
 background-color: #fff;
@@ -262,24 +148,13 @@ border-bottom: 3px solid #F1A203;
     display: none;
 }
 
-=======
-input[type=text]:focus, input[type=password]:focus{
-background-color: #fff;
-  border-bottom: 3px solid #F1A203;
-}
->>>>>>> ca807d1fcbf43381fe3b5c57fbc22fc10158641c
 .underlineHover:hover {
 color: #052F5F;
 transition: 0.5s;
 }
-<<<<<<< HEAD
 
 #icon {
   width:30%;
-=======
-#icon {
-  width:50%;
->>>>>>> ca807d1fcbf43381fe3b5c57fbc22fc10158641c
   display: block;
   margin: auto;
 }
@@ -299,7 +174,6 @@ transition: 0.5s;
   font-family: Segoe UI;
 }
 
-<<<<<<< HEAD
 @media screen  and (min-width:600px) {
   #formContent {
        width: 60%; 
@@ -307,9 +181,6 @@ transition: 0.5s;
 }
 
 @media screen  and (min-width:800px) {
-=======
-@media screen  and (min-width:500px) {
->>>>>>> ca807d1fcbf43381fe3b5c57fbc22fc10158641c
   .container-login{
   display: flex;
   justify-content: center;
@@ -318,16 +189,10 @@ transition: 0.5s;
   }
 
   #formContent {
-<<<<<<< HEAD
        width: 40%; 
   }
     
   [type=button]{
    padding: 2%;
   }
-=======
-       margin: 1%;
-  }
-  
->>>>>>> ca807d1fcbf43381fe3b5c57fbc22fc10158641c
 }
