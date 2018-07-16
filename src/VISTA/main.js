@@ -26,7 +26,10 @@ const cerrar = () => {
 };
 
 const aparece =() => {
-        contenido.innerHTML = `<p>Bienvenida!</p><br><button onclick = "cerrar()" id="btn-cerrar-sesion">Cerrar sesion</button>`;
+        contenido.innerHTML = `
+ 
+        class="w3-button w3-large w3-display-topright">&times;</span>
+         `;
 }
 
 
