@@ -1,4 +1,9 @@
 /*********************************************Observar y detectar si hay un usuario registrado**********************************************/
+const nuevaPagina = (url) => {
+    window.location = (url);
+}
+
+
 const observer = () => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -34,8 +39,9 @@ const register = () => {
             console.log(errorCode, errorMessage);
             errorCode = 'La dirección de correo electrónico está mal formada.';
             errorMessage = 'La contraseña debe tener una longitud de 6 caracteres o más .';
-            document.getElementById("msjValidation1").innerHTML = errorMessage;
-            document.getElementById("msjValidation2").innerHTML = errorCode;
+            document.getElementById("msjValidation1").style.display = "block"; document.getElementById("msjValidation1").innerHTML = errorMessage;
+
+            document.getElementById("msjValidation2").style.display = "block"; document.getElementById("msjValidation2").innerHTML = errorCode;
         });
 }
 
@@ -63,8 +69,13 @@ const initGoogle = () => {
 }
 /************************************************************Enviar correo de confirmación****************************************************************************/
 const verificar = () => {
+    var actionCodeSettings = {
+        url: 'http://127.0.0.1:58275/src/VISTA',// + firebase.auth().currentUser.email
+        handleCodeInApp: false
+    };
     const user = firebase.auth().currentUser;
-    user.sendEmailVerification().then(() => {
+    console.log(user);
+    user.sendEmailVerification(actionCodeSettings).then(() => {
         console.log('enviando correo');
     }).catch(function (error) {
         console.log(error);
@@ -84,13 +95,13 @@ const cerrar = () => {
 };
 /************************************************************Bienvenida *************************************************************************/
 const userProfile = (objectUser) => {
-    if (objectUser.additionalUserInfo.isNewUser != false){
+    if (objectUser.additionalUserInfo.isNewUser != false) {
         contenido.innerHTML = `<p>Bienvenida!</p><br><button onclick = "cerrar()" id="btn-cerrar-sesion">Cerrar sesion</button>`;
-    }else{
+    } else {
         contenido.style.display = "none";
         console.log('usuario antiguo');
     }
-        
+
 }
 
 
