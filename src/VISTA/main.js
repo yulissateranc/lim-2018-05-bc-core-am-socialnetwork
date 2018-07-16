@@ -1,5 +1,9 @@
+const buttonRegister = document.getElementById('button-register');
+const buttonSesion = document.getElementById('button-sesion');
+const posts = document.getElementById('posts');
 const principal = document.getElementById('wrapper');
 const contenido = document.getElementById('contenido');
+<<<<<<< HEAD
 const verificar = () => {
     const user = firebase.auth().currentUser;
     user.sendEmailVerification().then(() => {
@@ -104,39 +108,41 @@ document.getElementById("facebook").addEventListener("click", () =>{
         console.log(error);
     })
   
+=======
+const btnFacebook = document.getElementById("facebook");
+const btnGoogle = document.getElementById('google');
+const registro = document.getElementById('registro');
+const sesion = document.getElementById('sesion');
+const formRegistro = document.getElementById('form-registro');
+const formSesion = document.getElementById('form-sesion');
+
+    observer();
+buttonRegister.addEventListener('click', (e) => {
+    register();
+>>>>>>> 036bb6a2f4939d7b273025d3064b69a12c8b5e60
 });
-//Mostrando interfaz de Google a travez de Popup
-document.getElementById("google").addEventListener("click", () =>{
-const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-        console.log(result);
-        aparece();
-    }).catch(function(error){
-        console.log(error);
-    })
+btnFacebook.addEventListener('click', () => {
+    initFacebook()
+});
+btnGoogle.addEventListener('click', () => {
+    initGoogle()
 })
-/* Forgot Password
-document.getElementById("forgotPassw").addEventListener("click", () => {
-    var auth = firebase.auth();
-var emailAddress = "user@example.com";
-auth.sendPasswordResetEmail(emailAddress).then(function() {
-  // Email sent.
-}).catch(function(error) {
-  // An error happened.
-});
-})*/
-
-/*const ingreso = () => {
-    const emailLogin = document.getElementById('email-login').value;
-    const passwordLogin = document.getElementById('password-login').value;
-    firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin).catch(function (error) {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-    });
-
-};
-
-*/
+registro.addEventListener('click', () => {
+    formSesion.style.display = "none";
+    formRegistro.style.display = "block";
+    registro.classList.remove("inactive");
+    registro.classList.add("active");
+    sesion.classList.remove("active");
+    sesion.classList.add("inactive");
+})
+sesion.addEventListener('click', () => {
+    formSesion.style.display = "block";
+    formRegistro.style.display = "none";
+    sesion.classList.remove("inactive");
+    sesion.classList.add("active");
+    registro.classList.remove("active");
+    registro.classList.add("inactive");
+})
+buttonSesion.addEventListener('click', () => {
+    nuevaPagina("interfaz.html");
+})
