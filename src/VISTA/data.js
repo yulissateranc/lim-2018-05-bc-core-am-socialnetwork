@@ -61,7 +61,7 @@ const reloadPage = ()=> {
               console.log(objectUser);
               if (objectUser.emailVerified) {
                   formContainer.classList.add("hiden");
-                  nuevaPagina("interfaz.html");
+                  // nuevaPagina("interfaz.html");
                   // wallUser.classList.remove("hiden");
               }
           } else {
