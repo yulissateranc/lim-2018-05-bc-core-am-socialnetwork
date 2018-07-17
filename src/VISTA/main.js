@@ -60,8 +60,6 @@ btnLogout.addEventListener('click', () => {
 btnPublish.addEventListener('click', () => {
    
 })
-    initFacebook()
-});
 btnGoogle.addEventListener('click', () => {
     initGoogle()
 })
