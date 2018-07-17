@@ -2,17 +2,19 @@
     margin: 0;
     box-sizing: border-box;
     font-family: segoe UI;
-}
+} 
 
-body {
+.wall{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: segoe UI;
     background: #fafafa;
 }
 
-header{
-    background: #052F5F;
+.header-wall{
+    background: #333;
     width: 100%;
     position:fixed; 
-    overflow: auto;
 }
 .wrapperMenu{
     width:inherit;
@@ -27,17 +29,16 @@ header{
     width:90%;
     margin: auto;
 }
-
 .top {
     padding-top: 80px;
 }
 .imgUser {
+    height: 50px;
     float: right;
     cursor: pointer;
-    height: 100%;
 }
 
-header div { 
+.header-wall div { 
 float: left;
 }
 
@@ -60,6 +61,7 @@ font-size: 15px;
 }
 
 .comentary{
+    box-sizing: border-box;
 /*    border: 3px solid gray ;*/
      border-radius: 8px;
      height: 190px;
@@ -67,7 +69,7 @@ font-size: 15px;
 }
 
 .heigth {
-    height: 270px;
+     height: 250px;
 }
 textarea {
     border: none;
@@ -86,12 +88,10 @@ textarea {
     border-radius: 7px;
     float: right;
     outline: none;
-    color: white;
-    background: #f1a203;
 }
 
 .comentary select  {
-    border: 2px solid #F1A203;
+    border: 2px solid darkslategray;
     padding: 10px;
     float: left;
     outline: none;
@@ -104,7 +104,7 @@ textarea {
     border-radius: 5px;
     border: 1px solid ;
     float: right;
-    margin: 20px 15px;
+    margin: 20px 10px;
     
 }
 @media screen and (min-width:800px) {
@@ -113,4 +113,5 @@ textarea {
     }
     
 }
+
 

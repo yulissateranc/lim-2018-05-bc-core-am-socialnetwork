@@ -1,65 +1,98 @@
-<!DOCTYPE html>
 <html lang="es">
-
 <head>
-   <meta charset="utf-8">
-   <title>EQUALITY</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="css/mystyle.css">
-   <link rel="stylesheet" href="../VISTA/font/fontello.css">
+  <meta charset="utf-8">
+  <title>my social network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="css/mystyle.css">
+  <link rel="stylesheet" href="font/fontello.css" />
+  <link rel="stylesheet" href="../VISTA/font/fontello.css">
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
-
 <body>
-   <header id="header-login">
-       <h1>EQUALITY</h1>
-   </header>
-
-       <div id="form-content">
-           <!-- Tabs Titles -->
-           <h2 class="active underlineHover" id="sesion"> Iniciar sesión </h2>
-           <h2 class="inactive underlineHover" id="registro">Registrarse </h2>
-           <img src="img/USUARIOSAZUL.png" id="icon" alt="User Icon" />
-           <!-- Formulario de Sesion -->
-           <form id="form-sesion">
-               <label for="correo-sesion">Correo Electrónico</label>
-               <input type="text" id="correo-sesion" name="login" placeholder="Correo@ejemplo.com">
-               <p class="message" id="msjValidation"></p>
-
-               <label for="password-sesion">Contraseña</label>
-               <input type="password" id="password-sesion" name="login" placeholder="Contraseña">
-               <p class="message" id="msjValidation"></p>
-
-               <button id="button-sesion" type="button">INICIAR SESIÓN</button>
-               <button type="button" class="icon-facebook" id="facebook">Iniciar con Facebook</button>
-               <button type="button" class="icon-google" id="google">Iniciar con Google</button>
-           </form>
-           <!-- Formulario de Registro -->
-           <form id="form-registro">
-               <label for="nombre">Nombre de Usuario</label>
-               <input type="text" placeholder="Nombre de Usuario" id="nombre" />
-               <label for="email">Correo Electrónico</label>
-               <input type="text" id="email" name="login" placeholder="Correo@ejemplo.com">
-               <p class="message" id="msjValidation2"></p>
-
-               <label for="password">Contraseña</label>
-               <input type="password" id="password" name="login" placeholder="Contraseña">
-               <p class="message" id="msjValidation1"></p>
-
-               <button id="button-register" type="button">CREAR CUENTA</button>
-           </form>
-           <!-- Recuperar Contraseña -->
-           <div id="formFooter">
-               <a class="underlineHover" id="forgotPassw" href="#">OLVIDÉ MI CONTRASEÑA</a>
-           </div>
-       </div>
-
-   <div id="bienvenida">Bienvenida(o) User</div>
-   <div id="contenido"></div>
-<div id="posts"></div>
-</body>
+<section id="body" class="login hiden">
+  <header class="header-login">
+    <h1 class ="title">EQUALITY</h1>
+  </header>
+  <section id="form-container">
+    <!-- Tabs Titles -->
+    <h2 class="inactive underline" id="section-login"> Iniciar sesión </h2>
+    <h2 class="inactive underline" id="section-register">Registrarse </h2>
+    <img src="img/USUARIOSAZUL.png" id="icon" alt="User Icon" />
+    <!-- Formulario de Sesion -->
+    <form id="form-login">
+      <label for="correo-sesion">Correo Electrónico</label>
+      <input type="text" id="correo-sesion" name="login" placeholder="Correo@ejemplo.com">
+      <p class="message" id="msjValidation"></p>
+      <label for="password-sesion">Contraseña</label>
+      <input type="password" id="password-sesion" name="login" placeholder="Contraseña">
+      <p class="message" id="msjValidation"></p>
+      <button id="button-login" type="button">INICIAR SESIÓN</button>
+      <button type="button" class="icon-facebook" id="facebook">Iniciar con Facebook</button>
+      <button type="button" class="icon-google" id="google">Iniciar con Google</button>
+    </form>
+    <!-- Formulario de  Registro -->
+    <form id="form-register">
+        <label for="name">Nombre de Usuario</label>
+        <input type="text" placeholder="Nombre de usuario" id="name">
+        <label for="email">Correo Electrónico</label>
+      <input type="text" id="email" name="login" placeholder="Correo@ejemplo.com">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="PASSWORD">
+      <div>
+        <label  id="warning"></label>
+      </div>
+      <button id="button-register" type="button">CREAR CUENTA</button>
+    </form>
+    <!-- Recuperar Contraseña -->
+    <div id="formFooter">
+      <a class="underline" id="forgotPassw" href="#">Forgot Password?</a>
+    </div>
+  </section>
+  <!--Welcome-->
+  <div id="container-welcome"> <h3 id="welcome" class="hiden"></h3></div>
+  <div id="wall-user" class="hiden">
+    <input type="button" name="" value="Logout" id="btn-logout">
+    <!--Base de datos -->
+    <div id="bd">
+      <textarea name="Publicacion" id="post" cols="30" rows="10"></textarea>
+      <input type="button" value="Publicar" id="btn-publish">
+    </div>
+    <div id="posts"><h3>Posts</h3></div>
+  </div>  
+</section>  
+<section class="wall" id ="wall">
+    <div class="header-wall">
+       <div class="wrapperMenu">
+        <div id="menu" class="icon-menu">
+        </div>
+        <h2 id="user-name"></h2>
+           <img  class="imgUser" src="img/user.PNG" />
+        </div>
+    </div>
+    <section class="wrapper top">
+        <form class="comentary">
+        <textarea class="textarea" rows="4" cols="50"  placeholder="Ingresa tu opinion"></textarea>
+        <select>
+        <option value="" >PUBLICO 🌎 </option>
+        <option value="" >PRIVADO 🔒</option>
+        </select>
+        <button type="button" >PUBLICAR</button>
+        </form>
+    </section> 
+    <section class="wrapper">
+    <form class="comentary heigth">
+        <button type="button" class="icon-ellipsis-vert"></button>
+        <textarea name="textarea" rows="4" cols="50"></textarea>
+        <input type="number" id="textValuefixed" readonly/>
+        <button type="button" class="icon-ok"></button>
+        
+    </form>
+    </section>
+</section>
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <script src="app.js"></script>
 <script src="data.js"></script>
 <script src="main.js"></script>
-
+</body>
 </html>

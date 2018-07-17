@@ -1,28 +1,29 @@
-@font-face{
-  font-family:Gaegu;
-  src: url('../fuentes/Gaegu/Gaegu-Bold.ttf');
+.hiden{
+  display: none;
 }
-/*
-html {
-background: url(../img/Poblacion1_opt.png);
-}*/
-body {
+
+@font-face{
+font-family:Gaegu;
+src: url('../fuentes/Gaegu/Gaegu-Bold.ttf');
+}
+.login {
 font-family: segoe UI;
 background: url(../img/Poblacion1_opt.png);
 height: auto;
 margin: 0;
 }
-#header-login{
-  width: 100%; 
-  background:#F1A203;
-  overflow: auto;
+.header-login{
+height: 90px;
+width: 100%; 
+background:#F1A203;
+overflow: auto;
 }
-h1 {
-  font-family: Gaegu;
-  font-size: 40px;
-  color: white;
+.title{
+font-family: Gaegu;
+font-size: 40px;
+color: white;
 }
-a {
+.underline{
 color: #333;
 display:inline-block;
 text-decoration: none;
@@ -37,51 +38,52 @@ display:inline-block;
 margin: 40px 8px 10px 8px; 
 color: #cccccc;
 }
-h2.active {
-   color: #052F5F;
-   border-bottom: 2px solid #F1A203;
+.active {
+ color: #052F5F;
+ border-bottom: 2px solid #F1A203;
 }
-h2.inactive {
-  color: #F1A203;
-  font-family: 'Segoe UI';
+.inactive {
+color: #F1A203;
+font-family: 'Segoe UI';
 }
 label {
-  float: left;
-  padding: 10px 40px;
-  font-size: 18px;
+float: left;
+padding: 10px 40px;
+font-size: 18px;
 }
 [type=button]{
-  width: 60%;
-  margin: 5% auto;
-  border: none;
-  color: white;
-  padding: 4%;
-  display: block;
-  font-size: 16px;
-  font-family: segoe UI;
-  cursor: pointer;
-  border-radius: 3px;
-  background: #052F5F;
+width: 60%;
+margin: 5% auto;
+border: none;
+color: white;
+padding: 4%;
+display: block;
+font-size: 16px;
+font-family: segoe UI;
+cursor: pointer;
+border-radius: 3px;
+background: #052F5F;
 }
 #google {
-  background: #d62d20;
+background: #d62d20;
 }
 [type=button]:hover {
-  transition: 0.7s;
-  background: #F1A203;
+transition: 0.7s;
+background: #F1A203;
 }
-.container-login {
-  align-items: center;
-  width: 100%;
+/* .container-login {
+align-items: center;
+width: 100%;
+} */
+#form-register, 
+#form-login {
+  margin: 0 5%;
 }
-#form-registro, 
-#form-sesion {
-    margin: 0 5%;
+#form-register {
+  display: none;
 }
-#form-registro {
-    display: none;
-}
-#form-content {
+#form-container {
+align-items: center;  
 width: 90%; 
 -webkit-border-radius: 10px 10px 10px 10px;
 border-radius: 10px 10px 10px 10px;
@@ -127,50 +129,50 @@ background-color: #fff;
 border-bottom: 3px solid #F1A203;
 }
 .message {
-    padding: 3%;
-    margin: 0% 15%;
-    display: none;
+  padding: 3%;
+  margin: 0% 15%;
+  display: none;
 }
-.underlineHover:hover {
+.underline:hover {
 color: #052F5F;
 transition: 0.5s;
 }
 #icon {
-  width:30%;
-  display: block;
-  margin: auto;
+width:30%;
+display: block;
+margin: auto;
 }
-#bienvenida{
-  display: none;
-  top: 50%;
-  left:25%;
-  width: 30%;
-  position: absolute;
-  margin: auto;
-  text-align: center;
-  padding: 10%;
-  background: #F1A203;
-  color: white;
-  font-size: 30px;
-  font-family: Segoe UI;
+#welcome{
+top: 25%;
+left:25%;
+width: 30%;
+position: absolute;
+margin: auto;
+text-align: center;
+padding: 5%;
+background: #F1A203;
+color: white;
+font-size: 30px;
+font-family: Segoe UI;
 }
 @media screen  and (min-width:600px) {
-  #form-content {
-       width: 60%; 
-  }
+#form-container {
+     width: 60%; 
+}
 }
 @media screen  and (min-width:800px) {
-  .container-login{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  min-height: 100%;
-  }
-  #form-content {
-       width: 40%; 
-  }
-    
-  [type=button]{
-   padding: 2%;
-  }
+/* .container-login{
+display: flex;
+justify-content: center;
+width: 100%;
+min-height: 100%;
+} */
+#form-container {
+  
+     width: 40%; 
+}
+  
+[type=button]{
+ padding: 2%;
+}
 }
