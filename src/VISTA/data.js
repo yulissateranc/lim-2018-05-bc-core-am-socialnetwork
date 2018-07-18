@@ -1,3 +1,109 @@
+
+
+
+// const createNewPostInView =(container)=>{
+//   container.innerHTML += `
+//   <form class="comentary heigth">
+//         <button type="button" class="icon-ellipsis-vert"></button>
+//         <textarea id="${pooooost}" name="textarea" rows="4" cols="50">${poooooooost.value}</textarea>
+//         <button  class ="" type="button"</button> 
+//         <button  class ="" type="button"</button> 
+//         <input id="${pooooost} class="" type="number" id="textValuefixed" readonly/>
+//         <button type="button" class="icon-ok"></button>     
+//     </form>
+//   `
+// } 
+// const containerPost=(idContainer)=>{
+//     return document.getElementById(idContainer)
+// };
+const writeNewPost = (uid, body) => {
+    let postData = {
+        uid: uid,
+        body: body,
+    };
+    var newPostKey = firebase.database().ref().child('posts').push().key;
+    var updates = {};
+    updates['/posts/' + newPostKey] = postData;
+    updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+    firebase.database().ref().update(updates);
+    return newPostKey;
+}
+
+
+const addEventToBtnPost =(idBtnPost)=>{
+    const  post =document.getElementById('post');
+    const posts = document.getElementById('posts');
+    document.getElementById(idBtnPost).addEventListener('click',()=>{
+        // containerPost(idContainer)
+        var userId = firebase.auth().currentUser.uid;
+        const newPost = writeNewPost(userId, post.value);
+        posts.innerHTML += `
+    <form class="comentary heigth">
+        <button  class="icon-ellipsis-vert"></button>
+        <textarea id="${newPost}" name="textarea" rows="4" cols="50">${post.value}</textarea>
+        <button id ="update" >Update</button>
+        <button id="delete" >Delete</button> 
+        <input  class="" type="number" id="textValuefixed" readonly/>
+        <button  class="icon-ok"></button>     
+   </form>
+    
+    `
+        const btnUpdate = document.getElementById('update');
+        const btnDelete = document.getElementById('delete');
+        btnDelete.addEventListener('click', (e) => {
+            e.preventDefault();
+            firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
+            firebase.database().ref().child('posts/' + newPost).remove();
+            while (posts.firstChild) posts.removeChild(posts.firstChild);
+            console.log('El usuario esta eliminando  successfully!');
+            // reload_page();
+        });
+        btnUpdate.addEventListener('click', () => {
+            const newUpdate = document.getElementById(newPost);
+            const nuevoPost = {
+                body: newUpdate.value,
+            };
+            var updatesUser = {};
+            var updatesPost = {};
+            updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+            updatesPost['/posts/' + newPost] = nuevoPost;
+            firebase.database().ref().update(updatesUser);
+            firebase.database().ref().update(updatesPost);
+        });
+    });
+
+};
+
+/******************************************************************************************************************************************** */
+
+
+const wallCurrentUser =(elementHtml)=>{
+elementHtml.innerHTML = '';
+elementHtml.innerHTML = `
+<section class="wall">
+    <div class="header-wall">
+        <div class="wrapperMenu">
+        <div id="menu" class="icon-menu">
+        </div>
+        <h2 id="user-name"></h2>
+           <img  class="imgUser" src="img/user.PNG" />
+        </div>
+    </div>
+    <section class="wrapper top">
+        <form class="comentary">
+        <textarea id="post" class="textarea" rows="4" cols="50"  placeholder="Ingresa tu opinion"></textarea>
+        <select>
+        <option value="" >PUBLICO 🌎 </option>
+        <option value="" >PRIVADO 🔒</option>
+        </select>
+        <button type="button" id="btn-public-post">PUBLICAR</button>
+        </form>
+    </section> 
+    <section class="wrapper" id ="posts">
+    </section>
+ </section>`,
+        addEventToBtnPost('btn-public-post');
+}
 const reloadPage = ()=> {
     window.location.reload();
   }
@@ -9,7 +115,7 @@ const reloadPage = ()=> {
   /************************************************************Envia correo de confirmación****************************************************************************/
   const verificar = () => {
       var actionCodeSettings = {
-          url: 'http://localhost:8887/src/VISTA/interfaz.html',
+          url: 'http://localhost:8887/src/VISTA',
           handleCodeInApp: false
       };
       const user = firebase.auth().currentUser;
@@ -60,9 +166,7 @@ const reloadPage = ()=> {
               console.log('usuario existente');
               console.log(objectUser);
               if (objectUser.emailVerified) {
-                  formContainer.classList.add("hiden");
-                  // nuevaPagina("interfaz.html");
-                  // wallUser.classList.remove("hiden");
+                  wallCurrentUser(containerViews)
               }
           } else {
               console.log(objectUser);

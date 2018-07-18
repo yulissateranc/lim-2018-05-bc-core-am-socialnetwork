@@ -79,9 +79,6 @@ width: 100%;
 #form-login {
   margin: 0 5%;
 }
-#form-register {
-  display: none;
-}
 #form-container {
 align-items: center;  
 width: 90%; 

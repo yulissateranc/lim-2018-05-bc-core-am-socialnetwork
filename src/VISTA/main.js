@@ -14,6 +14,7 @@ const welcome = document.getElementById('welcome');
 const wallUser = document.getElementById('wall-user');
 const btnPublish  = document.getElementById('btn-publish');
 const btnReload = document.getElementById('btn-reload');
+const containerViews = document.getElementById('container-views');
 welcome.addEventListener('click',()=>{
     reloadPage();
 });
@@ -34,29 +35,32 @@ btnGoogle.addEventListener("click", () =>{
 btnLogout.addEventListener('click', () => {
     logOut();
 });
-sectionRegister.addEventListener('click', () => {
-    formLogin.classList.add("hiden");
-    formRegister.style.display = "block";
-    sectionRegister.classList.remove("inactive");
-    sectionRegister.classList.add("active");
-    sectionLogin.classList.remove("active");
-    sectionLogin.classList.add("inactive");
-})
+
 sectionLogin.addEventListener('click', () => {
-    formSesion.style.display = "block";
+    formLogin.classList.remove("hiden");
     formRegister.classList.add("hiden");
     sectionRegister.classList.remove("active");
     sectionRegister.classList.add("inactive");
     sectionLogin.classList.remove("inactive");
     sectionLogin.classList.add("active");
 })
+sectionRegister.addEventListener('click', () => {
+    formLogin.classList.add("hiden");
+    formRegister.classList.remove("hiden");
+    sectionRegister.classList.remove("inactive");
+    sectionRegister.classList.add("active");
+    sectionLogin.classList.remove("active");
+    sectionLogin.classList.add("inactive");
+})
+
+
 btnLogin.addEventListener('click', () => {
     // nuevaPagina("interfaz.html");
 })
-btnLogout.addEventListener('click', () => {
-    logOut();
-})
+// btnLogout.addEventListener('click', () => {
+//     logOut();
+// })
 
-btnPublish.addEventListener('click', () => {
+// btnPublish.addEventListener('click', () => {
    
-})
+// })
