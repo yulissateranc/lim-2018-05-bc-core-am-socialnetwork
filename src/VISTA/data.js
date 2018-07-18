@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> d3c46059826fea289b7896cad754940a8661202a
 /*********************************************Observar y detectar si hay un usuario registrado**********************************************/
 const nuevaPagina = (url) => {
     window.location = (url);
@@ -147,7 +142,3 @@ const ingreso = () => {
         console.log(errorMessage);
     });
 };
-<<<<<<< HEAD
->>>>>>> Actualizando main, data, index e interfaz, añadiendo funcion resetPass
-=======
->>>>>>> d3c46059826fea289b7896cad754940a8661202a
