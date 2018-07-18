@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const formContainer = document.getElementById('form-container');
 const sectionRegister = document.getElementById('section-register');
@@ -12,6 +13,10 @@ const btnLogin = document.getElementById('button-login');
 const buttonRegister = document.getElementById('button-register');
 const buttonSesion = document.getElementById('button-sesion');
 >>>>>>> Actualizando main, data, index e interfaz, añadiendo funcion resetPass
+=======
+const buttonRegister = document.getElementById('button-register');
+const buttonSesion = document.getElementById('button-sesion');
+>>>>>>> d3c46059826fea289b7896cad754940a8661202a
 const posts = document.getElementById('posts');
 const principal = document.getElementById('wrapper');
 const contenido = document.getElementById('contenido');
@@ -62,8 +67,11 @@ document.getElementById('cerrar-sesion').addEventListener('click', () => {
     cerrar();
 })
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Separacion del DOM en  main
 =======
+=======
+>>>>>>> d3c46059826fea289b7896cad754940a8661202a
 
 let contador = 1;
 document.getElementById('menu').addEventListener('click', () => {
@@ -78,4 +86,7 @@ document.getElementById('menu').addEventListener('click', () => {
 })
 
 
+<<<<<<< HEAD
 >>>>>>> Actualizando main, data, index e interfaz, añadiendo funcion resetPass
+=======
+>>>>>>> d3c46059826fea289b7896cad754940a8661202a
