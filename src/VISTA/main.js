@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const formContainer = document.getElementById('form-container');
 const sectionRegister = document.getElementById('section-register');
@@ -7,61 +8,28 @@ const formRegister = document.getElementById('form-register');
 const formLogin = document.getElementById('form-login');
 const btnRegister = document.getElementById('button-register');
 const btnLogin = document.getElementById('button-login');
+=======
+const buttonRegister = document.getElementById('button-register');
+const buttonSesion = document.getElementById('button-sesion');
+>>>>>>> Actualizando main, data, index e interfaz, añadiendo funcion resetPass
 const posts = document.getElementById('posts');
-const btnFacebook = document.getElementById("facebook");
-const btnGoogle = document.getElementById("google");
-const btnLogout = document.getElementById('btn-logout')
 const principal = document.getElementById('wrapper');
-const welcome = document.getElementById('welcome');
-const wallUser = document.getElementById('wall-user');
-const btnPublish  = document.getElementById('btn-publish');
-const btnReload = document.getElementById('btn-reload');
-welcome.addEventListener('click',()=>{
-    reloadPage();
-});
- 
+const contenido = document.getElementById('contenido');
+const btnFacebook = document.getElementById("facebook");
+const btnGoogle = document.getElementById('google');
+const registro = document.getElementById('registro');
+const sesion = document.getElementById('sesion');
+const formRegistro = document.getElementById('form-registro');
+const formSesion = document.getElementById('form-sesion');
 
-window.onload = () => {
-    observer();
-}
-btnRegister.addEventListener('click', (e) => {
+observer();
+
+buttonRegister.addEventListener('click', (e) => {
     register();
 });
-btnFacebook.addEventListener("click", () =>{
+btnFacebook.addEventListener('click', () => {
     initFacebook()
-    });
-btnGoogle.addEventListener("click", () =>{
-    initGoogle()
-})   
-btnLogout.addEventListener('click', () => {
-    logOut();
 });
-sectionRegister.addEventListener('click', () => {
-    formLogin.classList.add("hiden");
-    formRegister.style.display = "block";
-    sectionRegister.classList.remove("inactive");
-    sectionRegister.classList.add("active");
-    sectionLogin.classList.remove("active");
-    sectionLogin.classList.add("inactive");
-})
-sectionLogin.addEventListener('click', () => {
-    formSesion.style.display = "block";
-    formRegister.classList.add("hiden");
-    sectionRegister.classList.remove("active");
-    sectionRegister.classList.add("inactive");
-    sectionLogin.classList.remove("inactive");
-    sectionLogin.classList.add("active");
-})
-btnLogin.addEventListener('click', () => {
-    // nuevaPagina("interfaz.html");
-})
-btnLogout.addEventListener('click', () => {
-    logOut();
-})
-
-btnPublish.addEventListener('click', () => {
-   
-})
 btnGoogle.addEventListener('click', () => {
     initGoogle()
 })
@@ -82,6 +50,32 @@ sesion.addEventListener('click', () => {
     registro.classList.add("inactive");
 })
 buttonSesion.addEventListener('click', () => {
-    nuevaPagina("interfaz.html");
+    ingreso();
 })
+
+document.getElementById('forgot-passw').addEventListener('click', () => {
+    recoverPass();
+})
+
+
+document.getElementById('cerrar-sesion').addEventListener('click', () => {
+    cerrar();
+})
+<<<<<<< HEAD
 >>>>>>> Separacion del DOM en  main
+=======
+
+let contador = 1;
+document.getElementById('menu').addEventListener('click', () => {
+
+    if (contador == 1) {
+        document.getElementById('contenido').style.display = "block";
+        contador = 0;
+    } else {
+        contador = 1;
+        document.getElementById('contenido').style.display = "none";
+    }
+})
+
+
+>>>>>>> Actualizando main, data, index e interfaz, añadiendo funcion resetPass
