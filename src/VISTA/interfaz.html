@@ -8,33 +8,26 @@
     <link rel="stylesheet" href="css/style.css"/>
     <title>Document</title>
 </head>
-<body>
-    <header>
+<body class="wall">
+    <div class="header-wall">
        <div class="wrapperMenu">
         <div id="menu" class="icon-menu">
         </div>
+        <h2 id="user-name"></h2>
            <img  class="imgUser" src="img/user.PNG" />
         </div>
-      </header>
-   <!-- <header>
-        <div class="menuContent" style="width: 50%;">
-        <input type="text" placeholder="Buscar Aqui" />
-        <div style="float :right;" class="icon-search"></div>
-        </div>
-    </header>-->
+    </div>
     <section class="wrapper top">
-        <form class="comentary" >
-        <textarea name="textarea" rows="4" cols="50"  placeholder="Ingresa tu opinion" id="mensajePost"></textarea>
+        <form class="comentary">
+        <textarea class="textarea" rows="4" cols="50"  placeholder="Ingresa tu opinion"></textarea>
         <select>
         <option value="" >PUBLICO 🌎 </option>
         <option value="" >PRIVADO 🔒</option>
         </select>
-        <button type="button"  id="post" onclick="guardar()">PUBLICAR</button>
+        <button type="button" >PUBLICAR</button>
         </form>
-    </section>
-    
-    
-    <section class="wrapper">
+    </section> 
+    <section class="wrapper" >
     <form class="comentary heigth">
         <button type="button" class="icon-ellipsis-vert"></button>
         <textarea name="textarea" rows="4" cols="50"></textarea>
@@ -43,8 +36,18 @@
         
     </form>
     </section>
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-<script src="app.js"></script>
-    <script src="registro.js"></script>
+    <script src="app.js"></script>
+    <script src="data.js"></script>
+    <script src="data2.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
+   <!-- <header>
+        <div class="menuContent" style="width: 50%;">
+        <input type="text" placeholder="Buscar Aqui" />
+        <div style="float :right;" class="icon-search"></div>
+        </div>
+    </header> -->
+ 
