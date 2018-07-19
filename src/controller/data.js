@@ -150,3 +150,17 @@ const ingreso = () => {
         console.log(errorMessage);
     });
 };
+
+createNewPost = (userId, description) => {
+    let objPost = {
+        userId: userId,
+        description: description
+    }
+    let newPostKey = firebase.database().ref().child('posts').push().key;
+    let portable = {};
+    portable['/posts/' + newPostKey] = objPost;
+    portable['/user-posts/' + userId + '/' + newPostKey] = objPost;
+    firebase.database().ref().update(portable);
+    return newPostKey;
+};
+
