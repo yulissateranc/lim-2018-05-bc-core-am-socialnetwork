@@ -1,21 +1,3 @@
-
-
-
-// const createNewPostInView =(container)=>{
-//   container.innerHTML += `
-//   <form class="comentary heigth">
-//         <button type="button" class="icon-ellipsis-vert"></button>
-//         <textarea id="${pooooost}" name="textarea" rows="4" cols="50">${poooooooost.value}</textarea>
-//         <button  class ="" type="button"</button> 
-//         <button  class ="" type="button"</button> 
-//         <input id="${pooooost} class="" type="number" id="textValuefixed" readonly/>
-//         <button type="button" class="icon-ok"></button>     
-//     </form>
-//   `
-// } 
-// const containerPost=(idContainer)=>{
-//     return document.getElementById(idContainer)
-// };
 const writeNewPost = (uid, body) => {
     let postData = {
         uid: uid,
@@ -29,6 +11,39 @@ const writeNewPost = (uid, body) => {
     return newPostKey;
 }
 
+const removePublication = (posts, newPost, userId) => {
+    firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
+    firebase.database().ref().child('posts/' + newPost).remove();
+    // while (posts.firstChild) posts.removeChild(posts.firstChild);
+    console.log('El usuario esta eliminando  successfully!');
+    // reload_page();
+};
+
+const updated = (newPost, userId) => {
+    const newUpdate = document.getElementById(newPost);
+    const nuevoPost = {
+        body: newUpdate.value,
+    };
+    var updatesUser = {};
+    var updatesPost = {};
+    updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+    updatesPost['/posts/' + newPost] = nuevoPost;
+    firebase.database().ref().update(updatesUser);
+    firebase.database().ref().update(updatesPost);
+};
+
+const addEventToBtnUpdateAndDelete = (update, deleted, newPost, posts, userId)=>{
+    const btnUpdate = document.getElementById(update);
+    let btnDelete = document.getElementById(deleted);
+    btnDelete.addEventListener('click', (e) => {
+        e.preventDefault();
+        removePublication(posts, newPost); 
+    });
+    btnUpdate.addEventListener('click', (e) => {
+        e.preventDefault();
+        updated(newPost);
+    });
+}
 
 const addEventToBtnPost =(idBtnPost)=>{
     const  post =document.getElementById('post');
@@ -42,41 +57,13 @@ const addEventToBtnPost =(idBtnPost)=>{
         <button  class="icon-ellipsis-vert"></button>
         <textarea id="${newPost}" name="textarea" rows="4" cols="50">${post.value}</textarea>
         <button id ="update" >Update</button>
-        <button id="delete" >Delete</button> 
+        <button id="deleted" >Delete</button> 
         <input  class="" type="number" id="textValuefixed" readonly/>
         <button  class="icon-ok"></button>     
-   </form>
-    
-    `
-        const btnUpdate = document.getElementById('update');
-        const btnDelete = document.getElementById('delete');
-        btnDelete.addEventListener('click', (e) => {
-            e.preventDefault();
-            firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
-            firebase.database().ref().child('posts/' + newPost).remove();
-            while (posts.firstChild) posts.removeChild(posts.firstChild);
-            console.log('El usuario esta eliminando  successfully!');
-            // reload_page();
-        });
-        btnUpdate.addEventListener('click', () => {
-            const newUpdate = document.getElementById(newPost);
-            const nuevoPost = {
-                body: newUpdate.value,
-            };
-            var updatesUser = {};
-            var updatesPost = {};
-            updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
-            updatesPost['/posts/' + newPost] = nuevoPost;
-            firebase.database().ref().update(updatesUser);
-            firebase.database().ref().update(updatesPost);
-        });
+   </form>`, addEventToBtnUpdateAndDelete('update', 'deleted',newPost,posts,userId);   
     });
-
 };
-
 /******************************************************************************************************************************************** */
-
-
 const wallCurrentUser =(elementHtml)=>{
 elementHtml.innerHTML = '';
 elementHtml.innerHTML = `
@@ -107,15 +94,13 @@ elementHtml.innerHTML = `
 const reloadPage = ()=> {
     window.location.reload();
   }
-  
   const nuevaPagina = (url) => {
       window.location = (url);
   }
-  
   /************************************************************Envia correo de confirmación****************************************************************************/
   const verificar = () => {
       var actionCodeSettings = {
-          url: 'http://localhost:8887/src/VISTA',
+          url: 'http://127.0.0.1:8887/src/VISTA/',
           handleCodeInApp: false
       };
       const user = firebase.auth().currentUser;
@@ -127,8 +112,6 @@ const reloadPage = ()=> {
       });
   };
   /***********************************************bienvenia a usuarixs nuevxs ***********************************************************************/
-  
-  
   const userWelcome = (objectUser) => {
       if (objectUser.additionalUserInfo.isNewUser) {
           console.log('welcome');
@@ -151,7 +134,6 @@ const reloadPage = ()=> {
      firebase.database().ref('users/' + objUser.user.uid).set({ 
               username: name,
               email: objUser.user.email,
-               
       });
       email.value = '';
       password.value = '';
@@ -159,7 +141,6 @@ const reloadPage = ()=> {
       return objUser
   }
   /*********************************************Observa y detecta si hay un usuario registrado**********************************************/
-  
   const observer = () => {
       firebase.auth().onAuthStateChanged((objectUser) => {
           if (objectUser) {
@@ -172,12 +153,9 @@ const reloadPage = ()=> {
               console.log(objectUser);
               console.log('no existe usuario activo');
               formContainer.classList.remove("hiden");
-              // wallUser.classList.add("hiden");
           }
       });
   };
-  
-  
   //*************************************************funcion de registro de usuarios************************************************/
   const register = () => {
       let email = document.getElementById('email');
@@ -201,7 +179,6 @@ const reloadPage = ()=> {
               `;
           });
   }
-  
   /***********************************************************Mostrando interfaz de Facebook a travez de Popup*********************************/
   const initFacebook = () => {
       const provider = new firebase.auth.FacebookAuthProvider();
@@ -216,7 +193,6 @@ const reloadPage = ()=> {
       })
   }
   /************************************************************Mostrando interfaz de Google a travez de Popup********************************/
-  
   const initGoogle = () => {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider).then((result) => {
@@ -227,7 +203,6 @@ const reloadPage = ()=> {
           console.log(error);
       })
   }
-  
   /************************************************************Cierra sesión****************************************************************************/
   const logOut = () => {
       firebase.auth().signOut()
@@ -238,13 +213,6 @@ const reloadPage = ()=> {
               console.log(error);
           });
   };
-  /************************************************************Bienvenida según condicionales *************************************************************************/
-  
-  
-  
-  
-  
-  
   /* Forgot Password
   document.getElementById("forgotPassw").addEventListener("click", () => {
       var auth = firebase.auth();
@@ -267,4 +235,3 @@ const reloadPage = ()=> {
       });
   };
   */
-  
