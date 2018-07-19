@@ -5,7 +5,7 @@ const nuevaPagina = (url) => {
 }
 
 
-const observer = () => {
+const observer = () => { //sugerencia userStateExists();//estado de usuario si existe o  es nuevo
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
 
@@ -24,7 +24,9 @@ const observer = () => {
     });
 };
 //*************************************************funcion de registro de usuarios************************************************/
-const register = () => {
+//*************************************************Registro ordinario de un usuario************************************************/
+
+const register = () => {  //registerUserUsual();registro común de usario
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     console.log(email, password);
@@ -47,7 +49,9 @@ const register = () => {
 }
 
 /***********************************************************Mostrando interfaz de Facebook a travez de Popup*********************************/
-const initFacebook = () => {
+/***********************************************************Registrandose con Facebook*********************************/
+
+const initFacebook = () => { //registerUserFacebook()
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
         console.log(result);
@@ -58,8 +62,9 @@ const initFacebook = () => {
     })
 }
 /************************************************************Mostrando interfaz de Google a travez de Popup********************************/
+/************************************************************Registrandose con Google********************************/
 
-const initGoogle = () => {
+const initGoogle = () => {//registerUserGoole()
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
         console.log(result);
@@ -69,7 +74,7 @@ const initGoogle = () => {
     })
 }
 /************************************************************Enviar correo de confirmación****************************************************************************/
-const verificar = () => {
+const verificar = () => {//dispatchEmailVerify()
     var actionCodeSettings = {
         url: 'https://jossielinn.github.io/Red-Social/src/VISTA/interfaz.html',// + firebase.auth().currentUser.email
         handleCodeInApp: false
@@ -82,8 +87,8 @@ const verificar = () => {
         console.log(error);
     });
 };
-/************************************************************Cerrar cesión****************************************************************************/
-const cerrar = () => {
+/************************************************************Cierra sesión  de usuario****************************************************************************/
+const cerrar = () => {// SignOffUser();
     firebase.auth().signOut()
         .then(() => {
             console.log('saliendo');
@@ -94,8 +99,9 @@ const cerrar = () => {
             console.log(error);
         });
 };
-/************************************************************Bienvenida *************************************************************************/
-const userProfile = (objectUser) => {
+/********************************************************Muestra Mensaje de Bienvenida  *************************************************************************/
+
+const userProfile = (objectUser) => {//viewMessageWelcomeUser()  //viewModalWelcomeUser()    //viewProfileUser();
     if (objectUser.additionalUserInfo.isNewUser != false) {
         contenido.innerHTML = `<p>Bienvenida!</p><br><button onclick = "cerrar()" id="btn-cerrar-sesion">Cerrar sesion</button>`;
     } else {
@@ -105,8 +111,9 @@ const userProfile = (objectUser) => {
 
 }
 
+/********************************************************Recuperar o Cambiar Contraseña  mediante envio de Correo *************************************************************************/
 
-const recoverPass = () => {
+const recoverPass = () => {//recoveryPassWithSendEmail()
     const auth = firebase.auth();
     const emailAddress = document.getElementById('correo-sesion').value;
 

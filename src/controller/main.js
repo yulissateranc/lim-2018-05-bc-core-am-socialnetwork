@@ -1,3 +1,14 @@
+//propuesta para RENOMBRAR IDS/
+//tipo de etiqueta luego  lo que conteniene o realiza.
+//id='tipo-fx'---> ejemplo-->btn-registerUserGmail
+//id='tipo-fx'---> ejemplo-->btn-registerUserFacebook 
+//id='tipo-fx'---> ejemplo-->input-registerUserPassword// 
+//id='tipo-fx'---> ejemplo-->input-registerPost// 
+//id='tipo-fx'---> ejemplo-->btn-registerPost// 
+
+//id='tipo-contenido'
+
+
 const buttonRegister = document.getElementById('button-register');
 const buttonSesion = document.getElementById('button-sesion');
 const posts = document.getElementById('posts');
