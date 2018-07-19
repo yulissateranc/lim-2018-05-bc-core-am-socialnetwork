@@ -9,6 +9,7 @@ const observer = () => { //sugerencia userStateExists();//estado de usuario si e
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
 
+            
             console.log('usuario existente');
             console.log(user.emailVerified);
             var displayName = user.displayName;
