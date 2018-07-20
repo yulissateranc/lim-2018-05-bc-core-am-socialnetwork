@@ -1,17 +1,37 @@
 
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
-// createPost = () => {
-//     alert('soy la funcion que creará el Post');
-//     firebase.database().ref().child('postprueba');
-// }
+createPost = () => {
+    alert('soy la funcion que creará el Post');
+    let ref = (firebase.database().ref().child('POTS'));
+    ref.push({
+        userId: firebase.auth().currentUser.uid,
+        descriptionPost:document.getElementById('txt-description-post').value
+    })
+
+}
+
+createUser = () => {
+    alert('se va a crear una referencia para el users');
+    let ref = (firebase.database().ref().child('USER'));
+    ref.push({
+        userId: firebase.auth().currentUser.uid,
+        userName:firebase.auth().currentUser.displayName,
+        userEmail:firebase.auth().currentUser.email
+       
+    })
+
+}
 
 // editPost = () => { }
 // deletePost = () => { }
 
-// let btnPublicPost = document.getElementById('btn-public-post');
-// btnPublicPost.addEventListener("click", () => {
-//     alert('soy el boton que creara el post');
-// });
+let btnPublicPost = document.getElementById('btn-public-post');
+btnPublicPost.addEventListener("click", () => {
+    alert('soy el boton que creara el post');
+    createPost();
+
+
+});
 
 
 
@@ -37,7 +57,7 @@ const observer = () => { //sugerencia userStateExists();//estado de usuario si e
             let isAnonymous = user.isAnonymous;
             let uid = user.uid;
             let providerData = user.providerData;
-            console.log(displayName);
+
         } else {
             console.log('no existente usuario activo');
         }
@@ -50,7 +70,7 @@ const register = () => {  //registerUserUsual();registro común de usario
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     console.log(email, password);
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    firebase.auth().createUserWithEmailAndPassword( email, password)
         .then((result) => {
             verificar();
             console.log(result);
@@ -82,7 +102,7 @@ const initFacebook = () => { //registerUserFacebook()
         // userProfile(result);
         alert('TE LOGEASTE CON FACEBOOK MUY BIEN ,AHORA VERAS EL MURO HTML');
         nuevaPagina('../src/view/muro.html');
-       
+        createUser();
 
     }).catch(function (error) {
         console.log(error);
@@ -99,7 +119,7 @@ const initGoogle = () => {//registerUserGoole()
         userProfile(result);
         alert('TE LOGEASTE CON gmail MUY BIEN ,AHORA VERAS EL MURO HTML');
         nuevaPagina('../src/view/muro.html');
-
+        createUser();
     }).catch(function (error) {
         console.log(error);
     })
