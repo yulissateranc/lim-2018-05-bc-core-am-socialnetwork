@@ -1,24 +1,43 @@
 
+//*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
+// createPost = () => {
+//     alert('soy la funcion que creará el Post');
+//     firebase.database().ref().child('postprueba');
+// }
+
+// editPost = () => { }
+// deletePost = () => { }
+
+// let btnPublicPost = document.getElementById('btn-public-post');
+// btnPublicPost.addEventListener("click", () => {
+//     alert('soy el boton que creara el post');
+// });
+
+
+
 /*********************************************Observar y detectar si hay un usuario registrado**********************************************/
 const nuevaPagina = (url) => {
     window.location = (url);
+
 }
+
+
+
 
 
 const observer = () => { //sugerencia userStateExists();//estado de usuario si existe o  es nuevo
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-
-
             console.log('usuario existente');
             console.log(user.emailVerified);
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var isAnonymous = user.isAnonymous;
-            var uid = user.uid;
-            var providerData = user.providerData;
+            let displayName = user.displayName;
+            let email = user.email;
+            let emailVerified = user.emailVerified;
+            let photoURL = user.photoURL;
+            let isAnonymous = user.isAnonymous;
+            let uid = user.uid;
+            let providerData = user.providerData;
+            console.log(displayName);
         } else {
             console.log('no existente usuario activo');
         }
@@ -36,6 +55,9 @@ const register = () => {  //registerUserUsual();registro común de usario
             verificar();
             console.log(result);
             userProfile(result);
+            alert('TE LOGEASTE  ,AHORA VERAS EL MURO HTML');
+            nuevaPagina('../src/view/muro.html');
+
         }).catch(function (error) {
             // Handle Errors here.
             let errorCode = error.code;
@@ -58,8 +80,9 @@ const initFacebook = () => { //registerUserFacebook()
         console.log(result);
         // principal.style.display = "none";
         // userProfile(result);
-alert('TE LOGEASTE CON FACEBOOK MUY BIEN ,AHORA VERAS EL MURO HTML');
+        alert('TE LOGEASTE CON FACEBOOK MUY BIEN ,AHORA VERAS EL MURO HTML');
         nuevaPagina('../src/view/muro.html');
+       
 
     }).catch(function (error) {
         console.log(error);
@@ -74,6 +97,9 @@ const initGoogle = () => {//registerUserGoole()
     firebase.auth().signInWithPopup(provider).then((result) => {
         console.log(result);
         userProfile(result);
+        alert('TE LOGEASTE CON gmail MUY BIEN ,AHORA VERAS EL MURO HTML');
+        nuevaPagina('../src/view/muro.html');
+
     }).catch(function (error) {
         console.log(error);
     })

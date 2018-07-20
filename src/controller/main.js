@@ -21,14 +21,19 @@ const sesion = document.getElementById('sesion');
 const formRegistro = document.getElementById('form-registro');
 const formSesion = document.getElementById('form-sesion');
 
-observer();
+// observer();
 
 buttonRegister.addEventListener('click', (e) => {
     register();
 });
 btnFacebook.addEventListener('click', () => {
-    initFacebook()
+    initFacebook();
+     
+
 });
+
+
+
 btnGoogle.addEventListener('click', () => {
     initGoogle()
 })
