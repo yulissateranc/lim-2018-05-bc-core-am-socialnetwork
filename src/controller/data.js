@@ -56,12 +56,16 @@ const initFacebook = () => { //registerUserFacebook()
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
         console.log(result);
-        principal.style.display = "none";
-        userProfile(result);
+        // principal.style.display = "none";
+        // userProfile(result);
+alert('TE LOGEASTE CON FACEBOOK MUY BIEN ,AHORA VERAS EL MURO HTML');
+        nuevaPagina('../src/view/muro.html');
+
     }).catch(function (error) {
         console.log(error);
     })
 }
+
 /************************************************************Mostrando interfaz de Google a travez de Popup********************************/
 /************************************************************Registrandose con Google********************************/
 
@@ -151,16 +155,18 @@ const ingreso = () => {
     });
 };
 
-createNewPost = (userId, description) => {
-    let objPost = {
-        userId: userId,
-        description: description
-    }
-    let newPostKey = firebase.database().ref().child('posts').push().key;
-    let portable = {};
-    portable['/posts/' + newPostKey] = objPost;
-    portable['/user-posts/' + userId + '/' + newPostKey] = objPost;
-    firebase.database().ref().update(portable);
-    return newPostKey;
-};
+// createNewPost = (userId, description) => {
+//     let objPost = {
+//         userId: userId,
+//         description: description
+//     }
+//     let newPostKey = firebase.database().ref().child('posts').push().key;
+//     let portable = {};
+//     portable['/posts/' + newPostKey] = objPost;
+//     portable['/user-posts/' + userId + '/' + newPostKey] = objPost;
+//     firebase.database().ref().update(portable);
+//     return newPostKey;
+// };
+
+// subtmiPostDateInput(){ }
 
