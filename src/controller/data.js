@@ -66,9 +66,7 @@ const observer = () => { //sugerencia userStateExists();//estado de usuario si e
 //*************************************************funcion de registro de usuarios************************************************/
 //*************************************************Registro ordinario de un usuario************************************************/
 
-const register = () => {  //registerUserUsual();registro común de usario
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+const register = (email,password,name) => {  //registerUserUsual();registro común de usario
     console.log(email, password);
     firebase.auth().createUserWithEmailAndPassword( email, password)
         .then((result) => {
@@ -83,7 +81,7 @@ const register = () => {  //registerUserUsual();registro común de usario
             let errorCode = error.code;
             let errorMessage = error.message;
             console.log(errorCode, errorMessage);
-            errorCode = 'La dirección de correo electrónico está mal formada.';
+            errorCode = 'La dirección de correo electrónico ya está registrada';
             errorMessage = 'La contraseña debe tener una longitud de 6 caracteres o más .';
             document.getElementById("msjValidation1").style.display = "block"; document.getElementById("msjValidation1").innerHTML = errorMessage;
 
@@ -91,7 +89,60 @@ const register = () => {  //registerUserUsual();registro común de usario
         });
 }
 
-/***********************************************************Mostrando interfaz de Facebook a travez de Popup*********************************/
+const validatorEmail = (email) => {
+    console.log( 'validando email',email);
+    if(/^([a-zA-Z0-9._-]{8,})+@([a-zA-Z0-9.-]{5,})+\.([a-zA-Z]{2,})+$/.test(email)) {
+console.log('email es válido = 8+@+5+.+2')    
+    return true;
+ } else {
+    console.log('falso');
+    console.log('email es invalido');
+    return false;
+ }
+ }
+ const validatorPassword =(password)=>{
+     console.log('validando contraseña', password);
+    if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,}$/.test(password)){
+        console.log('la contraseña tiene más de 8 caracteres 1 min 1 may 1 simbolo [$@$!%*?&]');
+        return true;    
+    }else{
+        console.log('la contraseña no tiene más de 8 caracteres 1 min 1 may 1 simbolo [$@$!%*?&]');
+        return false;
+    }
+ }
+const validatorNameUser=(name)=>{
+    if(/^([A-Za-z0-9\s]{8,})+$/g.test(name)){
+        console.log('el nombre de usuario tiene 8 a más dijitos y solo puede contener letras, números y espacios en blanco')
+    return true
+    }else{
+        console.log('el nombre de usuario debe tener 8 amás díjitos y solo puede contener letras, números y espacios en blanco');
+        return false
+    }
+  
+}
+ const validatorEmailAndPassword =(email, password, name)=>{
+const validatedPassword=validatorPassword(password);
+const validatedEmail =validatorEmail(email);
+const validateNameUser = validatorNameUser(name);
+if(validatedPassword  && validatorEmail && validateNameUser){
+    console.log('email, nombre y contraseña OK');
+    register(email, password, name);
+return true;
+}else if(validatedPassword === 'false' && validatorEmail ==='false'&& validateNameUser=== 'false'){
+    console.log('email invalido ,contraseña invalida, nombre incorrecto');
+    return false;
+}else if(validatedPassword === 'true'  && validatorEmail === 'false' && validateNameUser=== 'true'){
+    console.log('pasword OK ,name OK,correo es inválido');
+    return false;
+}else if(validatedPassword === 'false' && validatorEmail === 'true'&& validateNameUser=== 'true'){
+    return false;
+    console.log('correo  OK , nme ok,contraseña invalid');
+}else if(validatedPassword === 'true' && validatorEmail === 'true'&& validateNameUser=== 'false'){
+    console.log('correo  OK , contraseña ok,nombre invalid');
+  return false
+}
+ }
+
 /***********************************************************Registrandose con Facebook*********************************/
 
 const initFacebook = () => { //registerUserFacebook()

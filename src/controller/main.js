@@ -20,11 +20,15 @@ const registro = document.getElementById('registro');
 const sesion = document.getElementById('sesion');
 const formRegistro = document.getElementById('form-registro');
 const formSesion = document.getElementById('form-sesion');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const nameUser = document.getElementById('nombre');
 
 // observer();
 
 buttonRegister.addEventListener('click', (e) => {
-    register();
+    e.preventDefault();
+    validatorEmailAndPassword(email.value, password.value, name.value)
 });
 btnFacebook.addEventListener('click', () => {
     initFacebook();
@@ -62,19 +66,19 @@ document.getElementById('forgot-passw').addEventListener('click', () => {
 })
 
 
-document.getElementById('cerrar-sesion').addEventListener('click', () => {
-    cerrar();
-})
+// document.getElementById('cerrar-sesion').addEventListener('click', () => {
+//     cerrar();
+// })
 
-let contador = 1;
-document.getElementById('menu').addEventListener('click', () => {
+// let contador = 1;
+// document.getElementById('menu').addEventListener('click', () => {
 
-    if (contador == 1) {
-        document.getElementById('contenido').style.display = "block";
-        contador = 0;
-    } else {
-        contador = 1;
-        document.getElementById('contenido').style.display = "none";
-    }
-})
+//     if (contador == 1) {
+//         document.getElementById('contenido').style.display = "block";
+//         contador = 0;
+//     } else {
+//         contador = 1;
+//         document.getElementById('contenido').style.display = "none";
+//     }
+// })
 
