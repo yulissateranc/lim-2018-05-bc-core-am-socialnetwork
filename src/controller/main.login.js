@@ -7,6 +7,37 @@
 //id='tipo-fx'---> ejemplo-->btn-registerPost// 
 
 //id='tipo-contenido'
+/***********************************************************Registrandose con Facebook*********************************/
+const initFacebook = () => { //registerUserFacebook()
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider).then((result) => {
+        console.log(result);
+        // principal.style.display = "none";
+        // userProfile(result);
+        alert('TE LOGEASTE CON FACEBOOK MUY BIEN ,AHORA VERAS EL MURO HTML');
+        nuevaPagina('../src/view/muro.html');
+        createUser();
+  
+    }).catch(function (error) {
+        console.log(error);
+    })
+  }
+
+  
+/************************************************************Mostrando interfaz de Google a travez de Popup********************************/
+/************************************************************Registrandose con Google********************************/
+const initGoogle = () => {//registerUserGoole()
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then((result) => {
+        console.log(result);
+        userProfile(result);
+        alert('TE LOGEASTE CON gmail MUY BIEN ,AHORA VERAS EL MURO HTML');
+        nuevaPagina('../src/view/muro.html');
+        createUser();
+    }).catch(function (error) {
+        console.log(error);
+    })
+  }
 
 
 const buttonRegister = document.getElementById('button-register');
@@ -32,23 +63,18 @@ buttonRegister.addEventListener('click', (e) => {
 });
 btnFacebook.addEventListener('click', () => {
     initFacebook();
-     
-
 });
-
-
-
 btnGoogle.addEventListener('click', () => {
-    initGoogle()
-})
-registro.addEventListener('click', () => {
+    initGoogle();
+});
+    registro.addEventListener('click', () => {
     formSesion.style.display = "none";
     formRegistro.style.display = "block";
     registro.classList.remove("inactive");
     registro.classList.add("active");
     sesion.classList.remove("active");
     sesion.classList.add("inactive");
-})
+});
 sesion.addEventListener('click', () => {
     formSesion.style.display = "block";
     formRegistro.style.display = "none";
@@ -56,14 +82,14 @@ sesion.addEventListener('click', () => {
     sesion.classList.add("active");
     registro.classList.remove("active");
     registro.classList.add("inactive");
-})
+});
 buttonSesion.addEventListener('click', () => {
     ingreso();
-})
+});
 
 document.getElementById('forgot-passw').addEventListener('click', () => {
     recoverPass();
-})
+});
 
 
 // document.getElementById('cerrar-sesion').addEventListener('click', () => {

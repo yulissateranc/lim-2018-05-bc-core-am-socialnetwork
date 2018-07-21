@@ -25,35 +25,7 @@ const register = (email,password,name) => {  //registerUserUsual();registro comÃ
       });
 }
 
-/***********************************************************Registrandose con Facebook*********************************/
-const initFacebook = () => { //registerUserFacebook()
-  const provider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithPopup(provider).then((result) => {
-      console.log(result);
-      // principal.style.display = "none";
-      // userProfile(result);
-      alert('TE LOGEASTE CON FACEBOOK MUY BIEN ,AHORA VERAS EL MURO HTML');
-      nuevaPagina('../src/view/muro.html');
-      createUser();
 
-  }).catch(function (error) {
-      console.log(error);
-  })
-}
-/************************************************************Mostrando interfaz de Google a travez de Popup********************************/
-/************************************************************Registrandose con Google********************************/
-const initGoogle = () => {//registerUserGoole()
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then((result) => {
-      console.log(result);
-      userProfile(result);
-      alert('TE LOGEASTE CON gmail MUY BIEN ,AHORA VERAS EL MURO HTML');
-      nuevaPagina('../src/view/muro.html');
-      createUser();
-  }).catch(function (error) {
-      console.log(error);
-  })
-}
 /************************************************************Enviar correo de confirmaciÃ³n****************************************************************************/
 const verificar = () => {//dispatchEmailVerify()
   var actionCodeSettings = {
