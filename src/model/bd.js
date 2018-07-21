@@ -74,18 +74,10 @@ const getDataCurrentUser = () => {
     alert('usuario no logeado');
   }
 
-}
+};
 
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
-createPost = () => {
-  alert('soy la funcion que creará el Post');
-  let ref = (firebase.database().ref().child('post'));
-  ref.push({
-    
-    postId :
-      descriptionPost:document.getElementById('txt-description-post').value
-  })
-}
+
 
 createUser = () => {
   alert('se va a crear una referencia para el users');
