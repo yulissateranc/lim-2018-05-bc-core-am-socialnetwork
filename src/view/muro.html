@@ -41,35 +41,28 @@
     </header>-->
     <section class="wrapper">
         <form class="comentary">
-            <textarea name="textarea" rows="4" cols="50" placeholder="Ingresa tu opinion" id="txt-description-post"></textarea>
+            <textarea name="textarea" rows="4" cols="50" placeholder="Ingresa tu opinión" id="txt-description-post"></textarea>
             <select>
                 <option value="">PUBLICO 🌎 </option>
                 <option value="">PRIVADO 🔒</option>
             </select>
-            <button type="button" id="btn-public-post" >PUBLICAR</button>
+            <label>Likes</label>
+            <input id="input-likes-count" />
+            <button type="button" id="btn-public-post">PUBLICAR</button>
         </form>
     </section>
 
 
-    <section class="wrapper">
-        <form class="comentary">
-            <!--<button type="button" id="seleccion" class="icon-ellipsis-vert"></button>-->
-            <textarea name="textarea" rows="4" cols="50"></textarea>
-            <input type="number" id="textValuefixed" readonly/>
-            <button type="button" class="icon-ok"></button>
-            <div class="section-seleccion">
-                <button type="button">Editar</button>
-                <button type="button" id="cerrar-sesion">Eliminar</button>
-            </div>
-
-        </form>
+    <section id="posts" class="wrapper">
+    
     </section>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="../model/bd.js"></script>
     <script src="../model/dataLogin.js"></script>
+    <script src="../controller/mainPost.js"></script>
     <!-- <script src="../controller/data.wall.js"></script>
     <script src="../controller/main.wall.js"></script> -->
- 
+
 </body>
 
 </html>

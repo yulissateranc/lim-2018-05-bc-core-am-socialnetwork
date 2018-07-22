@@ -6,20 +6,18 @@ const btnFacebook = document.getElementById("facebook");
 const btnGoogle = document.getElementById('google');
 const registro = document.getElementById('registro');
 
-// const buttonRegister = document.getElementById('button-register');
-// const buttonSesion = document.getElementById('button-sesion');
+const buttonSesion = document.getElementById('button-sesion');
 // const posts = document.getElementById('posts');
 // const principal = document.getElementById('wrapper');
 // const contenido = document.getElementById('contenido');
-// const btnFacebook = document.getElementById("facebook");
-// const btnGoogle = document.getElementById('google');
-// const registro = document.getElementById('registro');
-// const sesion = document.getElementById('sesion');
- const formRegistro = document.getElementById('form-registro');
- const formSesion = document.getElementById('form-sesion');
-// const email = document.getElementById('email');
-// const password = document.getElementById('password');
-// const nameUser = document.getElementById('nombre');
+
+const sesion = document.getElementById('sesion');
+const formRegistro = document.getElementById('form-registro');
+const formSesion = document.getElementById('form-sesion');
+
+
+
+
 
 buttonRegister.addEventListener('click', (e) => {
     e.preventDefault();
@@ -27,7 +25,7 @@ buttonRegister.addEventListener('click', (e) => {
 });
 btnFacebook.addEventListener('click', () => {
     registerUserFacebook();
-    
+
 });
 btnGoogle.addEventListener('click', () => {
     registerUserGmail();
@@ -50,3 +48,30 @@ sesion.addEventListener('click', () => {
     registro.classList.add("inactive");
 });
 
+
+const recoverPass = () => {
+    const auth = firebase.auth();
+    const emailAddress = document.getElementById('correo-sesion').value;
+
+    auth.sendPasswordResetEmail(emailAddress)
+        .then((result) => {
+            alert('SE HA ENVIADO UN CORREO A SU CUENTA. SIGA LOS PASOS');
+        }).catch(function (error) {
+            console.log(error);
+        })
+};
+
+buttonSesion.addEventListener('click', () => {
+    const emailLogin = document.getElementById('correo-sesion').value;
+const passwordLogin = document.getElementById('password-sesion').value;
+    initSessionFirebase(emailLogin,passwordLogin);
+});
+
+document.getElementById('forgot-passw').addEventListener('click', () => {
+    recoverPass();
+});
+
+
+// document.getElementById('cerrar-sesion').addEventListener('click', () => {
+//     cerrar();
+// });

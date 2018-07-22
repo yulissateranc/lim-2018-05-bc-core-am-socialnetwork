@@ -13,6 +13,13 @@ const directionalUrl = (url) => {
   window.location = (url);
 }
 
+// const writeUserData = (userId, name, email, imageUrl) => {
+//   firebase.database().ref('USERSITOS/' + userId).set({
+//     username: name,
+//     email: email,
+//     profile_picture: imageUrl
+//   });
+// }
 //********************datos del usuario con  sesion activa ************************************ */
 const getDataUserSessionActive = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
@@ -33,7 +40,7 @@ const getDataUserSessionActive = () => { //observer()
 };
 
 const getDataUserRegisterFirebase = (user) => {
-  let  ObjUserCurrent ={};
+  let ObjUserCurrent = {};
   if (user != null) {
     const ObjUserCurrent = {
       name: user.displayName,
@@ -47,10 +54,10 @@ const getDataUserRegisterFirebase = (user) => {
 };
 
 const getDataUserRegisterWithFacebookOrGmail = (user) => {
- let  ObjUserCurrent ={};
+  let ObjUserCurrent = {};
   if (user != null) {
     user.providerData.forEach(function (user) {
-        ObjUserCurrent = {
+      ObjUserCurrent = {
         name: user.displayName,
         email: user.email,
         photoUrl: user.photoURL,
@@ -58,48 +65,41 @@ const getDataUserRegisterWithFacebookOrGmail = (user) => {
       };
       return ObjUserCurrent;
     });
-
   }
-
 };
 
 const getDataCurrentUser = () => {
   let user = firebase.auth().currentUser;
   if (user) {
     alert('enviaremos datos el usuario actual activo');
-    let objUserFire=getDataUserRegisterFirebase(user);
-    let objUserFacGmail=getDataUserRegisterWithFacebookOrGmail(user);
-    console.log(objUserFire,objUserFacGmail);
+    let objUserFire = getDataUserRegisterFirebase(user);
+    let objUserFacGmail = getDataUserRegisterWithFacebookOrGmail(user);
+    console.log(objUserFire, objUserFacGmail);
   } else {
     alert('usuario no logeado');
   }
-
-};
-
-//*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
-
-
-createUser = () => {
-  alert('se va a crear una referencia para el users');
-  let ref = (firebase.database().ref().child('user'));
-  ref.push({
-      userId: firebase.auth().currentUser.uid,
-      userName:firebase.auth().currentUser.displayName,
-      userEmail:firebase.auth().currentUser.email
-     
-  })
-
 }
 
-createUserPost = () => {
+//*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
+createPost = (descriptionPost, likesCount) => {
+  alert('soy la funcion que creará el Post');
+  let refPost = (firebase.database().ref().child('POST'));
+  refPost.push({
+    postId: firebase.auth().currentUser.uid,
+    autor: firebase.auth().currentUser.displayName,
+    description: descriptionPost.value,
+    likesCount: likesCount.value
+  });
+}
+
+createUser=()=> {
   alert('se va a crear una referencia para el users');
-  let ref = (firebase.database().ref().child('userPost'));
-  ref.push({
-      userId: firebase.auth().currentUser.uid,
-
-     
-     
-  })
-
+  let refUser = (firebase.database().ref().child('USERSITOS'));
+  refUser.push({
+    userId: firebase.auth().currentUser.uid,
+    userName: firebase.auth().currentUser.displayName,
+    userEmail: firebase.auth().currentUser.email,
+    userPhotoUrl: firebase.auth().currentUser.photoURL
+  });
 }
 
