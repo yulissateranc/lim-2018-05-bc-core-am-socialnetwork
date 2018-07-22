@@ -1,5 +1,4 @@
 
-
 const buttonPublicPost = document.getElementById('btn-public-post');
 
 

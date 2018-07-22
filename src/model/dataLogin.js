@@ -1,7 +1,20 @@
-
+/************************************************************Envia correo de confirmación****************************************************************************/
+const sendEmailVerification = () => {
+    var actionCodeSettings = {
+        url: 'http://127.0.0.1:8887/src/view/muro.html',
+        handleCodeInApp: false
+    };
+    const user = firebase.auth().currentUser;
+    console.log(user);
+    user.sendEmailVerification(actionCodeSettings).then(() => {
+        console.log('enviando correo');
+    }).catch((error) => {
+        console.log(error);
+    });
+};
 ///********************************************FUNCIONES DE VALIDACIÓN*******************************/
 const validatorNameUser = (name) => {
-    if ((/^([A-Za-z0-9\s]{3,})+$/g.test(name))) {
+    if ((/^([A-Za-z0-9\s]{8,})+$/g.test(name))) {
         return true
     } else {
         return false
@@ -61,13 +74,14 @@ viewMessageWelcomeUser = (objectUser) => { //userProfile()
         alert(objectUser.additionalUserInfo.profile.name);
     }
 }
+
 //********************************************REGISTRO ORDINARIO DEL USUARIO*******************************/
 const registerUserUsual = (email, password, name) => { //register()
     console.log(email, password);
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((result) => {
-            viewMessageWelcomeUser(result);
-            directionalUrl('../src/view/muro.html');
+            sendEmailVerification()
+            createUser(result, name); 
         }).catch(function (error) {
             // Handle Errors here.
             let errorCode = error.code;
@@ -84,9 +98,7 @@ const registerUserUsual = (email, password, name) => { //register()
 const registerUserFacebook = () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
-        viewMessageWelcomeUser(result);
-        directionalUrl('../src/view/muro.html');
-        createUser();
+        createUser(result, name);
     }).catch(function (error) {
         console.log(error);
     })
@@ -95,18 +107,15 @@ const registerUserFacebook = () => {
 const registerUserGmail = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
-        viewMessageWelcomeUser(result);
-        directionalUrl('../src/view/muro.html');
+        createUser(result, name); 
     }).catch(function (error) {
         console.log(error);
     });
 };
-const  initSessionFirebase = (emailLogin,passwordLogin) => {
-  
+const  initSessionFirebase = (emailLogin,passwordLogin) => { 
     firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin).then(() => {
         directionalUrl('../src/view/muro.html');
     }).catch(function (error) {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode);

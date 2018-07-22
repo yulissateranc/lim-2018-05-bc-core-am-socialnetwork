@@ -18,7 +18,9 @@ const formSesion = document.getElementById('form-sesion');
 
 
 
-
+window.onload = ()=>{
+    getDataUserSessionActive();
+};
 buttonRegister.addEventListener('click', (e) => {
     e.preventDefault();
     validatorEmailAndPassword(email.value, password.value, nameUser.value)
