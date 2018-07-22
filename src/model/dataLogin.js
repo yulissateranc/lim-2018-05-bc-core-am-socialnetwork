@@ -1,41 +1,38 @@
-
+/************************************************************Envia correo de confirmación****************************************************************************/
+const sendEmailVerification = () => {
+    var actionCodeSettings = {
+        url: 'http://127.0.0.1:8887/src/view/muro.html',
+        handleCodeInApp: false
+    };
+    const user = firebase.auth().currentUser;
+    console.log(user);
+    user.sendEmailVerification(actionCodeSettings).then(() => {
+        console.log('enviando correo');
+    }).catch((error) => {
+        console.log(error);
+    });
+};
 ///********************************************FUNCIONES DE VALIDACIÓN*******************************/
-const validatorNameUser = (name, msjErrorName) => {
-    if ((/^([A-Za-z0-9\s]{3,})+$/g.test(name))) {
-        console.log('el nombre de usuario tiene 8 a más dígitos y sólo puede contener letras, números y espacios en blanco');
-        msjErrorName.innerHTML = `<em>Name valid</em><br>`;
+const validatorNameUser = (name) => {
+    if ((/^([A-Za-z0-9\s]{8,})+$/g.test(name))) {
         return true
     } else {
-        console.log('el nombre de usuario debería tener más de 8 dígitos y solo puede contener letras, números y espacios en blanco');
-        msjErrorName.innerHTML = `<em>Name invalid</em><br>`;
         return false
     }
 }
-
-const validatorEmail = (email, msjErrorEmail) => {
+const validatorEmail = (email) => {
     console.log('validando email', email);
     if (/^([a-zA-Z0-9._-]{3,})+@([a-zA-Z0-9.-]{5,})+\.([a-zA-Z]{2,})+$/.test(email)) {
-        alert('email es válido = 8+@+5+.+2')
-        msjErrorEmail.innerHTML = `<em>Email valid</em><br>`;
         return true;
-
     } else {
-        console.log('falso');
-        msjErrorEmail.innerHTML = `<em>Email invalid</em><br>`;
         return false;
     }
 }
-const validatorPassword = (password, msjErrorPassword) => {
+const validatorPassword = (password) => {
     console.log('validando contraseña', password);
     if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,}$/.test(password)) {
-        alert('la contraseña tiene más de 8 caracteres 1 minúscula 1 mayúscula 1 símbolo [$@$!%*?&]');
-        msjErrorPassword.innerHTML = `<em>Password valid</em><br>`;
-
         return true;
     } else {
-        //    alert('la contraseña no tiene más de 8 caracteres 1 min 1 may 1 simbolo [$@$!%*?&]');
-        alert('La contrase debe tener más de 8 caracteres que incluyan 1 minúscula,1 mayúscula y un símbolo :/n abcABC@123');
-        msjErrorPassword.innerHTML = `<em>Password invalid /Ejm :abcABC@123</em><br>`;
         return false;
     }
 }
@@ -45,32 +42,23 @@ const validatorEmailAndPassword = (email, password, name) => {
     const msjErrorName = document.getElementById('divLabelMsjErrorName');
     const msjErrorEmail = document.getElementById('divLabelMsjErrorEmail');
     const msjErrorPassword = document.getElementById('divLabelMsjErrorPassword');
-    const validatedPassword = validatorPassword(password, msjErrorPassword);
-    const validatedEmail = validatorEmail(email, msjErrorEmail);
-    const validateNameUser = validatorNameUser(name, msjErrorName);
+    const validatedPassword = validatorPassword(password);
+    const validatedEmail = validatorEmail(email);
+    const validateNameUser = validatorNameUser(name);
     if (validatedPassword && validatorEmail && validateNameUser) {
         console.log('email, nombre y contraseña OK');
         registerUserUsual(email, password, name);
         return true;
-
-    } else if (validatedPassword === false && validatorEmail === false && validateNameUser === false) {
-
-        alert('email invalido ,contraseña invalida, nombre incorrecto');
-
+    } else if (!validateNameUser) {
+        msjErrorName.innerHTML = `<em>el nombre de usuario debería tener más de 8 dígitos y solo puede contener letras, números y espacios en blanco</em>`
         return false;
-    } else if (validatedPassword === 'true' && validatorEmail === 'false' && validateNameUser === 'true') {
-        alert('pasword OK ,name OK,correo es inválido');
-
+    } else if (!validatedEmail) {
+        msjErrorEmail.innerHTML =`<em>Email invalid</em><br>`
         return false;
-    } else if (validatedPassword === 'false' && validatorEmail === 'true' && validateNameUser === 'true') {
+    } else if (!validatedPassword) {
+        msjErrorPassword.innerHTML = `<em>Password invalid /Ejm :abcABC@123</em><br>`;
         return false;
-        alert('correo  OK , nme ok,contraseña invalid');
-
-    } else if (validatedPassword === 'true' && validatorEmail === 'true' && validateNameUser === 'false') {
-        console.log('correo  OK , contraseña ok,nombre invalid');
-
-        return false
-    }
+    } 
 }
 /************************************************MUESTRA MENSAJE DE BIENVENIDA****************************/
 viewMessageWelcomeUser = (objectUser) => { //userProfile()
@@ -86,13 +74,14 @@ viewMessageWelcomeUser = (objectUser) => { //userProfile()
         alert(objectUser.additionalUserInfo.profile.name);
     }
 }
+
 //********************************************REGISTRO ORDINARIO DEL USUARIO*******************************/
 const registerUserUsual = (email, password, name) => { //register()
     console.log(email, password);
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((result) => {
-            viewMessageWelcomeUser(result);
-            directionalUrl('../src/view/muro.html');
+            sendEmailVerification()
+            createUser(result, name); 
         }).catch(function (error) {
             // Handle Errors here.
             let errorCode = error.code;
@@ -109,9 +98,7 @@ const registerUserUsual = (email, password, name) => { //register()
 const registerUserFacebook = () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
-        viewMessageWelcomeUser(result);
-        directionalUrl('../src/view/muro.html');
-        createUser();
+        createUser(result, name);
     }).catch(function (error) {
         console.log(error);
     })
@@ -120,18 +107,15 @@ const registerUserFacebook = () => {
 const registerUserGmail = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then((result) => {
-        viewMessageWelcomeUser(result);
-        directionalUrl('../src/view/muro.html');
+        createUser(result, name); 
     }).catch(function (error) {
         console.log(error);
     });
 };
-const  initSessionFirebase = (emailLogin,passwordLogin) => {
-  
+const  initSessionFirebase = (emailLogin,passwordLogin) => { 
     firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin).then(() => {
         directionalUrl('../src/view/muro.html');
     }).catch(function (error) {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode);

@@ -14,13 +14,6 @@ const directionalUrl = (url) => {
   window.location = (url);
 }
 
-// const writeUserData = (userId, name, email, imageUrl) => {
-//   firebase.database().ref('USERSITOS/' + userId).set({
-//     username: name,
-//     email: email,
-//     profile_picture: imageUrl
-//   });
-// }
 //********************datos del usuario con  sesion activa ************************************ */
 const getDataUserSessionActive = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
@@ -39,6 +32,7 @@ const getDataUserSessionActive = () => { //observer()
     }
   });
 };
+
 
 const getDataUserRegisterFirebase = (user) => {
   let ObjUserCurrent = {};
@@ -93,14 +87,32 @@ createPost = (descriptionPost, likesCount) => {
   });
 }
 
-createUser=()=> {
+/**************************************************Registro de datos en BD****************************************************************************/
+const createUser = (objectUser, name) => {
   alert('se va a crear una referencia para el users');
-  let refUser = (firebase.database().ref().child('USERSITOS'));
-  refUser.push({
-    userId: firebase.auth().currentUser.uid,
-    userName: firebase.auth().currentUser.displayName,
-    userEmail: firebase.auth().currentUser.email,
-    userPhotoUrl: firebase.auth().currentUser.photoURL
-  });
-}
+  console.log('esto se resistrará', objectUser);
+  if (!objectUser.user.displayName) {
 
+    console.log(objectUser.user.displayName);
+    firebase.database().ref('users/' + objectUser.user.uid).set({
+      userId: objectUser.user.uid,
+      userName: name,
+      userEmail: objectUser.user.email,
+      isNewUser: objectUser.additionalUserInfo.isNewUser,
+      providerId: objectUser.additionalUserInfo.providerId,
+      emailVerified: objectUser.user.emailVerified
+    });
+  } else {
+    firebase.database().ref('users/' + objectUser.user.uid).set({
+      userId: objectUser.user.uid,
+      userName: objectUser.user.displayName,
+      userEmail: objectUser.user.email,
+      isNewUser: objectUser.additionalUserInfo.isNewUser,
+      userPhotoUrl: objectUser.user.photoURL,
+      providerId: objectUser.additionalUserInfo.providerId
+    }).then(() => {
+      directionalUrl('../src/view/muro.html')
+    });
+  }
+  return objectUser
+}
