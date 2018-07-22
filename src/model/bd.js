@@ -6,6 +6,7 @@ let config = {
   projectId: "social-network-967b3",
   storageBucket: "social-network-967b3.appspot.com",
   messagingSenderId: "25029310975"
+  
 };
 firebase.initializeApp(config);
 /**************************************************************************************************************** */
