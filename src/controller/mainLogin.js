@@ -21,7 +21,7 @@ const formSesion = document.getElementById('form-sesion');
 
 buttonRegister.addEventListener('click', (e) => {
     e.preventDefault();
-    validatorEmailAndPassword(email.value, password.value, name.value)
+    validatorEmailAndPassword(email.value, password.value, nameUser.value)
 });
 btnFacebook.addEventListener('click', () => {
     registerUserFacebook();
