@@ -18,14 +18,13 @@ const getDataUserSessionActive = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       alert('Datos del usuario con sesión activa');
+      if (user.emailVerified){
+        console.log(user.emailVerified);
+        directionalUrl('../src/view/muro.html')
+      }else{
+        alert('por favor verifica tu correo para acceder');
+      }
       console.log(user.emailVerified);
-      let displayName = user.displayName;
-      let email = user.email;
-      let emailVerified = user.emailVerified;
-      let photoURL = user.photoURL;
-      let isAnonymous = user.isAnonymous;
-      let uid = user.uid;
-      let providerData = user.providerData;
     } else {
       alert('no existente usuario activo');
     }
@@ -101,6 +100,7 @@ const createUser = (objectUser, name) => {
       providerId: objectUser.additionalUserInfo.providerId,
       emailVerified: objectUser.user.emailVerified
     });
+
   } else {
     firebase.database().ref('users/' + objectUser.user.uid).set({
       userId: objectUser.user.uid,

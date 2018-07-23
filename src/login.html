@@ -26,11 +26,11 @@
             <form id="form-sesion">
                 <label for="correo-sesion">Correo Electrónico</label>
                 <input type="text" id="correo-sesion" name="login" placeholder="Correo@ejemplo.com">
-                <p class="message" id="msjValidation"></p>
+                <!-- <p class="message" id="div-label-msj-error-email-login"></p> -->
 
                 <label for="password-sesion">Contraseña</label>
                 <input type="password" id="password-sesion" name="login" placeholder="Contraseña">
-                <p class="message" id="msjValidation"></p>
+                <div  id="div-label-msj-error-password-login"></div>
 
                 <button id="button-sesion" type="button">INICIAR SESIÓN</button>
                 <button type="button" class="icon-facebook" id="facebook">Iniciar con Facebook</button>
@@ -71,3 +71,52 @@
 <script src="../src/controller/mainLogin.js"></script>
 
 </html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>fdsgfh</header>
+    <section>fdsgh</section>
+
+
+    <section id="container-welcome"></section>
+
+    </div>
+    <h1>holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
+    <script>
+        const ShowWelcomeInModal = (element) => {
+            element.innerHTML = `
+<div class="welcome-modal">
+        <div class="body-welcome"> 
+          <p class="conten-body-welcome">Bienvenida${name}</p>  
+        <input type="checkbox" id="close-welcome">
+        <label for="close-welcome">X</label>
+        </div>
+`, document.getElementById('close-welcome').addEventListener('click', () => {
+                    element.innerHTML = '';
+                });;
+        }
+        const containerWelcome = document.getElementById('container-welcome');
+        document.addEventListener("DOMContentLoaded", (event) => {
+            ShowWelcomeInModal(containerWelcome)
+        })
+    </script>
+</body>
+
+</html> -->
+
+<!-- *{ text-align: center; margin: 0; } .welcome-modal{ width: 100%; height: 100vh; background:rgba(0, 0,0, 0.3); position: absolute;
+top: 0; left: 0; display: flex; animation: modal 2s 1s forwards; visibility: hidden; opacity: 0; animation-delay: 1s; } .body-welcome{
+width: 40%; height: 40%; margin: auto; background: white; border-radius: 10px; } .close-welcome { display: none; } .close-welcome
++ label { /* position: absolute; */ color: white; font-size: 25px; margin: auto; z-index: 10; background: darkred; height:
+40px; width: 40px; line-height: 40px; border-radius: 30%; right: 10px; cursor: pointer; /* position: relative; */ animation:
+modal 2s 1s forwards; visibility: hidden; opacity: 0; margin-bottom: 0; } .conten-body-welcome{ margin: 5%; padding: 5px;
+width: 40%; height: 40%; } @keyframes modal { 100% { visibility: visible; opacity: 1; } } -->

@@ -6,6 +6,7 @@ const btnFacebook = document.getElementById("facebook");
 const btnGoogle = document.getElementById('google');
 const registro = document.getElementById('registro');
 
+
 const buttonSesion = document.getElementById('button-sesion');
 // const posts = document.getElementById('posts');
 // const principal = document.getElementById('wrapper');
@@ -64,8 +65,8 @@ const recoverPass = () => {
 };
 
 buttonSesion.addEventListener('click', () => {
-    const emailLogin = document.getElementById('correo-sesion').value;
-const passwordLogin = document.getElementById('password-sesion').value;
+    const emailLogin = document.getElementById('correo-sesion');
+const passwordLogin = document.getElementById('password-sesion');
     initSessionFirebase(emailLogin,passwordLogin);
 });
 
