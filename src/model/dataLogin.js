@@ -28,9 +28,11 @@ const validatorEmail = (email) => {
         return false;
     }
 }
+
+
 const validatorPassword = (password) => {
     console.log('validando contraseña', password);
-    if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,}$/.test(password)) {
+    if (/^([A-Za-z0-9]{8,})+$/g.test(password)) {
         return true;
     } else {
         return false;
