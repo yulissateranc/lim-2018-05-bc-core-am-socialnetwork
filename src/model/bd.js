@@ -14,31 +14,24 @@ const directionalUrl = (url) => {
   window.location = (url);
 }
 
-// const writeUserData = (userId, name, email, imageUrl) => {
-//   firebase.database().ref('USERSITOS/' + userId).set({
-//     username: name,
-//     email: email,
-//     profile_picture: imageUrl
-//   });
-// }
 //********************datos del usuario con  sesion activa ************************************ */
 const getDataUserSessionActive = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       alert('Datos del usuario con sesión activa');
+      if (user.emailVerified){
+        console.log(user.emailVerified);
+        directionalUrl('../src/view/muro.html')
+      }else{
+        alert('por favor verifica tu correo para acceder');
+      }
       console.log(user.emailVerified);
-      let displayName = user.displayName;
-      let email = user.email;
-      let emailVerified = user.emailVerified;
-      let photoURL = user.photoURL;
-      let isAnonymous = user.isAnonymous;
-      let uid = user.uid;
-      let providerData = user.providerData;
     } else {
       alert('no existente usuario activo');
     }
   });
 };
+
 
 const getDataUserRegisterFirebase = (user) => {
   let ObjUserCurrent = {};
@@ -81,18 +74,6 @@ const getDataCurrentUser = () => {
   }
 }
 
-//*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
-createPost = (descriptionPost, likesCount) => {
-  alert('soy la funcion que creará el Post');
-  let refPost = (firebase.database().ref().child('POST'));
-  refPost.push({
-    postId: firebase.auth().currentUser.uid,
-    autor: firebase.auth().currentUser.displayName,
-    description: descriptionPost.value,
-    likesCount: likesCount.value
-  });
-}
-
 createUser=()=> {
   alert('se va a crear una referencia para el users');
   let refUser = (firebase.database().ref().child('USERSITOS'));
@@ -104,3 +85,85 @@ createUser=()=> {
   });
 }
 
+//*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
+const refPost = (firebase.database().ref().child('POST'));
+
+
+createPost = (descriptionPost, likesCount) => {
+  alert('soy la funcion que creará el Post');
+  let refPost = (firebase.database().ref().child('POST'));
+  refPost.push({
+    postId: firebase.auth().currentUser.uid,
+    autor: firebase.auth().currentUser.displayName,
+    description: descriptionPost.value,
+    /*likesCount: likesCount.value*/
+  });
+}
+
+/**************************************************Registro de datos en BD****************************************************************************/
+const createUser = (objectUser, name) => {
+  alert('se va a crear una referencia para el users');
+  console.log('esto se resistrará', objectUser);
+  if (!objectUser.user.displayName) {
+
+    console.log(objectUser.user.displayName);
+    firebase.database().ref('users/' + objectUser.user.uid).set({
+      userId: objectUser.user.uid,
+      userName: name,
+      userEmail: objectUser.user.email,
+      isNewUser: objectUser.additionalUserInfo.isNewUser,
+      providerId: objectUser.additionalUserInfo.providerId,
+      emailVerified: objectUser.user.emailVerified
+    });
+mostrarPost = () => {
+   let refPost = (firebase.database().ref().child('POST'));
+    refPost.on("value", function(snap) {
+        let datos = snap.val();
+       // console.log(datos);
+        const viewPost = document.getElementById('posts');
+        let elementsView = "";
+        for (let key in datos) {
+
+           elementsView += `
+                
+        <form class="comentary">
+            <p class="users" >${datos[key].autor}</p>
+            <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
+            <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
+            <button type="button" class="icon-ok"></button>
+            <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
+            <button type="button" class="borrar" data-message-delete=${key}>Eliminar</button>
+
+            </div>
+
+        </form>
+            `
+        }
+        viewPost.innerHTML = elementsView;
+        if (elementsView!= "") {
+            const elementDelete = document.getElementsByClassName("borrar");
+            const elementEdit = document.getElementsByClassName("editar");
+            for (let i = 0; i < elementDelete.length; i++) {
+                elementDelete[i].addEventListener('click', borrarDatosFirebase, false);
+                elementEdit[i].addEventListener('click', editaDatosFirebase, false);
+
+            }
+        }
+        
+    });
+}
+
+  } else {
+    firebase.database().ref('users/' + objectUser.user.uid).set({
+      userId: objectUser.user.uid,
+      userName: objectUser.user.displayName,
+      userEmail: objectUser.user.email,
+      isNewUser: objectUser.additionalUserInfo.isNewUser,
+      userPhotoUrl: objectUser.user.photoURL,
+      providerId: objectUser.additionalUserInfo.providerId
+    }).then(() => {
+      directionalUrl('../src/view/muro.html')
+    });
+  }
+  return objectUser
+}
