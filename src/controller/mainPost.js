@@ -94,7 +94,7 @@ const updateU = () => {
     console.log(refMesaggesave);
     let newPost = document.getElementById("text-save").value;
 
-    refPost.on("value", function (snap) {
+    refPost.once("value", function (snap) {
         let data = snap.val();
         for (key in data) {
             if (key == keyDataSave) {
