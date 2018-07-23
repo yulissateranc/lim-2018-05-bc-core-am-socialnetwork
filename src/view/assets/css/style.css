@@ -130,6 +130,7 @@ font-size: 15px;
 
 .comentary{
 /*    border: 3px solid gray ;*/
+    margin-top: 2%;
      border-radius: 8px;
      overflow: auto;
     /*box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);*/
@@ -171,7 +172,7 @@ textarea {
     float: left;
 }
 
-#textValuefixed {
+.textValuefixed {
     width: 10%;
     font-size: 20px;
     text-align: center;
@@ -179,8 +180,15 @@ textarea {
     border: 1px solid ;
     float: right;
     margin: 20px 15px;
-    
 }
+
+.users{
+    font-size: 18px;
+    float: left;
+    margin: 10px ;
+    text-transform: uppercase;
+}
+
 @media screen and (min-width:600px) {
     .dropdown-content {
     margin-top: 6%;
