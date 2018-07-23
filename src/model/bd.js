@@ -74,21 +74,35 @@ const getDataCurrentUser = () => {
   }
 }
 
+ /* const condicional = () => {
+    const result = '';
+    console.log(firebase.auth().currentUser)
+    if(!firebase.auth().currentUser.displayName){
+    console.log('if');
+    }else{
+    console.log('else');
+    }
+    return result;
+  }
+  window.onload = ()=>{condicional();}*/
 
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
 const refPost = (firebase.database().ref().child('POST'));
-
+console.log(firebase.auth().currentUser);
 
 const createPost = (descriptionPost, likesCount) => {
   alert('soy la funcion que creará el Post');
   let refPost = (firebase.database().ref().child('POST'));
+  let displayName
   refPost.push({
     postId: firebase.auth().currentUser.uid,
     autor: firebase.auth().currentUser.displayName,
     description: descriptionPost.value,
     /*likesCount: likesCount.value*/
   });
+  console.log(firebase.auth().currentUser);
 }
+
 
 /**************************************************Registro de datos en BD****************************************************************************/
 const createUser = (objectUser, name) => {
