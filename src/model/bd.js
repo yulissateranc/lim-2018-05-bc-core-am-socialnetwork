@@ -155,7 +155,7 @@ const mostrarPost = () => {
             <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
             <button type="button" class="icon-ok"></button>
             <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
-            <button type="button" class="borrar" data-message-delete=${key}>Eliminar</button>
+            <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
            </div>
         </form>`
     }
@@ -171,3 +171,14 @@ const mostrarPost = () => {
   });
 }
 
+const modalView = (reftexto, text, btn1, btn2) => {
+  return `
+    <div class="modal-contentDelete">
+      <a href="#modal-close" title="Cerrar" class="modal-close">Cerrar</a>
+      <h2>${reftexto}</h2>
+      <p>${text}</p>
+        <button id="accept" class="btnmodal">${btn1}</button>
+        <a href="#modal-close" title="${btn2}"><button class="btnmodal">${btn2}</button></a>
+    </div>
+  `
+};
