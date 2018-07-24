@@ -6,16 +6,25 @@ let config = {
   projectId: "social-network-967b3",
   storageBucket: "social-network-967b3.appspot.com",
   messagingSenderId: "25029310975"
-
 };
 firebase.initializeApp(config);
+const dataBase = firebase.database();
 /**************************************************************************************************************** */
 const directionalUrl = (url) => {
   window.location = (url);
 }
-
 //********************datos del usuario con  sesion activa ************************************ */
 const getDataUserSessionActive = () => { //observer()
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      alert('existe un usuario');
+      console.log(user.emailVerified);
+    } else {
+      alert('no existente usuario activo');
+    }
+  });
+};
+const getDataUserSessionActiveLogin = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       alert('Datos del usuario con sesión activa');
@@ -31,8 +40,6 @@ const getDataUserSessionActive = () => { //observer()
     }
   });
 };
-
-
 const getDataUserRegisterFirebase = (user) => {
   let ObjUserCurrent = {};
   if (user != null) {
@@ -46,7 +53,6 @@ const getDataUserRegisterFirebase = (user) => {
     return ObjUserCurrent;
   }
 };
-
 const getDataUserRegisterWithFacebookOrGmail = (user) => {
   let ObjUserCurrent = {};
   if (user != null) {
@@ -61,7 +67,6 @@ const getDataUserRegisterWithFacebookOrGmail = (user) => {
     });
   }
 };
-
 const getDataCurrentUser = () => {
   let user = firebase.auth().currentUser;
   if (user) {
@@ -74,36 +79,38 @@ const getDataCurrentUser = () => {
   }
 }
 
- /* const condicional = () => {
-    const result = '';
-    console.log(firebase.auth().currentUser)
-    if(!firebase.auth().currentUser.displayName){
-    console.log('if');
-    }else{
-    console.log('else');
-    }
-    return result;
-  }
-  window.onload = ()=>{condicional();}*/
 
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
-const refPost = (firebase.database().ref().child('POST'));
-console.log(firebase.auth().currentUser);
-
 const createPost = (descriptionPost, likesCount) => {
-  alert('soy la funcion que creará el Post');
-  let refPost = (firebase.database().ref().child('POST'));
-  let displayName
-  refPost.push({
-    postId: firebase.auth().currentUser.uid,
-    autor: firebase.auth().currentUser.displayName,
-    description: descriptionPost.value,
-    /*likesCount: likesCount.value*/
-  });
-  console.log(firebase.auth().currentUser);
+
+  if (!firebase.auth().currentUser.displayName) {
+    const userId = firebase.auth().currentUser.uid;
+    (firebase.database().ref('/users/' + userId).once('value',(snapshot) => {
+     const displayName = snapshot.val().userName;
+      alert('soy la funcion que creará el Post');
+      let refPost = (firebase.database().ref().child('POST'));
+         refPost.push({
+         postId: firebase.auth().currentUser.uid,
+         autor: displayName,
+         description: descriptionPost.value,
+         /*likesCount: likesCount.value*/
+       }).then(()=>{
+         descriptionPost.value = "";
+       });
+    }));
+  } else {
+    alert('soy la funcion que creará el Post');
+    let refPost = (firebase.database().ref().child('POST'));
+    refPost.push({
+      postId: firebase.auth().currentUser.uid,
+      autor: firebase.auth().currentUser.displayName,
+      description: descriptionPost.value,
+      /*likesCount: likesCount.value*/
+    }).then(() => {
+      descriptionPost.value = "";
+    });
+  }
 }
-
-
 /**************************************************Registro de datos en BD****************************************************************************/
 const createUser = (objectUser, name) => {
   alert('se va a crear una referencia para el users');
@@ -118,7 +125,6 @@ const createUser = (objectUser, name) => {
       isNewUser: objectUser.additionalUserInfo.isNewUser,
       providerId: objectUser.additionalUserInfo.providerId,
       emailVerified: objectUser.user.emailVerified
-
     });
   } else {
     firebase.database().ref('users/' + objectUser.user.uid).set({
@@ -143,9 +149,7 @@ const mostrarPost = () => {
     const viewPost = document.getElementById('posts');
     let elementsView = "";
     for (let key in datos) {
-
-      elementsView += `
-                
+      elementsView += `           
         <form class="comentary">
             <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
@@ -153,13 +157,9 @@ const mostrarPost = () => {
             <button type="button" class="icon-ok"></button>
             <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
             <button type="button" class="borrar" data-message-delete=${key}>Eliminar</button>
-
-            </div>
-
-        </form>
-            `
+           </div>
+        </form>`
     }
-
     viewPost.innerHTML = elementsView;
     if (elementsView != "") {
       const elementDelete = document.getElementsByClassName("borrar");
@@ -167,10 +167,8 @@ const mostrarPost = () => {
       for (let i = 0; i < elementDelete.length; i++) {
         elementDelete[i].addEventListener('click', borrarDatosFirebase, false);
         elementEdit[i].addEventListener('click', editaDatosFirebase, false);
-
       }
     }
-
   });
 }
 
