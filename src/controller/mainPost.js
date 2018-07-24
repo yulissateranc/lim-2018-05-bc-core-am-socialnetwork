@@ -1,13 +1,19 @@
 const buttonPublicPost = document.getElementById('btn-public-post');
 const containerModalWelcome = document.getElementById('container-modal');
+let refPost = (firebase.database().ref().child('POST'));
+
+window.onload = () => {
+    getDataUserSessionActive();
+
+}
 
 mostrarPost();
 buttonPublicPost.addEventListener('click', (e) => {
-	let descriptionPost = document.getElementById('txt-description-post');
-	let likesCount = document.getElementById('input-likes-count');
-	e.preventDefault();
-     if (descriptionPost.value !== '') {
-	  createPost(descriptionPost,likesCount)
+    let descriptionPost = document.getElementById('txt-description-post');
+    let likesCount = document.getElementById('input-likes-count');
+    e.preventDefault();
+    if (descriptionPost.value !== '') {
+        createPost(descriptionPost, likesCount)
     }
     else {
         alert('Escriba su opinion');
@@ -24,17 +30,25 @@ buttonPublicPost.addEventListener('click', (e) => {
 			<button type="button" id="cerrar-sesion" data-message-delete="${newPost}">Eliminar</button>
 	</div>
 	</form>`*/
-	// gngnh
+    // gngnh
 });
 const borrarDatosFirebase = () => {
-	let refPost = (firebase.database().ref().child('POST'));
-	console.log(event.target);
-	let keyDataDelete = event.target.getAttribute("data-message-delete");
+    let refPost = (firebase.database().ref().child('POST'));
+    console.log(event.target);
+    let keyDataDelete = event.target.getAttribute("data-message-delete");
+    // let keyDataDelete = event.target.data-message-deleted;
     console.log(keyDataDelete);
     let refMesaggeDelete = refPost.child(keyDataDelete);
-    if (confirm("Esta seguro de borrar el mensaje ?")) {
+    let modal = document.getElementById('miModal');
+    let elmet = '';
+    elmet = modalView('Eliminar', 'Desea realmente eliminar ?', 'SI', 'NO');
+    modal.innerHTML = elmet;
+    console.log(modal);
+
+    document.getElementById("accept").addEventListener('click', () => {
         refMesaggeDelete.remove();
-    }
+    })
+
 }
 const editaDatosFirebase = () => {
     alert('editar');
@@ -63,7 +77,7 @@ const editaDatosFirebase = () => {
         </form>
             `
             } else {
-       posts.innerHTML += `<form class="comentary">
+                posts.innerHTML += `<form class="comentary">
         <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" class="mensaje" readonly> ${datos[key].description} </textarea>
             <input type="number" class="textValuefixed" /*value="${datos[key].likesCount}*/" readonly/>
@@ -77,7 +91,7 @@ const editaDatosFirebase = () => {
         if (posts != "") {
             const elementGuardar = document.getElementsByClassName("save");
             for (let i = 0; i < elementGuardar.length; i++) {
-        elementGuardar[i].addEventListener('click', updateU, false);
+                elementGuardar[i].addEventListener('click', updateU, false);
             }
 
         }
@@ -111,7 +125,7 @@ const updateU = () => {
                     console.log(nuevoPost);
                     var updatesPost = {};
                     updatesPost = nuevoPost;
-             refMesaggesave.update(updatesPost)
+                    refMesaggesave.update(updatesPost)
                     console.log(newPost);
                     mostrarPost();
                 }
@@ -122,15 +136,15 @@ const updateU = () => {
 
 }
 const closeModalWelcome = () => {
-	containerModalWelcome.innerHTML = '';
+    containerModalWelcome.innerHTML = '';
 };
-const render = (containerModalWelcome) =>{
-  if (!firebase.auth().currentUser.displayName) {
-			const userId = firebase.auth().currentUser.uid;
-			(firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
-				const displayName = snapshot.val().userName;
-				containerModalWelcome.innerHTML =
-					`
+const render = (containerModalWelcome) => {
+    if (!firebase.auth().currentUser.displayName) {
+        const userId = firebase.auth().currentUser.uid;
+        (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
+            const displayName = snapshot.val().userName;
+            containerModalWelcome.innerHTML =
+                `
 	<div id="modal-welcome" class="modal">
         <div class="modal-content">
              <div class="modal-header">
@@ -145,11 +159,11 @@ const render = (containerModalWelcome) =>{
                 <h3>Modal Footer</h3>
              </div>
         </div>
-	</div>`,document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
-			}));
-		} else {
-			containerModalWelcome.innerHTML =
-				`
+	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
+        }));
+    } else {
+        containerModalWelcome.innerHTML =
+            `
 	<div id="modal-welcome" class="modal">
         <div class="modal-content">
              <div class="modal-header">
@@ -164,18 +178,15 @@ const render = (containerModalWelcome) =>{
                 <h3>Modal Footer</h3>
              </div>
         </div>
-	</div>`,document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
-		}
-	};
+	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
+    }
+};
 
 
-window.onload = () => {
-		getDataUserSessionActive()
-	}
-window.onclick =()=> {
-            if (event.target.id == 'modal-welcome') {
-	containerModalWelcome.innerHTML = '';
-	}
+window.onclick = () => {
+    if (event.target.id == 'modal-welcome') {
+        containerModalWelcome.innerHTML = '';
+    }
 }
 
 
