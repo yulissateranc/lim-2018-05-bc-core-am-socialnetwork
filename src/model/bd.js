@@ -97,7 +97,7 @@ const createPost = (descriptionPost, likesCount,privacity) => {
         alert('soy la funcion que creará el Post');
         let refPost = (firebase.database().ref().child('POST'));
            refPost.push({
-           postId: firebase.auth().currentUser.uid,
+           userId: firebase.auth().currentUser.uid,
            autor: displayName,
            description: descriptionPost.value,
            privacity:privacity.value,
@@ -112,7 +112,7 @@ const createPost = (descriptionPost, likesCount,privacity) => {
       alert('soy la funcion que creará el Post');
       let refPost = (firebase.database().ref().child('POST'));
       refPost.push({
-        postId: firebase.auth().currentUser.uid,
+        userId: firebase.auth().currentUser.uid,
         autor: firebase.auth().currentUser.displayName,
         description: descriptionPost.value,
         privacity: privacity.value,
@@ -162,21 +162,48 @@ const createUser = (objectUser, name) => {
 const mostrarPost = () => {
   let refPost = (firebase.database().ref().child('POST'));
   refPost.on("value", function (snap) {
-    let datos = snap.val();
-    // console.log(datos);
-    const viewPost = document.getElementById('posts');
-    let elementsView = "";
-    for (let key in datos) {
-      elementsView += `           
-        <form class="comentary">
-            <p class="users" >${datos[key].autor}</p>
-            <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
-            <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
-            <button type="button" class="icon-ok"></button>
-            <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
-            <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
-           </div>
-        </form>`
+  let datos = snap.val();
+  // console.log(datos);
+  const viewPost = document.getElementById('posts');
+  let elementsView = "";
+  for (let key in datos) {
+      if(datos[key].privacity === 'PRIVADO'){
+        if(datos[key].userId === firebase.auth().currentUser.uid){
+          elementsView += `           
+          <form class="comentary">
+              <p class="users" >${datos[key].autor}</p>
+              <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
+              <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
+              <button type="button" class="icon-ok"></button>
+              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
+              <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+             </div>
+          </form>`
+        }
+        
+      }else if(datos[key].privacity === 'PUBLICO'){
+            if(datos[key].userId != firebase.auth().currentUser.uid){
+               elementsView += `           
+              <form class="comentary">
+              <p class="users" >${datos[key].autor}</p>
+              <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
+              <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
+             </div>
+             </form>`
+                       }else{
+             elementsView += `           
+             <form class="comentary">
+             <p class="users" >${datos[key].autor}</p>
+             <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
+             <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
+             <button type="button" class="icon-ok"></button>
+             <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
+             <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+            </div>
+               </form>`
+        }
+        
+      
     }
     viewPost.innerHTML = elementsView;
     if (elementsView != "") {
@@ -187,8 +214,13 @@ const mostrarPost = () => {
         elementEdit[i].addEventListener('click', editaDatosFirebase, false);
       }
     }
-  });
+  }
+});
 }
+
+
+
+
 
 const modalView = (reftexto, text, btn1, btn2) => {
   return `
@@ -201,3 +233,18 @@ const modalView = (reftexto, text, btn1, btn2) => {
     </div>
   `
 };
+/*
+ else if(){
+
+      }
+      elementsView += `           
+        <form class="comentary">
+            <p class="users" >${datos[key].autor}</p>
+            <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
+            <input type="number" class="textValuefixed" readonly /value="${datos[key].likesCount}"//>
+            <button type="button" class="icon-ok"></button>
+            <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
+            <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+           </div>
+        </form>`
+        */
