@@ -124,22 +124,8 @@ const updateU = () => {
 const closeModalWelcome = () => {
 	containerModalWelcome.innerHTML = '';
 };
-// const showNameUserInWelcome = (element) => {
-// 	const nameUserInWelcome = document.getElementById(element);
-// 	if (!firebase.auth().currentUser.displayName) {
-// 		const userId = firebase.auth().currentUser.uid;
-// 		(firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
-// 			const displayName = snapshot.val().userName;
-// 			nameUserInWelcome.innerHTML = displayName;
-// 		}));
-// 	} else { 
-// 		     nameUserInWelcome.innerHTML = (firebase.auth().currentUser.displayName);
-// 	}
-// };
-	const render = (containerModalWelcome) =>{
-
-	
-		if (!firebase.auth().currentUser.displayName) {
+const render = (containerModalWelcome) =>{
+  if (!firebase.auth().currentUser.displayName) {
 			const userId = firebase.auth().currentUser.uid;
 			(firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
 				const displayName = snapshot.val().userName;
