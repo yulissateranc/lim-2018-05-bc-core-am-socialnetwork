@@ -80,35 +80,54 @@ const getDataCurrentUser = () => {
   }
 }
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
-const createPost = (descriptionPost, likesCount) => {
-
-  if (!firebase.auth().currentUser.displayName) {
-    const userId = firebase.auth().currentUser.uid;
-    (firebase.database().ref('/users/' + userId).once('value',(snapshot) => {
-     const displayName = snapshot.val().userName;
+const validateContentOfpublications =(descriptionPostValue)=>{
+  if(/^(?!\s)/.test(descriptionPostValue) && /^([A-Za-z0-9\s]{8,})/g.test(descriptionPostValue)){
+      return true;
+  }else{
+      return false;
+  };
+};
+const createPost = (descriptionPost, likesCount,privacity) => {
+  const validatepublications = validateContentOfpublications(descriptionPost.value)
+  if (validatepublications) {
+    if (!firebase.auth().currentUser.displayName) {
+      const userId = firebase.auth().currentUser.uid;
+      (firebase.database().ref('/users/' + userId).once('value',(snapshot) => {
+       const displayName = snapshot.val().userName;
+        alert('soy la funcion que creará el Post');
+        let refPost = (firebase.database().ref().child('POST'));
+           refPost.push({
+           postId: firebase.auth().currentUser.uid,
+           autor: displayName,
+           description: descriptionPost.value,
+           privacity:privacity.value,
+           /*likesCount: likesCount.value*/
+         }).then(()=>{
+          descriptionPost.value = "";
+          privacity.innerHTML =`<option value="PUBLICO">PUBLICO 🌎 </option>
+          <option value="PRIVADO">PRIVADO 🔒</option>`;
+         });
+      }));
+    } else {
       alert('soy la funcion que creará el Post');
       let refPost = (firebase.database().ref().child('POST'));
-         refPost.push({
-         postId: firebase.auth().currentUser.uid,
-         autor: displayName,
-         description: descriptionPost.value,
-         /*likesCount: likesCount.value*/
-       }).then(()=>{
-         descriptionPost.value = "";
-       });
-    }));
-  } else {
-    alert('soy la funcion que creará el Post');
-    let refPost = (firebase.database().ref().child('POST'));
-    refPost.push({
-      postId: firebase.auth().currentUser.uid,
-      autor: firebase.auth().currentUser.displayName,
-      description: descriptionPost.value,
-      /*likesCount: likesCount.value*/
-    }).then(() => {
-      descriptionPost.value = "";
-    });
-  }
+      refPost.push({
+        postId: firebase.auth().currentUser.uid,
+        autor: firebase.auth().currentUser.displayName,
+        description: descriptionPost.value,
+        privacity: privacity.value,
+        /*likesCount: likesCount.value*/
+      }).then(() => {
+        descriptionPost.value = "";
+        privacity.innerHTML =`<option value="PUBLICO">PUBLICO 🌎 </option>
+        <option value="PRIVADO">PRIVADO 🔒</option>`;
+      });
+    }
+}else {
+    alert('Escriba su opinion');
+    descriptionPost.placelholder = "Escribe un mensaje";
+}
+  
 }
 /**************************************************Registro de datos en BD****************************************************************************/
 const createUser = (objectUser, name) => {
