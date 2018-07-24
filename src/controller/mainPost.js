@@ -9,16 +9,11 @@ window.onload = () => {
 
 mostrarPost();
 buttonPublicPost.addEventListener('click', (e) => {
+    e.preventDefault();
     let descriptionPost = document.getElementById('txt-description-post');
     let likesCount = document.getElementById('input-likes-count');
-    e.preventDefault();
-    if (descriptionPost.value !== '') {
-        createPost(descriptionPost, likesCount)
-    }
-    else {
-        alert('Escriba su opinion');
-        descriptionPost.placelholder = "Escribe un mensaje";
-    }
+    const privacityPost = document.getElementById('post-privacity-selector');
+    createPost(descriptionPost, likesCount,privacityPost);
 	/*posts.innerHTML += `
 	<form class="comentary">
 	<!--<button type="button" id="seleccion" class="icon-ellipsis-vert"></button>-->
@@ -152,7 +147,7 @@ const render = (containerModalWelcome) => {
                 <h2>Modal Header</h2>
              </div>
              <div class="modal-body">
-                <p>Some text in the Modal Body</p>
+                <p>Some text in the Modal Body </p>
                 <p>${snapshot.val().userName}</p>
              </div>
              <div class="modal-footer">
