@@ -62,7 +62,7 @@ const validatorEmailAndPassword = (email, password, name) => {
         msjErrorEmail.innerHTML =`<em>Email invalid</em>`
         return false;
     } else if (!validatedPassword) {
-        msjErrorPassword.innerHTML = `<em>Password invalid /Ejm :abcABC@123</em>`;
+        msjErrorPassword.innerHTML = `<em>la conytraseña debe tener más de 8 dígitos y solo puede contener letras y números</em></em>`;
         return false;
     } 
 }
