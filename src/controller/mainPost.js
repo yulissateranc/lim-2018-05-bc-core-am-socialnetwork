@@ -1,13 +1,16 @@
 const buttonPublicPost = document.getElementById('btn-public-post');
 
-
+window.onload = () => {
+	getDataUserSessionActive()
+	
+};
+mostrarPost();
 buttonPublicPost.addEventListener('click', (e) => {
 	let descriptionPost = document.getElementById('txt-description-post');
 	let likesCount = document.getElementById('input-likes-count');
 	e.preventDefault();
      if (descriptionPost.value !== '') {
-      createPost(descriptionPost,likesCount);
-      descriptionPost.value ="";
+	  createPost(descriptionPost,likesCount)
     }
     else {
         alert('Escriba su opinion');
@@ -25,18 +28,17 @@ buttonPublicPost.addEventListener('click', (e) => {
 	</div>
 	</form>`*/
 });
-
 const borrarDatosFirebase = () => {
-    let refPost = (firebase.database().ref().child('POST'));
-    let keyDataDelete = event.target.getAttribute("data-message-delete");
+	let refPost = (firebase.database().ref().child('POST'));
+	console.log(event.target);
+	let keyDataDelete = event.target.getAttribute("data-message-delete");
+	// let keyDataDelete = event.target.data-message-deleted;
     console.log(keyDataDelete);
     let refMesaggeDelete = refPost.child(keyDataDelete);
     if (confirm("Esta seguro de borrar el mensaje ?")) {
         refMesaggeDelete.remove();
     }
 }
-
-
 const editaDatosFirebase = () => {
     alert('editar');
     const posts = document.getElementById('posts');
@@ -87,7 +89,6 @@ const editaDatosFirebase = () => {
     })
 
 }
-
 const updateU = () => {
     let keyDataSave = event.target.getAttribute("data-message-save");
     let refMesaggesave = refPost.child(keyDataSave);
@@ -123,11 +124,9 @@ const updateU = () => {
 
 
 }
+console.log('fgbg',(firebase.auth().currentUser));
 
 
-
-
-mostrarPost();
 
 
 

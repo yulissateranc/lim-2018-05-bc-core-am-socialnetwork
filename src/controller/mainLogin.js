@@ -20,7 +20,7 @@ const formSesion = document.getElementById('form-sesion');
 
 
 window.onload = ()=>{
-    getDataUserSessionActive();
+    getDataUserSessionActiveLogin();
 };
 buttonRegister.addEventListener('click', (e) => {
     e.preventDefault();
