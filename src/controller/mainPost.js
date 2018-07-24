@@ -27,6 +27,7 @@ buttonPublicPost.addEventListener('click', (e) => {
 			<button type="button" id="cerrar-sesion" data-message-delete="${newPost}">Eliminar</button>
 	</div>
 	</form>`*/
+	// gngnh
 });
 const borrarDatosFirebase = () => {
 	let refPost = (firebase.database().ref().child('POST'));
