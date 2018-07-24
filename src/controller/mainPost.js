@@ -1,9 +1,6 @@
 const buttonPublicPost = document.getElementById('btn-public-post');
+const containerModalWelcome = document.getElementById('container-modal');
 
-window.onload = () => {
-	getDataUserSessionActive()
-	
-};
 mostrarPost();
 buttonPublicPost.addEventListener('click', (e) => {
 	let descriptionPost = document.getElementById('txt-description-post');
@@ -33,7 +30,6 @@ const borrarDatosFirebase = () => {
 	let refPost = (firebase.database().ref().child('POST'));
 	console.log(event.target);
 	let keyDataDelete = event.target.getAttribute("data-message-delete");
-	// let keyDataDelete = event.target.data-message-deleted;
     console.log(keyDataDelete);
     let refMesaggeDelete = refPost.child(keyDataDelete);
     if (confirm("Esta seguro de borrar el mensaje ?")) {
@@ -125,7 +121,78 @@ const updateU = () => {
 
 
 }
-console.log('fgbg',(firebase.auth().currentUser));
+const closeModalWelcome = () => {
+	containerModalWelcome.innerHTML = '';
+};
+// const showNameUserInWelcome = (element) => {
+// 	const nameUserInWelcome = document.getElementById(element);
+// 	if (!firebase.auth().currentUser.displayName) {
+// 		const userId = firebase.auth().currentUser.uid;
+// 		(firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
+// 			const displayName = snapshot.val().userName;
+// 			nameUserInWelcome.innerHTML = displayName;
+// 		}));
+// 	} else { 
+// 		     nameUserInWelcome.innerHTML = (firebase.auth().currentUser.displayName);
+// 	}
+// };
+	const render = (containerModalWelcome) =>{
+
+	
+		if (!firebase.auth().currentUser.displayName) {
+			const userId = firebase.auth().currentUser.uid;
+			(firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
+				const displayName = snapshot.val().userName;
+				containerModalWelcome.innerHTML =
+					`
+	<div id="modal-welcome" class="modal">
+        <div class="modal-content">
+             <div class="modal-header">
+                <span id="close-modal-welcome"  class="close">&times;</span>
+                <h2>Modal Header</h2>
+             </div>
+             <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>${snapshot.val().userName}</p>
+             </div>
+             <div class="modal-footer">
+                <h3>Modal Footer</h3>
+             </div>
+        </div>
+	</div>`,document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
+			}));
+		} else {
+			containerModalWelcome.innerHTML =
+				`
+	<div id="modal-welcome" class="modal">
+        <div class="modal-content">
+             <div class="modal-header">
+                <span id="close-modal-welcome"  class="close">&times;</span>
+                <h2>Modal Header</h2>
+             </div>
+             <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p >${firebase.auth().currentUser.displayName}</p>
+             </div>
+             <div class="modal-footer">
+                <h3>Modal Footer</h3>
+             </div>
+        </div>
+	</div>`,document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
+		}
+	};
+
+
+window.onload = () => {
+		getDataUserSessionActive()
+	}
+window.onclick =()=> {
+            if (event.target.id == 'modal-welcome') {
+	containerModalWelcome.innerHTML = '';
+	}
+}
+
+
 
 
 

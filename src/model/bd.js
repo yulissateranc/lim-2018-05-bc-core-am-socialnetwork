@@ -19,6 +19,7 @@ const getDataUserSessionActive = () => { //observer()
     if (user) {
       alert('existe un usuario');
       console.log(user.emailVerified);
+      render(containerModalWelcome);
     } else {
       alert('no existente usuario activo');
     }
@@ -78,8 +79,6 @@ const getDataCurrentUser = () => {
     alert('usuario no logeado');
   }
 }
-
-
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
 const createPost = (descriptionPost, likesCount) => {
 
