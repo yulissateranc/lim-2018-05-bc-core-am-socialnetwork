@@ -13,7 +13,7 @@ buttonPublicPost.addEventListener('click', (e) => {
     let descriptionPost = document.getElementById('txt-description-post');
     let likesCount = document.getElementById('input-likes-count');
     const privacityPost = document.getElementById('post-privacity-selector');
-    createPost(descriptionPost, likesCount,privacityPost);
+    createPost(descriptionPost, likesCount, privacityPost);
 	/*posts.innerHTML += `
 	<form class="comentary">
 	<!--<button type="button" id="seleccion" class="icon-ellipsis-vert"></button>-->
@@ -58,27 +58,47 @@ const editaDatosFirebase = () => {
         for (let key in datos) {
             console.log(key);
             if (key == keyDataEdit) {
-                posts.innerHTML +=
-                    `<form class="comentary">
+                console.log(datos[key].privacity);
+                if (datos[key].privacity == 'PUBLICO') {
+                    posts.innerHTML +=
+                        `<form class="comentary">
             <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description}</textarea>
             <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}*/"/>
+            <select id="postEdit-privacity-selector">
+                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
+                <option value="PRIVADO">PRIVADO</option>
+              </select>
+            <button type="button" class="icon-ok"></button>
+            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Update</button>
+            <button type="button" class="borrar" data-message-delete=${key}  onclick=mostrarPost()>Cancelar</button>
+            </div>
+        </form>
+            `
+                } else {
+                    posts.innerHTML +=
+                        `<form class="comentary">
+            <p class="users" >${datos[key].autor}</p>
+            <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description}</textarea>
+            <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}*/"/>
+            <select id="postEdit-privacity-selector">
+                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
+                <option value="PUBLICO">PUBLICO</option>
+              </select>
             <button type="button" class="icon-ok"></button>
             <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Update</button>
             <button type="button" class="borrar" data-message-delete=${key}  onclick=mostrarPost()>Cancelar</button>
 
             </div>
 
-        </form>
-            `
-            } else {
+        </form>`
+                }
+
+            } else if (key == keyDataEdit || datos[key].privacity == 'PUBLICO') {
                 posts.innerHTML += `<form class="comentary">
         <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" class="mensaje" readonly> ${datos[key].description} </textarea>
             <input type="number" class="textValuefixed" /*value="${datos[key].likesCount}*/" readonly/>
-            <button type="button" class="icon-ok"></button>
-            <button disabled type="button" id="btn-edit" class="editar">Editar</button>
-            <button disabled type="button" class="borrar">Eliminar</button>
         </form>
  `
             };
@@ -100,6 +120,7 @@ const updateU = () => {
     let refMesaggesave = refPost.child(keyDataSave);
     console.log(refMesaggesave);
     let newPost = document.getElementById("text-save").value;
+    let newSelect = document.getElementById('postEdit-privacity-selector').value;
 
     refPost.once("value", function (snap) {
         let data = snap.val();
@@ -111,9 +132,11 @@ const updateU = () => {
                 }
                 else {
                     data[key].mensaje = newPost;
+                    data[key].option = newSelect;
 
                     let nuevoPost = {
                         description: newPost,
+                        privacity: newSelect
 
                     }
 
@@ -144,15 +167,17 @@ const render = (containerModalWelcome) => {
         <div class="modal-content">
              <div class="modal-header">
                 <span id="close-modal-welcome"  class="close">&times;</span>
-                <h2>Modal Header</h2>
+                <h2>Bienvenido a *******</h2>
              </div>
+<p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
              <div class="modal-body">
-                <p>Some text in the Modal Body </p>
-                <p>${snapshot.val().userName}</p>
+<p>
+Gracias por unirte. 
+Las actualizaciones y las nuevas funciones son versiones diarias
+por favor, ayúdenos a crear una red social simple, hermosa y sin adornos.
+Diviértete usando eso.</p>
              </div>
-             <div class="modal-footer">
-                <h3>Modal Footer</h3>
-             </div>
+            
         </div>
 	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
         }));
