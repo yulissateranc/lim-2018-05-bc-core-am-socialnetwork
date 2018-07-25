@@ -174,6 +174,9 @@ const mostrarPost = () => {
               <p class="users" >${datos[key].autor}</p>
               <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
               <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
+              <select disabled id="post-privacity-selector">
+                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
+              </select>
               <button type="button" class="icon-ok"></button>
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
               <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
@@ -188,7 +191,10 @@ const mostrarPost = () => {
               <p class="users" >${datos[key].autor}</p>
               <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
               <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
-             </div>
+              <select disabled id="post-privacity-selector">
+                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
+              </select>
+              </div>
              </form>`
                        }else{
              elementsView += `           
@@ -196,6 +202,9 @@ const mostrarPost = () => {
              <p class="users" >${datos[key].autor}</p>
              <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
              <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
+             <select disabled id="post-privacity-selector">
+                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
+              </select>
              <button type="button" class="icon-ok"></button>
              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
