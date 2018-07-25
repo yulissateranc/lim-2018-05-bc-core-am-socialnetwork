@@ -1,9 +1,11 @@
 const buttonPublicPost = document.getElementById('btn-public-post');
 const containerModalWelcome = document.getElementById('container-modal');
 let refPost = (firebase.database().ref().child('POST'));
+const btnLogOut = document.getElementById('log-out');
 
 window.onload = () => {
     getDataUserSessionActive();
+
 
 }
 
@@ -14,19 +16,9 @@ buttonPublicPost.addEventListener('click', (e) => {
     let likesCount = document.getElementById('input-likes-count');
     const privacityPost = document.getElementById('post-privacity-selector');
     createPost(descriptionPost, likesCount, privacityPost);
-	/*posts.innerHTML += `
-	<form class="comentary">
-	<!--<button type="button" id="seleccion" class="icon-ellipsis-vert"></button>-->
-	<textarea  id="${newPost}" name="textarea" rows="4" cols="50">${descriptionPost.value}</textarea>
-	<input type="number" class="textValuefixed" readonly/>
-	<button type="button" class="icon-ok"></button>
-	<div class="section-seleccion">
-			<button type="button" data-message-edit= ${newPost}>Editar</button>
-			<button type="button" id="cerrar-sesion" data-message-delete="${newPost}">Eliminar</button>
-	</div>
-	</form>`*/
-    // gngnh
+
 });
+
 const borrarDatosFirebase = () => {
     let refPost = (firebase.database().ref().child('POST'));
     console.log(event.target);
@@ -153,62 +145,127 @@ const updateU = () => {
 
 
 }
+
 const closeModalWelcome = () => {
+    const userId = (firebase.auth().currentUser.uid); 
     containerModalWelcome.innerHTML = '';
+    (firebase.database().ref('/users/' + userId).update({
+        isNewUser: false
+    }));
 };
+
 const render = (containerModalWelcome) => {
-    if (!firebase.auth().currentUser.displayName) {
-        const userId = firebase.auth().currentUser.uid;
-        (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
-            const displayName = snapshot.val().userName;
+    const userId = (firebase.auth().currentUser.uid);
+    (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
+        if(snapshot.val().isNewUser){
             containerModalWelcome.innerHTML =
                 `
-	<div id="modal-welcome" class="modal">
-        <div class="modal-content">
-             <div class="modal-header">
+	        <div id="modal-welcome" class="modal">
+            <div class="modal-content">
+            <div class="modal-header">
                 <span id="close-modal-welcome"  class="close">&times;</span>
                 <h2>Bienvenido a *******</h2>
              </div>
-<p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
+           <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
              <div class="modal-body">
-<p>
-Gracias por unirte. 
-Las actualizaciones y las nuevas funciones son versiones diarias
-por favor, ayúdenos a crear una red social simple, hermosa y sin adornos.
-Diviértete usando eso.</p>
+             <p>Gracias por unirte. 
+               Las actualizaciones y las nuevas funciones son versiones diarias
+               por favor, ayúdenos a crear una red social simple, hermosa y sin adornos.
+               Diviértete usando eso.</p>
              </div>
             
         </div>
-	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
-        }));
-    } else {
-        containerModalWelcome.innerHTML =
-            `
-	<div id="modal-welcome" class="modal">
-        <div class="modal-content">
-             <div class="modal-header">
-                <span id="close-modal-welcome"  class="close">&times;</span>
-                <h2>Modal Header</h2>
-             </div>
-             <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p >${firebase.auth().currentUser.displayName}</p>
-             </div>
-             <div class="modal-footer">
-                <h3>Modal Footer</h3>
-             </div>
-        </div>
-	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
-    }
+    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
+        }
+    }));
+
 };
+   
+//          else {
+//             containerModalWelcome.innerHTML =
+//                 `
+// <div id="modal-welcome" class="modal">
+//     <div class="modal-content">
+//          <div class="modal-header">
+//             <span id="close-modal-welcome"  class="close">&times;</span>
+//             <h2>Modal Header</h2>
+//          </div>
+//          <div class="modal-body">
+//             <p>Some text in the Modal Body</p>
+//             <p >${firebase.auth().currentUser.displayName}</p>
+//          </div>
+//          <div class="modal-footer">
+//             <h3>Modal Footer</h3>
+//          </div>
+//     </div>
+// </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
+//         }
 
 
+
+// const render = (containerModalWelcome) => {
+//     if (!firebase.auth().currentUser.displayName) {
+//         const userId = firebase.auth().currentUser.uid;
+//         (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
+//             const displayName = snapshot.val().userName;
+//             containerModalWelcome.innerHTML =
+//                 `
+// 	<div id="modal-welcome" class="modal">
+//         <div class="modal-content">
+//              <div class="modal-header">
+//                 <span id="close-modal-welcome"  class="close">&times;</span>
+//                 <h2>Bienvenido a *******</h2>
+//              </div>
+// <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
+//              <div class="modal-body">
+// <p>
+// Gracias por unirte. 
+// Las actualizaciones y las nuevas funciones son versiones diarias
+// por favor, ayúdenos a crear una red social simple, hermosa y sin adornos.
+// Diviértete usando eso.</p>
+//              </div>
+
+//         </div>
+// 	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
+//         }));
+//     } else {
+//         containerModalWelcome.innerHTML =
+//             `
+// 	<div id="modal-welcome" class="modal">
+//         <div class="modal-content">
+//              <div class="modal-header">
+//                 <span id="close-modal-welcome"  class="close">&times;</span>
+//                 <h2>Modal Header</h2>
+//              </div>
+//              <div class="modal-body">
+//                 <p>Some text in the Modal Body</p>
+//                 <p >${firebase.auth().currentUser.displayName}</p>
+//              </div>
+//              <div class="modal-footer">
+//                 <h3>Modal Footer</h3>
+//              </div>
+//         </div>
+// 	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
+//     }
+// };
+
+const logOut = () => {
+    firebase.auth().signOut().then(() => {
+        alert('se cerrará la sesión');
+        directionalUrl('../login.html')
+    }).catch((error) => {
+        alert('No se pudo cerrar sesión');
+    });
+}
 window.onclick = () => {
     if (event.target.id == 'modal-welcome') {
+        closeModalWelcome();
         containerModalWelcome.innerHTML = '';
     }
 }
-
+btnLogOut.addEventListener('click', () => {
+    logOut();
+});
 
 
 
