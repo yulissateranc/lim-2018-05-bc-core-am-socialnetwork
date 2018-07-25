@@ -57,11 +57,11 @@ const editaDatosFirebase = () => {
 
         for (let key in datos) {
             console.log(key);
-            if (key == keyDataEdit ) {
+            if (key == keyDataEdit) {
                 console.log(datos[key].privacity);
-                if (datos[key].privacity == 'PUBLICO'){
+                if (datos[key].privacity == 'PUBLICO') {
                     posts.innerHTML +=
-                    `<form class="comentary">
+                        `<form class="comentary">
             <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description}</textarea>
             <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}*/"/>
@@ -77,7 +77,7 @@ const editaDatosFirebase = () => {
             `
                 } else {
                     posts.innerHTML +=
-                    `<form class="comentary">
+                        `<form class="comentary">
             <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description}</textarea>
             <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}*/"/>
@@ -93,8 +93,8 @@ const editaDatosFirebase = () => {
 
         </form>`
                 }
-                
-            } else if (key == keyDataEdit || datos[key].privacity=='PUBLICO' ) {
+
+            } else if (key == keyDataEdit || datos[key].privacity == 'PUBLICO') {
                 posts.innerHTML += `<form class="comentary">
         <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" class="mensaje" readonly> ${datos[key].description} </textarea>
@@ -132,7 +132,7 @@ const updateU = () => {
                 }
                 else {
                     data[key].mensaje = newPost;
-                    data[key].option= newSelect;
+                    data[key].option = newSelect;
 
                     let nuevoPost = {
                         description: newPost,
@@ -167,15 +167,17 @@ const render = (containerModalWelcome) => {
         <div class="modal-content">
              <div class="modal-header">
                 <span id="close-modal-welcome"  class="close">&times;</span>
-                <h2>Modal Header</h2>
+                <h2>Bienvenido a *******</h2>
              </div>
+<p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
              <div class="modal-body">
-                <p>Some text in the Modal Body </p>
-                <p>${snapshot.val().userName}</p>
+<p>
+Gracias por unirte. 
+Las actualizaciones y las nuevas funciones son versiones diarias
+por favor, ayúdenos a crear una red social simple, hermosa y sin adornos.
+Diviértete usando eso.</p>
              </div>
-             <div class="modal-footer">
-                <h3>Modal Footer</h3>
-             </div>
+            
         </div>
 	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
         }));

@@ -80,33 +80,33 @@ const getDataCurrentUser = () => {
   }
 }
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
-const validateContentOfpublications =(descriptionPostValue)=>{
-  if(/^(?!\s)/.test(descriptionPostValue) && /^([A-Za-z0-9\s]{8,})/g.test(descriptionPostValue)){
-      return true;
-  }else{
-      return false;
+const validateContentOfpublications = (descriptionPostValue) => {
+  if (/^(?!\s)/.test(descriptionPostValue) && /^([A-Za-z0-9\s]{8,})/g.test(descriptionPostValue)) {
+    return true;
+  } else {
+    return false;
   };
 };
-const createPost = (descriptionPost, likesCount,privacity) => {
+const createPost = (descriptionPost, likesCount, privacity) => {
   const validatepublications = validateContentOfpublications(descriptionPost.value)
   if (validatepublications) {
     if (!firebase.auth().currentUser.displayName) {
       const userId = firebase.auth().currentUser.uid;
-      (firebase.database().ref('/users/' + userId).once('value',(snapshot) => {
-       const displayName = snapshot.val().userName;
+      (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
+        const displayName = snapshot.val().userName;
         alert('soy la funcion que creará el Post');
         let refPost = (firebase.database().ref().child('POST'));
-           refPost.push({
-           userId: firebase.auth().currentUser.uid,
-           autor: displayName,
-           description: descriptionPost.value,
-           privacity:privacity.value,
-           /*likesCount: likesCount.value*/
-         }).then(()=>{
+        refPost.push({
+          userId: firebase.auth().currentUser.uid,
+          autor: displayName,
+          description: descriptionPost.value,
+          privacity: privacity.value,
+          /*likesCount: likesCount.value*/
+        }).then(() => {
           descriptionPost.value = "";
-          privacity.innerHTML =`<option value="PUBLICO">PUBLICO 🌎 </option>
+          privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
           <option value="PRIVADO">PRIVADO 🔒</option>`;
-         });
+        });
       }));
     } else {
       alert('soy la funcion que creará el Post');
@@ -119,15 +119,15 @@ const createPost = (descriptionPost, likesCount,privacity) => {
         /*likesCount: likesCount.value*/
       }).then(() => {
         descriptionPost.value = "";
-        privacity.innerHTML =`<option value="PUBLICO">PUBLICO 🌎 </option>
+        privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
         <option value="PRIVADO">PRIVADO 🔒</option>`;
       });
     }
-}else {
+  } else {
     alert('Escriba su opinion');
     descriptionPost.placelholder = "Escribe un mensaje";
-}
-  
+  }
+
 }
 /**************************************************Registro de datos en BD****************************************************************************/
 const createUser = (objectUser, name) => {
@@ -162,18 +162,18 @@ const createUser = (objectUser, name) => {
 const mostrarPost = () => {
   let refPost = (firebase.database().ref().child('POST'));
   refPost.on("value", function (snap) {
-  let datos = snap.val();
-  // console.log(datos);
-  const viewPost = document.getElementById('posts');
-  let elementsView = "";
-  for (let key in datos) {
-      if(datos[key].privacity === 'PRIVADO'){
-        if(datos[key].userId === firebase.auth().currentUser.uid){
+    let datos = snap.val();
+    // console.log(datos);
+    const viewPost = document.getElementById('posts');
+    let elementsView = "";
+    for (let key in datos) {
+      if (datos[key].privacity === 'PRIVADO') {
+        if (datos[key].userId === firebase.auth().currentUser.uid) {
           elementsView += `           
           <form class="comentary">
               <p class="users" >${datos[key].autor}</p>
               <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
-              <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
+              <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
               <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
@@ -183,21 +183,22 @@ const mostrarPost = () => {
              </div>
           </form>`
         }
-        
-      }else if(datos[key].privacity === 'PUBLICO'){
-            if(datos[key].userId != firebase.auth().currentUser.uid){
-               elementsView += `           
+
+      } else if (datos[key].privacity === 'PUBLICO') {
+        if (datos[key].userId != firebase.auth().currentUser.uid) {
+          elementsView += `           
               <form class="comentary">
               <p class="users" >${datos[key].autor}</p>
               <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
-              <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}"*//>
+              <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
+              <button type="button" class="icon-ok"></button>
               <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
               </div>
              </form>`
-                       }else{
-             elementsView += `           
+        } else {
+          elementsView += `           
              <form class="comentary">
              <p class="users" >${datos[key].autor}</p>
              <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
@@ -211,20 +212,20 @@ const mostrarPost = () => {
             </div>
                </form>`
         }
-        
-      
-    }
-    viewPost.innerHTML = elementsView;
-    if (elementsView != "") {
-      const elementDelete = document.getElementsByClassName("borrar");
-      const elementEdit = document.getElementsByClassName("editar");
-      for (let i = 0; i < elementDelete.length; i++) {
-        elementDelete[i].addEventListener('click', borrarDatosFirebase, false);
-        elementEdit[i].addEventListener('click', editaDatosFirebase, false);
+
+
+      }
+      viewPost.innerHTML = elementsView;
+      if (elementsView != "") {
+        const elementDelete = document.getElementsByClassName("borrar");
+        const elementEdit = document.getElementsByClassName("editar");
+        for (let i = 0; i < elementDelete.length; i++) {
+          elementDelete[i].addEventListener('click', borrarDatosFirebase, false);
+          elementEdit[i].addEventListener('click', editaDatosFirebase, false);
+        }
       }
     }
-  }
-});
+  });
 }
 
 
