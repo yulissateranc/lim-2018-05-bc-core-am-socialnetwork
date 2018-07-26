@@ -132,17 +132,23 @@ const createPost = (descriptionPost, likesCount, privacity) => {
 /**************************************************likes***********************************************************/
 
 const createLike =  () => {
-  const postId =event.target.getAttribute("data-like");;
+    console.log('create like');
+  const postId =event.target.getAttribute("data-like");
+  console.log(postId);
   const uid = (firebase.auth().currentUser.uid);
-  let postRef = (firebase.database().ref('POST' + postId ));
+  let postRef = firebase.database().ref('POST/' + postId );
+  console.log(postRef);
   postRef.transaction((post) => {
+      console.log(post);
     if (post) {
       if (post.likes && post.likes[uid]) {
+          console.log();
         post.likesCount--;
         post.likes[uid] = null;
       } else {
         post.likesCount++;
         if (!post.likes) {
+            console.log('funciona');
           post.likes = {};
         }
         post.likes[uid] = true;
