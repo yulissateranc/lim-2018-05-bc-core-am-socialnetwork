@@ -228,18 +228,3 @@ const modalView = (reftexto, text, btn1, btn2) => {
     </div>
   `
 };
-/*
- else if(){
-
-      }
-      elementsView += `           
-        <form class="comentary">
-            <p class="users" >${datos[key].autor}</p>
-            <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
-            <input type="number" class="textValuefixed" readonly /value="${datos[key].likesCount}"//>
-            <button type="button" class="icon-ok"></button>
-            <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
-            <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
-           </div>
-        </form>`
-        */
