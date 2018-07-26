@@ -2,14 +2,14 @@ body {
     font: 600 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   }
 
-  .modal-contentDelete{
+  .modal-contentView{
       background-color:aliceblue;
       padding: 10px 20px;
       margin: 20% auto;
       position: relative;
     }
   
-    .modalDelete{
+    .modalView{
       background-color: rgba(0, 0, 0, 0.5);
       position:fixed;
       top:0;
@@ -57,7 +57,7 @@ body {
       outline: none;
       color: white;
       background: #f1a203;
-       display: inline-flex;
+       display:inline-flex;
   }
  .btnAncla {
   background-color: #f1a203;
@@ -68,7 +68,7 @@ body {
     color:black;
   }
   @media screen and (min-width:400px) {
-     .modal-contentDelete{
+     .modal-contentView{
       width:60%;
     }
       

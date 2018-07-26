@@ -61,54 +61,13 @@ body {
 .abrir {
     display: block;
 }
-/* -------- Dropdown -------- */
-.dropdown {
-    float: right;
-    overflow: hidden;
-}
 
-.dropdown {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    padding-right: 1%;
-    background-color: inherit;
-    font-family: inherit;
-}
-
-.dropdown-content {
+.dropdown{
     display: none;
-    margin-top: 7%;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 150px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
 }
 
 a {
     text-decoration: none;
-}
-
-.dropdown-content a {
-    color: black;
-    margin: 2%;
-    padding: 12px 16px;
-    display: block;
-    text-align: right;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background: #f1a203;
-}
-
-.imgUser {
-    float: inherit;
-    width: 45%;
 }
 
 .wrapper {
@@ -143,7 +102,7 @@ textarea {
 
 [type=button] {
     cursor: pointer;
-    margin: 10px;
+    margin: 1%;
     padding: 15px;
     border: none;
     border-radius: 7px;
@@ -151,8 +110,12 @@ textarea {
     outline: none;
     color: white;
     background: #f1a203;
+    display: flex;
 }
 
+.publish {
+    margin: 5%;
+}
 .comentary select {
     border: 2px solid #F1A203;
     padding: 2%;
@@ -167,11 +130,10 @@ textarea {
 }
 
 .textValuefixed {
-    width: 14%;
+    width: 8%;
     font-size: 20px;
     text-align: center;
-    border-radius: 5px;
-    border: 1px solid ;
+    border: none;
     float: right;
     margin: 20px 15px;
 }
@@ -184,10 +146,52 @@ textarea {
 }
 
 @media screen and (min-width:600px) {
-    .dropdown-content {
-        margin-top: 6%;
-    }
     
+/* -------- Dropdown -------- */
+    .dropdown {
+    display: block;
+    margin-top:-8%;
+    float: right;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding-right: 1%;
+    background-color: inherit;
+    font-family: inherit;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 7%;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    margin: 2%;
+    padding: 12px 16px;
+    display: block;
+    text-align: right;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background: #f1a203;
+}
+
+.imgUser {
+    float: inherit;
+    width: 45%;
+}
+   
     #contenido {
         margin: 2% 0% 0% -1%;
     }
@@ -206,6 +210,9 @@ textarea {
         width: 60%;
     }
 
+    .dropdown {
+    margin-top:-7%;
+    }
     .dropdown-content {
         margin-top: 3%;
     }
@@ -215,7 +222,13 @@ textarea {
     }
 
     .top {
-        padding-top: 7%;
+        padding-top: 8%;
     }
 }
 
+@media screen and (min-width:900px) {
+    .dropdown {
+    margin-top:-3.5%;
+    }
+
+}
