@@ -33,6 +33,7 @@ const getDataUserSessionActiveLogin = () => { //observer()
         console.log(user.emailVerified);
         directionalUrl('../src/view/muro.html')
       } else {
+        modalView('Inicio Sesion','Por favor verifica tu correo registrado para acceder','Aceptar','Cerrar');
         alert('por favor verifica tu correo para acceder');
       }
       console.log(user.emailVerified);
@@ -158,6 +159,7 @@ const mostrarPost = () => {
               <button type="button" class="icon-ok" data-like=${key}></button>
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
               <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
           </form>`
         }
@@ -187,6 +189,7 @@ const mostrarPost = () => {
              <button type="button" class="icon-ok" data-like=${key}></button>
              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+             <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
             </div>
                </form>`
         }
@@ -219,8 +222,8 @@ const mostrarPost = () => {
 
 const modalView = (reftexto, text, btn1, btn2) => {
   return `
-    <div class="modal-contentDelete">
-      <a href="#modal-close" title="Cerrar" class="modal-close">Cerrar</a>
+    <div class="modal-contentView">
+      <a href="#modal-close" title="Cerrar" id="close" class="modal-close">Cerrar</a>
       <h2>${reftexto}</h2>
       <p>${text}</p>
         <button id="accept" class="btnmodal">${btn1}</button>

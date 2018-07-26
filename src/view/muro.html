@@ -27,11 +27,12 @@
                 </li>
             </ul>
         </div>
+        <h1 id="name-user">Hola</h1>
         <div class="dropdown">
             <img class="imgUser" src="assets/img/user.PNG" />
             <div class="dropdown-content">
                 <a href="#">Mi Perfil</a>
-                <a id="log-out" href="#">Cerrar Sesion</a>
+                <a href="#miModal" id="log-out">Cerrar Sesion</a>
             </div>
         </div>
     </header>
@@ -42,6 +43,7 @@
         <div style="float :right;" class="icon-search"></div>
         </div>
     </header>-->
+    
     <section class="wrapper top" >
         <form class="comentary" id="form-content">
             <textarea name="textarea" rows="4" cols="50" placeholder="Ingresa tu opinión" id="txt-description-post"></textarea>
@@ -51,11 +53,11 @@
             </select>
             <!--<label>Likes</label>
             <input type="text" id="input-likes-count" />-->
-            <button type="button" id="btn-public-post">PUBLICAR</button>
+            <button type="button" id="btn-public-post" class="publish">PUBLICAR</button>
         </form>
     </section>
 
-    <div id="miModal" class="modalDelete"></div>
+    <div id="miModal" class="modalView"></div>
     <section id="posts" class="wrapper"></section>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="../model/bd.js"></script>
