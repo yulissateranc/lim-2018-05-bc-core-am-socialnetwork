@@ -5,17 +5,16 @@ const btnLogOut = document.getElementById('log-out');
 
 window.onload = () => {
     getDataUserSessionActive();
-
+    
 
 }
-
 mostrarPost();
+
 buttonPublicPost.addEventListener('click', (e) => {
     e.preventDefault();
     let descriptionPost = document.getElementById('txt-description-post');
-    let likesCount = document.getElementById('input-likes-count');
     const privacityPost = document.getElementById('post-privacity-selector');
-    createPost(descriptionPost, likesCount, privacityPost);
+    createPost(descriptionPost, privacityPost);
 
 });
 
