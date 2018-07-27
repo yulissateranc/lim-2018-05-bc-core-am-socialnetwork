@@ -113,31 +113,30 @@ Estos datos  anterior mente descritos fueron obtenidos despues de realizar las e
 
 ##  Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
 
-* [ ] Cómo verificaste que el producto les está resolviendo sus problemas.
-* [ ] Cómo te asegurarás que estos usuarios usen este producto.
-* [ ] Benchmark de las principales redes sociales.
-* [ ] Resumen de entrevistas con usuarios.
+#  Cómo verificaste que el producto les está resolviendo sus problemas.
+* Cómo te asegurarás que estos usuarios usen este producto.
+* Nos aseguraremos del uso de nuestra Red Social a través de Inviaciones a través de sus correos electrónicos recalcando la importancia del     contenido de nuestra Red Social EDUTECH, rescatando  las características más resaltantes de esta Social MEDIA, como diseño pensado en el usuario.(Esto aún no se ha implementado ,se espera realizarlo a futuro)
+## Benchmark de las principales redes sociales.
+![Benchmark](src/view/assets/img/benchmarking.png)
+
+##  Resumen de entrevistas con usuarios.
+De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concluyó los sgt:
+ * Considerán que sienten inseguridad al usar TICS en su práctica docente.
+ * Condieran  que las entidades responsables si les brindan orientación pero  no es suficiente, les agradaría visualizar por medio de videos
+ * como se debe  realizar una sesión de aprendizaje usando TICS.
+ * También  logramos comprender que existian Docentes  que  si conocian acerca de las TICS  y las usaban con mucha seguridad ,pero estos docentes * encajaban en el perfil de Nativos digitales, por ese motivo decidímos perfilar a los docentes como Nativos e Inmigrantes Digitales.
+
 * [ ] Link/screenshots del prototipo de alta fidelidad.
+
 * [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
 * [ ] Conclusiones de testing con el producto en HTML.
 
-### UX
 
-Desde el punto de vista de UX, deberás:  
+##  Hacer al menos 2 o 3 entrevistas con usuarios.
 
-* Hacer un _benchmark_ de las principales redes sociales.
-  ![Benchmark](src/view/assets/img/benchmarking.png)
-
-* Hacer al menos 2 o 3 entrevistas con usuarios.
-
-** Encuestas a Nativos Digitales 
+##  Encuestas a Nativos Digitales 
 https://docs.google.com/forms/d/19e03fbSUvarpDqvhEgzdnxU1UqlJwvnGwV_093SJLsU/edit#responses
 ** Encuestas a Docentes con perfil de Inmigrantes Digitales
 https://docs.google.com/forms/d/1w3YltsOIs21h3mq2_2h-PK0YppIChDmmjDstTmdV3iM/edit#responses
 
-
-* Hacer un prototipo de alta fidelidad.
-* Testear el prototipo con usuarios.
-* Asegurarte de que la implementación en código siga los lineamientos del
-  diseño.
-* Hacer sesiones de testing con el producto en HTML.
+##  Testeo de Usabilidad
