@@ -15,7 +15,9 @@ EDUTECH es una comunidad de Inmigrantes Digitales y Educadores, donde ambos lado
   
   * [ ] Quiénes son los principales usuarios de producto.
   * [ ] Cómo descubriste las necesidades de los usuarios.
+  *Mapas de empatía 1 Nativos Digitales
     ![Mapa de empatía Nativos Digitales](src/view/assets/img/Imagen1.png)
+  *Mapas de empatía 2 Docentes
     ![Mapa de empatía Docentes](src/view/assets/img/Imagen2.png)
 
   * [ ] Qué problema resuelve el producto para estos usuarios.
