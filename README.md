@@ -26,13 +26,13 @@ Twitter incorpora la capacidad de búsqueda por usuario, tema, hashtag y enviar 
 * INSTAGRAM
 Caracterizada por la forma cuadrada de las imágenes en honor a la Kodak Instamatic y las cámaras Polaroid, es una aplicación gratuita para compartir fotos en la que los usuarios pueden aplicar efectos tipográficos como filtros, marcos, colores retro y vintage adquirida por Facebook en 2012. Actualmente, cuenta con más de 800 millones de usuarios
 
-# LINKEDIN
+*  LINKEDIN
 Fundada en 2003, LinkedIn se ha convertido en la red social profesional de referencia.  Cada día capta aproximadamente 60.000 nuevos perfiles y su ritmo de crecimiento mundial ha sido vertiginoso, hasta sobrepasar los 500 millones de usuarios. De hecho, muchas empresas la utilizan hoy en día como una de las principales herramientas de reclutamiento gracias a sus amplias posibilidades y la completa información que poseen del candidato.
 
-# YOUTUBE
+*  YOUTUBE
 Creado por tres antiguos empleados de PayPal en febrero de 2005, en noviembre de 2006 fue adquirida por Google a cambio de 1.650 millones de dólares, convirtiéndose así en su adquisición más cara hasta entonces. Desde ese momento, el impacto de YouTube en la Web 2.0 no ha hecho más que crecer, convirtiéndose en la principal plataforma de subida y visionado de videos, así como el segundo buscador por volumen de consultas, sólo superado, paradójicamente, por el propio Google.
 
-# GOOGLE PLUS
+*  GOOGLE PLUS
 Impulsada inicialmente para competir con Facebook, Google Plus se ha convertido en una interesante plataforma que integra los servicios clásicos de Google, así como funcionalidades nuevas e interesantes como el sistema de videoconferencia conocido como Hangout. Al igual que su competidor, Google Plus permite tener presencia a los usuarios a través de tres modalidades: perfil personal, página o comunidad (esta última sería el equivalente a los grupos de Facebook). Además, otro de los aspectos interesantes que la han definido es su importancia cada vez mayor en las estrategias SEO de las organizaciones, ya que no debemos olvidar que Google es el principal motor de búsqueda en Internet, y Google Plus su aplicación social.
 
 * PINTEREST
@@ -71,12 +71,10 @@ EDUTECH es una comunidad de Inmigrantes Digitales y Educadores, donde ambos lado
 
   3. Rendimiento del contenido
     - Contextualización
-
 Referencias :
 https://blog.digimind.com/en/agency/proving-roi/the-3-essential-elements-of-a-successful-social-media-report/
 
-  
-* Quiénes son los principales usuarios de producto.
+##  Quiénes son los principales usuarios de producto.
  -Nativos Digitales :
  Los nativos digitales enfocan su trabajo, el aprendizaje y los juegos de nuevas maneras: navegan con fluidez; tienen habilidad en el uso del ratón; utilizan reproductores de audio y video digitales a diario; toman fotos digitales que manipulan y envían; y usan, además, sus ordenadores para crear videos, presentaciones multimedia, música, blogs, etc. Absorben rápidamente la información multimedia de imágenes y videos, igual o mejor que si fuera texto; consumen datos simultáneamente de múltiples fuentes; esperan respuestas instantáneas; permanecen comunicados permanentemente y crean también sus propios contenidos. A los nativos digitales les encanta hacer varias cosas al mismo tiempo: son multitarea.
  ![Nativos Digitales](src/view/assets/img/nativosdigitales.jpg)
@@ -84,35 +82,36 @@ https://blog.digimind.com/en/agency/proving-roi/the-3-essential-elements-of-a-su
  Las características de los Inmigrantes digitales son: Estructuras mentales moldeadas por los procesos paso a paso. Resolver un problema a la vez. Actuación basada en el análisis deductivo. Aprendizaje basado en conocimientos pre-adquiridos. Los migrantes digitales son mas relajados y les gusta entablar una conversación con una persona y para pasar a otra terminan la anterior
   ![Inmigrantes Digitales](src/view/assets/img/inmigrantes.jpg)
       
-* [ ] Cómo descubriste las necesidades de los usuarios.
+## Cómo descubriste las necesidades de los usuarios.
 
-Se descubrieron las necesidades de nuestro público objetivo a travéz de los procesos de diseño Design Thinking 
+Se descubrieron las necesidades de nuestro público objetivo a travéS de los procesos de diseño Design Thinking 
 Nos apoyamos en encuestas, entrevistas y mapas de empatía, continuación se detalla las necesidades decubriertas a través de Mapa de Empatía.
 Las entrevistas se hicieron de forma virtual con los docentes, por medio de video llamadas , pero capturando al mismo tiempo el audio de nuestros público objetivo.
+A los nativos digitales se les hizo una entrevista personal.
 
 ![Design Thinking](src/view/assets/img/desing.png)
 * Mapas de empatía 1 Nativos Digitales
 ![Nativos Digitales](src/view/assets/img/Imagen1.png)
 * Mapas de empatía 2 Docentes
 ![Docentes](src/view/assets/img/Imagen2.png)
-* ¿Qué problema resuelve el producto para estos usuarios?
+##  ¿Qué problema resuelve el producto para estos usuarios?
 
 Con la implementación de nuestra Red Social EDUTECH  buscamos resolver dos problemas:
  * 1) Disminuir la brecha notoria y existente entre nuestros Docentes considerdados como Inmigrantes Digitales  y uso de las TICS en su práctica docente.
  * 2) Agenciar de estrategias de aprendizaje a los Nativos Digitales, que según nuestra encuesta consideraron muy importante  el adoptar estas estrategias en su vida cotidiana.
 
-* Cuáles son los objetivos de estos usuarios en relación con el producto.
+##  Cuáles son los objetivos de estos usuarios en relación con el producto.
 
-Docentes Inmigrantes Digitales : 
+* Docentes Inmigrantes Digitales : 
 Poder acceder a nuestra Red Social EDUTECH y poder encontrar posts sobre buenas experiencias que han adquirido los Nativos Digitales al hacer uso de las TICS.Permitiendo así elegir al docente que herramienta podría considerar en la planificación de sus sesión de aprendizaje.
 
-Nativos Digitales : 
+* Nativos Digitales : 
 Su objetivo es poder visualizar posts, sobre las  estrategias más efectivas que los docentes usan para poder transmitir sus mensajes a sus estudiantes, tips sobre ello,de preferencia  a través de imágenes  de preferencia.
 
 Estos datos  anterior mente descritos fueron obtenidos despues de realizar las encuestas y entrevistas con nuestro público objetivo.
 
 
-*  Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
+##  Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
 
 * [ ] Cómo verificaste que el producto les está resolviendo sus problemas.
 * [ ] Cómo te asegurarás que estos usuarios usen este producto.
@@ -121,6 +120,7 @@ Estos datos  anterior mente descritos fueron obtenidos despues de realizar las e
 * [ ] Link/screenshots del prototipo de alta fidelidad.
 * [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
 * [ ] Conclusiones de testing con el producto en HTML.
+
 ### UX
 
 Desde el punto de vista de UX, deberás:  
