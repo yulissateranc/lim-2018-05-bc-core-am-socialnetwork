@@ -30,6 +30,7 @@ EDUTECH es una comunidad de Inmigrantes Digitales y Educadores, donde ambos lado
 Desde el punto de vista de UX, deberás:  
 
 * Hacer un _benchmark_ de las principales redes sociales.
+  ![Benchmark](https://www.dropbox.com/s/jjai7wdyn1uo4qy/benchmarking.png?dl=0)
 * Hacer al menos 2 o 3 entrevistas con usuarios.
 * Hacer un prototipo de alta fidelidad.
 * Testear el prototipo con usuarios.
