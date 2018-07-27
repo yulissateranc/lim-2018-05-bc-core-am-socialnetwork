@@ -61,13 +61,13 @@ EDUTECH es una comunidad de Inmigrantes Digitales y Educadores, donde ambos lado
   ¿ Cuáles son los elementos básicos que tiene una red social?
 
   1. Rendimiento de la comunidad
-      -KPI relevantes
-      -Benchmarking interno y competitivo
-      -Analisis cualitativo
+   -KPI relevantes
+   -Benchmarking interno y competitivo
+   -Analisis cualitativo
 
   2. Desempeño de compromiso
-      -Análisis cuantitativo
-      -Segmentación
+    -Análisis cuantitativo
+    -Segmentación
 
   3. Rendimiento del contenido
     - Contextualización
@@ -79,7 +79,7 @@ https://blog.digimind.com/en/agency/proving-roi/the-3-essential-elements-of-a-su
 * Quiénes son los principales usuarios de producto.
  -Nativos Digitales :
  Los nativos digitales enfocan su trabajo, el aprendizaje y los juegos de nuevas maneras: navegan con fluidez; tienen habilidad en el uso del ratón; utilizan reproductores de audio y video digitales a diario; toman fotos digitales que manipulan y envían; y usan, además, sus ordenadores para crear videos, presentaciones multimedia, música, blogs, etc. Absorben rápidamente la información multimedia de imágenes y videos, igual o mejor que si fuera texto; consumen datos simultáneamente de múltiples fuentes; esperan respuestas instantáneas; permanecen comunicados permanentemente y crean también sus propios contenidos. A los nativos digitales les encanta hacer varias cosas al mismo tiempo: son multitarea.
-  ![Nativos Digitales](src/view/assets/img/nativosdigitales.jpg)
+ ![Nativos Digitales](src/view/assets/img/nativosdigitales.jpg)
  -Docentes considerados Inmigrantes digitales 
  Las características de los Inmigrantes digitales son: Estructuras mentales moldeadas por los procesos paso a paso. Resolver un problema a la vez. Actuación basada en el análisis deductivo. Aprendizaje basado en conocimientos pre-adquiridos. Los migrantes digitales son mas relajados y les gusta entablar una conversación con una persona y para pasar a otra terminan la anterior
   ![Inmigrantes Digitales](src/view/assets/img/inmigrantes.jpg)
@@ -90,13 +90,11 @@ Se descubrieron las necesidades de nuestro público objetivo a travéz de los pr
 Nos apoyamos en encuestas, entrevistas y mapas de empatía, continuación se detalla las necesidades decubriertas a través de Mapa de Empatía.
 Las entrevistas se hicieron de forma virtual con los docentes, por medio de video llamadas , pero capturando al mismo tiempo el audio de nuestros público objetivo.
 
-  ![Design Thinking](src/view/assets/img/design.png)
-
+![Design Thinking](src/view/assets/img/desing.png)
 * Mapas de empatía 1 Nativos Digitales
-    ![Nativos Digitales](src/view/assets/img/Imagen1.jpg)
+![Nativos Digitales](src/view/assets/img/Imagen1.png)
 * Mapas de empatía 2 Docentes
-    ![Docentes](src/view/assets/img/Imagen2.png)
-
+![Docentes](src/view/assets/img/Imagen2.png)
 * ¿Qué problema resuelve el producto para estos usuarios?
 
 Con la implementación de nuestra Red Social EDUTECH  buscamos resolver dos problemas:
