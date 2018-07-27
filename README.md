@@ -130,25 +130,14 @@ Desde el punto de vista de UX, deberás:
 
 * Hacer al menos 2 o 3 entrevistas con usuarios.
 
+** Encuestas a Nativos Digitales 
+https://docs.google.com/forms/d/19e03fbSUvarpDqvhEgzdnxU1UqlJwvnGwV_093SJLsU/edit#responses
+** Encuestas a Docentes con perfil de Inmigrantes Digitales
+https://docs.google.com/forms/d/1w3YltsOIs21h3mq2_2h-PK0YppIChDmmjDstTmdV3iM/edit#responses
+
+
 * Hacer un prototipo de alta fidelidad.
 * Testear el prototipo con usuarios.
 * Asegurarte de que la implementación en código siga los lineamientos del
   diseño.
 * Hacer sesiones de testing con el producto en HTML.
-
-
-#### 1) Definición del producto
-
-En el `README.md` debes colocar cómo conociste el mercado de las redes sociales, cómo descubriste las necesidades de los usuarios, y cómo llegaste a la definición final de tu producto. Si tienes fotos de entrevistas, cuestionarios y/o sketches
-(bocetos) compártelos. Es importante que detalles:
-
-* Cuáles son los elementos básicos que tiene una red social.
-* Quiénes son los principales usuarios de producto.
-* Cómo descubriste las necesidades de los usuarios.
-* Qué problema resuelve el producto para estos usuarios.
-* Cuáles son los objetivos de estos usuarios en relación con el producto.
-* Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
-* Cómo verificaste que el producto les está resolviendo sus problemas.
-* Cómo te asegurarás que estos usuarios usen este producto.
-
-Para poder llegar a estas definiciones te recomendamos revisar: benchmarks, entrevistas con usuarios y tests de usabilidad.
