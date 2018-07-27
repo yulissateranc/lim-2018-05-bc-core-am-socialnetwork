@@ -3,12 +3,14 @@ const containerModalWelcome = document.getElementById('container-modal');
 let refPost = (firebase.database().ref().child('POST'));
 const btnLogOut = document.getElementById('log-out');
 
-window.onload = () => {
-    getDataUserSessionActive();
-    
 
+
+
+
+window.onload = () => {   
+    getDataUserSessionActive();
+    mostrarPost();
 }
-mostrarPost();
 
 buttonPublicPost.addEventListener('click', (e) => {
     e.preventDefault();
