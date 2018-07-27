@@ -5,19 +5,19 @@ const logOut = document.getElementById('log-out');
 
 window.onload = () => {
     getDataUserSessionActive();
-    console.log(firebase.auth());
     let modal = document.getElementById('miModal');
     modal.classList.remove('modalView');
-    let nameUser= document.getElementById('name-user');
+    let nameUser = document.getElementById('name-user');
 }
 
 logOut.addEventListener('click', () => {
     let modal = document.getElementById('miModal');
     modal.classList.add('modalView');
     let elmet = '';
-    elmet = modalView('Cerrar Sesion','Seguro que desea salir ?','Si','No');
+    elmet = modalView('Cerrar Sesion', 'Seguro que desea salir ?', 'Si', 'No');
     modal.innerHTML = elmet;
     document.getElementById('accept').addEventListener('click', () => {
+        
         directionalUrl('../login.html');
     })
 })
@@ -29,42 +29,36 @@ buttonPublicPost.addEventListener('click', (e) => {
     let descriptionPost = document.getElementById('txt-description-post');
     const privacityPost = document.getElementById('post-privacity-selector');
     createPost(descriptionPost, privacityPost);
-
 });
 
 const borrarDatosFirebase = () => {
     let refPost = (firebase.database().ref().child('POST'));
-    console.log(event.target);
     let keyDataDelete = event.target.getAttribute("data-message-delete");
-    // let keyDataDelete = event.target.data-message-deleted;
-    console.log(keyDataDelete);
     let refMesaggeDelete = refPost.child(keyDataDelete);
     let modal = document.getElementById('miModal');
     modal.classList.add('modalView');
     let elmet = '';
     elmet = modalView('Eliminar', 'Desea realmente eliminar ?', 'SI', 'NO');
     modal.innerHTML = elmet;
-    console.log(modal);
-
+    document.getElementById('close').addEventListener('click', () => {
+        modal.innerHTML = '';
+    })
     document.getElementById("accept").addEventListener('click', () => {
         refMesaggeDelete.remove();
+        modal.innerHTML = '';
+        modal.classList.remove('modalView');
     })
 
 }
 const editaDatosFirebase = () => {
-    alert('editar');
     const posts = document.getElementById('posts');
     let keyDataEdit = event.target.getAttribute("data-message-edit");
-    console.log(keyDataEdit);
     refPost.on("value", function (snap) {
         let datos = snap.val();
-        console.log(datos);
         posts.innerHTML = "";
 
         for (let key in datos) {
-            console.log(key);
             if (key == keyDataEdit) {
-                console.log(datos[key].privacity);
                 if (datos[key].privacity == 'PUBLICO') {
                     posts.innerHTML +=
                         `<form class="comentary">
