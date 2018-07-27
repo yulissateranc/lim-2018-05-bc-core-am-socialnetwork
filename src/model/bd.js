@@ -17,8 +17,6 @@ const directionalUrl = (url) => {
 const getDataUserSessionActive = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      alert('existe un usuario');
-      console.log(user.emailVerified);
       render(containerModalWelcome);
     } else {
       alert('no existente usuario activo');
@@ -28,15 +26,11 @@ const getDataUserSessionActive = () => { //observer()
 const getDataUserSessionActiveLogin = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      alert('Datos del usuario con sesión activa');
       if (user.emailVerified) {
-        console.log(user.emailVerified);
         directionalUrl('../src/view/muro.html')
       } else {
-        modalView('Inicio Sesion','Por favor verifica tu correo registrado para acceder','Aceptar','Cerrar');
-        alert('por favor verifica tu correo para acceder');
+        modalView('Inicio Sesion', 'Por favor verifica tu correo registrado para acceder', 'Aceptar', 'Cerrar');
       }
-      console.log(user.emailVerified);
     } else {
       alert('no existente usuario activo');
     }
@@ -72,26 +66,23 @@ const getDataUserRegisterWithFacebookOrGmail = (user) => {
 const getDataCurrentUser = () => {
   let user = firebase.auth().currentUser;
   if (user) {
-    alert('enviaremos datos el usuario actual activo');
     let objUserFire = getDataUserRegisterFirebase(user);
     let objUserFacGmail = getDataUserRegisterWithFacebookOrGmail(user);
-    console.log(objUserFire, objUserFacGmail);
   } else {
     alert('usuario no logeado');
   }
 }
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
 const validateContentOfpublications = (descriptionPostValue) => {
-  if (/^(?!\s)/.test(descriptionPostValue) && /^([A-Za-z0-9\s]{8,})/g.test(descriptionPostValue)) {
+  if (/^(?!\s)/.test(descriptionPostValue) && /^([A-Za-z0-9\s]{1,})/g.test(descriptionPostValue)) {
     return true;
   } else {
     return false;
   };
 };
-const createPost = (descriptionPost, likesCount, privacity) => {
+const createPost = (descriptionPost, privacity) => {
   const validatepublications = validateContentOfpublications(descriptionPost.value)
   if (validatepublications) {
-    if (!firebase.auth().currentUser.displayName) {
       const userId = firebase.auth().currentUser.uid;
       (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
         const displayName = snapshot.val().userName;
@@ -102,28 +93,15 @@ const createPost = (descriptionPost, likesCount, privacity) => {
           autor: displayName,
           description: descriptionPost.value,
           privacity: privacity.value,
-          /*likesCount: likesCount.value*/
+          likesCount: 0,
         }).then(() => {
           descriptionPost.value = "";
           privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
           <option value="PRIVADO">PRIVADO 🔒</option>`;
+          // mostrarPost();
         });
       }));
-    } else {
-      alert('soy la funcion que creará el Post');
-      let refPost = (firebase.database().ref().child('POST'));
-      refPost.push({
-        userId: firebase.auth().currentUser.uid,
-        autor: firebase.auth().currentUser.displayName,
-        description: descriptionPost.value,
-        privacity: privacity.value,
-        /*likesCount: likesCount.value*/
-      }).then(() => {
-        descriptionPost.value = "";
-        privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
-        <option value="PRIVADO">PRIVADO 🔒</option>`;
-      });
-    }
+    
   } else {
     alert('Escriba su opinion');
     descriptionPost.placelholder = "Escribe un mensaje";
@@ -131,12 +109,29 @@ const createPost = (descriptionPost, likesCount, privacity) => {
 
 }
 /**************************************************Registro de datos en BD****************************************************************************/
-const createUser = (objectUser, name) => {
-  alert('se va a crear una referencia para el users');
-  console.log('esto se resistrará', objectUser);
-  if (!objectUser.user.displayName) {
+const createLike = () => {
+  const postId = event.target.getAttribute("data-like");
+  const uid = (firebase.auth().currentUser.uid);
+  let postRef = firebase.database().ref('POST/' + postId);
+  postRef.transaction((post) => {
+    if (post) {
+      if (post.likes && post.likes[uid]) {
+        post.likesCount--;
+        post.likes[uid] = null;
+      } else {
+        post.likesCount++;
+        if (!post.likes) {
+          post.likes = {};
+        }
+        post.likes[uid] = true;
+      }
+    }
+    return post;
+  });
+};
 
-    console.log(objectUser.user.displayName);
+const createUser = (objectUser, name) => {
+  if (!objectUser.user.displayName) {
     firebase.database().ref('users/' + objectUser.user.uid).set({
       userId: objectUser.user.uid,
       userName: name,
@@ -164,7 +159,6 @@ const mostrarPost = () => {
   let refPost = (firebase.database().ref().child('POST'));
   refPost.on("value", function (snap) {
     let datos = snap.val();
-    // console.log(datos);
     const viewPost = document.getElementById('posts');
     let elementsView = "";
     for (let key in datos) {
@@ -178,7 +172,7 @@ const mostrarPost = () => {
               <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
-              <button type="button" class="icon-ok"></button>
+              <button type="button" class="icon-ok" data-like="${key}"></button>
               <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
@@ -192,7 +186,7 @@ const mostrarPost = () => {
               <p class="users" >${datos[key].autor}</p>
               <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
               <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
-              <button type="button" class="icon-ok"></button>
+              <button type="button" class="icon-ok" data-like="${key}"></button>
               <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
@@ -207,7 +201,7 @@ const mostrarPost = () => {
              <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
-             <button type="button" class="icon-ok"></button>
+             <button type="button" class="icon-ok" data-like="${key}"></button>
              <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
             </div>
@@ -219,11 +213,17 @@ const mostrarPost = () => {
       viewPost.innerHTML = elementsView;
       if (elementsView != "") {
         const elementDelete = document.getElementsByClassName("borrar");
-        const elementEdit = document.getElementsByClassName("editar");
+      const elementEdit = document.getElementsByClassName("editar");
+      const elementLike = document.getElementsByClassName('icon-ok');
+        for (let i = 0; i < elementLike.length; i++) {
+          elementLike[i].addEventListener('click', createLike, false);
+      }
         for (let i = 0; i < elementDelete.length; i++) {
+          // console.log(elementsView);
           elementDelete[i].addEventListener('click', borrarDatosFirebase, false);
           elementEdit[i].addEventListener('click', editaDatosFirebase, false);
         }
+          
       }
     }
   });
