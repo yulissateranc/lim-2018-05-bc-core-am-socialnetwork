@@ -134,9 +134,9 @@ De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concl
 
 
 ##  Backlog Tablero de Tareas.
-![pbaja1](src/view/assets/img/tablero.jpg)
-![pbaja2](src/view/assets/img/muro.jpg)
-![pbaja2](src/view/assets/img/ultimastareas.jpeg)
+![pbajax](src/view/assets/img/tablero.jpg)
+![pbajay](src/view/assets/img/muro.jpeg)
+![pbajaz](src/view/assets/img/ultimastareas.jpg)
 * [ ] Link/screenshots del prototipo de alta fidelidad.
 
 * [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
@@ -144,7 +144,7 @@ De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concl
 
 
 ##  Hacer al menos 2 o 3 entrevistas con usuarios.
-![pbaja2](src/view/assets/img/entrevistaDocente.jpg)
+![pbajan](src/view/assets/img/entrevistaDocente.jpg)
 ##  Encuestas a Nativos Digitales 
 https://docs.google.com/forms/d/19e03fbSUvarpDqvhEgzdnxU1UqlJwvnGwV_093SJLsU/edit#responses
 ** Encuestas a Docentes con perfil de Inmigrantes Digitales
