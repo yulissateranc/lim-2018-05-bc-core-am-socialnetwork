@@ -3,8 +3,9 @@
 body {
   font-family: segoe UI;
 /*background:  #2a3440;*/
+  background-image: url(../img/4297.jpg);
   height: auto;
-  margin: 0;
+  margin-top: 8%;
 }
 
 h1 {
@@ -136,12 +137,12 @@ input[type=password]:focus{
 }
 
 .icon {
-  background: aliceblue;
+  width: 50%;
+  height: auto;
   border: 1px solid #72BFE9;
   border-radius:10%;
   width:20%;
-  margin:auto 35%;
-  padding: 5%;
+  margin:auto 40%;
 }
 
 #bienvenida{
@@ -159,20 +160,30 @@ input[type=password]:focus{
   font-family: Segoe UI;
 }
 
+.msjerror {
+    font-size: 15px;
+}
 @media screen  and (min-width:600px) {
+    body{
+        margin: 0;
+    }
     #header-login{
   width: 100%; 
-  background:#72BFE9;
+  background:#2b485d;
   overflow: auto;
   text-align: center;
 }
 
 h1 {
   display: block;
-  font-family: Pacifico;
+  font-family: segoe UI;
   font-size: 40px;
-  color: white;
+  color: #6cdae6;
 }
+
+span {
+  color:#deb935;     
+ }
 
 .container-login {
   width: 80%;
@@ -187,7 +198,7 @@ h1 {
 }
 
 .icon{  
-  padding: 7%;
+  padding: 0;
   width: 20%;
   float: left;
   margin: 40% auto;
@@ -203,7 +214,6 @@ h1 {
 
   .icon{  
       margin: 18% 10% auto;
-      padding: 5%;
       width: 15%;
   }
     

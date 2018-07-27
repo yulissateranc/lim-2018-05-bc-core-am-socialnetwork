@@ -83,47 +83,23 @@ const createPost = (descriptionPost, privacity) => {
  
 
 /**************************************************likes***********************************************************/
-
-// const createLike =  () => {
-//     console.log('create like');
-//   const postId =event.target.getAttribute("data-like");
-//   console.log(postId);
-//   const uid = (firebase.auth().currentUser.uid);
-//   let postRef = firebase.database().ref('POST/' + postId );
-//   console.log(postRef);
-//   postRef.transaction((post) => {
-//       console.log(post);
-//     if (post) {
-//       if (post.likes && post.likes[uid]) {
-//           console.log();
-//         post.likesCount--;
-//         post.likes[uid] = null;
-//       } else {
-//         post.likesCount++;
-//         if (!post.likes) {
-//             console.log('funciona');
-//           post.likes = {};
-//         }
-//         post.likes[uid] = true;
-//       }
-//     }
-//     return post;
-//   });
-// };
-
-
-/**************************************************Registro de datos en BD****************************************************************************/
 const createLike = () => {
   const postId = event.target.getAttribute("data-like");
   const uid = (firebase.auth().currentUser.uid);
   let postRef = firebase.database().ref('POST/' + postId);
+  let like = document.getElementById("like");
+  console.log(like);
   postRef.transaction((post) => {
     if (post) {
       if (post.likes && post.likes[uid]) {
+        like.classList.remove('icon-like');
+        like.classList.add('icon-notLike')
         post.likesCount--;
         post.likes[uid] = null;
       } else {
         post.likesCount++;
+        like.classList.add('icon-like');
+        like.classList.remove('icon-notLike')
         if (!post.likes) {
           post.likes = {};
         }
@@ -133,6 +109,10 @@ const createLike = () => {
     return post;
   });
 };
+
+
+
+/**************************************************Registro de datos en BD****************************************************************************/
 
 const createUser = (objectUser, name) => {
   if (!objectUser.user.displayName) {
@@ -176,7 +156,7 @@ const mostrarPost = () => {
               <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
-              <button type="button" class="icon-ok" data-like="${key}"></button>
+              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
               <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
@@ -190,7 +170,7 @@ const mostrarPost = () => {
               <p class="users" >${datos[key].autor}</p>
               <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
               <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
-              <button type="button" class="icon-ok" data-like="${key}"></button>
+              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
               <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
@@ -205,7 +185,7 @@ const mostrarPost = () => {
              <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
-             <button type="button" class="icon-ok" data-like="${key}"></button>
+             <button type="button" class="icon-like" data-like="${key}" id="like"></button>
              <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
             </div>
@@ -218,7 +198,7 @@ const mostrarPost = () => {
       if (elementsView != "") {
         const elementDelete = document.getElementsByClassName("borrar");
       const elementEdit = document.getElementsByClassName("editar");
-      const elementLike = document.getElementsByClassName('icon-ok');
+      const elementLike = document.getElementsByClassName('icon-like');
         for (let i = 0; i < elementLike.length; i++) {
           elementLike[i].addEventListener('click', createLike, false);
       }
