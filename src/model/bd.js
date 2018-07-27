@@ -13,7 +13,6 @@ const dataBase = firebase.database();
 const directionalUrl = (url) => {
   window.location = (url);
 }
-<<<<<<< HEAD
 
 // const writeUserData = (userId, name, email, imageUrl) => {
 //   firebase.database().ref('USERSITOS/' + userId).set({
@@ -22,21 +21,16 @@ const directionalUrl = (url) => {
 //     profile_picture: imageUrl
 //   });
 // }
-=======
->>>>>>> 81ffc29530ceaa47bfc61baaed64ee8ef5a95ed8
 //********************datos del usuario con  sesion activa ************************************ */
 const getDataUserSessionActive = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      alert('existe un usuario');
-      console.log(user.emailVerified);
       render(containerModalWelcome);
     } else {
       alert('no existente usuario activo');
     }
   });
 };
-<<<<<<< HEAD
 
 const getDataUserRegisterFirebase = (user) => {
   let ObjUserCurrent = {};
@@ -50,24 +44,43 @@ const getDataUserRegisterFirebase = (user) => {
     };
     return ObjUserCurrent;
   }
-=======
-const getDataUserSessionActiveLogin = () => { //observer()
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      alert('Datos del usuario con sesión activa');
-      if (user.emailVerified) {
-        console.log(user.emailVerified);
-        directionalUrl('../src/view/muro.html')
-      } else {
-        alert('por favor verifica tu correo para acceder');
-      }
-      console.log(user.emailVerified);
-    } else {
-      alert('no existente usuario activo');
-    }
-  });
->>>>>>> 81ffc29530ceaa47bfc61baaed64ee8ef5a95ed8
 };
+const getDataUserRegisterFirebase = (user) => {
+  let ObjUserCurrent = {};
+  if (user != null) {
+    const ObjUserCurrent = {
+      name: user.displayName,
+      email: user.email,
+      photoUrl: user.photoURL,
+      emailVerified: user.emailVerified,
+      uid: user.uid
+    };
+    return ObjUserCurrent;
+  }
+};
+const getDataUserRegisterWithFacebookOrGmail = (user) => {
+  let ObjUserCurrent = {};
+  if (user != null) {
+    user.providerData.forEach(function (user) {
+      ObjUserCurrent = {
+        name: user.displayName,
+        email: user.email,
+        photoUrl: user.photoURL,
+        uid: user.uid
+      };
+      return ObjUserCurrent;
+    });
+  }
+};
+const getDataCurrentUser = () => {
+  let user = firebase.auth().currentUser;
+  if (user) {
+    let objUserFire = getDataUserRegisterFirebase(user);
+    let objUserFacGmail = getDataUserRegisterWithFacebookOrGmail(user);
+  } else {
+    alert('usuario no logeado');
+  }
+}
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
 const validateContentOfpublications = (descriptionPostValue) => {
   if (/^(?!\s)/.test(descriptionPostValue) && /^([A-Za-z0-9\s]{1,})/g.test(descriptionPostValue)) {
@@ -134,23 +147,35 @@ const createLike =  () => {
     return post;
   });
 };
-
+//<<<<<<< HEAD
 createUser=()=> {
   alert('se va a crear una referencia para el users');
-<<<<<<< HEAD
-  let refUser = (firebase.database().ref().child('USERSITOS'));
-  refUser.push({
-    userId: firebase.auth().currentUser.uid,
-    userName: firebase.auth().currentUser.displayName,
-    userEmail: firebase.auth().currentUser.email,
-    userPhotoUrl: firebase.auth().currentUser.photoURL
-  });
-}
-
-=======
   console.log('esto se resistrará', objectUser);
+//=======
+/**************************************************Registro de datos en BD****************************************************************************/
+const createLike = () => {
+  const postId = event.target.getAttribute("data-like");
+  const uid = (firebase.auth().currentUser.uid);
+  let postRef = firebase.database().ref('POST/' + postId);
+  postRef.transaction((post) => {
+    if (post) {
+      if (post.likes && post.likes[uid]) {
+        post.likesCount--;
+        post.likes[uid] = null;
+      } else {
+        post.likesCount++;
+        if (!post.likes) {
+          post.likes = {};
+        }
+        post.likes[uid] = true;
+      }
+    }
+    return post;
+  });
+};
+
+const createUser = (objectUser, name) => {
   if (!objectUser.user.displayName) {
-    console.log(objectUser.user.displayName);
     firebase.database().ref('users/' + objectUser.user.uid).set({
       userId: objectUser.user.uid,
       userName: name,
@@ -178,7 +203,6 @@ const mostrarPost = () => {
   let refPost = (firebase.database().ref().child('POST'));
   refPost.on("value", function (snap) {
     let datos = snap.val();
-    // console.log(datos);
     const viewPost = document.getElementById('posts');
     let elementsView = "";
     for (let key in datos) {
@@ -192,9 +216,9 @@ const mostrarPost = () => {
               <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
-              <button type="button" class="icon-ok" data-like=${key}></button>
-              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
+              <button type="button" class="icon-ok" data-like="${key}"></button>
               <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
           </form>`
         }
@@ -205,8 +229,8 @@ const mostrarPost = () => {
               <form class="comentary">
               <p class="users" >${datos[key].autor}</p>
               <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
-              <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}" />
-              <button type="button" class="icon-ok" data-like=${key}></button>
+              <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
+              <button type="button" class="icon-ok" data-like="${key}"></button>
               <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
@@ -221,9 +245,9 @@ const mostrarPost = () => {
              <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
-             <button type="button" class="icon-ok" data-like=${key}></button>
-             <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
+             <button type="button" class="icon-ok" data-like="${key}"></button>
              <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+             <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
             </div>
                </form>`
         }
@@ -236,7 +260,7 @@ const mostrarPost = () => {
       const elementEdit = document.getElementsByClassName("editar");
       const elementLike = document.getElementsByClassName('icon-ok');
         for (let i = 0; i < elementLike.length; i++) {
-          elementLike[i].addEventListener('click', createLike, false);   
+          elementLike[i].addEventListener('click', createLike, false);
       }
         for (let i = 0; i < elementDelete.length; i++) {
           // console.log(elementsView);
@@ -256,13 +280,12 @@ const mostrarPost = () => {
 
 const modalView = (reftexto, text, btn1, btn2) => {
   return `
-    <div class="modal-contentDelete">
-      <a href="#modal-close" title="Cerrar" class="modal-close">Cerrar</a>
+    <div class="modal-contentView">
+      <a href="#modal-close" title="Cerrar" id="close" class="modal-close">Cerrar</a>
       <h2>${reftexto}</h2>
       <p>${text}</p>
         <button id="accept" class="btnmodal">${btn1}</button>
         <a href="#modal-close" title="${btn2}"><button class="btnmodal">${btn2}</button></a>
     </div>
   `
-};
->>>>>>> 81ffc29530ceaa47bfc61baaed64ee8ef5a95ed8
+}
