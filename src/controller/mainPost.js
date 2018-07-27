@@ -3,8 +3,10 @@ const containerModalWelcome = document.getElementById('container-modal');
 let refPost = (firebase.database().ref().child('POST'));
 const logOut = document.getElementById('log-out');
 
+
 window.onload = () => {
     getDataUserSessionActive();
+  mostrarPost();
     let modal = document.getElementById('miModal');
     modal.classList.remove('modalView');
     let nameUser = document.getElementById('name-user');
@@ -22,7 +24,6 @@ logOut.addEventListener('click', () => {
     })
 })
 
-mostrarPost();
 
 buttonPublicPost.addEventListener('click', (e) => {
     e.preventDefault();

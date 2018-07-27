@@ -22,12 +22,22 @@ const directionalUrl = (url) => {
 //   });
 // }
 //********************datos del usuario con  sesion activa ************************************ */
+const nameCurrentUser = (nameUser,user) => {
+  const userId = user.uid;
+  (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
+    nameUser.innerHTML = snapshot.val().userName;
+  }));
+};
+
+
 const getDataUserSessionActive = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       render(containerModalWelcome);
-    } else {
-      alert('no existente usuario activo');
+      const nameUser = document.getElementById('nameUser');
+      console.log('nameuser');
+      nameCurrentUser(nameUser,user);
+    
     }
   });
 };
