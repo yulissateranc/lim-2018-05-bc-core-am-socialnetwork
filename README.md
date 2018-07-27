@@ -135,7 +135,6 @@ De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concl
 
 ##  Backlog Tablero de Tareas.
 ![pbajax](src/view/assets/img/tablero.jpg)
-![pbajay](src/view/assets/img/muro.jpeg)
 ![pbajaz](src/view/assets/img/ultimastareas.jpg)
 * [ ] Link/screenshots del prototipo de alta fidelidad.
 
