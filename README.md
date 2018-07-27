@@ -126,12 +126,17 @@ De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concl
  * como se debe  realizar una sesión de aprendizaje usando TICS.
  * También  logramos comprender que existian Docentes  que  si conocian acerca de las TICS  y las usaban con mucha seguridad ,pero estos docentes * encajaban en el perfil de Nativos digitales, por ese motivo decidímos perfilar a los docentes como Nativos e Inmigrantes Digitales.
 
+
 ##  Link/screenshots del prototipo de baja  fidelidad.
 ![pbaja1](src/view/assets/img/login.jpeg)
 ![pbaja2](src/view/assets/img/muro.jpeg)
 ![pbaja2](src/view/assets/img/formularios_login.jpeg)
 
 
+##  Backlog Tablero de Tareas.
+![pbaja1](src/view/assets/img/tablero.jpg)
+![pbaja2](src/view/assets/img/muro.jpg)
+![pbaja2](src/view/assets/img/ultimastareas.jpeg)
 * [ ] Link/screenshots del prototipo de alta fidelidad.
 
 * [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
@@ -139,7 +144,7 @@ De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concl
 
 
 ##  Hacer al menos 2 o 3 entrevistas con usuarios.
-
+![pbaja2](src/view/assets/img/entrevistaDocente.jpg)
 ##  Encuestas a Nativos Digitales 
 https://docs.google.com/forms/d/19e03fbSUvarpDqvhEgzdnxU1UqlJwvnGwV_093SJLsU/edit#responses
 ** Encuestas a Docentes con perfil de Inmigrantes Digitales
