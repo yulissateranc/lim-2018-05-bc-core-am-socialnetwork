@@ -42,55 +42,8 @@ const getDataUserSessionActive = () => { //observer()
   });
 };
 
-const getDataUserRegisterFirebase = (user) => {
-  let ObjUserCurrent = {};
-  if (user != null) {
-    const ObjUserCurrent = {
-      name: user.displayName,
-      email: user.email,
-      photoUrl: user.photoURL,
-      emailVerified: user.emailVerified,
-      uid: user.uid
-    };
-    return ObjUserCurrent;
-  }
-};
-const getDataUserRegisterFirebase = (user) => {
-  let ObjUserCurrent = {};
-  if (user != null) {
-    const ObjUserCurrent = {
-      name: user.displayName,
-      email: user.email,
-      photoUrl: user.photoURL,
-      emailVerified: user.emailVerified,
-      uid: user.uid
-    };
-    return ObjUserCurrent;
-  }
-};
-const getDataUserRegisterWithFacebookOrGmail = (user) => {
-  let ObjUserCurrent = {};
-  if (user != null) {
-    user.providerData.forEach(function (user) {
-      ObjUserCurrent = {
-        name: user.displayName,
-        email: user.email,
-        photoUrl: user.photoURL,
-        uid: user.uid
-      };
-      return ObjUserCurrent;
-    });
-  }
-};
-const getDataCurrentUser = () => {
-  let user = firebase.auth().currentUser;
-  if (user) {
-    let objUserFire = getDataUserRegisterFirebase(user);
-    let objUserFacGmail = getDataUserRegisterWithFacebookOrGmail(user);
-  } else {
-    alert('usuario no logeado');
-  }
-}
+
+
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
 const validateContentOfpublications = (descriptionPostValue) => {
   if (/^(?!\s)/.test(descriptionPostValue) && /^([A-Za-z0-9\s]{1,})/g.test(descriptionPostValue)) {
@@ -131,37 +84,34 @@ const createPost = (descriptionPost, privacity) => {
 
 /**************************************************likes***********************************************************/
 
-const createLike =  () => {
-    console.log('create like');
-  const postId =event.target.getAttribute("data-like");
-  console.log(postId);
-  const uid = (firebase.auth().currentUser.uid);
-  let postRef = firebase.database().ref('POST/' + postId );
-  console.log(postRef);
-  postRef.transaction((post) => {
-      console.log(post);
-    if (post) {
-      if (post.likes && post.likes[uid]) {
-          console.log();
-        post.likesCount--;
-        post.likes[uid] = null;
-      } else {
-        post.likesCount++;
-        if (!post.likes) {
-            console.log('funciona');
-          post.likes = {};
-        }
-        post.likes[uid] = true;
-      }
-    }
-    return post;
-  });
-};
-//<<<<<<< HEAD
-createUser=()=> {
-  alert('se va a crear una referencia para el users');
-  console.log('esto se resistrará', objectUser);
-//=======
+// const createLike =  () => {
+//     console.log('create like');
+//   const postId =event.target.getAttribute("data-like");
+//   console.log(postId);
+//   const uid = (firebase.auth().currentUser.uid);
+//   let postRef = firebase.database().ref('POST/' + postId );
+//   console.log(postRef);
+//   postRef.transaction((post) => {
+//       console.log(post);
+//     if (post) {
+//       if (post.likes && post.likes[uid]) {
+//           console.log();
+//         post.likesCount--;
+//         post.likes[uid] = null;
+//       } else {
+//         post.likesCount++;
+//         if (!post.likes) {
+//             console.log('funciona');
+//           post.likes = {};
+//         }
+//         post.likes[uid] = true;
+//       }
+//     }
+//     return post;
+//   });
+// };
+
+
 /**************************************************Registro de datos en BD****************************************************************************/
 const createLike = () => {
   const postId = event.target.getAttribute("data-like");

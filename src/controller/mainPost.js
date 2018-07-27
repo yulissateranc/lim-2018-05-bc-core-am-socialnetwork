@@ -1,8 +1,7 @@
 const buttonPublicPost = document.getElementById('btn-public-post');
 const containerModalWelcome = document.getElementById('container-modal');
 let refPost = (firebase.database().ref().child('POST'));
-const logOut = document.getElementById('log-out');
-
+const btnLogOut = document.getElementById('log-out');
 
 window.onload = () => {
     getDataUserSessionActive();
@@ -12,18 +11,31 @@ window.onload = () => {
     let nameUser = document.getElementById('name-user');
 }
 
-logOut.addEventListener('click', () => {
+const logOut = () => {
     let modal = document.getElementById('miModal');
     modal.classList.add('modalView');
     let elmet = '';
     elmet = modalView('Cerrar Sesion', 'Seguro que desea salir ?', 'Si', 'No');
     modal.innerHTML = elmet;
     document.getElementById('accept').addEventListener('click', () => {
-        
-        directionalUrl('../login.html');
-    })
-})
+        firebase.auth().signOut().then(() => {
+            alert('se cerrará la sesión');
+            directionalUrl('../login.html')
+        }).catch((error) => {
+            alert('No se pudo cerrar sesión');
+        });
 
+    })
+}
+window.onclick = () => {
+    if (event.target.id == 'modal-welcome') {
+        closeModalWelcome();
+        containerModalWelcome.innerHTML = '';
+    }
+}
+btnLogOut.addEventListener('click', () => {
+    logOut();
+});
 
 buttonPublicPost.addEventListener('click', (e) => {
     e.preventDefault();
@@ -192,91 +204,9 @@ const render = (containerModalWelcome) => {
 
 };
    
-//          else {
-//             containerModalWelcome.innerHTML =
-//                 `
-// <div id="modal-welcome" class="modal">
-//     <div class="modal-content">
-//          <div class="modal-header">
-//             <span id="close-modal-welcome"  class="close">&times;</span>
-//             <h2>Modal Header</h2>
-//          </div>
-//          <div class="modal-body">
-//             <p>Some text in the Modal Body</p>
-//             <p >${firebase.auth().currentUser.displayName}</p>
-//          </div>
-//          <div class="modal-footer">
-//             <h3>Modal Footer</h3>
-//          </div>
-//     </div>
-// </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
-//         }
 
 
 
-// const render = (containerModalWelcome) => {
-//     if (!firebase.auth().currentUser.displayName) {
-//         const userId = firebase.auth().currentUser.uid;
-//         (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
-//             const displayName = snapshot.val().userName;
-//             containerModalWelcome.innerHTML =
-//                 `
-// 	<div id="modal-welcome" class="modal">
-//         <div class="modal-content">
-//              <div class="modal-header">
-//                 <span id="close-modal-welcome"  class="close">&times;</span>
-//                 <h2>Bienvenido a *******</h2>
-//              </div>
-// <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
-//              <div class="modal-body">
-// <p>
-// Gracias por unirte. 
-// Las actualizaciones y las nuevas funciones son versiones diarias
-// por favor, ayúdenos a crear una red social simple, hermosa y sin adornos.
-// Diviértete usando eso.</p>
-//              </div>
-
-//         </div>
-// 	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
-//         }));
-//     } else {
-//         containerModalWelcome.innerHTML =
-//             `
-// 	<div id="modal-welcome" class="modal">
-//         <div class="modal-content">
-//              <div class="modal-header">
-//                 <span id="close-modal-welcome"  class="close">&times;</span>
-//                 <h2>Modal Header</h2>
-//              </div>
-//              <div class="modal-body">
-//                 <p>Some text in the Modal Body</p>
-//                 <p >${firebase.auth().currentUser.displayName}</p>
-//              </div>
-//              <div class="modal-footer">
-//                 <h3>Modal Footer</h3>
-//              </div>
-//         </div>
-// 	</div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => closeModalWelcome());
-//     }
-// };
-
-const logOut = () => {
-    firebase.auth().signOut().then(() => {
-        alert('se cerrará la sesión');
-        directionalUrl('../login.html')
-    }).catch((error) => {
-        alert('No se pudo cerrar sesión');
-    });
-}
-window.onclick = () => {
-    if (event.target.id == 'modal-welcome') {
-        closeModalWelcome();
-        containerModalWelcome.innerHTML = '';
-    }
-}
-btnLogOut.addEventListener('click', () => {
-    logOut();
-});
 
 
 
