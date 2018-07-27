@@ -9,8 +9,8 @@ https://www.huffingtonpost.es/2014/12/02/tecnologia-inteligencias-multiples_n_62
 
 
 ## LO MEJORCITO DE LAS REDES SOCIALES 
-# FACEBOOK
-Facebook con más de 2.000 millones de usuarios activos mensuales. Actualmente, podemos interactuar a través de perfiles personales (que identifican a cada persona como usuario) y páginas (orientadas a organizaciones de cualquier índole).
+*  FACEBOOK
+Con más de 2.000 millones de usuarios activos mensuales. Actualmente, podemos interactuar a través de perfiles personales (que identifican a cada persona como usuario) y páginas (orientadas a organizaciones de cualquier índole).
 
 El perfil muestra la personalidad, los intereses y cómo es la vida online de cada persona. Entre las actividades más comunes que realizan los usuarios de Facebook son compartir fotos, música, vídeos, noticias y opiniones sobre infinidad de temas.
 
@@ -18,12 +18,12 @@ Por su parte, las páginas sirven para promocionar productos, organizaciones o f
 
 Finalmente, los grupos son creados por usuarios que desean reunir a personas alrededor un tema común. A diferencia de un perfil, donde los contactos son tus amigos y conocidos, en un grupo se pueden sumar personas de diferentes partes y que no se conocen. Pueden ser públicos, privados o secretos.
 
-# TWITTER
+* TWITTER
 Es el servicio de microblogging más extendido en el mundo, con más de 320 millones de usuarios activos mensualmente. Twitter permite a usuarios y empresas conectarse con la información que consideran interesante a través del envío y recepción de “tweets”, mensajes de no más de 280 caracteres que se publican en el perfil de la persona que los escribe, y se replican simultáneamente en la página de inicio de sus seguidores. Por si no visualizas el proceso, seguir a un usuario es algo así como suscribirse a sus tweets.
 
 Twitter incorpora la capacidad de búsqueda por usuario, tema, hashtag y enviar mensajes directos – DM-, privados a nuestros otros usuarios. Además, incorpora la posibilidad de tweets y perfiles patrocinados, una manera no invasiva de publicidad que se adapta a los intereses de los seguidores.
 
-# INSTAGRAM
+* INSTAGRAM
 Caracterizada por la forma cuadrada de las imágenes en honor a la Kodak Instamatic y las cámaras Polaroid, es una aplicación gratuita para compartir fotos en la que los usuarios pueden aplicar efectos tipográficos como filtros, marcos, colores retro y vintage adquirida por Facebook en 2012. Actualmente, cuenta con más de 800 millones de usuarios
 
 # LINKEDIN
@@ -35,13 +35,13 @@ Creado por tres antiguos empleados de PayPal en febrero de 2005, en noviembre de
 # GOOGLE PLUS
 Impulsada inicialmente para competir con Facebook, Google Plus se ha convertido en una interesante plataforma que integra los servicios clásicos de Google, así como funcionalidades nuevas e interesantes como el sistema de videoconferencia conocido como Hangout. Al igual que su competidor, Google Plus permite tener presencia a los usuarios a través de tres modalidades: perfil personal, página o comunidad (esta última sería el equivalente a los grupos de Facebook). Además, otro de los aspectos interesantes que la han definido es su importancia cada vez mayor en las estrategias SEO de las organizaciones, ya que no debemos olvidar que Google es el principal motor de búsqueda en Internet, y Google Plus su aplicación social.
 
-# PINTEREST
+* PINTEREST
 Pinterest es una red social basada en imágenes en la que las personas crean vínculos a través de sus intereses. En ocasiones se describe esta plataforma como un “tablero de corcho online” en el que los individuos van colgando elementos gráficos que llaman su atención. De ahí su nombre ‘Pin + interest = Pinterest’ (“Pinear” tus intereses). Esta red no está basada tanto en la interacción con otras personas como ocurre en otras redes sociales como Facebook o Twitter, sino que se centra más en los intereses o aficiones que las unen.
 
-# FLICKR
+* FLICKR
 Adquirida por Yahoo! en 2.005, es uno de los mayores repositorios de imágenes del mundo, con más de 10.000 millones. Al igual que en el caso de YouTube, para crear una cuenta en Flickr no se requieren conocimientos avanzados, sino tan sólo una cuenta de correo electrónico. Una vez activa, podemos subir una o varias imágenes, crear álbumes, seguir a otros usuarios o incluso subir videos.
 
-# VIMEO
+* VIMEO
 Criado a la sombra de YouTube, Vimeo es una plataforma audiovisual de streaming online que permite subir y compartir contenidos. Centrada en ofrecer un servicio de calidad, suele ser utilizada por profesionales del ámbito audiovisual para volcar sus portfolios o sus productos. Además, ofrece opciones interesantes para empresas o proyectos que precisen de un sistema profesional de almacenamiento de video.
 
 Referencia: 
@@ -98,8 +98,8 @@ Las entrevistas se hicieron de forma virtual con los docentes, por medio de vide
 * ¿Qué problema resuelve el producto para estos usuarios?
 
 Con la implementación de nuestra Red Social EDUTECH  buscamos resolver dos problemas:
- * 1.Disminuir la brecha notoria y existente entre nuestros Docentes considerdados como Inmigrantes Digitales  y uso de las TICS en su práctica docente.
- * 2.Agenciar de estrategias de aprendizaje a los Nativos Digitales, que según nuestra encuesta consideraron muy importante  el adoptar estas estrategias en su vida cotidiana.
+ * 1) Disminuir la brecha notoria y existente entre nuestros Docentes considerdados como Inmigrantes Digitales  y uso de las TICS en su práctica docente.
+ * 2) Agenciar de estrategias de aprendizaje a los Nativos Digitales, que según nuestra encuesta consideraron muy importante  el adoptar estas estrategias en su vida cotidiana.
 
 * Cuáles son los objetivos de estos usuarios en relación con el producto.
 
