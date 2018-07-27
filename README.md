@@ -15,6 +15,9 @@ EDUTECH es una comunidad de Inmigrantes Digitales y Educadores, donde ambos lado
   
   * [ ] Quiénes son los principales usuarios de producto.
   * [ ] Cómo descubriste las necesidades de los usuarios.
+    ![Mapa de empatía Nativos Digitales](src/view/assets/img/imagen1.png)
+    ![Mapa de empatía Docentes](src/view/assets/img/imagen2.png)
+
   * [ ] Qué problema resuelve el producto para estos usuarios.
   * [ ] Cuáles son los objetivos de estos usuarios en relación con el producto.
   * [ ] Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
@@ -31,6 +34,7 @@ Desde el punto de vista de UX, deberás:
 
 * Hacer un _benchmark_ de las principales redes sociales.
   ![Benchmark](src/view/assets/img/benchmarking.png)
+
 * Hacer al menos 2 o 3 entrevistas con usuarios.
 * Hacer un prototipo de alta fidelidad.
 * Testear el prototipo con usuarios.
