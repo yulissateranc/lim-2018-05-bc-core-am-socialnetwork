@@ -98,8 +98,8 @@ Las entrevistas se hicieron de forma virtual con los docentes, por medio de vide
 * ¿Qué problema resuelve el producto para estos usuarios?
 
 Con la implementación de nuestra Red Social EDUTECH  buscamos resolver dos problemas:
- 1.Disminuir la brecha notoria y existente entre nuestros Docentes considerdados como Inmigrantes Digitales  y uso de las TICS en su práctica docente.
- 2.Agenciar de estrategias de aprendizaje a los Nativos Digitales, que según nuestra encuesta consideraron muy importante  el adoptar estas estrategias en su vida cotidiana.
+ * 1.Disminuir la brecha notoria y existente entre nuestros Docentes considerdados como Inmigrantes Digitales  y uso de las TICS en su práctica docente.
+ * 2.Agenciar de estrategias de aprendizaje a los Nativos Digitales, que según nuestra encuesta consideraron muy importante  el adoptar estas estrategias en su vida cotidiana.
 
 * Cuáles son los objetivos de estos usuarios en relación con el producto.
 
