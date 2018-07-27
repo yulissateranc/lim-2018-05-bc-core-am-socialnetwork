@@ -146,7 +146,7 @@ De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concl
 ![pbajan](src/view/assets/img/entrevistaDocente.jpg)
 ##  Encuestas a Nativos Digitales 
 https://docs.google.com/forms/d/19e03fbSUvarpDqvhEgzdnxU1UqlJwvnGwV_093SJLsU/edit#responses
-** Encuestas a Docentes con perfil de Inmigrantes Digitales
+## Encuestas a Docentes con perfil de Inmigrantes Digitales
 https://docs.google.com/forms/d/1w3YltsOIs21h3mq2_2h-PK0YppIChDmmjDstTmdV3iM/edit#responses
 
 ##  Testeo de Usabilidad
