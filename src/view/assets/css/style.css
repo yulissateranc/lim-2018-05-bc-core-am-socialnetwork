@@ -11,7 +11,7 @@ body {
 
 .wrapperMenu {
 /*    background: #052F5F;*/
-    background: #72BFE9;
+    background: #2b485d;
     width: 100%;
     padding: 10px;
     height: 70px;
@@ -30,16 +30,17 @@ body {
     background: darkslategray;
 }
 */
-
+#name-user{
+    float: right;
+}
 /* Menu */
  #contenido {
     position: absolute;
-    width: 20%;
+    width: 80%;
     list-style: none;
     display: none;
     padding: 0;
-    margin: 2% 0% 0% -1.5%;
-    background: #4d636f;
+    background: #2b485d;
     height: auto;
 }
 
@@ -49,7 +50,7 @@ body {
 }
 
 #menu li:hover {
-    border-left: 10px solid #f1a203;
+    border-left:10px solid #f1a203;
 }
 
 #menu a {
@@ -58,16 +59,21 @@ body {
     color: aliceblue;
 }
 
-.abrir {
-    display: block;
-}
-
 .dropdown{
     display: none;
 }
 
 a {
     text-decoration: none;
+}
+
+#logoTech{
+    width: 15%;
+    height: auto;
+}
+
+.msjerrorm{
+    font-size: 5px;
 }
 
 .wrapper {
@@ -124,6 +130,9 @@ textarea {
     outline: none;
 }
 
+.notlike {
+    color: peru;
+}
 /* Seccion eliminar, editar*/
 .section-seleccion {
     float: left;
@@ -143,6 +152,16 @@ textarea {
     float: left;
     margin: 10px ;
     text-transform: uppercase;
+}
+
+@media screen and (min-width:400px) {
+    #contenido {
+        width: 40%;
+    }
+    
+    #logoTech {
+        width: 12%;
+    }
 }
 
 @media screen and (min-width:600px) {
@@ -204,6 +223,10 @@ textarea {
     .top {
         padding-top: 10%;
     }
+    
+    #logoTech {
+        width: 6%;
+    }
 }
 @media screen and (min-width:800px) {
     .wrapper {
@@ -219,6 +242,7 @@ textarea {
     
     #contenido {
         margin: 1% 0% 0% -0.5%;
+        width: 20%;
     }
 
     .top {

@@ -2,6 +2,7 @@ const buttonPublicPost = document.getElementById('btn-public-post');
 const containerModalWelcome = document.getElementById('container-modal');
 let refPost = (firebase.database().ref().child('POST'));
 const btnLogOut = document.getElementById('log-out');
+const btnMenu = document.getElementById('menu');
 
 window.onload = () => {
     getDataUserSessionActive();
@@ -11,22 +12,29 @@ window.onload = () => {
     let nameUser = document.getElementById('name-user');
 }
 
-const logOut = () => {
+let contador = 1;
+btnMenu.addEventListener('click', () => {
+    if(contador == 1){
+document.getElementById('contenido').style.display = 'block'; 
+			contador = 0;
+		} else {
+			contador = 1;
+			document.getElementById('contenido').style.display = 'none'; 
+		}
+})
+
+btnLogOut.addEventListener('click', () => {
     let modal = document.getElementById('miModal');
     modal.classList.add('modalView');
     let elmet = '';
     elmet = modalView('Cerrar Sesion', 'Seguro que desea salir ?', 'Si', 'No');
     modal.innerHTML = elmet;
     document.getElementById('accept').addEventListener('click', () => {
-        firebase.auth().signOut().then(() => {
-            alert('se cerrará la sesión');
-            directionalUrl('../login.html')
-        }).catch((error) => {
-            alert('No se pudo cerrar sesión');
-        });
-
+        
+       logOut();
     })
-}
+})
+
 window.onclick = () => {
     if (event.target.id == 'modal-welcome') {
         closeModalWelcome();
@@ -97,7 +105,7 @@ const editaDatosFirebase = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PUBLICO">PUBLICO</option>
               </select>
-            <button type="button" class="icon-ok"></button>
+            <button type="button" class="icon-like"></button>
             <button type="button" class="borrar" data-message-delete=${key} onclick=mostrarPost()>Cancelar</button>
             <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button>
             </div>
@@ -113,7 +121,7 @@ const editaDatosFirebase = () => {
             <select disabled id="postEdit-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
-            <button type="button" class="icon-ok"></button>
+            <button type="button" class="icon-like"></button>
         </form>
  `
             };
@@ -205,8 +213,18 @@ const render = (containerModalWelcome) => {
 };
    
 
-
-
+const logOut = () => {
+    firebase.auth().signOut().then(() => { directionalUrl('../login.html')
+    }).catch((error) => {
+        alert('No se pudo cerrar sesión');
+    });
+}
+window.onclick = () => {
+    if (event.target.id == 'modal-welcome') {
+        closeModalWelcome();
+        containerModalWelcome.innerHTML = '';
+    }
+}
 
 
 

@@ -56,13 +56,13 @@ const validatorEmailAndPassword = (email, password, name) => {
         registerUserUsual(email, password, name, msjErrorName, msjErrorEmail, msjErrorPassword);
         return true;
     } else if (!validateNameUser) {
-        msjErrorName.innerHTML = `<em>el nombre de usuario debería tener más de 8 dígitos y solo puede contener letras, números y espacios en blanco</em>`
+        msjErrorName.innerHTML = `<em>El nombre de usuario debería tener más de 8 dígitos y solo puede contener letras, números y espacios en blanco</em>`
         return false;
     } else if (!validatedEmail) {
-        msjErrorEmail.innerHTML =`<em>Email invalid</em>`
+        msjErrorEmail.innerHTML =`<em>Email invalido</em>`
         return false;
     } else if (!validatedPassword) {
-        msjErrorPassword.innerHTML = `<em>la conytraseña debe tener más de 8 dígitos y solo puede contener letras y números</em></em>`;
+        msjErrorPassword.innerHTML = `<em>La contraseña debe tener más de 8 dígitos y solo puede contener letras y números</em></em>`;
         return false;
     } 
 }
