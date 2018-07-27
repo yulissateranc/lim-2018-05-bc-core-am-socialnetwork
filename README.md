@@ -1,471 +1,152 @@
-# Creando una Red Social
-
+# RED SOCIAL EDUTECH ("Compartiendo nuestras mejores experiencias en Tecnología y Educación ")
 ## Preámbulo
+Las tecnologías de la Información y Comunicaciones TICS son las nuevas innovaciones tecnológicas. En la actualidad son de gran importancia en la educación ya que a través de ellas se han desarrollado nuevas estrategias del aprendizaje dentro de los diversos Entornos Virtuales, asi mismo las TIC son usadas a diario por los Nativos Digitales(Prensky describe a los nativos digitales como las personas que, rodeadas desde temprana edad por las nuevas tecnologías ),convirtiendo a las TICS en  herramientas indispensables para el desarrollo de sus actividades conditianas, sin embargo se puede notar en los  docentes considerados como inmigrantes digitales  las situación cambia pues no incluyen estas TICS en la planificación y desarrollo de sus sesiones de aprendizaje ,privandose  de los beneficios que se obtiene del uso adecuado de las mismas, para el desarrollo de las inteligencias múltiples de sus estudiantes, por el cual, la razón principal de esta Red Social Edutech es asociar las buenas experiencias que han ido obteniendo los inmigrantes digitales con las estrategias o métodos eficacez  que  a diario ejercen los docentes para transmitir sus ideas,pues según la encuesta y entrevistas realizadas , inmigrantes digitales consideran que es muy importante para ellos aprender nuevas formas de transmitir sus ideas de manera efectiva y consideran que sería interesante obtener estos tips de personas especialistas en estas facetas de educación.Logrando asi con EDUTECH  disminuir la notable brecha que existente entre los docentes y las TICS y al mismo tiempo beneficiar a los usuarios de tics para una mejor o efectiva comunicación con personas de su entorno.
+Referencias :
+https://www.oei.es/historico/divulgacioncientifica/?Alumnos-nativos-digitales-docentes-migrantes-digitales
+https://www.iebschool.com/blog/nativos-digitales-digital-business/
+https://www.huffingtonpost.es/2014/12/02/tecnologia-inteligencias-multiples_n_6248634.html
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchxs no podemos
-vivir sin ellas.
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
+
+## LO MEJORCITO DE LAS REDES SOCIALES 
+*  FACEBOOK
+Con más de 2.000 millones de usuarios activos mensuales. Actualmente, podemos interactuar a través de perfiles personales (que identifican a cada persona como usuario) y páginas (orientadas a organizaciones de cualquier índole).
+
+El perfil muestra la personalidad, los intereses y cómo es la vida online de cada persona. Entre las actividades más comunes que realizan los usuarios de Facebook son compartir fotos, música, vídeos, noticias y opiniones sobre infinidad de temas.
+
+Por su parte, las páginas sirven para promocionar productos, organizaciones o figuras públicas. Una página no “pide ser tu contacto o amigo”, sino que una recibe admiradores, seguidores y partidarios de lo que se están proponiendo o dando a conocer (“me gusta”).
+
+Finalmente, los grupos son creados por usuarios que desean reunir a personas alrededor un tema común. A diferencia de un perfil, donde los contactos son tus amigos y conocidos, en un grupo se pueden sumar personas de diferentes partes y que no se conocen. Pueden ser públicos, privados o secretos.
+
+* TWITTER
+Es el servicio de microblogging más extendido en el mundo, con más de 320 millones de usuarios activos mensualmente. Twitter permite a usuarios y empresas conectarse con la información que consideran interesante a través del envío y recepción de “tweets”, mensajes de no más de 280 caracteres que se publican en el perfil de la persona que los escribe, y se replican simultáneamente en la página de inicio de sus seguidores. Por si no visualizas el proceso, seguir a un usuario es algo así como suscribirse a sus tweets.
+
+Twitter incorpora la capacidad de búsqueda por usuario, tema, hashtag y enviar mensajes directos – DM-, privados a nuestros otros usuarios. Además, incorpora la posibilidad de tweets y perfiles patrocinados, una manera no invasiva de publicidad que se adapta a los intereses de los seguidores.
+
+* INSTAGRAM
+Caracterizada por la forma cuadrada de las imágenes en honor a la Kodak Instamatic y las cámaras Polaroid, es una aplicación gratuita para compartir fotos en la que los usuarios pueden aplicar efectos tipográficos como filtros, marcos, colores retro y vintage adquirida por Facebook en 2012. Actualmente, cuenta con más de 800 millones de usuarios
+
+*  LINKEDIN
+Fundada en 2003, LinkedIn se ha convertido en la red social profesional de referencia.  Cada día capta aproximadamente 60.000 nuevos perfiles y su ritmo de crecimiento mundial ha sido vertiginoso, hasta sobrepasar los 500 millones de usuarios. De hecho, muchas empresas la utilizan hoy en día como una de las principales herramientas de reclutamiento gracias a sus amplias posibilidades y la completa información que poseen del candidato.
+
+*  YOUTUBE
+Creado por tres antiguos empleados de PayPal en febrero de 2005, en noviembre de 2006 fue adquirida por Google a cambio de 1.650 millones de dólares, convirtiéndose así en su adquisición más cara hasta entonces. Desde ese momento, el impacto de YouTube en la Web 2.0 no ha hecho más que crecer, convirtiéndose en la principal plataforma de subida y visionado de videos, así como el segundo buscador por volumen de consultas, sólo superado, paradójicamente, por el propio Google.
+
+*  GOOGLE PLUS
+Impulsada inicialmente para competir con Facebook, Google Plus se ha convertido en una interesante plataforma que integra los servicios clásicos de Google, así como funcionalidades nuevas e interesantes como el sistema de videoconferencia conocido como Hangout. Al igual que su competidor, Google Plus permite tener presencia a los usuarios a través de tres modalidades: perfil personal, página o comunidad (esta última sería el equivalente a los grupos de Facebook). Además, otro de los aspectos interesantes que la han definido es su importancia cada vez mayor en las estrategias SEO de las organizaciones, ya que no debemos olvidar que Google es el principal motor de búsqueda en Internet, y Google Plus su aplicación social.
+
+* PINTEREST
+Pinterest es una red social basada en imágenes en la que las personas crean vínculos a través de sus intereses. En ocasiones se describe esta plataforma como un “tablero de corcho online” en el que los individuos van colgando elementos gráficos que llaman su atención. De ahí su nombre ‘Pin + interest = Pinterest’ (“Pinear” tus intereses). Esta red no está basada tanto en la interacción con otras personas como ocurre en otras redes sociales como Facebook o Twitter, sino que se centra más en los intereses o aficiones que las unen.
+
+* FLICKR
+Adquirida por Yahoo! en 2.005, es uno de los mayores repositorios de imágenes del mundo, con más de 10.000 millones. Al igual que en el caso de YouTube, para crear una cuenta en Flickr no se requieren conocimientos avanzados, sino tan sólo una cuenta de correo electrónico. Una vez activa, podemos subir una o varias imágenes, crear álbumes, seguir a otros usuarios o incluso subir videos.
+
+* VIMEO
+Criado a la sombra de YouTube, Vimeo es una plataforma audiovisual de streaming online que permite subir y compartir contenidos. Centrada en ofrecer un servicio de calidad, suele ser utilizada por profesionales del ámbito audiovisual para volcar sus portfolios o sus productos. Además, ofrece opciones interesantes para empresas o proyectos que precisen de un sistema profesional de almacenamiento de video.
+
+Referencia: 
+Esta información fue extraida de la siguiente fuente :https://thesocialmediafamily.com/redes-sociales/
 
 ## Introducción
 
-Una emprendedora nos ha encargado crear una red social. No nos da mucho detalle
-sobre qué tipo de red social quiere, sólo nos dice que creemos la mejor que
-podamos, y que luego la convenzamos de lanzarla al mercado. Nos da ciertos temas
-en los que le gustaría invertir:
+EDUTECH es una comunidad de Inmigrantes Digitales y Educadores, donde ambos lados se benefician compartiendo sus buenas experiencias respecto al uso de las  TICS como tambien aprendiendo nuevas estrategías o técnicas de enseñanza para transmitir sus ideas  de forma eficaz.Beneficiando así a ambas partes.
 
-* Alimentación
-* Feminismo
-* Educación
-* Salud
-* Energías Renovables
 
 ## Objetivos
+ 
+ *Disminuir la brecha existente entre los docentes y el uso de las TICS
+ *Agenciar a los Nativos digitales sobre estrategias o técnicas para lograr el aprendizaje.
 
-El objetivo principal de aprendizaje de este proyecto es construir un sitio web
-[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
-con más de una vista (página), y en el que podamos leer y escribir datos.
+## Definición del producto:
+  ¿ Cuáles son los elementos básicos que tiene una red social?
 
-Algunos objetivos específicos:
+  1. Rendimiento de la comunidad
+   -KPI relevantes
+   -Benchmarking interno y competitivo
+   -Analisis cualitativo
 
-* Entender las necesidades de los usuarios para los que crearás el producto y que ayudarás a resolver.
-* Poner en juego tu creatividad para generar ideas que lleven a una solución original y valiosa del problema.
-* Cuentas con el apoyo de tus compañeras, debes trabajar en equipo buscando _feedback_ constante.
+  2. Desempeño de compromiso
+    -Análisis cuantitativo
+    -Segmentación
 
-## Consideraciones generales
+  3. Rendimiento del contenido
+    - Contextualización
+Referencias :
+https://blog.digimind.com/en/agency/proving-roi/the-3-essential-elements-of-a-successful-social-media-report/
 
-Este proyecto se debe "resolver" en tríos.
+##  Quiénes son los principales usuarios de producto.
+ -Nativos Digitales :
+ Los nativos digitales enfocan su trabajo, el aprendizaje y los juegos de nuevas maneras: navegan con fluidez; tienen habilidad en el uso del ratón; utilizan reproductores de audio y video digitales a diario; toman fotos digitales que manipulan y envían; y usan, además, sus ordenadores para crear videos, presentaciones multimedia, música, blogs, etc. Absorben rápidamente la información multimedia de imágenes y videos, igual o mejor que si fuera texto; consumen datos simultáneamente de múltiples fuentes; esperan respuestas instantáneas; permanecen comunicados permanentemente y crean también sus propios contenidos. A los nativos digitales les encanta hacer varias cosas al mismo tiempo: son multitarea.
+ ![Nativos Digitales](src/view/assets/img/nativosdigitales.jpg)
+ -Docentes considerados Inmigrantes digitales 
+ Las características de los Inmigrantes digitales son: Estructuras mentales moldeadas por los procesos paso a paso. Resolver un problema a la vez. Actuación basada en el análisis deductivo. Aprendizaje basado en conocimientos pre-adquiridos. Los migrantes digitales son mas relajados y les gusta entablar una conversación con una persona y para pasar a otra terminan la anterior
+  ![Inmigrantes Digitales](src/view/assets/img/inmigrantes.jpg)
+      
+## Cómo descubriste las necesidades de los usuarios.
 
-La lógica del proyecto debe estar implementada completamente en JavaScript
-(ES6), HTML y CSS. En este proyecto **SÍ está permitido** usar librerías o
-frameworks, pero **no es obligatorio** :smiley:.
+Se descubrieron las necesidades de nuestro público objetivo a travéS de los procesos de diseño Design Thinking 
+Nos apoyamos en encuestas, entrevistas y mapas de empatía, continuación se detalla las necesidades decubriertas a través de Mapa de Empatía.
+Las entrevistas se hicieron de forma virtual con los docentes, por medio de video llamadas , pero capturando al mismo tiempo el audio de nuestros público objetivo.
+A los nativos digitales se les hizo una entrevista personal.
 
-Para comenzar tendrás que hacer un _fork_ y _clonar_ este
-repositorio.
+![Design Thinking](src/view/assets/img/desing.png)
+* Mapas de empatía 1 Nativos Digitales
+![Nativos Digitales](src/view/assets/img/Imagen1.png)
+* Mapas de empatía 2 Docentes
+![Docentes](src/view/assets/img/Imagen2.png)
+##  ¿Qué problema resuelve el producto para estos usuarios?
 
-## Parte obligatoria
+Con la implementación de nuestra Red Social EDUTECH  buscamos resolver dos problemas:
+ * 1) Disminuir la brecha notoria y existente entre nuestros Docentes considerdados como Inmigrantes Digitales  y uso de las TICS en su práctica docente.
+ * 2) Agenciar de estrategias de aprendizaje a los Nativos Digitales, que según nuestra encuesta consideraron muy importante  el adoptar estas estrategias en su vida cotidiana.
 
-### General
+##  Cuáles son los objetivos de estos usuarios en relación con el producto.
 
-En este proyecto, no hay un _boilerplate_, por lo que tú deberás definir
-la estructura de carpetas y archivos que consideres necesaria, puedes guiarte
-de los proyectos anteriores. Por lo tanto, los _tests_ y el _setup_ necesario
-para ejecutarlos serán hechos por ti misma :smiley:.
+* Docentes Inmigrantes Digitales : 
+Poder acceder a nuestra Red Social EDUTECH y poder encontrar posts sobre buenas experiencias que han adquirido los Nativos Digitales al hacer uso de las TICS.Permitiendo así elegir al docente que herramienta podría considerar en la planificación de sus sesión de aprendizaje.
 
-### Responsive
+* Nativos Digitales : 
+Su objetivo es poder visualizar posts, sobre las  estrategias más efectivas que los docentes usan para poder transmitir sus mensajes a sus estudiantes, tips sobre ello,de preferencia  a través de imágenes  de preferencia.
 
-Debe verse bien en dispositivos de pantallas grandes (computadoras/es, laptops, etc.) y pequeñas (tablets, celulares, etc.). Te sugerimos seguir la técnica de `mobile first` (más detalles sobre esta técnica al final).
-
-### Tests unitarios
-
-Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-_lines_, y _branches_.
-
-### UI y comportamiento (User Interface / Interfaz de Usuario)
-
-La interfaz debe permitir lo siguiente:
-
-#### Creación de cuenta de usuario e inicio de sesión
-
-* Login con Firebase:
-  - Solamente para el login es obligatorio usar [Firebase](https://firebase.google.com/), no para las
-    publicaciones en el muro ni las demás funcionalidades, para eso puedes
-    usar [`localStorage`](https://developer.mozilla.org/es/docs/Web/API/API_de_almacenamiento_web/Usando_la_API_de_almacenamiento_web).
-  - Autenticación con Facebook o Google.
-* Validaciones:
-  - No pueden haber usuarios repetidos.
-  - La cuenta de usuario debe ser un correo electrónico válido.
-  - Lo que se escriba en el campo (_input_) de contraseña debe ser secreto.
-* Comportamiento:
-  - Al enviarse un formulario de registro o inicio de sesión, debe validarse.
-  - En caso haya errores, el sistema debe mostrar mensajes de error para
-    ayudar al usuario a corregirlos.
-  - La aplicación solo permitirá el acceso a usuarios con cuentas válidas.
-  - Al recargar la aplicación, se debe verificar si el usuario está
-    logueado antes de mostrarle el contenido privado.
-* Perspectiva de interfaz:
-
-  ![Login](https://user-images.githubusercontent.com/9284690/40994765-c3cf9602-68c2-11e8-89ac-8254859b5ebb.png)
-
-#### Muro/timeline de la red social
-
-* Validaciones:
-  - Al apretar el botón de publicar, debe validar que exista contenido en el input.
-* Comportamiento:
-  - Poder publicar un post.
-  - Poder poner _like_ a una publicación.
-  - Llevar un conteo de los _likes_.
-  - Poder eliminar un post específico.
-  - Poder publicar y mostrar los posts que son sólo para mi (o amigos - ver Hacker edition :wink:) y para todo público.
-  - Pedir confirmación antes de eliminar un post.
-  - Al darle click en el botón editar, debe cambiar el texto por un input que
-    permita editar el texto y cambiar el link por guardar.
-  - Al darle guardar debe cambiar de vuelta a un texto normal pero con la
-    información editada.
-  - Al recargar la página debo de poder ver los textos editados
-* Perspectiva de interfaz:
-
-  ![Muro](https://user-images.githubusercontent.com/9284690/40994768-c52c3442-68c2-11e8-99a5-9e127e700dee.png)
-
-#### Otras consideraciones
-
-* La aplicación no debe dejar hacer publicaciones vacías de ningún tipo.
-* El usuario debe poder agregar, editar y eliminar contenido de la red
-  social.
-* El usuario debe poder definir la privacidad de lo que publica.
-* Al editar contenido, el contenido editado se verá automáticamente e
-  inmediatamente después de guardar.
-* Al recargar la página se deben poder ver los contenidos editados.
-
-Para armar la interfaz visual, utiliza como base alguna de estas guías de
-componentes:
-
-* [Guía Desktop 1](https://www.figma.com/file/F3aUqpHWOfZsEQifTPIleXo6/material-kit-free)
-* [Guía Desktop 2](https://www.figma.com/file/S39H0B1LOnaVICIUiApFTfoP/_Style-Guide---Desktop---Style-Guide)
-* [Guía Mobile 1](https://www.figma.com/file/00VTwmTNvLVaBLkxrMFbT8/Google-Material-Design)
-* [Guía Mobile 2](https://www.figma.com/file/O2Xraz3mraQHvevNsicMl91V/ejemplos-2)
-
-Personaliza estas guías con los colores y/o tipografías que creas convenientes.
-Recuerda que al hacer estas adaptaciones deberás seguir los fundamentos de
-_visual design_ como contraste, alineación, jerarquía, entre otros.
-
-## Implementación
-
-### Front end
-
-El corazón de este proyecto incluye:
-
-* Separar la manipulación del DOM de la lógica (separación de responsabilidades).
-* Que el sitio sea responsive, ya dicho.
-* Alterar y persistir datos. Los datos que agregues o modifiques deberán
-  persistir a lo largo de la aplicación, te recomendamos que uses
-  [`localStorage`](https://developer.mozilla.org/es/docs/Web/API/API_de_almacenamiento_web/Usando_la_API_de_almacenamiento_web)
-  como primera opción para resolver este desafío, aun así, tú
-  puedes optar por la que se acomode más a tu equipo.
-
-Además, podrías agregar algunas tareas nuevas de acuerdo a tus decisiones:
-
-* Recuerda que puedes usar una librería o framework si así lo desea el equipo. Al navegar en internet te darás cuenta de que algunas de estas construyen un
-  **boilerplate** por ti, tenlo presente al iniciar tu proyecto.
-* Recuerda que no hay un setup de **tests** definido, dependerá de
-  la estructura de tu proyecto también, pero algo que no debes de olvidar es
-  pensar en estas pruebas, pues incluso te podrían ayudar a definir la estructura y
-  nomenclatura de tu lógica.
-
-### UX
-
-Desde el punto de vista de UX, deberás:  
-
-* Hacer un _benchmark_ de las principales redes sociales.
-* Hacer al menos 2 o 3 entrevistas con usuarios.
-* Hacer un prototipo de alta fidelidad.
-* Testear el prototipo con usuarios.
-* Asegurarte de que la implementación en código siga los lineamientos del
-  diseño.
-* Hacer sesiones de testing con el producto en HTML.
-
-### Ágil
-
-Vamos a dar un paso importante para seguir aprendiendo de Ágil. Te será de mucha
-ayuda para ir avanzando tu proyecto de forma incremental y no en cascada.
-
-Esta vez te pedimos que los ítems de tu Backlog de Producto estén escritos
-como [Historias de Usuario](http://jmbeas.es/guias/historias-de-usuario/).
-Esta es una técnica muy simple que te ayudará a:
-
-* Organizar el trabajo en función del valor que le aporta al usuario.
-* Poder publicar partes completas y utilizables del producto al final del
-  sprint.
-* Que el equipo trabaje de manera multidisciplinaria de manera natural.
-
-### Habilidades Blandas
-
-Trabajar en equipo es un gran desafío porque coordinarse no es una tarea fácil,
-y es más difícil entre tres que entre dos. Trata que tu equipo te entienda,
-facilitando siempre el diálogo dentro del squad.
-
-Planifica enumerando las tareas y distribuyéndolas, considerando los
-recursos, las habilidades, y el tiempo del que dispones. Planifica de manera
-que te permita avanzar en los distintos aspectos del proyecto de forma paralela,
-teniendo un tablero donde puedas ver en qué está trabajando cada compañera.
-
-Entrega tu trabajo a tu equipo a tiempo y colabora con el objetivo
-final del proyecto, lo que puede implicar ayudar a los demás miembros del equipo
-con sus pendientes, con el fin de entregar una red social de calidad.
-
-**La división del trabajo debe permitir que todo el equipo
-practique el aprendizaje de todas las habilidades esperadas. No se dividan el
-trabajo como en una fábrica**.
-
-Para que tu red social responda a las necesidades de tus usuarios, probablemente deberás adquirir nuevos conocimientos para implementar sus preferencias. Para conocer a los usuarios y sus preferencias, debes salir e investigar. Tienes que ejercitar tus habilidades de comunicación y toma de decisiones.
-Existen infinitas opciones, depende de ti el camino que escojas.
+Estos datos  anterior mente descritos fueron obtenidos despues de realizar las encuestas y entrevistas con nuestro público objetivo.
 
 
-Esta vez, haz _code review_ (feedback de tu código) con **otro squad**, para
-que puedas mejorar el producto. Mientras más feedback reciban, mejor.
+##  Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
 
-Esperamos que valores y escuches los comentarios y críticas de los demás,
-rescatando aquellos aspectos que sirven para tu crecimiento. Entrega siempre
-tu opinión de manera constructiva, fundamentada y coherente, con el propósito
-de ayudar a tus compañeras. Estos comentarios los debes hacer de manera honesta,
-empática e inmediata.
-
-Finalmente, deberás presentar el proyecto que creaste, al usuario que escogiste
-y las necesidades que lograste resolver en este proceso. Como siempre, sabemos
-que presentar puede ser una tarea difícil, y esperamos que tengas capacidad de
-síntesis y articules tus ideas con claridad para que logres mostrar tu trabajo
-y que los demás lo comprendan.
-
-## Hacker edition
-
-* Crear posts con imágenes.
-* Reemplazar `localStorage`: ¿le has compartido tu red social a tus amigxs? Si
-  lo has hecho, te darás cuenta de que ellxs no pueden ver tus posts ni tú el de
-  ellxs. Esto es debido a que `localStorage` almacena los datos localmente
-  (en tu navegador) por lo que esos datos no se comparten. Para resolver esto
-  podrías implementar una base de datos pero el tiempo podría jugar en contra,
-  para ello existen algunos servicios como [Firebase](https://firebase.google.com/products/database/)
-  que te proveen soluciones rápidas a este problema y solo usando su SDK :scream:.
-* Agregar la funcionalidad de amistad dentro de la red social, debo poder:
-  + Agregar amigos.
-  + Aceptar solicitudes de amigos.
-  + Eliminar amigos.
-  + Mostrar los posts que son sólo para mis amigos.
-
-## Entrega
-
-El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
-interfaz será desplegada usando GitHub pages u otro servicio de hosting que
-puedas haber encontrado en el camino.
-
-### Entregables
-
-#### 1) Definición del producto
-
-En el `README.md` debes colocar cómo conociste el mercado de las redes sociales, cómo descubriste las necesidades de los usuarios, y cómo llegaste a la definición final de tu producto. Si tienes fotos de entrevistas, cuestionarios y/o sketches
-(bocetos) compártelos. Es importante que detalles:
-
-* Cuáles son los elementos básicos que tiene una red social.
-* Quiénes son los principales usuarios de producto.
-* Cómo descubriste las necesidades de los usuarios.
-* Qué problema resuelve el producto para estos usuarios.
-* Cuáles son los objetivos de estos usuarios en relación con el producto.
-* Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
-* Cómo verificaste que el producto les está resolviendo sus problemas.
+#  Cómo verificaste que el producto les está resolviendo sus problemas.
 * Cómo te asegurarás que estos usuarios usen este producto.
+* Nos aseguraremos del uso de nuestra Red Social a través de Inviaciones a través de sus correos electrónicos recalcando la importancia del     contenido de nuestra Red Social EDUTECH, rescatando  las características más resaltantes de esta Social MEDIA, como diseño pensado en el usuario.(Esto aún no se ha implementado ,se espera realizarlo a futuro)
+## Benchmark de las principales redes sociales.
+![Benchmark](src/view/assets/img/benchmarking.png)
 
-Para poder llegar a estas definiciones te recomendamos revisar: benchmarks, entrevistas con usuarios y tests de usabilidad.
+##  Resumen de entrevistas con usuarios.
+De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concluyó los sgt:
+ * Considerán que sienten inseguridad al usar TICS en su práctica docente.
+ * Condieran  que las entidades responsables si les brindan orientación pero  no es suficiente, les agradaría visualizar por medio de videos
+ * como se debe  realizar una sesión de aprendizaje usando TICS.
+ * También  logramos comprender que existian Docentes  que  si conocian acerca de las TICS  y las usaban con mucha seguridad ,pero estos docentes * encajaban en el perfil de Nativos digitales, por ese motivo decidímos perfilar a los docentes como Nativos e Inmigrantes Digitales.
 
-#### 2) Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
 
-Debes definir cuál será el flujo que seguirá el usuario dentro de tu producto y
-con eso deberás diseñar la Interfaz de Usuario (UI - por sus siglas en inglés) de
-esta red social que siga este flujo. Para esto debes utilizar la herramienta de
-diseño visual de tu preferencia. Nosotros te recomendamos [Figma](https://www.figma.com/) dado que es una
-herramienta que funciona en el navegador y puedes crear una cuenta gratis. Sin
-embargo, eres libre de utilizar otros editores gráficos como Adobe XD, Illustrator,
-Photoshop, PowerPoint, Keynote, etc.
+##  Link/screenshots del prototipo de baja  fidelidad.
+![pbaja1](src/view/assets/img/login.jpeg)
+![pbaja2](src/view/assets/img/muro.jpeg)
+![pbaja2](src/view/assets/img/formularios_login.jpeg)
 
-Este diseño debe representar la solución que se implementará finalmente en
-código. 
 
-Tu diseño debe seguir los fundamentos de visual design, como: contraste,
-alineación, jerarquía, entre otros. Tip: revisa el contenido de UX de la unidad
-de visual design.
-
-#### 3) Implementación de la Interfaz de Usuario
-
-La idea para este proyecto es que el producto a desarrollar siga los
-lineamientos propuestos en el diseño de la interfaz de usuario. Asegúrate a lo
-largo de la implementación que los elementos propuestos están siendo
-implementados correctamente. (Hint: testing)
-
-## Evaluación
-
-### Tech
-
-| Habilidad | Nivel esperado |
-|-----------|----------------|
-| **JavaScript** | |
-| Estilo | 3
-| Nomenclatura/semántica | 3
-| Funciones/modularidad | 2
-| Estructuras de datos | 2
-| Tests | 2
-| **HTML** | |
-| Validación | 3
-| Estilo | 3
-| Semántica | 3
-| SEO | n/a
-| **CSS** | |
-| DRY | 3
-| Responsive | 3
-| **SCM** | |
-| Git | 3
-| GitHub | 3
-| **CS** | |
-| Lógica | 2
-| Arquitectura | 2
-| Patrones/paradigmas | n/a
-
-### UX
-
-| Habilidad | Nivel esperado |
-|-----------|----------------|
-| User Centricity | 3
-| Entrevistas | 2 |
-| Testing | 2
-| User Flow | 2
-| Jerarquía | 3
-| Alineación | 3
-| Contraste | 3
-| Color | 3
-| Tipografía | 3
-
-### Habilidades Blandas
-
-Para este proyecto esperamos que ya hayas alcanzado el nivel 3 en todas tus
-habilidades blandas. Te aconsejamos revisar la rúbrica:
-
-| Habilidad | Nivel esperado |
-|-----------|----------------|
-| Planificación y organización | 3
-| Autoaprendizaje | 3
-| Solución de Problemas | 3
-| Dar y recibir feedback | 3
-| Adaptabilidad | 3
-| Trabajo en equipo (trabajo colaborativo y responsabilidad) | 3
-| Comunicación eficaz | 3
-| Presentaciones | 3
-
-***
-
-## Pistas / Tips / Lecturas complementarias
-
-### Mobile first
-
-El concepto de [_mobile first_](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-hace referencia a un proceso de diseño y desarrollo donde partimos de cómo se ve
-y cómo funciona la aplicación en un dispositivo móvil primero, y más adelante se
-ve cómo adaptar la aplicación a pantallas progresivamente grandes y
-características específicas del entorno desktop. Esto es en contraposición al
-modelo tradicional, donde primero se diseñaban los websites (o webapps) para
-desktop y después se trataba de _arrugar_ el diseño para que entre en pantallas
-más chicas. La clave acá es asegurarse de que desde el principio diseñan usando
-la vista _responsive_ de las herramientas de desarrollador (developer tools) del
-navegador. De esa forma, partimos de cómo se ve y comporta la aplicación en una
-pantalla y entorno móvil.
-
-### Múltiples vistas
-
-En proyectos anteriores nuestras aplicaciones habían estado compuestas de una
-sola _vista_ principal (una sóla _página_). En este proyecto se introduce la
-necesidad de tener que dividir nuestra interfaz en varias _vistas_ o _páginas_
-y ofrecer una manera de navegar entre estas vistas. Este problema se puede
-afrontar de muchas maneras: con archivos HTML independientes (cada uno con su
-URL) y links tradicionales, manteniendo estado en memoria y rederizando
-condicionalmente (sin refrescar la página), [manipulando el historial del
-navegador](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-con [`window.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history),
-usando una librería (por ejemplo [`react-router`](https://github.com/ReactTraining/react-router)
-o [`vue-router`](https://router.vuejs.org/)). En este proyecto te invitamos a
-explorar opciones y decidir una opción de implementación.
-
-### Escritura de datos
-
-En los proyectos anteriores hemos consumido (leído) datos, pero todavía no
-habíamos escrito datos (guardar cambios, crear datos, borrar, ...). En este
-proyecto tendrás que crear (guardar) nuevos datos, así como leer, actualizar y
-modificar datos existentes. Estos datos se podrán guardar localmente usando
-[`localStorage`](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)
-o de forma remota usando [Firebase](https://firebase.google.com/).
-
-### Historias de usuario
-
-En el proyecto "Data Dashboard", la primera historia "épica" podría haber sido:
-
-Yo, como **Training Manager** quiero poder **ver el progreso de solución de
-ejercicios de JS de las estudiantes de mi(s) cohort(s)** para **entender
-cuánto están practicando y qué tan bien les está yendo**.
-
-Esta la podríamos haber dividido en algunas más pequeñas, por ejemplo:
-
-1. Yo, como **Training Manager** quiero poder **seleccionar cada uno de los
-   cohorts de mi ciudad** para **ver un listado de todas las estudiantes de ese
-   cohort, y que incluya el % de progreso de solución de ejercicios de cada una
-   de ellas**
-2. Yo, como **Training Manager** quiero poder **seleccionar a una estudiante en
-   particular** para **ver el % de progreso de solución de todos los ejercicios
-   y el resultado decada uno de ellos**
-
-Como ves, dividirla en 1 y 2, hace que sea mucho más fácil imaginar y entender
-lo que el equipo tiene que conseguir para completarla.
-
-Otras:
-
-* [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-* [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
-* [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
-* [Mobile First - ZURB](https://zurb.com/word/mobile-first)
-* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
-* [Offline first manifesto](http://offlinefirst.org/)
-
-***
-
-## Checklist
-
-### General
-
-* [ ] Producto final sigue los lineamientos del diseño.
-
-### `README.md`
-
-* [ ] Definición del producto:
-  * [ ] Cuáles son los elementos básicos que tiene una red social.
-  * [ ] Quiénes son los principales usuarios de producto.
-  * [ ] Cómo descubriste las necesidades de los usuarios.
-  * [ ] Qué problema resuelve el producto para estos usuarios.
-  * [ ] Cuáles son los objetivos de estos usuarios en relación con el producto.
-  * [ ] Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
-  * [ ] Cómo verificaste que el producto les está resolviendo sus problemas.
-  * [ ] Cómo te asegurarás que estos usuarios usen este producto.
-* [ ] Benchmark de las principales redes sociales.
-* [ ] Resumen de entrevistas con usuarios.
+##  Backlog Tablero de Tareas.
+![pbajax](src/view/assets/img/tablero.jpg)
+![pbajaz](src/view/assets/img/ultimastareas.jpg)
 * [ ] Link/screenshots del prototipo de alta fidelidad.
+
 * [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
 * [ ] Conclusiones de testing con el producto en HTML.
 
-### Pruebas / tests
 
-* [ ] Tests unitarios cubren un mínimo del 70% de statements, functions, lines y branches.
-* [ ] Pasa tests (y linters) (`npm test`).
+##  Hacer al menos 2 o 3 entrevistas con usuarios.
+![pbajan](src/view/assets/img/entrevistaDocente.jpg)
+##  Encuestas a Nativos Digitales 
+https://docs.google.com/forms/d/19e03fbSUvarpDqvhEgzdnxU1UqlJwvnGwV_093SJLsU/edit#responses
+## Encuestas a Docentes con perfil de Inmigrantes Digitales
+https://docs.google.com/forms/d/1w3YltsOIs21h3mq2_2h-PK0YppIChDmmjDstTmdV3iM/edit#responses
 
-### Creación de cuenta (sign up)
-
-* [ ] Permite crear cuenta.
-* [ ] Valida email.
-* [ ] Valida password.
-* [ ] Muestra mensajes de error.
-
-### Inicio de sesión (sign in)
-
-* [ ] Permite iniciar sesión.
-* [ ] Valida email.
-* [ ] Valida password.
-* [ ] Muestra mensajes de error.
-
-### Muro (wall/feed)
-
-* [ ] Muestra _muro_.
-* [ ] Permite publicar nuevos posts.
-* [ ] Permite eliminar posts.
-* [ ] Pide confirmación antes de borrar posts.
-* [ ] Permite editar posts (in place).
-* [ ] Permite publicar y filtrar posts por público/yo.
-* [ ] Permite dar _like_ a los posts y llevar un conteo de ellos.
+##  Testeo de Usabilidad

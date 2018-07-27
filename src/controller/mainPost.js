@@ -1,70 +1,77 @@
 const buttonPublicPost = document.getElementById('btn-public-post');
 const containerModalWelcome = document.getElementById('container-modal');
 let refPost = (firebase.database().ref().child('POST'));
-const btnLogOut = document.getElementById('log-out');
+const logOut = document.getElementById('log-out');
 
 
-
-
-
-window.onload = () => {   
+window.onload = () => {
     getDataUserSessionActive();
-    mostrarPost();
+  mostrarPost();
+    let modal = document.getElementById('miModal');
+    modal.classList.remove('modalView');
+    let nameUser = document.getElementById('name-user');
 }
+
+logOut.addEventListener('click', () => {
+    let modal = document.getElementById('miModal');
+    modal.classList.add('modalView');
+    let elmet = '';
+    elmet = modalView('Cerrar Sesion', 'Seguro que desea salir ?', 'Si', 'No');
+    modal.innerHTML = elmet;
+    document.getElementById('accept').addEventListener('click', () => {
+        
+        directionalUrl('../login.html');
+    })
+})
+
 
 buttonPublicPost.addEventListener('click', (e) => {
     e.preventDefault();
     let descriptionPost = document.getElementById('txt-description-post');
     const privacityPost = document.getElementById('post-privacity-selector');
     createPost(descriptionPost, privacityPost);
-
 });
 
 const borrarDatosFirebase = () => {
     let refPost = (firebase.database().ref().child('POST'));
-    console.log(event.target);
     let keyDataDelete = event.target.getAttribute("data-message-delete");
-    // let keyDataDelete = event.target.data-message-deleted;
-    console.log(keyDataDelete);
     let refMesaggeDelete = refPost.child(keyDataDelete);
     let modal = document.getElementById('miModal');
+    modal.classList.add('modalView');
     let elmet = '';
     elmet = modalView('Eliminar', 'Desea realmente eliminar ?', 'SI', 'NO');
     modal.innerHTML = elmet;
-    console.log(modal);
-
+    document.getElementById('close').addEventListener('click', () => {
+        modal.innerHTML = '';
+    })
     document.getElementById("accept").addEventListener('click', () => {
         refMesaggeDelete.remove();
+        modal.innerHTML = '';
+        modal.classList.remove('modalView');
     })
 
 }
 const editaDatosFirebase = () => {
-    alert('editar');
     const posts = document.getElementById('posts');
     let keyDataEdit = event.target.getAttribute("data-message-edit");
-    console.log(keyDataEdit);
     refPost.on("value", function (snap) {
         let datos = snap.val();
-        console.log(datos);
         posts.innerHTML = "";
 
         for (let key in datos) {
-            console.log(key);
             if (key == keyDataEdit) {
-                console.log(datos[key].privacity);
                 if (datos[key].privacity == 'PUBLICO') {
                     posts.innerHTML +=
                         `<form class="comentary">
             <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description}</textarea>
-            <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}*/"/>
+            <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
             <select id="postEdit-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PRIVADO">PRIVADO</option>
               </select>
-            <button type="button" class="icon-ok"></button>
-            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Update</button>
             <button type="button" class="borrar" data-message-delete=${key}  onclick=mostrarPost()>Cancelar</button>
+            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button>
             </div>
         </form>
             `
@@ -73,25 +80,28 @@ const editaDatosFirebase = () => {
                         `<form class="comentary">
             <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description}</textarea>
-            <input type="number" class="textValuefixed" readonly /*value="${datos[key].likesCount}*/"/>
+            <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
             <select id="postEdit-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PUBLICO">PUBLICO</option>
               </select>
             <button type="button" class="icon-ok"></button>
-            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Update</button>
-            <button type="button" class="borrar" data-message-delete=${key}  onclick=mostrarPost()>Cancelar</button>
-
+            <button type="button" class="borrar" data-message-delete=${key} onclick=mostrarPost()>Cancelar</button>
+            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button>
             </div>
 
         </form>`
                 }
 
-            } else if (key == keyDataEdit || datos[key].privacity == 'PUBLICO') {
+            } else {
                 posts.innerHTML += `<form class="comentary">
         <p class="users" >${datos[key].autor}</p>
             <textarea name="postMessage" rows="4" cols="50" class="mensaje" readonly> ${datos[key].description} </textarea>
-            <input type="number" class="textValuefixed" /*value="${datos[key].likesCount}*/" readonly/>
+            <input type="number" class="textValuefixed" value="${datos[key].likesCount}" readonly/>
+            <select disabled id="postEdit-privacity-selector">
+                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
+              </select>
+            <button type="button" class="icon-ok"></button>
         </form>
  `
             };
@@ -267,14 +277,6 @@ window.onclick = () => {
 btnLogOut.addEventListener('click', () => {
     logOut();
 });
-
-
-
-
-
-
-
-
 
 
 
