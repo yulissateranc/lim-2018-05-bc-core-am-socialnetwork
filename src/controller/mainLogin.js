@@ -5,13 +5,7 @@ const password = document.getElementById('password');
 const btnFacebook = document.getElementById("facebook");
 const btnGoogle = document.getElementById('google');
 const registro = document.getElementById('registro');
-
-
 const buttonSesion = document.getElementById('button-sesion');
-// const posts = document.getElementById('posts');
-// const principal = document.getElementById('wrapper');
-// const contenido = document.getElementById('contenido');
-
 const sesion = document.getElementById('sesion');
 const formRegistro = document.getElementById('form-registro');
 const formSesion = document.getElementById('form-sesion');

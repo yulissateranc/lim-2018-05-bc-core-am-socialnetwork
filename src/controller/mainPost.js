@@ -9,7 +9,7 @@ window.onload = () => {
   mostrarPost();
     let modal = document.getElementById('miModal');
     modal.classList.remove('modalView');
-    let nameUser = document.getElementById('name-user');
+    let nameUser = document.getElementById('name-User');
 }
 
 let contador = 1;
@@ -29,21 +29,23 @@ btnLogOut.addEventListener('click', () => {
     let elmet = '';
     elmet = modalView('Cerrar Sesion', 'Seguro que desea salir ?', 'Si', 'No');
     modal.innerHTML = elmet;
-    document.getElementById('accept').addEventListener('click', () => {
-        
+    document.getElementById('accept').addEventListener('click', () => {     
        logOut();
     })
 })
-
+const logOut =()=>{
+    firebase.auth().signOut().then(()=>{
+        directionalUrl('../login.html')
+    }).catch((error)=>{
+        alert('No se pudo cerrar sesión');
+    });
+}
 window.onclick = () => {
     if (event.target.id == 'modal-welcome') {
         closeModalWelcome();
         containerModalWelcome.innerHTML = '';
     }
-}
-btnLogOut.addEventListener('click', () => {
-    logOut();
-});
+};
 
 buttonPublicPost.addEventListener('click', (e) => {
     e.preventDefault();
@@ -213,18 +215,7 @@ const render = (containerModalWelcome) => {
 };
    
 
-const logOut = () => {
-    firebase.auth().signOut().then(() => { directionalUrl('../login.html')
-    }).catch((error) => {
-        alert('No se pudo cerrar sesión');
-    });
-}
-window.onclick = () => {
-    if (event.target.id == 'modal-welcome') {
-        closeModalWelcome();
-        containerModalWelcome.innerHTML = '';
-    }
-}
+
 
 
 

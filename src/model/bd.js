@@ -34,7 +34,7 @@ const getDataUserSessionActive = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       render(containerModalWelcome);
-      const nameUser = document.getElementById('nameUser');
+      const nameUser = document.getElementById('name-user');
       console.log('nameuser');
       nameCurrentUser(nameUser,user);
     
@@ -42,7 +42,14 @@ const getDataUserSessionActive = () => { //observer()
   });
 };
 
+const getDataUserSessionActiveLogin = () => { //observer()
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user && user.email) {
+      directionalUrl('../src/view/muro.html')
 
+    }
+  });
+};
 
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
 const validateContentOfpublications = (descriptionPostValue) => {
