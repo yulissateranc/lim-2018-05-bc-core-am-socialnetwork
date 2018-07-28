@@ -55,7 +55,6 @@ const createPost = (descriptionPost, privacity) => {
     const userId = firebase.auth().currentUser.uid;
     (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
       const displayName = snapshot.val().userName;
-      alert('soy la funcion que creará el Post');
       let refPost = (firebase.database().ref().child('POST'));
       refPost.push({
         userId: firebase.auth().currentUser.uid,
