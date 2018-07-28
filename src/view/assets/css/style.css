@@ -1,0 +1,258 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: segoe UI;
+}
+
+body {
+   background: #fafafa;
+   /*  background-color: #f5f7f8 !important; */
+}
+
+.wrapperMenu {
+/*    background: #052F5F;*/
+    background: #2b485d;
+    width: 100%;
+    padding: 10px;
+    height: 70px;
+    position: fixed;
+}
+
+.icon-menu {
+   font-size: 35px;
+    color: aliceblue;
+    cursor: pointer;
+    float: left;
+}
+
+/*
+.icon-menu:hover {
+    background: darkslategray;
+}
+*/
+#name-user{
+    float: right;
+}
+/* Menu */
+ #contenido {
+    position: absolute;
+    width: 80%;
+    list-style: none;
+    display: none;
+    padding: 0;
+    background: #2b485d;
+    height: auto;
+}
+
+#menu li {
+    border: 1px solid ;
+    transition: all 0.3s;
+}
+
+#menu li:hover {
+    border-left:10px solid #f1a203;
+}
+
+#menu a {
+    font-size: 20px;
+    padding: 10%;
+    color: aliceblue;
+}
+
+.dropdown{
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#logoTech{
+    width: 15%;
+    height: auto;
+}
+
+.msjerrorm{
+    font-size: 5px;
+}
+
+.wrapper {
+    padding: 1%;
+    text-align: center;
+    height: 80%;
+    width:90%;
+    margin: auto;
+}
+
+.top {
+    padding-top: 18%;
+}
+
+.comentary {
+    margin-top: 2%;
+     border-radius: 8px;
+     overflow: auto;
+    /*box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);*/
+     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
+     0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+textarea {
+    border: none;
+    width: 100%;
+    resize: none;
+    padding: 15px ;
+    font-size: 16px ;
+    outline: none;
+}
+
+[type=button] {
+    cursor: pointer;
+    margin: 1%;
+    padding: 15px;
+    border: none;
+    border-radius: 7px;
+    float: right;
+    outline: none;
+    color: white;
+    background: #f1a203;
+    display: flex;
+}
+
+.publish {
+    margin: 5%;
+}
+.comentary select {
+    border: 2px solid #F1A203;
+    padding: 2%;
+    margin: 4%;
+    float: left;
+    outline: none;
+}
+
+.notlike {
+    color: peru;
+}
+/* Seccion eliminar, editar*/
+.section-seleccion {
+    float: left;
+}
+
+.textValuefixed {
+    width: 8%;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    float: right;
+    margin: 20px 15px;
+}
+
+.users {
+    font-size: 18px;
+    float: left;
+    margin: 10px ;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width:400px) {
+    #contenido {
+        width: 40%;
+    }
+    
+    #logoTech {
+        width: 12%;
+    }
+}
+
+@media screen and (min-width:600px) {
+    
+/* -------- Dropdown -------- */
+    .dropdown {
+    display: block;
+    margin-top:-8%;
+    float: right;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding-right: 1%;
+    background-color: inherit;
+    font-family: inherit;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 7%;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    margin: 2%;
+    padding: 12px 16px;
+    display: block;
+    text-align: right;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background: #f1a203;
+}
+
+.imgUser {
+    float: inherit;
+    width: 45%;
+}
+   
+    #contenido {
+        margin: 2% 0% 0% -1%;
+    }
+
+    .comentary select {
+        padding: 2%;
+        margin: 2%;
+    }
+
+    .top {
+        padding-top: 10%;
+    }
+    
+    #logoTech {
+        width: 6%;
+    }
+}
+@media screen and (min-width:800px) {
+    .wrapper {
+        width: 60%;
+    }
+
+    .dropdown {
+    margin-top:-7%;
+    }
+    .dropdown-content {
+        margin-top: 3%;
+    }
+    
+    #contenido {
+        margin: 1% 0% 0% -0.5%;
+        width: 20%;
+    }
+
+    .top {
+        padding-top: 8%;
+    }
+}
+
+@media screen and (min-width:900px) {
+    .dropdown {
+    margin-top:-3.5%;
+    }
+
+}
