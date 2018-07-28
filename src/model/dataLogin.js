@@ -86,14 +86,10 @@ const registerUserUsual = (email, password, name, errorName, errorEmail, errorPa
             errorPassword.innerHTML = '';
             document.getElementById('form-registro').reset();
         }).catch(function (error) {
-            // Handle Errors here.
             let errorCode = error.code;
             let errorMessage = error.message;
             errorCode = 'La dirección de correo electrónico ya está registrada';
             errorMessage = 'La contraseña debe tener una longitud de 6 caracteres o más .';
-            // document.getElementById("msjValidation1").style.display = "block"; document.getElementById("msjValidation1").innerHTML = errorMessage;
-
-            // document.getElementById("msjValidation2").style.display = "block"; document.getElementById("msjValidation2").innerHTML = errorCode;
         });
 }
 /**********************************************Registro con Facebook*********************************/

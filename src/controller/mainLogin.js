@@ -59,20 +59,18 @@ const recoverPass = () => {
     modal.classList.add('modalView');
     auth.sendPasswordResetEmail(emailAddress)
         .then((result) => {
-            elmet = modalView('Recuperar Contraseña', 'SE HA ENVIADO UN CORREO A SU CUENTA. SIGA LOS PASOS', 'Aceptar', 'Cerrar');
+            elmet = modalView('Recuperar Contraseña', 'Se ha enviado un correo a su cuenta. SIGA LOS PASOS', 'Aceptar', 'Cerrar');
             modal.innerHTML = elmet;
             let accept = document.getElementById('accept');
             accept.addEventListener('click', () => {
                 window.location.href = "https://outlook.live.com/owa/#";
             })
         }).catch(function (error) {
-            //elmet = modalView('Recuperar Contraseña', 'No se encuentra en nuestros registros', 'Registrarse','Cerrar');
-            //modal.innerHTML = elmet;
+            elmet = modalView('Recuperar Contraseña', 'No se encuentra en nuestros registros', 'Registrarse','Cerrar');
+            modal.innerHTML = elmet;
             let register = document.getElementById('accept');
-            /* register.addEventListener('click', () => {
-                 window.onload();
-             })*/
-            alert('No se encuentra registrado');
+            register.style.display = 'none';
+          
         })
 };
 

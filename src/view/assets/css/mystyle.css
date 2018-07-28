@@ -40,6 +40,10 @@ h2.inactive {
   font-family: 'Segoe UI';
 }
 
+#txtTitle {
+  color: #2b485d;
+  font: bold;
+}
 label {
   float: left;
   padding: 10px 40px;

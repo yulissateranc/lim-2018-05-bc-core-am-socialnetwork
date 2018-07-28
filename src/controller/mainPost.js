@@ -27,11 +27,15 @@ btnLogOut.addEventListener('click', () => {
     let modal = document.getElementById('miModal');
     modal.classList.add('modalView');
     let elmet = '';
-    elmet = modalView('Cerrar Sesion', 'Seguro que desea salir ?', 'Si', 'No');
+    elmet = modalView('Cerrar Sesion', '¿ Seguro que desea salir ?', 'Si', 'No');
     modal.innerHTML = elmet;
     document.getElementById('accept').addEventListener('click', () => {
         logOut();
     })
+})
+
+document.getElementById('txt-description-post').addEventListener('click', () => {
+    document.getElementById('txterror').innerHTML='';
 })
 
 window.onclick = () => {
@@ -55,7 +59,7 @@ const borrarDatosFirebase = () => {
     let modal = document.getElementById('miModal');
     modal.classList.add('modalView');
     let elmet = '';
-    elmet = modalView('Eliminar', 'Desea realmente eliminar ?', 'SI', 'NO');
+    elmet = modalView('Eliminar', ' ¿ Desea realmente eliminar ?', 'SI', 'NO');
     modal.innerHTML = elmet;
     document.getElementById('close').addEventListener('click', () => {
         modal.innerHTML = '';
@@ -70,7 +74,7 @@ const borrarDatosFirebase = () => {
 const editaDatosFirebase = () => {
     const posts = document.getElementById('posts');
     let keyDataEdit = event.target.getAttribute("data-message-edit");
-    refPost.on("value", function (snap) {
+    refPost.on("value", (snap) => {
         let datos = snap.val();
         posts.innerHTML = "";
 
@@ -140,7 +144,7 @@ const updateU = () => {
     let newPost = document.getElementById("text-save").value;
     let newSelect = document.getElementById('postEdit-privacity-selector').value;
 
-    refPost.once("value", function (snap) {
+    refPost.once("value",(snap) => {
         let data = snap.val();
         for (key in data) {
             if (key == keyDataSave) {
@@ -165,14 +169,6 @@ const updateU = () => {
     })
 }
 
-const closeModalWelcome = () => {
-    const userId = (firebase.auth().currentUser.uid);
-    containerModalWelcome.innerHTML = '';
-    (firebase.database().ref('/users/' + userId).update({
-        isNewUser: false
-    }));
-};
-
 const render = (containerModalWelcome) => {
     const userId = (firebase.auth().currentUser.uid);
     (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
@@ -183,7 +179,7 @@ const render = (containerModalWelcome) => {
             <div class="modal-content">
             <div class="modal-header">
                 <span id="close-modal-welcome"  class="close">&times;</span>
-                <h2>Bienvenido a *******</h2>
+                <h2> Bienvenido a EDU TECH </h2>
              </div>
            <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
              <div class="modal-body">

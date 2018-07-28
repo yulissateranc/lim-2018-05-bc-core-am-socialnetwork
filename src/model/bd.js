@@ -66,13 +66,10 @@ const createPost = (descriptionPost, privacity) => {
         descriptionPost.value = "";
         privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
           <option value="PRIVADO">PRIVADO 🔒</option>`;
-        // mostrarPost();
       });
     }));
-
   } else {
-    alert('Escriba su opinion');
-    descriptionPost.placelholder = "Escribe un mensaje";
+    document.getElementById('txterror').innerHTML='¡ Ingrese texto para publicar !';
   }
 }
 
@@ -132,7 +129,7 @@ const createUser = (objectUser, name) => {
 
 const mostrarPost = () => {
   let refPost = (firebase.database().ref().child('POST'));
-  refPost.on("value", function (snap) {
+  refPost.on("value", (snap) => {
     let datos = snap.val();
     const viewPost = document.getElementById('posts');
     let elementsView = "";
@@ -204,14 +201,22 @@ const mostrarPost = () => {
   })
 }
 
+const closeModalWelcome = () => {
+  const userId = (firebase.auth().currentUser.uid);
+  containerModalWelcome.innerHTML = '';
+  (firebase.database().ref('/users/' + userId).update({
+    isNewUser: false
+  }));
+};
+
 const modalView = (reftexto, text, btn1, btn2) => {
   return `
     <div class="modal-contentView">
       <a href="#modal-close" title="Cerrar" id="close" class="modal-close">Cerrar</a>
-      <h2>${reftexto}</h2>
+      <h2 id="txtTitle">${reftexto}</h2>
       <p>${text}</p>
         <button id="accept" class="btnmodal">${btn1}</button>
-        <a href="#modal-close" title="${btn2}"><button class="btnmodal">${btn2}</button></a>
+        <a href="#modal-close" title="${btn2}"><button class="btnmodal" id="close">${btn2}</button></a>
     </div>
   `
 }
