@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/style.modal.css" />
     <link rel="stylesheet" href="assets/css/modal.css" />
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
     <title>Social Network</title>
 </head>
 
 <body>
     <header class="wrapperMenu">
-        <img src="../view/assets/img/TECH-EDU.png" alt="logoTech" id="logoTech"/>
+        <img src="../view/assets/img/ED.png" alt="logoTech" id="logoTech" />
         <div id="menu" class="icon-menu">
             <ul id="contenido">
                 <li>
@@ -22,33 +23,16 @@
                 </li>
             </ul>
         </div>
-        
-        <!--<div class="dropdown">
-            <img class="imgUser" src="assets/img/user.PNG" />
-            <div class="dropdown-content">
-                <a href="#">Mi Perfil</a>
-                <a href="#miModal" id="log-out">Cerrar Sesion</a>
-            </div>
-        </div>-->
-        <h3 id="name-user">Hola</h3>
+        <h3 id="nameUser"></h3>
     </header>
     <div id="container-modal"></div>
-    <!-- <header>
-        <div class="menuContent" style="width: 50%;">
-        <input type="text" placeholder="Buscar Aqui" />
-        <div style="float :right;" class="icon-search"></div>
-        </div>
-    </header>-->
-    
-    <section class="wrapper top" >
+    <section class="wrapper top">
         <form class="comentary" id="form-content">
             <textarea name="textarea" rows="4" cols="50" placeholder="Ingresa tu opinión" id="txt-description-post"></textarea>
             <select id="post-privacity-selector">
                 <option value="PUBLICO">PUBLICO 🌎 </option>
                 <option value="PRIVADO">PRIVADO 🔒</option>
             </select>
-            <!--<label>Likes</label>
-            <input type="text" id="input-likes-count" />-->
             <button type="button" id="btn-public-post" class="publish">PUBLICAR</button>
         </form>
     </section>
@@ -59,8 +43,6 @@
     <script src="../model/bd.js"></script>
     <script src="../model/dataLogin.js"></script>
     <script src="../controller/mainPost.js"></script>
-    <!-- <script src="../controller/data.wall.js"></script>
-    <script src="../controller/main.wall.js"></script> -->
 
 </body>
 

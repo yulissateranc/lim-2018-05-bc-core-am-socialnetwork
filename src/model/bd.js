@@ -14,35 +14,31 @@ const directionalUrl = (url) => {
   window.location = (url);
 }
 
-// const writeUserData = (userId, name, email, imageUrl) => {
-//   firebase.database().ref('USERSITOS/' + userId).set({
-//     username: name,
-//     email: email,
-//     profile_picture: imageUrl
-//   });
-// }
 //********************datos del usuario con  sesion activa ************************************ */
-const nameCurrentUser = (nameUser,user) => {
+const nameCurrentUser = (nameUser, user) => {
   const userId = user.uid;
   (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
     nameUser.innerHTML = snapshot.val().userName;
   }));
 };
 
-
 const getDataUserSessionActive = () => { //observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       render(containerModalWelcome);
       const nameUser = document.getElementById('nameUser');
-      console.log('nameuser');
-      nameCurrentUser(nameUser,user);
-    
+      nameCurrentUser(nameUser, user);
     }
   });
 };
 
-
+const getDataUserSessionActiveLogin = () => { //observer()
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user && user.email) {
+      directionalUrl('../src/view/muro.html')
+    }
+  });
+};
 
 //*****************************************Create / Edite/ Remove  de los Post*****************************************************************+/
 const validateContentOfpublications = (descriptionPostValue) => {
@@ -52,35 +48,34 @@ const validateContentOfpublications = (descriptionPostValue) => {
     return false;
   };
 };
+
 const createPost = (descriptionPost, privacity) => {
   const validatepublications = validateContentOfpublications(descriptionPost.value)
   if (validatepublications) {
-      const userId = firebase.auth().currentUser.uid;
-      (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
-        const displayName = snapshot.val().userName;
-        alert('soy la funcion que creará el Post');
-        let refPost = (firebase.database().ref().child('POST'));
-        refPost.push({
-          userId: firebase.auth().currentUser.uid,
-          autor: displayName,
-          description: descriptionPost.value,
-          privacity: privacity.value,
-          likesCount: 0,
-        }).then(() => {
-          descriptionPost.value = "";
-          privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
+    const userId = firebase.auth().currentUser.uid;
+    (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
+      const displayName = snapshot.val().userName;
+      alert('soy la funcion que creará el Post');
+      let refPost = (firebase.database().ref().child('POST'));
+      refPost.push({
+        userId: firebase.auth().currentUser.uid,
+        autor: displayName,
+        description: descriptionPost.value,
+        privacity: privacity.value,
+        likesCount: 0,
+      }).then(() => {
+        descriptionPost.value = "";
+        privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
           <option value="PRIVADO">PRIVADO 🔒</option>`;
-          // mostrarPost();
-        });
-      }));
-    
+        // mostrarPost();
+      });
+    }));
+
   } else {
     alert('Escriba su opinion');
     descriptionPost.placelholder = "Escribe un mensaje";
   }
-
 }
- 
 
 /**************************************************likes***********************************************************/
 const createLike = () => {
@@ -88,7 +83,6 @@ const createLike = () => {
   const uid = (firebase.auth().currentUser.uid);
   let postRef = firebase.database().ref('POST/' + postId);
   let like = document.getElementById("like");
-  console.log(like);
   postRef.transaction((post) => {
     if (post) {
       if (post.likes && post.likes[uid]) {
@@ -109,8 +103,6 @@ const createLike = () => {
     return post;
   });
 };
-
-
 
 /**************************************************Registro de datos en BD****************************************************************************/
 
@@ -184,12 +176,12 @@ const mostrarPost = () => {
              <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
              <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
-              </select>
+             </select>
              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
              <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
-            </div>
-               </form>`
+             </div>
+             </form>`
         }
 
 
@@ -197,26 +189,21 @@ const mostrarPost = () => {
       viewPost.innerHTML = elementsView;
       if (elementsView != "") {
         const elementDelete = document.getElementsByClassName("borrar");
-      const elementEdit = document.getElementsByClassName("editar");
-      const elementLike = document.getElementsByClassName('icon-like');
+        const elementEdit = document.getElementsByClassName("editar");
+        const elementLike = document.getElementsByClassName('icon-like');
         for (let i = 0; i < elementLike.length; i++) {
           elementLike[i].addEventListener('click', createLike, false);
-      }
+        }
         for (let i = 0; i < elementDelete.length; i++) {
-          // console.log(elementsView);
           elementDelete[i].addEventListener('click', borrarDatosFirebase, false);
           elementEdit[i].addEventListener('click', editaDatosFirebase, false);
-          
+
         }
-          
+
       }
     }
   })
 }
-
-
-
-
 
 const modalView = (reftexto, text, btn1, btn2) => {
   return `

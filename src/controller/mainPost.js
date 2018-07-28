@@ -6,7 +6,7 @@ const btnMenu = document.getElementById('menu');
 
 window.onload = () => {
     getDataUserSessionActive();
-  mostrarPost();
+    mostrarPost();
     let modal = document.getElementById('miModal');
     modal.classList.remove('modalView');
     let nameUser = document.getElementById('name-user');
@@ -14,13 +14,13 @@ window.onload = () => {
 
 let contador = 1;
 btnMenu.addEventListener('click', () => {
-    if(contador == 1){
-document.getElementById('contenido').style.display = 'block'; 
-			contador = 0;
-		} else {
-			contador = 1;
-			document.getElementById('contenido').style.display = 'none'; 
-		}
+    if (contador == 1) {
+        document.getElementById('contenido').style.display = 'block';
+        contador = 0;
+    } else {
+        contador = 1;
+        document.getElementById('contenido').style.display = 'none';
+    }
 })
 
 btnLogOut.addEventListener('click', () => {
@@ -30,8 +30,7 @@ btnLogOut.addEventListener('click', () => {
     elmet = modalView('Cerrar Sesion', 'Seguro que desea salir ?', 'Si', 'No');
     modal.innerHTML = elmet;
     document.getElementById('accept').addEventListener('click', () => {
-        
-       logOut();
+        logOut();
     })
 })
 
@@ -41,9 +40,6 @@ window.onclick = () => {
         containerModalWelcome.innerHTML = '';
     }
 }
-btnLogOut.addEventListener('click', () => {
-    logOut();
-});
 
 buttonPublicPost.addEventListener('click', (e) => {
     e.preventDefault();
@@ -141,7 +137,6 @@ const editaDatosFirebase = () => {
 const updateU = () => {
     let keyDataSave = event.target.getAttribute("data-message-save");
     let refMesaggesave = refPost.child(keyDataSave);
-    console.log(refMesaggesave);
     let newPost = document.getElementById("text-save").value;
     let newSelect = document.getElementById('postEdit-privacity-selector').value;
 
@@ -149,7 +144,6 @@ const updateU = () => {
         let data = snap.val();
         for (key in data) {
             if (key == keyDataSave) {
-                console.log(keyDataSave);
                 if (newPost === '') {
                     alert("Incompleto");
                 }
@@ -160,25 +154,19 @@ const updateU = () => {
                     let nuevoPost = {
                         description: newPost,
                         privacity: newSelect
-
                     }
-
-                    console.log(nuevoPost);
                     var updatesPost = {};
                     updatesPost = nuevoPost;
                     refMesaggesave.update(updatesPost)
-                    console.log(newPost);
                     mostrarPost();
                 }
             }
         }
     })
-
-
 }
 
 const closeModalWelcome = () => {
-    const userId = (firebase.auth().currentUser.uid); 
+    const userId = (firebase.auth().currentUser.uid);
     containerModalWelcome.innerHTML = '';
     (firebase.database().ref('/users/' + userId).update({
         isNewUser: false
@@ -188,7 +176,7 @@ const closeModalWelcome = () => {
 const render = (containerModalWelcome) => {
     const userId = (firebase.auth().currentUser.uid);
     (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
-        if(snapshot.val().isNewUser){
+        if (snapshot.val().isNewUser) {
             containerModalWelcome.innerHTML =
                 `
 	        <div id="modal-welcome" class="modal">
@@ -211,14 +199,15 @@ const render = (containerModalWelcome) => {
     }));
 
 };
-   
 
 const logOut = () => {
-    firebase.auth().signOut().then(() => { directionalUrl('../login.html')
+    firebase.auth().signOut().then(() => {
+        directionalUrl('../index.html')
     }).catch((error) => {
         alert('No se pudo cerrar sesión');
     });
 }
+
 window.onclick = () => {
     if (event.target.id == 'modal-welcome') {
         closeModalWelcome();
