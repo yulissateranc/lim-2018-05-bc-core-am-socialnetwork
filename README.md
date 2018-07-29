@@ -1,15 +1,15 @@
 ![logo](src/view/assets/img/logosi.png)
 # EduTic
 
-*  "El placer de aprender en un mundo Tecnológico"
+*  Educadores apasionados y Amantes de la Tecnología aportando a la Educación
 
 ## Preámbulo
+
+EduTic es una Comunidad de Docentes y Nativos Digitales donde ambas partes intercambian sus mejores experiencias relacionadas al aprendizaje y uso de TIC.
 
 Las tecnologías de la Información y Comunicaciones TIC(son todos aquellos recursos, herramientas y programas que se utilizan para procesar, administrar y compartir la información), en la actualidad son de gran importancia en la educación ya que a través de ellas se han desarrollado nuevas estrategias del aprendizaje dentro de los diversos Entornos Virtuales, asÍ mismo las TIC son usadas a diario por los Nativos Digitales(personas rodeadas desde temprana edad por las nuevas tecnologías ),convirtiendo a las TIC en  herramientas indispensables para el desarrollo de sus actividades conditianas.
 Pero también existe otro grupo llamados Inmigrantes Digitales(personas que nacieron antes de mediados de los noventa, antes de la era digital) y por tal motivo expresan sentir inseguridad  para usar las TICS y lamentablemente en nuestras I.E Estatales Peruanas podemos ver que este último perfil es caracterizado por cierto grupo de nuestros Docentes por lo cual va disminuyendo las posibilidades de disfrutar de aprendizajes significativos,limitando el desarrollo de las inteligencias múltiples de nuestros estudiantes.
 Sin embargo los Nativos Digitales entrevistados, mostraron un alto grado  de interes respecto a conocer maneras de como transmitir sus ideas de forma eficaz, entonces notamos que ambos grupos necesitanban intercambiar sus experiencias en base a TIC y tambien en base a las buenas prácticas que usaban nuestros queridos docentes aún sin dominar tecnología
-Y esto el corazón de este proyecto EduTics, que basicamente busca enlazar ambos mundos , ambos grupos de Nativos Digitales Y Educadores donde cada grupo aporta lo mejor  de ellos para lograr "El placer de aprender en un mundo Tecnológico"
-
 
 * Referencias :
 https://wikimemorys.wikispaces.com/inmigrantes+digitales
