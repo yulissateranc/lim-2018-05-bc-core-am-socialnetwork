@@ -33,7 +33,7 @@ body {
       background: aliceblue;
       color: black;
   }
-    #miModal:target{
+    #mi-modal:target{
       opacity:1;
       pointer-events:auto;
     }

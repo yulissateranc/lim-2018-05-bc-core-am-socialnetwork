@@ -1,3 +1,9 @@
 {
-  "lockfileVersion": 1
+  "lockfileVersion": 1,
+  "dependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^5.2.0",
+    "htmlhint": "^0.9.13",
+    "mocha": "^5.2.0"
+  }
 }
