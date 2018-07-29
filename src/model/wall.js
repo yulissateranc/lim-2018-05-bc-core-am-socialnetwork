@@ -71,7 +71,7 @@ window.showPostsInWall = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
               </select>
               <button type="button" class="icon-like" data-like="${key}" id="like"></button>
-              <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+              <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
           </form>`;
@@ -99,7 +99,7 @@ window.showPostsInWall = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
              </select>
              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
-             <a href="#miModal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+             <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
              </form>`;
@@ -147,7 +147,7 @@ const deletePostFirebase = () => {
   let refPost = (firebase.database().ref().child('POST'));
   let keyDataDelete = event.target.getAttribute('data-message-delete');
   let refMesaggeDelete = refPost.child(keyDataDelete);
-  let modal = document.getElementById('miModal');
+  let modal = document.getElementById('mi-modal');
   modal.classList.add('modalView');
   let elmet = '';
   elmet = window.modalView('Eliminar', ' ¿ Desea realmente eliminar ?', 'SI', 'NO');
