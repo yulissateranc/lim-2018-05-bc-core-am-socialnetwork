@@ -26,7 +26,7 @@ window.createPost = (descriptionPost, privacity) => {
   }
 };
 
-/* likes */
+/* like*/
 const createLike = () => {
   const postId = event.target.getAttribute('data-like');
   const uid = (firebase.auth().currentUser.uid);
