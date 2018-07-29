@@ -1,8 +1,18 @@
-# RED SOCIAL EDUTECH 
-* "Compartiendo nuestras mejores experiencias en Tecnología y Educación".
+![logo](src/view/assets/img/logosi.png)
+# EduTic
+
+*  "El placer de aprender en un mundo Tecnológico"
+
 ## Preámbulo
-Las tecnologías de la Información y Comunicaciones TICS son las nuevas innovaciones tecnológicas. En la actualidad son de gran importancia en la educación ya que a través de ellas se han desarrollado nuevas estrategias del aprendizaje dentro de los diversos Entornos Virtuales, asi mismo las TIC son usadas a diario por los Nativos Digitales(Prensky describe a los nativos digitales como las personas que, rodeadas desde temprana edad por las nuevas tecnologías ),convirtiendo a las TICS en  herramientas indispensables para el desarrollo de sus actividades conditianas, sin embargo se puede notar en los  docentes considerados como inmigrantes digitales  las situación cambia pues no incluyen estas TICS en la planificación y desarrollo de sus sesiones de aprendizaje ,privandose  de los beneficios que se obtiene del uso adecuado de las mismas, para el desarrollo de las inteligencias múltiples de sus estudiantes, por el cual, la razón principal de esta Red Social Edutech es asociar las buenas experiencias que han ido obteniendo los inmigrantes digitales con las estrategias o métodos eficacez  que  a diario ejercen los docentes para transmitir sus ideas,pues según la encuesta y entrevistas realizadas , inmigrantes digitales consideran que es muy importante para ellos aprender nuevas formas de transmitir sus ideas de manera efectiva y consideran que sería interesante obtener estos tips de personas especialistas en estas facetas de educación.Logrando asi con EDUTECH  disminuir la notable brecha que existente entre los docentes y las TICS y al mismo tiempo beneficiar a los usuarios de tics para una mejor o efectiva comunicación con personas de su entorno.
-Referencias :
+
+Las tecnologías de la Información y Comunicaciones TIC(son todos aquellos recursos, herramientas y programas que se utilizan para procesar, administrar y compartir la información), en la actualidad son de gran importancia en la educación ya que a través de ellas se han desarrollado nuevas estrategias del aprendizaje dentro de los diversos Entornos Virtuales, asÍ mismo las TIC son usadas a diario por los Nativos Digitales(personas rodeadas desde temprana edad por las nuevas tecnologías ),convirtiendo a las TIC en  herramientas indispensables para el desarrollo de sus actividades conditianas.
+Pero también existe otro grupo llamados Inmigrantes Digitales(personas que nacieron antes de mediados de los noventa, antes de la era digital) y por tal motivo expresan sentir inseguridad  para usar las TICS y lamentablemente en nuestras I.E Estatales Peruanas podemos ver que este último perfil es caracterizado por cierto grupo de nuestros Docentes por lo cual va disminuyendo las posibilidades de disfrutar de aprendizajes significativos,limitando el desarrollo de las inteligencias múltiples de nuestros estudiantes.
+Sin embargo los Nativos Digitales entrevistados, mostraron un alto grado  de interes respecto a conocer maneras de como transmitir sus ideas de forma eficaz, entonces notamos que ambos grupos necesitanban intercambiar sus experiencias en base a TIC y tambien en base a las buenas prácticas que usaban nuestros queridos docentes aún sin dominar tecnología
+Y esto el corazón de este proyecto EduTics, que basicamente busca enlazar ambos mundos , ambos grupos de Nativos Digitales Y Educadores donde cada grupo aporta lo mejor  de ellos para lograr "El placer de aprender en un mundo Tecnológico"
+
+
+* Referencias :
+https://wikimemorys.wikispaces.com/inmigrantes+digitales
 https://www.oei.es/historico/divulgacioncientifica/?Alumnos-nativos-digitales-docentes-migrantes-digitales
 https://www.iebschool.com/blog/nativos-digitales-digital-business/
 https://www.huffingtonpost.es/2014/12/02/tecnologia-inteligencias-multiples_n_6248634.html
