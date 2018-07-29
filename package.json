@@ -1,3 +1,44 @@
 {
-  "lockfileVersion": 1
+  "name": "edutech",
+  "version": "1.0.0",
+  "main": "src/index.html",
+  "license": "MIT",
+  "scripts": {
+    "htmlhint": "htmlhint  src/view*.html test/*.html",
+    "eslint": "eslint --ext .js src/model/functions-validation test/",
+    "pretest": "npm run eslint && npm run htmlhint",
+    "test-browser": "opener ./test/index.html",
+    "test-node": "nyc mocha ./test/headless.js",
+    "test": "npm run test-node && npm run test-browser"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "csshint": "^0.3.3",
+    "htmlhint": "^0.9.13",
+    "minimatch": "^3.0.4",
+    "mocha": "^5.2.0",
+    "nyc": "^11.7.1",
+    "opener": "^1.4.3"
+  },
+  "description": "Las tecnologías de la Información y Comunicaciones TICS son las nuevas innovaciones tecnológicas. En la actualidad son de gran importancia en la educación ya que a través de ellas se han desarrollado nuevas estrategias del aprendizaje dentro de los diversos Entornos Virtuales, asi mismo las TIC son usadas a diario por los Nativos Digitales(Prensky describe a los nativos digitales como las personas que, rodeadas desde temprana edad por las nuevas tecnologías ),convirtiendo a las TICS en  herramientas indispensables para el desarrollo de sus actividades conditianas, sin embargo se puede notar en los  docentes considerados como inmigrantes digitales  las situación cambia pues no incluyen estas TICS en la planificación y desarrollo de sus sesiones de aprendizaje ,privandose  de los beneficios que se obtiene del uso adecuado de las mismas, para el desarrollo de las inteligencias múltiples de sus estudiantes, por el cual, la razón principal de esta Red Social Edutech es asociar las buenas experiencias que han ido obteniendo los inmigrantes digitales con las estrategias o métodos eficacez  que  a diario ejercen los docentes para transmitir sus ideas,pues según la encuesta y entrevistas realizadas , inmigrantes digitales consideran que es muy importante para ellos aprender nuevas formas de transmitir sus ideas de manera efectiva y consideran que sería interesante obtener estos tips de personas especialistas en estas facetas de educación.Logrando asi con EDUTECH  disminuir la notable brecha que existente entre los docentes y las TICS y al mismo tiempo beneficiar a los usuarios de tics para una mejor o efectiva comunicación con personas de su entorno.\r Referencias :\r https://www.oei.es/historico/divulgacioncientifica/?Alumnos-nativos-digitales-docentes-migrantes-digitales\r https://www.iebschool.com/blog/nativos-digitales-digital-business/\r https://www.huffingtonpost.es/2014/12/02/tecnologia-inteligencias-multiples_n_6248634.html",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yulissateran/lim-2018-05-bc-core-am-socialnetwork.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/yulissateran/lim-2018-05-bc-core-am-socialnetwork/issues"
+  },
+  "homepage": "https://github.com/yulissateran/lim-2018-05-bc-core-am-socialnetwork#readme"
 }
