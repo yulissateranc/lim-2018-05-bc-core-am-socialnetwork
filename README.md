@@ -1,11 +1,11 @@
 ![logo](src/view/assets/img/logosi.png)
 # EduTic
-
-*  Educadores apasionados y Amantes de la Tecnología aportando a la Educación
+* Educadores apasionados y Amantes de la Tecnología aportando a la Educación.
+* EduTic es una Comunidad de Docentes y Nativos Digitales donde ambas partes intercambian sus mejores experiencias relacionadas al aprendizaje y uso de TIC.
 
 ## Preámbulo
 
-EduTic es una Comunidad de Docentes y Nativos Digitales donde ambas partes intercambian sus mejores experiencias relacionadas al aprendizaje y uso de TIC.
+
 
 Las tecnologías de la Información y Comunicaciones TIC(son todos aquellos recursos, herramientas y programas que se utilizan para procesar, administrar y compartir la información), en la actualidad son de gran importancia en la educación ya que a través de ellas se han desarrollado nuevas estrategias del aprendizaje dentro de los diversos Entornos Virtuales, asÍ mismo las TIC son usadas a diario por los Nativos Digitales(personas rodeadas desde temprana edad por las nuevas tecnologías ),convirtiendo a las TIC en  herramientas indispensables para el desarrollo de sus actividades conditianas.
 Pero también existe otro grupo llamados Inmigrantes Digitales(personas que nacieron antes de mediados de los noventa, antes de la era digital) y por tal motivo expresan sentir inseguridad  para usar las TICS y lamentablemente en nuestras I.E Estatales Peruanas podemos ver que este último perfil es caracterizado por cierto grupo de nuestros Docentes por lo cual va disminuyendo las posibilidades de disfrutar de aprendizajes significativos,limitando el desarrollo de las inteligencias múltiples de nuestros estudiantes.
