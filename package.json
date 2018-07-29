@@ -4,8 +4,8 @@
   "main": "src/index.html",
   "license": "MIT",
   "scripts": {
-    "htmlhint": "htmlhint  src/view*.html test/*.html",
-    "eslint": "eslint --ext .js src/model/functions-validation test/",
+    "htmlhint": "htmlhint  src/*.html src/view/wall*.html test/*.html",
+    "eslint": "eslint --ext .js src/model/ src/controller test/",
     "pretest": "npm run eslint && npm run htmlhint",
     "test-browser": "opener ./test/index.html",
     "test-node": "nyc mocha ./test/headless.js",

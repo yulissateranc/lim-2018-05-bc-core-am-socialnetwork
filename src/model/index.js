@@ -57,9 +57,9 @@ window.sendEmailVerification = () => {
 /* *******************************FUNCIÓN QUE INVOCA A TODAS LAS VALIDACIONES ANTERIORES******************* */
 
 window.validatorEmailAndPassword = (email, password, name) => {
-  const msjErrorName = document.getElementById('divLabelMsjErrorName');
-  const msjErrorEmail = document.getElementById('divLabelMsjErrorEmail');
-  const msjErrorPassword = document.getElementById('divLabelMsjErrorPassword');
+  const msjErrorName = document.getElementById('msj-error-name');
+  const msjErrorEmail = document.getElementById('msj-error-email');
+  const msjErrorPassword = document.getElementById('msj-error-password');
   msjErrorName.innerHTML = '';
   msjErrorEmail.innerHTML = '';
   msjErrorPassword.innerHTML = '';
@@ -145,7 +145,7 @@ window.initSessionFirebase = (emailLogin, passwordLogin) => {
 
 window.recoverPass = () => {
   const emailAddress = document.getElementById('correo-sesion').value;
-  let modal = document.getElementById('miModal');
+  let modal = document.getElementById('mi-modal');
   let elmet = '';
   modal.classList.add('modalView');
   window.sendPasswordResetEmail(emailAddress)

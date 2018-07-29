@@ -82,7 +82,7 @@ label {
     display: none;
 }
 
-#formContent {
+#form-content {
   width: 90%;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
@@ -93,7 +93,7 @@ label {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
 }
 
-#formFooter {
+#form-footer {
   background-color: #f6f6f6;
   border-top: 1px solid #dce8f1;
   padding: 4%;
@@ -135,7 +135,7 @@ input[type=password]:focus{
   display: none;
 }
 
-.underlineHover:hover {
+.underline-hover:hover {
   color:#6cdae6;
   transition: 0.5s;
 }
@@ -179,7 +179,7 @@ span {
   margin-right: auto;
 }
 
-#formContent {
+#form-content {
   margin-top: 6%;
   width: 60%;
   float: right;
@@ -195,7 +195,7 @@ span {
 
 @media screen  and (min-width:800px) {
    
-  #formContent {
+  #form-content {
       margin-top: 1%;
       width: 50%;
   }

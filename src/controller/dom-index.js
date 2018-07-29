@@ -2,16 +2,16 @@
 
 const buttonRegister = document.getElementById('button-register');
 const email = document.getElementById('email');
-const nameUser = document.getElementById('nombre');
+const nameUser = document.getElementById('name');
 const password = document.getElementById('password');
 const btnFacebook = document.getElementById('facebook');
 const btnGoogle = document.getElementById('google');
 const registro = document.getElementById('registro');
-const buttonSesion = document.getElementById('button-sesion');
+const buttonSesion = document.getElementById('button-session');
 const sesion = document.getElementById('sesion');
 const formRegistro = document.getElementById('form-registro');
 const formSesion = document.getElementById('form-sesion');
-const formFooter = document.getElementById('formFooter');
+const formFooter = document.getElementById('form-footer');
 registro.addEventListener('click', () => {
   formSesion.style.display = 'none';
   formRegistro.style.display = 'block';
@@ -33,7 +33,7 @@ sesion.addEventListener('click', () => {
 });
 window.onload = () => {
   window.getDataUserSessionActiveLogin();
-  let modal = document.getElementById('miModal');
+  let modal = document.getElementById('mi-modal');
   modal.classList.remove('modalView');
 };
 
@@ -49,8 +49,8 @@ btnGoogle.addEventListener('click', () => {
   window.registerUserGmail();
 });
 buttonSesion.addEventListener('click', () => {
-  const emailLogin = document.getElementById('correo-sesion');
-  const passwordLogin = document.getElementById('password-sesion');
+  const emailLogin = document.getElementById('email-session');
+  const passwordLogin = document.getElementById('password-session');
   window.initSessionFirebase(emailLogin, passwordLogin);
 });
 

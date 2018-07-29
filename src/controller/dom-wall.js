@@ -8,6 +8,7 @@ window.onload = () => {
   window.mostrarPost();
   let modal = document.getElementById('miModal');
   modal.classList.remove('modalView');
+  document.getElementById('contenido').style.display = 'none';
   // let nameUser = document.getElementById('name-user');
 };
 window.onclick = () => {
@@ -16,14 +17,14 @@ window.onclick = () => {
     document.getElementById('container-modal').innerHTML = '';
   }
 };
-let contador = 1;
+let contador = 0;
 btnMenu.addEventListener('click', () => {
   if (contador === 1) {
-    document.getElementById('contenido').style.display = 'block';
+    document.getElementById('contenido').style.display = 'none';
     contador = 0;
   } else {
     contador = 1;
-    document.getElementById('contenido').style.display = 'none';
+    document.getElementById('contenido').style.display = 'block';
   }
 });
 
