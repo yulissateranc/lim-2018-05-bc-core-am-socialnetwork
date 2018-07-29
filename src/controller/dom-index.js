@@ -39,7 +39,7 @@ window.onload = () => {
 
 buttonRegister.addEventListener('click', (event) => {
   event.preventDefault();
-  window.validatorEmailAndPassword(email.value, password.value, nameUser.value);
+  window.validatorFormRegister(email.value, password.value, nameUser.value);
 });
 
 btnFacebook.addEventListener('click', () => {
@@ -55,5 +55,5 @@ buttonSesion.addEventListener('click', () => {
 });
 
 document.getElementById('forgot-passw').addEventListener('click', () => {
-  window.recoverPass();
+  window.recoverPassword();
 });

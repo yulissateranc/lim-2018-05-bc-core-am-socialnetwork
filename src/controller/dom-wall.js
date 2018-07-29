@@ -47,5 +47,5 @@ buttonPublicPost.addEventListener('click', (event) => {
   event.preventDefault();
   let descriptionPost = document.getElementById('txt-description-post');
   const privacityPost = document.getElementById('post-privacity-selector');
-  window.createPost(descriptionPost, privacityPost);
+  window.createPostInFirebase(descriptionPost, privacityPost);
 });

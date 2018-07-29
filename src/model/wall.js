@@ -2,7 +2,7 @@
 let refPost = (firebase.database().ref().child('POST'));
 const containerModalWelcome = document.getElementById('container-modal');
 /* Create / Edite/ Remove  de los Post**************************************************************** */
-window.createPost = (descriptionPost, privacity) => {
+window.createPostInFirebase = (descriptionPost, privacity) => {
   const validatepublications = window.validateContentOfpublications(descriptionPost.value);
   if (validatepublications) {
     const userId = firebase.auth().currentUser.uid;
@@ -27,7 +27,7 @@ window.createPost = (descriptionPost, privacity) => {
 };
 
 /* like*/
-const createLike = () => {
+const createLikeInFirebase = () => {
   const postId = event.target.getAttribute('data-like');
   const uid = (firebase.auth().currentUser.uid);
   let postRef = firebase.database().ref('POST/' + postId);
@@ -53,7 +53,7 @@ const createLike = () => {
   });
 };
 
-window.mostrarPost = () => {
+window.showPostsInWall = () => {
   let refPost = (firebase.database().ref().child('POST'));
   refPost.on('value', (snap) => {
     let datos = snap.val();
@@ -111,11 +111,11 @@ window.mostrarPost = () => {
         const elementEdit = document.getElementsByClassName('editar');
         const elementLike = document.getElementsByClassName('icon-like');
         for (let i = 0; i < elementLike.length; i++) {
-          elementLike[i].addEventListener('click', createLike, false);
+          elementLike[i].addEventListener('click', createLikeInFirebase, false);
         }
         for (let i = 0; i < elementDelete.length; i++) {
-          elementDelete[i].addEventListener('click', borrarDatosFirebase, false);
-          elementEdit[i].addEventListener('click', editaDatosFirebase, false);
+          elementDelete[i].addEventListener('click', deletePostFirebase, false);
+          elementEdit[i].addEventListener('click', showPostToEdit, false);
         }
       }
     }
@@ -143,7 +143,7 @@ window.modalView = (reftexto, text, btn1, btn2) => {
 };
 
 
-const borrarDatosFirebase = () => {
+const deletePostFirebase = () => {
   let refPost = (firebase.database().ref().child('POST'));
   let keyDataDelete = event.target.getAttribute('data-message-delete');
   let refMesaggeDelete = refPost.child(keyDataDelete);
@@ -161,12 +161,13 @@ const borrarDatosFirebase = () => {
     modal.classList.remove('modalView');
   });
 };
-const editaDatosFirebase = () => {
+const showPostToEdit = () => {
   const posts = document.getElementById('posts');
   let keyDataEdit = event.target.getAttribute('data-message-edit');
   refPost.on('value', (snap) => {
     let datos = snap.val();
     posts.innerHTML = '';
+    
 
     for (let key in datos) {
       if (key === keyDataEdit) {
@@ -180,7 +181,7 @@ const editaDatosFirebase = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PRIVADO">PRIVADO</option>
               </select>
-            <button type="button" class="borrar" data-message-delete=${key}  onclick=mostrarPost()>Cancelar</button>
+            <button type="button" class="borrar" data-message-delete=${key}  onclick=showPostsInWall()>Cancelar</button>
             <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button>
             </div>
         </form>
@@ -196,7 +197,7 @@ const editaDatosFirebase = () => {
                 <option value="PUBLICO">PUBLICO</option>
               </select>
             <button type="button" class="icon-like"></button>
-            <button type="button" class="borrar" data-message-delete=${key} onclick=mostrarPost()>Cancelar</button>
+            <button type="button" class="borrar" data-message-delete=${key} onclick=showPostsInWall()>Cancelar</button>
             <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button>
             </div>
 
@@ -218,12 +219,13 @@ const editaDatosFirebase = () => {
     if (posts !== '') {
       const elementGuardar = document.getElementsByClassName('save');
       for (let i = 0; i < elementGuardar.length; i++) {
-        elementGuardar[i].addEventListener('click', updateU, false);
+        elementGuardar[i].addEventListener('click', updatePostOnFirebase, false);
       }
     }
   });
-};
-const updateU = () => {
+}; 
+
+const updatePostOnFirebase = () => {
   let keyDataSave = event.target.getAttribute('data-message-save');
   let refMesaggesave = refPost.child(keyDataSave);
   let newPost = document.getElementById('text-save').value;
@@ -245,14 +247,14 @@ const updateU = () => {
           var updatesPost = {};
           updatesPost = nuevoPost;
           refMesaggesave.update(updatesPost);
-          window.mostrarPost();
+          window.showPostsInWall();
         }
       }
     }
   });
 };
 
-window.render = (containerModalWelcome) => {
+window.renderModal = (containerModalWelcome) => {
   const userId = (firebase.auth().currentUser.uid);
   (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
     if (snapshot.val().isNewUser) {
@@ -294,10 +296,10 @@ const nameCurrentUser = (nameUser, user) => {
   }));
 };
 
-window.getDataUserSessionActive = () => { // observer()
+window.getDataUserSessionActive = () => { 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      window.render('containerModalWelcome');
+      window.renderModal('containerModalWelcome');
       const nameUser = document.getElementById('nameUser');
       nameCurrentUser(nameUser, user);
     }

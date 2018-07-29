@@ -10,11 +10,11 @@ window.getDataUserSessionActiveLogin = () => { // observer()
   });
 };
 /* *******************************************REGISTRO ORDINARIO DEL USUARIO****************************** */
-window.registerUserUsual = (email, password, name, errorName, errorEmail, errorPassword) => { // register()
+window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => { // register()
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
       window.sendEmailVerification();
-      window.createUser(result, name);
+      window.createUserInBd(result, name);
       errorName.innerHTML = '';
       errorEmail.innerHTML = '';
       errorPassword.innerHTML = '';
@@ -40,23 +40,9 @@ window.sendEmailVerification = () => {
   });
 };
 
-/* ***********************************************MUESTRA MENSAJE DE BIENVENIDA*************************** */
-// const viewMessageWelcomeUser = (objectUser) => { // userProfile()
-//   if (objectUser.additionalUserInfo.isNewUser !== false) {
-//     // contenido.innerHTML = `<p>Bienvenida!</p><br><button onclick = "cerrar()" id="btn-cerrar-sesion">Cerrar sesion</button>`;
-//     alert('Bienvenido,oh, nos visitas por primera vez');
-//     alert(objectUser.additionalUserInfo.profile.name);
-//   } else {
-//     contenido.style.display = 'none';
-//     alert('Bienvenido, hola denuevo');
-//     alert(objectUser.additionalUserInfo.profile.name);
-//   }
-// };
-
-
 /* *******************************FUNCIÓN QUE INVOCA A TODAS LAS VALIDACIONES ANTERIORES******************* */
 
-window.validatorEmailAndPassword = (email, password, name) => {
+window.validatorFormRegister = (email, password, name) => {
   const msjErrorName = document.getElementById('msj-error-name');
   const msjErrorEmail = document.getElementById('msj-error-email');
   const msjErrorPassword = document.getElementById('msj-error-password');
@@ -67,7 +53,7 @@ window.validatorEmailAndPassword = (email, password, name) => {
   const validatedEmail = window.validatorEmail(email);
   const validateNameUser = window.validatorNameUser(name);
   if (validatedPassword && validatedEmail && validateNameUser) {
-    window.registerUserUsual(email, password, name, msjErrorName, msjErrorEmail, msjErrorPassword);
+    window.registerUserFirebase(email, password, name, msjErrorName, msjErrorEmail, msjErrorPassword);
     return true;
   } else if (!validateNameUser) {
     msjErrorName.innerHTML = '<em>El nombre de usuario debería tener más de 8 dígitos y solo puede contener letras, números y espacios en blanco</em>';
@@ -82,7 +68,7 @@ window.validatorEmailAndPassword = (email, password, name) => {
 };
 /* *************************************************Registro de datos en BD****************************************************************************/
 
-const createUser = (objectUser, name) => {
+const createUserInBd = (objectUser, name) => {
   if (!objectUser.user.displayName) {
     firebase.database().ref('users/' + objectUser.user.uid).set({
       userId: objectUser.user.uid,
@@ -111,7 +97,7 @@ window.registerUserFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider).then((result) => {
     if (result.additionalUserInfo.isNewUser) {
-      createUser(result, name);
+      createUserInBd(result, name);
     } else {
       window.directionalUrl('../src/view/wall.html');
     }
@@ -124,7 +110,7 @@ window.registerUserGmail = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then((result) => {
     if (result.additionalUserInfo.isNewUser) {
-      createUser(result, name);
+      createUserInBd(result, name);
     } else {
       alert('condicional');
       window.directionalUrldirectionalUrl('../src/view/wall.html');
@@ -143,7 +129,7 @@ window.initSessionFirebase = (emailLogin, passwordLogin) => {
   });
 };
 
-window.recoverPass = () => {
+window.recoverPassword = () => {
   const emailAddress = document.getElementById('correo-sesion').value;
   let modal = document.getElementById('mi-modal');
   let elmet = '';
