@@ -141,7 +141,7 @@ window.initSessionFirebase = (emailLogin, passwordLogin) => {
   firebase.auth().signInWithEmailAndPassword(emailLogin.value, passwordLogin.value).then(() => {
     document.getElementById('form-sesion').reset();
     document.getElementById('div-label-msj-error-password-login').innerHTML = '';
-  }).catch((error) => {
+  }).catch(() => {
     document.getElementById('div-label-msj-error-password-login').innerHTML = '<em>Asegurate que el correo y contraseña sean correctos.</em>';
   });
 };
@@ -153,7 +153,7 @@ window.recoverPassword = () => {
     .then(() => {
       window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','Se ha enviado un correo a su cuenta. SIGA LOS PASOS');
       
-    }).catch((error) =>{
+    }).catch(() =>{
       window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','No se encuentra en nuestros registros.');
       
     });
