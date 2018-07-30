@@ -19,6 +19,7 @@ window.createPostInFirebase = (descriptionPost, privacity) => {
         descriptionPost.value = '';
         privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
           <option value="PRIVADO">PRIVADO 🔒</option>`;
+        document.getElementById('txterror').innerHTML = '¡tu opinión se  publicó con exito 😉😊!';  
       });
     }));
   } else {
