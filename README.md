@@ -14,7 +14,7 @@ Sin embargo los Nativos Digitales entrevistados, mostraron un alto grado  de int
  *Disminuir la brecha existente entre los docentes y el uso de las TICS.
  *Agenciar a los Nativos digitales sobre estrategias o técnicas para lograr el aprendizaje.
 
-## Etapas del Proceso de Diseño de nuestra App EduTic
+## Etapas del Proceso de Diseño la Red Social EduTic
 ## Empatizar 
 
 ### Investigación del Problema 
