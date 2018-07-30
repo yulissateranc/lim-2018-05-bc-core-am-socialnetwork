@@ -15,26 +15,44 @@ Sin embargo los Nativos Digitales entrevistados, mostraron un alto grado  de int
  *Agenciar a los Nativos digitales sobre estrategias o técnicas para lograr el aprendizaje.
 
 ## Etapas del Proceso de Diseño de nuestra App EduTic
-# Empatizar 
+## Empatizar 
+
+### Investigación del Problema 
+
+
 * Para lograr investigar y entender las necesidades, saber cuales son sus exectativas ,frustaciones  y motivaciones  de nuestros Docentes y Nativos Tecnológicos se realizó una amena conversación donde se encontraban dos docentes y un desarrollador  se realizó preguntas generales para lograr entender  cual eran los factores reales por el cual los docentes  se sentían inseguros al usar las TIC, información  que nació apartir de la encuesta realizada anteriormente, en la entrevista  se pudo observar que  los factores en realidad era varios , uno era la falta de motivación que uno puede sentir para no crear su propio autoaprendizaje, otras opiniones era por que se les brindaba capacitaciones de parte de las autoridades responsables  pero estas no era personalizadas, la explicaciones que se realizaban se hacian de forma muy apresurada sin lograr entender la capacitación acerca de TIC,mencionaron también que existen ONG que estan trabajando en un objetivo similar al nuestro , sin embargo   mencionaron no visitar con frecuencia estas plafatormas educativas,  otra docente mencionó  visitarla pero no entendía mucho como podía acceder a la información que se le mostraba, mencionarón también que frecuentemente usaban Whatsapp por que lo considerán facil de usar y de fácil acceso , también se les preguntó si conocían alguna otra aplicación relacionada a Tecnología y Educación y su respuesta fue que sí pero  no accedían con frecuencia.
 
 ### Entrevistas 
 Se realizón la siguiente entrevista , con la finalidad de saber si realmente los docentes sentían inseguridad al usar Tics y con que frecuencia usaban  las mismas.
+* Audios de entrevistas 
+* Fotos de Entrevistas
 
+### Benchmark 
+Se realizó un Benchmark de las Redes Sociales más populares y  también a aquellas con similar Objetivo que el nuestro.
+* //link  excel de benchmark
+## Definir
+### Mapas de Empatía 
+Después de la entrevista  logramos empatizar un poco más con nuestro público objetivo logran  entender sus frustraciones, motivaciones y expectativas acerca de la problemática que estabamos tratando.
+Se realizó dos mapas de empatía tanto para los Docentes con perfil de Inmigrantes digitales como para los Nativos Digitales (Amantes de la Tecnología)
 
-Benchmark 
-
-
-Acontinuación mostramos nuestro mapa de Empatía
 * //link mapa de empatia excel
 
+## Idear
+### Propuesta de Valor
+En base al mapa de empatía  y las entrevistas las posibles soluciones a las que llegamos fueron ofrecerle 
+a nuestros usuarios o público objetivo una app que cumpliera con las sgt objetivos :
+* Una app con solo contenido necesario
+* De fácil acceso 
+* Que la forma de postear sea simple.
+* Permitirles subir imagenes, videos, artículos.
+* Permitirles que puedan dar likes a los post 
+* Que pueda ser usada  desde su móvil
+* Que pueda funcionar sin tener que poner datos a sus celulares.(Parecido a Whatsap)
+ * // imagenes del prototipo de baja fidelidad ambas vistas celular y laptop
+# Prototipa y  Testear
 
-
-# Definir
-
-# Idear
-# Prototipar
-# Testear
+Finalmente  diseñamos  en Marvel nuestro prototipo de alta fidelidad 
+// enlace marvel prototipo de altafidelidad 
 
 
 
@@ -47,45 +65,8 @@ https://www.iebschool.com/blog/nativos-digitales-digital-business/
 https://www.huffingtonpost.es/2014/12/02/tecnologia-inteligencias-multiples_n_6248634.html
 
 
-
+//***********************Resumen**********************************************************//
 ## LO MEJORCITO DE LAS REDES SOCIALES 
-*  FACEBOOK
-Con más de 2.000 millones de usuarios activos mensuales. Actualmente, podemos interactuar a través de perfiles personales (que identifican a cada persona como usuario) y páginas (orientadas a organizaciones de cualquier índole).
-
-El perfil muestra la personalidad, los intereses y cómo es la vida online de cada persona. Entre las actividades más comunes que realizan los usuarios de Facebook son compartir fotos, música, vídeos, noticias y opiniones sobre infinidad de temas.
-
-Por su parte, las páginas sirven para promocionar productos, organizaciones o figuras públicas. Una página no “pide ser tu contacto o amigo”, sino que una recibe admiradores, seguidores y partidarios de lo que se están proponiendo o dando a conocer (“me gusta”).
-
-Finalmente, los grupos son creados por usuarios que desean reunir a personas alrededor un tema común. A diferencia de un perfil, donde los contactos son tus amigos y conocidos, en un grupo se pueden sumar personas de diferentes partes y que no se conocen. Pueden ser públicos, privados o secretos.
-
-* TWITTER
-Es el servicio de microblogging más extendido en el mundo, con más de 320 millones de usuarios activos mensualmente. Twitter permite a usuarios y empresas conectarse con la información que consideran interesante a través del envío y recepción de “tweets”, mensajes de no más de 280 caracteres que se publican en el perfil de la persona que los escribe, y se replican simultáneamente en la página de inicio de sus seguidores. Por si no visualizas el proceso, seguir a un usuario es algo así como suscribirse a sus tweets.
-
-Twitter incorpora la capacidad de búsqueda por usuario, tema, hashtag y enviar mensajes directos – DM-, privados a nuestros otros usuarios. Además, incorpora la posibilidad de tweets y perfiles patrocinados, una manera no invasiva de publicidad que se adapta a los intereses de los seguidores.
-
-* INSTAGRAM
-Caracterizada por la forma cuadrada de las imágenes en honor a la Kodak Instamatic y las cámaras Polaroid, es una aplicación gratuita para compartir fotos en la que los usuarios pueden aplicar efectos tipográficos como filtros, marcos, colores retro y vintage adquirida por Facebook en 2012. Actualmente, cuenta con más de 800 millones de usuarios
-
-*  LINKEDIN
-Fundada en 2003, LinkedIn se ha convertido en la red social profesional de referencia.  Cada día capta aproximadamente 60.000 nuevos perfiles y su ritmo de crecimiento mundial ha sido vertiginoso, hasta sobrepasar los 500 millones de usuarios. De hecho, muchas empresas la utilizan hoy en día como una de las principales herramientas de reclutamiento gracias a sus amplias posibilidades y la completa información que poseen del candidato.
-
-*  YOUTUBE
-Creado por tres antiguos empleados de PayPal en febrero de 2005, en noviembre de 2006 fue adquirida por Google a cambio de 1.650 millones de dólares, convirtiéndose así en su adquisición más cara hasta entonces. Desde ese momento, el impacto de YouTube en la Web 2.0 no ha hecho más que crecer, convirtiéndose en la principal plataforma de subida y visionado de videos, así como el segundo buscador por volumen de consultas, sólo superado, paradójicamente, por el propio Google.
-
-*  GOOGLE PLUS
-Impulsada inicialmente para competir con Facebook, Google Plus se ha convertido en una interesante plataforma que integra los servicios clásicos de Google, así como funcionalidades nuevas e interesantes como el sistema de videoconferencia conocido como Hangout. Al igual que su competidor, Google Plus permite tener presencia a los usuarios a través de tres modalidades: perfil personal, página o comunidad (esta última sería el equivalente a los grupos de Facebook). Además, otro de los aspectos interesantes que la han definido es su importancia cada vez mayor en las estrategias SEO de las organizaciones, ya que no debemos olvidar que Google es el principal motor de búsqueda en Internet, y Google Plus su aplicación social.
-
-* PINTEREST
-Pinterest es una red social basada en imágenes en la que las personas crean vínculos a través de sus intereses. En ocasiones se describe esta plataforma como un “tablero de corcho online” en el que los individuos van colgando elementos gráficos que llaman su atención. De ahí su nombre ‘Pin + interest = Pinterest’ (“Pinear” tus intereses). Esta red no está basada tanto en la interacción con otras personas como ocurre en otras redes sociales como Facebook o Twitter, sino que se centra más en los intereses o aficiones que las unen.
-
-* FLICKR
-Adquirida por Yahoo! en 2.005, es uno de los mayores repositorios de imágenes del mundo, con más de 10.000 millones. Al igual que en el caso de YouTube, para crear una cuenta en Flickr no se requieren conocimientos avanzados, sino tan sólo una cuenta de correo electrónico. Una vez activa, podemos subir una o varias imágenes, crear álbumes, seguir a otros usuarios o incluso subir videos.
-
-* VIMEO
-Criado a la sombra de YouTube, Vimeo es una plataforma audiovisual de streaming online que permite subir y compartir contenidos. Centrada en ofrecer un servicio de calidad, suele ser utilizada por profesionales del ámbito audiovisual para volcar sus portfolios o sus productos. Además, ofrece opciones interesantes para empresas o proyectos que precisen de un sistema profesional de almacenamiento de video.
-
-Referencia: 
-Esta información fue extraida de la siguiente fuente :https://thesocialmediafamily.com/redes-sociales/
 
 ## Introducción
 
