@@ -301,7 +301,7 @@ const nameCurrentUser = (nameUser, user) => {
 window.getDataUserSessionActive = () => { 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      window.renderModal('containerModalWelcome');
+      window.renderModal(containerModalWelcome);
       const nameUser = document.getElementById('nameUser');
       nameCurrentUser(nameUser, user);
     }
