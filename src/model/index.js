@@ -9,28 +9,43 @@ window.getDataUserSessionActiveLogin = () => { // observer()
     }
   });
 };
+window.renderModalEmailVerified = (containerModal,titulo,texto) => {
+  containerModal.innerHTML =
+    `
+	        <div id="modal-welcome" class="modal">
+            <div class="modal-content">
+            <div class="modal-header">
+                <span id="close-modal-welcome"  class="close">&times;</span>
+                <h2> ${titulo} </h2>
+             </div>
+           <p class="welcomeUser">${texto}</p>
+             <div class="modal-body">
+             </div>
+            
+        </div>
+    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => containerModal.innerHTML = '');
+};
 /* *******************************************REGISTRO ORDINARIO DEL USUARIO****************************** */
-window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => { // register()
+window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => {
+ // register()
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
       window.sendEmailVerification();
       createUserInBd(result, name);
+      window.renderModalEmailVerified(document.getElementById('container-modal'));
       errorName.innerHTML = '';
       errorEmail.innerHTML = '';
       errorPassword.innerHTML = '';
       document.getElementById('form-registro').reset();
-    }).catch((error) => {
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      alert(errorCode, errorMessage);
-      errorCode = 'La dirección de correo electrónico ya está registrada';
-      errorMessage = 'La contraseña debe tener una longitud de 6 caracteres o más .';
+    }).catch(() => {
+   window.renderModalEmailVerified(document.getElementById('container-modal'),'REGISTRO','Esta direccion electronica, se encuentra registrada ');
+      document.getElementById('form-registro').reset();
     });
 };
 /* ***********************************************************Envia correo de confirmación****************************************************************************/
 window.sendEmailVerification = () => {
   var actionCodeSettings = {
-    url: 'http://127.0.0.1:8887/src/view/muro.html',
+    url: 'http://127.0.0.1:8887/src/view/wall.html',
     handleCodeInApp: false
   };
   const user = firebase.auth().currentUser;
@@ -92,6 +107,9 @@ const createUserInBd = (objectUser, name) => {
   }
   return objectUser;
 };
+
+
+
 /* *********************************************Registro con Facebook******************************** */
 window.registerUserFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
@@ -113,7 +131,7 @@ window.registerUserGmail = () => {
       createUserInBd(result, name);
     } else {
       alert('condicional');
-      window.directionalUrldirectionalUrl('../src/view/wall.html');
+      window.directionalUrl('../src/view/wall.html');
     }
   }).catch((error) => {
     alert('error', error);
@@ -124,29 +142,19 @@ window.initSessionFirebase = (emailLogin, passwordLogin) => {
     document.getElementById('form-sesion').reset();
     document.getElementById('div-label-msj-error-password-login').innerHTML = '';
   }).catch((error) => {
-    alert('error', error);
     document.getElementById('div-label-msj-error-password-login').innerHTML = '<em>Asegurate que el correo y contraseña sean correctos.</em>';
   });
 };
 
+/*Recuperar contraseña */
 window.recoverPassword = () => {
-  const emailAddress = document.getElementById('correo-sesion').value;
-  let modal = document.getElementById('mi-modal');
-  let elmet = '';
-  modal.classList.add('modalView');
-  window.sendPasswordResetEmail(emailAddress)
+  const emailAddress = document.getElementById('email-session').value;
+  firebase.auth().sendPasswordResetEmail(emailAddress)
     .then(() => {
-      elmet = window.modalView('Recuperar Contraseña', 'Se ha enviado un correo a su cuenta. SIGA LOS PASOS', 'Aceptar', 'Cerrar');
-      modal.innerHTML = elmet;
-      let accept = document.getElementById('accept');
-      accept.addEventListener('click', () => {
-        window.location.href = 'https://outlook.live.com/owa/#';
-      });
+      window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','Se ha enviado un correo a su cuenta. SIGA LOS PASOS');
+      
     }).catch((error) =>{
-      alert('error', error);
-      elmet = window.modalView('Recuperar Contraseña', 'No se encuentra en nuestros registros', 'Registrarse', 'Cerrar');
-      modal.innerHTML = elmet;
-      let register = document.getElementById('accept');
-      register.style.display = 'none';
+      window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','No se encuentra en nuestros registros.');
+      
     });
 };

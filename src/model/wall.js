@@ -19,6 +19,7 @@ window.createPostInFirebase = (descriptionPost, privacity) => {
         descriptionPost.value = '';
         privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
           <option value="PRIVADO">PRIVADO 🔒</option>`;
+          document.getElementById('txterror').innerHTML = '¡Tu opinión se  publicó con exito 😉😊!';
       });
     }));
   } else {
@@ -169,7 +170,7 @@ const showPostToEdit = () => {
   refPost.on('value', (snap) => {
     let datos = snap.val();
     posts.innerHTML = '';
-    
+
 
     for (let key in datos) {
       if (key === keyDataEdit) {
@@ -225,7 +226,7 @@ const showPostToEdit = () => {
       }
     }
   });
-}; 
+};
 
 const updatePostOnFirebase = () => {
   let keyDataSave = event.target.getAttribute('data-message-save');
@@ -266,14 +267,12 @@ window.renderModal = (containerModalWelcome) => {
             <div class="modal-content">
             <div class="modal-header">
                 <span id="close-modal-welcome"  class="close">&times;</span>
-                <h2> Bienvenido a EDU TECH </h2>
+                <h2> Bienvenido a EDU TIC </h2>
              </div>
            <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
              <div class="modal-body">
-             <p>Gracias por unirte. 
-               Las actualizaciones y las nuevas funciones son versiones diarias
-               por favor, ayúdenos a crear una red social simple, hermosa y sin adornos.
-               Diviértete usando eso.</p>
+             <p>Gracias por unirte. Las tecnologías y la educación son imprescindibles para transmititr conocimientos, 
+             en Edu Tic esperamos crear una red social trascendental y hermosa. Diviértete usandola</p>
              </div>
             
         </div>
@@ -298,7 +297,7 @@ const nameCurrentUser = (nameUser, user) => {
   }));
 };
 
-window.getDataUserSessionActive = () => { 
+window.getDataUserSessionActive = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       window.renderModal(containerModalWelcome);
