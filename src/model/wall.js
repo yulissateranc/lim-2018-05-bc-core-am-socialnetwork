@@ -270,8 +270,8 @@ window.renderModal = (containerModalWelcome) => {
              </div>
            <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
              <div class="modal-body">
-             <p>Gracias por unirte Edu Tic
-             Estas en el lugar ideal para encontrar y/o compartir recursos tecnologicos de desarrollo personal y profesional.</p>
+             <p>Gracias por unirte. Las tecnologías y la educación son imprescindibles para transmititr conocimientos, 
+             en Edu Tic esperamos crear una red social trascendental y hermosa. Diviértete usandola</p>
              </div>
             
         </div>
