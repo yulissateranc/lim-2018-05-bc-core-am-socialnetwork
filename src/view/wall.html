@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="stylesheet" href="assets/font/fontello.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/style.modal.css" />
@@ -15,11 +15,11 @@
 
 <body>
     <header class="wrapperMenu">
-        <img src="../view/assets/img/ED.png" alt="logoTech" id="logoTech" />
+        <img src="../view/assets/img/nombre%20tic.png" alt="logoTech" id="logoTech" />
         <div id="menu" class="icon-menu">
             <ul id="contenido">
-                <li>
-                    <a href="#miModal" id="log-out">Cerrar Sesion</a>
+                <li id="li-menu">
+                    <a href="#mi-modal" id="log-out">Cerrar Sesion</a>
                 </li>
             </ul>
         </div>
@@ -29,6 +29,7 @@
     <section class="wrapper top">
         <form class="comentary" id="form-content">
             <textarea name="textarea" rows="4" cols="50" placeholder="Ingresa tu opinión" id="txt-description-post"></textarea>
+            <p id="txterror"></p>
             <select id="post-privacity-selector">
                 <option value="PUBLICO">PUBLICO 🌎 </option>
                 <option value="PRIVADO">PRIVADO 🔒</option>
@@ -37,12 +38,13 @@
         </form>
     </section>
 
-    <div id="miModal" class="modalView"></div>
+    <div id="mi-modal" class="modalView"></div>
     <section id="posts" class="wrapper"></section>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-    <script src="../model/bd.js"></script>
-    <script src="../model/dataLogin.js"></script>
-    <script src="../controller/mainPost.js"></script>
+    <script src="../model/firebase-config.js"></script>
+    <script src="../model/functions-validation.js"></script>
+    <script src="../model/wall.js"></script>
+    <script src="../controller/dom-wall.js"></script>
 
 </body>
 
