@@ -35,13 +35,13 @@ Se realizón la siguiente entrevista , con la finalidad de saber si realmente lo
 
 ### Benchmark 
 Se realizó un Benchmark de las Redes Sociales más populares y  también a aquellas con similar Objetivo que el nuestro.
-* //link  excel de benchmark
+*https://www.dropbox.com/s/jjai7wdyn1uo4qy/benchmarking.png?dl=0
 ## 2) Definir
 ### Mapas de Empatía 
 Después de la entrevista  logramos empatizar un poco más con nuestro público objetivo logran  entender sus frustraciones, motivaciones y expectativas acerca de la problemática que estabamos tratando.
 Se realizó dos mapas de empatía tanto para los Docentes con perfil de Inmigrantes digitales como para los Nativos Digitales (Amantes de la Tecnología)
+*https://www.dropbox.com/s/qqxtfjmkhtndvuv/mapaempatia.xlsx?dl=0
 
-* //link mapa de empatia excel
 
 ## 3) Definir
 ### Propuesta de Valor
@@ -58,7 +58,9 @@ a nuestros usuarios o público objetivo una app que cumpliera con las sgt objeti
 ## 4) Prototipa y  Testear
 
 * Finalmente  diseñamos  en Marvel nuestro prototipo de alta fidelidad 
-// enlace marvel prototipo de altafidelidad 
+* https://marvelapp.com/994b7e4/screen/46201740
+* https://www.dropbox.com/s/jjai7wdyn1uo4qy/benchmarking.png?dl=0
+
 
 * Referencias :
 https://wikimemorys.wikispaces.com/inmigrantes+digitales
@@ -159,7 +161,24 @@ pbajaz](src/view/assets/img/ultimastareas.jpg)
 * Link/screenshots del prototipo de alta fidelidad.
 https://marvelapp.com/project/3226600/
 https://marvelapp.com/project/3238476/
-* [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
-* [ ] Conclusiones de testing con el producto en HTML.
+links excel
+https://www.dropbox.com/s/qqxtfjmkhtndvuv/mapaempatia.xlsx?dl=0
+https://www.dropbox.com/s/jjai7wdyn1uo4qy/benchmarking.png?dl=0
+
+## Conclusiones de testing con el prototipo de alta fidelidad con usuarios.}
+
+https://www.dropbox.com/sh/h2q0aldqtzne33m/AABXuqVjjKvZXx0Nfc9ZJDI4a?dl=0
+
+* Conclusiones de testing con el producto en HTML.
+* El usuario no lograba  encontrar el botón de cerrrar sesión .
+* El usuario   no lograba notar que se le había enviado un mensaje de verificación  a su correo electrónico.
+* El usuario no lograba saber si  habia logrado postear.
+* Cuando intentaba publicar sin contenido  no le permitía hacerlo y no le mostraba ningún mensaje para avisarle al usuario acerca de l oque esta sucediendo.
+* Los logos  de dar likes del textarea  comprendido por el usuario, no comprendía el icono.
+* Cuando el usuario se registraba con una cuenta que ya existía  no se mostraba ningun mensaje de validación del estado actual del usuario.
+ Con las mejoras que se hicieron después de los Test de Usabilidad 
+ se implementó  modales para mostrar los mensajes de verificación de correo, validación y estado de usuario .
 
 ##  Testeo de Usabilidad
+
+* https://www.dropbox.com/sh/h2q0aldqtzne33m/AABXuqVjjKvZXx0Nfc9ZJDI4a?dl=0
