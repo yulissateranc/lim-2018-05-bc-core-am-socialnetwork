@@ -27,9 +27,7 @@ window.renderModalEmailVerified = (containerModal,titulo,texto) => {
 };
 /* *******************************************REGISTRO ORDINARIO DEL USUARIO****************************** */
 window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => {
-  let elmet = ''; // register()
-  let modal = document.getElementById('mi-modal');
-  modal.classList.add('modalView');
+ // register()
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
       window.sendEmailVerification();
