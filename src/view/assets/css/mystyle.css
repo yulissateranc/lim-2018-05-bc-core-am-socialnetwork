@@ -137,6 +137,7 @@ display: block;
 .msjerror {
   font-size: 15px;
 }
+
 @media screen  and (min-width:600px) {
 #form-sesion,
 #form-registro {

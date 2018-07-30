@@ -33,8 +33,6 @@ sesion.addEventListener('click', () => {
 });
 window.onload = () => {
   window.getDataUserSessionActiveLogin();
-  let modal = document.getElementById('mi-modal');
-  modal.classList.remove('modalView');
 };
 
 buttonRegister.addEventListener('click', (event) => {

@@ -9,18 +9,17 @@ window.getDataUserSessionActiveLogin = () => { // observer()
     }
   });
 };
-window.renderModalEmailVerified = (containerModal) => {
+window.renderModalEmailVerified = (containerModal,titulo,texto) => {
   containerModal.innerHTML =
     `
 	        <div id="modal-welcome" class="modal">
             <div class="modal-content">
             <div class="modal-header">
                 <span id="close-modal-welcome"  class="close">&times;</span>
-                <h2> Bienvenido a EDU TIC </h2>
+                <h2> ${titulo} </h2>
              </div>
-           <p class="welcomeUser">¡Hola !</p>
+           <p class="welcomeUser">${texto}</p>
              <div class="modal-body">
-             <p>hoola </p>
              </div>
             
         </div>
@@ -40,15 +39,9 @@ window.registerUserFirebase = (email, password, name, errorName, errorEmail, err
       errorEmail.innerHTML = '';
       errorPassword.innerHTML = '';
       document.getElementById('form-registro').reset();
-    }).catch((error) => {
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      alert(errorCode, errorMessage);
-      elmet = window.modalView('REGISTRO','La dirección de correo electrónico ya está registrada.','Aceptar','Aceptar')
-      modal.innerHTML = elmet;
-      console.log(elmet);
-      let register = document.getElementById('accept');
-      register.style.display = 'none';
+    }).catch(() => {
+   window.renderModalEmailVerified(document.getElementById('container-modal'),'REGISTRO','Esta direccion electronica, se encuentra registrada ');
+      document.getElementById('form-registro').reset();
     });
 };
 /* ***********************************************************Envia correo de confirmación****************************************************************************/
@@ -155,38 +148,15 @@ window.initSessionFirebase = (emailLogin, passwordLogin) => {
   });
 };
 
-/* ViewModal*/
-window.modalView = (reftexto, text, btn1, btn2) => {
-  return `
-    <div class="modal-contentView">
-      <a href="#modal-close" title="Cerrar" id="close" class="modal-close">Cerrar</a>
-      <h2 id="txtTitle">${reftexto}</h2>
-      <p>${text}</p>
-        <button id="accept" class="btnmodal">${btn1}</button>
-        <a href="#modal-close" title="${btn2}"><button class="btnmodal" id="close">${btn2}</button></a>
-    </div>
-  `;
-};
-
 /*Recuperar contraseña */
 window.recoverPassword = () => {
-  const auth = firebase.auth();
   const emailAddress = document.getElementById('email-session').value;
-  let modal = document.getElementById('mi-modal');
-  let elmet = '';
-  modal.classList.add('modalView');
-  auth.sendPasswordResetEmail(emailAddress)
+  firebase.auth().sendPasswordResetEmail(emailAddress)
     .then(() => {
-      elmet = window.modalView('Recuperar Contraseña', 'Se ha enviado un correo a su cuenta. SIGA LOS PASOS', 'Aceptar', 'Cerrar');
-      modal.innerHTML = elmet;
-      let accept = document.getElementById('accept');
-      accept.addEventListener('click', () => {
-        window.location.href = 'https://outlook.live.com/owa/#';
-      });
+      window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','Se ha enviado un correo a su cuenta. SIGA LOS PASOS');
+      
     }).catch((error) =>{
-      elmet = window.modalView('Recuperar Contraseña', 'No se encuentra en nuestros registros', 'Registrarse', 'Cerrar');
-      modal.innerHTML = elmet;
-      let register = document.getElementById('accept');
-      register.style.display = 'none';
+      window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','No se encuentra en nuestros registros.');
+      
     });
 };
