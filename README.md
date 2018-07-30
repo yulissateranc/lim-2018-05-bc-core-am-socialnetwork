@@ -21,11 +21,17 @@ Sin embargo los Nativos Digitales entrevistados, mostraron un alto grado  de int
 
 
 * Para lograr investigar y entender las necesidades, saber cuales son sus exectativas ,frustaciones  y motivaciones  de nuestros Docentes y Nativos Tecnológicos se realizó una amena conversación donde se encontraban dos docentes y un desarrollador  se realizó preguntas generales para lograr entender  cual eran los factores reales por el cual los docentes  se sentían inseguros al usar las TIC, información  que nació apartir de la encuesta realizada anteriormente, en la entrevista  se pudo observar que  los factores en realidad era varios , uno era la falta de motivación que uno puede sentir para no crear su propio autoaprendizaje, otras opiniones era por que se les brindaba capacitaciones de parte de las autoridades responsables  pero estas no era personalizadas, la explicaciones que se realizaban se hacian de forma muy apresurada sin lograr entender la capacitación acerca de TIC,mencionaron también que existen ONG que estan trabajando en un objetivo similar al nuestro , sin embargo   mencionaron no visitar con frecuencia estas plafatormas educativas,  otra docente mencionó  visitarla pero no entendía mucho como podía acceder a la información que se le mostraba, mencionarón también que frecuentemente usaban Whatsapp por que lo considerán facil de usar y de fácil acceso , también se les preguntó si conocían alguna otra aplicación relacionada a Tecnología y Educación y su respuesta fue que sí pero  no accedían con frecuencia.
+### Encuestas 
+*  Encuestas a Nativos Digitales 
+https://docs.google.com/forms/d/19e03fbSUvarpDqvhEgzdnxU1UqlJwvnGwV_093SJLsU/edit#responses
+*  Encuestas a Docentes con perfil de Inmigrantes Digitales
+https://docs.google.com/forms/d/1w3YltsOIs21h3mq2_2h-PK0YppIChDmmjDstTmdV3iM/edit#responses
 
 ### Entrevistas 
 Se realizón la siguiente entrevista , con la finalidad de saber si realmente los docentes sentían inseguridad al usar Tics y con que frecuencia usaban  las mismas.
 * Audios de entrevistas 
 * Fotos de Entrevistas
+
 
 ### Benchmark 
 Se realizó un Benchmark de las Redes Sociales más populares y  también a aquellas con similar Objetivo que el nuestro.
@@ -51,12 +57,8 @@ a nuestros usuarios o público objetivo una app que cumpliera con las sgt objeti
  * // imagenes del prototipo de baja fidelidad ambas vistas celular y laptop
 ## 4) Prototipa y  Testear
 
-Finalmente  diseñamos  en Marvel nuestro prototipo de alta fidelidad 
+* Finalmente  diseñamos  en Marvel nuestro prototipo de alta fidelidad 
 // enlace marvel prototipo de altafidelidad 
-
-
-
-
 
 * Referencias :
 https://wikimemorys.wikispaces.com/inmigrantes+digitales
@@ -65,56 +67,43 @@ https://www.iebschool.com/blog/nativos-digitales-digital-business/
 https://www.huffingtonpost.es/2014/12/02/tecnologia-inteligencias-multiples_n_6248634.html
 
 
-//***********************Resumen**********************************************************//
-## LO MEJORCITO DE LAS REDES SOCIALES 
-
-## Introducción
-
-EDUTECH es una comunidad de Inmigrantes Digitales y Educadores, donde ambos lados se benefician compartiendo sus buenas experiencias respecto al uso de las  TICS como tambien aprendiendo nuevas estrategías o técnicas de enseñanza para transmitir sus ideas  de forma eficaz.Beneficiando así a ambas partes.
-
-
-## Objetivos
- 
- *Disminuir la brecha existente entre los docentes y el uso de las TICS
- *Agenciar a los Nativos digitales sobre estrategias o técnicas para lograr el aprendizaje.
+### Resumen
 
 ## Definición del producto:
-  ¿ Cuáles son los elementos básicos que tiene una red social?
+ * ¿ Cuáles son los elementos básicos que tiene una red social?
+ * 1. Rendimiento de la comunidad
+   * -KPI relevantes
+   * -Benchmarking interno y competitivo
+   * -Analisis cualitativo
+ * 2. Desempeño de compromiso
+   * -Análisis cuantitativo
+   * -Segmentación
+* 3. Rendimiento del contenido
+   * - Contextualización
+* Referencias :
+* https://blog.digimind.com/en/agency/proving-roi/the-3-essential-elements-of-a-successful-social-media-report/
 
-  1. Rendimiento de la comunidad
-   -KPI relevantes
-   -Benchmarking interno y competitivo
-   -Analisis cualitativo
+##  ¿Quiénes son los principales usuarios de producto?.
 
-  2. Desempeño de compromiso
-    -Análisis cuantitativo
-    -Segmentación
-
-  3. Rendimiento del contenido
-    - Contextualización
-Referencias :
-https://blog.digimind.com/en/agency/proving-roi/the-3-essential-elements-of-a-successful-social-media-report/
-
-##  Quiénes son los principales usuarios de producto.
  -Nativos Digitales :
  Los nativos digitales enfocan su trabajo, el aprendizaje y los juegos de nuevas maneras: navegan con fluidez; tienen habilidad en el uso del ratón; utilizan reproductores de audio y video digitales a diario; toman fotos digitales que manipulan y envían; y usan, además, sus ordenadores para crear videos, presentaciones multimedia, música, blogs, etc. Absorben rápidamente la información multimedia de imágenes y videos, igual o mejor que si fuera texto; consumen datos simultáneamente de múltiples fuentes; esperan respuestas instantáneas; permanecen comunicados permanentemente y crean también sus propios contenidos. A los nativos digitales les encanta hacer varias cosas al mismo tiempo: son multitarea.
- ![Nativos Digitales](src/view/assets/img/nativosdigitales.jpg)
+// link  [Nativos Digitales](src/view/assets/img/nativosdigitales.jpg)
  -Docentes considerados Inmigrantes digitales 
  Las características de los Inmigrantes digitales son: Estructuras mentales moldeadas por los procesos paso a paso. Resolver un problema a la vez. Actuación basada en el análisis deductivo. Aprendizaje basado en conocimientos pre-adquiridos. Los migrantes digitales son mas relajados y les gusta entablar una conversación con una persona y para pasar a otra terminan la anterior
-  ![Inmigrantes Digitales](src/view/assets/img/inmigrantes.jpg)
+  // link [Inmigrantes Digitales](src/view/assets/img/inmigrantes.jpg)
       
-## Cómo descubriste las necesidades de los usuarios.
+## ¿Cómo descubriste las necesidades de los usuarios?.
 
 Se descubrieron las necesidades de nuestro público objetivo a travéS de los procesos de diseño Design Thinking 
 Nos apoyamos en encuestas, entrevistas y mapas de empatía, continuación se detalla las necesidades decubriertas a través de Mapa de Empatía.
 Las entrevistas se hicieron de forma virtual con los docentes, por medio de video llamadas , pero capturando al mismo tiempo el audio de nuestros público objetivo.
 A los nativos digitales se les hizo una entrevista personal.
-
-![Design Thinking](src/view/assets/img/desing.png)
+//link [Design Thinking](src/view/assets/img/desing.png)
 * Mapas de empatía 1 Nativos Digitales
-![Nativos Digitales](src/view/assets/img/Imagen1.png)
+link [Nativos Digitales](src/view/assets/img/Imagen1.png)
 * Mapas de empatía 2 Docentes
-![Docentes](src/view/assets/img/Imagen2.png)
+link [Docentes](src/view/assets/img/Imagen2.png)
+
 ##  ¿Qué problema resuelve el producto para estos usuarios?
 
 Con la implementación de nuestra Red Social EDUTECH  buscamos resolver dos problemas:
@@ -134,11 +123,21 @@ Estos datos  anterior mente descritos fueron obtenidos despues de realizar las e
 
 ##  Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
 
+* Las principales funcionalidades del producto son 
+* - Te permite postear , editar el post , eliminar el post 
+* - Muestra  moldaes :mensajes para confirmar las acciones que desea realizar el usuario.
+* -De fácil interacción.
+* -Envía Mensaje de confirmación de registro .
+* -Tiene la opción recuperación de contraseña .
+
+
 #  Cómo verificaste que el producto les está resolviendo sus problemas.
-* Cómo te asegurarás que estos usuarios usen este producto.
-* Nos aseguraremos del uso de nuestra Red Social a través de Inviaciones a través de sus correos electrónicos recalcando la importancia del     contenido de nuestra Red Social EDUTECH, rescatando  las características más resaltantes de esta Social MEDIA, como diseño pensado en el usuario.(Esto aún no se ha implementado ,se espera realizarlo a futuro)
-## Benchmark de las principales redes sociales.
-![Benchmark](src/view/assets/img/benchmarking.png)
+* 
+
+*  Cómo te asegurarás que estos usuarios usen este producto.
+*  Nos aseguraremos del uso de nuestra Red Social
+*  Como mediante publicidad  ,envio de  correos masivos.
+
 
 ##  Resumen de entrevistas con usuarios.
 De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concluyó los sgt:
@@ -149,9 +148,9 @@ De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concl
 
 
 ##  Link/screenshots del prototipo de baja  fidelidad.
-![pbaja1](src/view/assets/img/login.jpeg)
-![pbaja2](src/view/assets/img/muro.jpeg)
-![pbaja2](src/view/assets/img/formularios_login.jpeg)
+pbaja1](src/view/assets/img/login.jpeg)
+pbaja2](src/view/assets/img/muro.jpeg)
+pbaja2](src/view/assets/img/formularios_login.jpeg)
 
 
 ##  Backlog Tablero de Tareas.
@@ -161,13 +160,5 @@ De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concl
 
 * [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
 * [ ] Conclusiones de testing con el producto en HTML.
-
-
-##  Hacer al menos 2 o 3 entrevistas con usuarios.
-![pbajan](src/view/assets/img/entrevistaDocente.jpg)
-##  Encuestas a Nativos Digitales 
-https://docs.google.com/forms/d/19e03fbSUvarpDqvhEgzdnxU1UqlJwvnGwV_093SJLsU/edit#responses
-## Encuestas a Docentes con perfil de Inmigrantes Digitales
-https://docs.google.com/forms/d/1w3YltsOIs21h3mq2_2h-PK0YppIChDmmjDstTmdV3iM/edit#responses
 
 ##  Testeo de Usabilidad
