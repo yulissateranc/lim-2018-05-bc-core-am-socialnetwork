@@ -67,7 +67,7 @@ https://www.iebschool.com/blog/nativos-digitales-digital-business/
 https://www.huffingtonpost.es/2014/12/02/tecnologia-inteligencias-multiples_n_6248634.html
 
 
-### Resumen
+# Resumen
 
 ## Definición del producto:
  * ¿ Cuáles son los elementos básicos que tiene una red social?
