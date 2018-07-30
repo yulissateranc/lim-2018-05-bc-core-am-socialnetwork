@@ -14,7 +14,7 @@ window.registerUserFirebase = (email, password, name, errorName, errorEmail, err
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
       window.sendEmailVerification();
-      window.createUserInBd(result, name);
+      createUserInBd(result, name);
       errorName.innerHTML = '';
       errorEmail.innerHTML = '';
       errorPassword.innerHTML = '';
