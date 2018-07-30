@@ -9,6 +9,23 @@ window.getDataUserSessionActiveLogin = () => { // observer()
     }
   });
 };
+window.renderModalEmailVerified = (containerModal) => {
+  containerModal.innerHTML =
+    `
+	        <div id="modal-welcome" class="modal">
+            <div class="modal-content">
+            <div class="modal-header">
+                <span id="close-modal-welcome"  class="close">&times;</span>
+                <h2> Bienvenido a EDU TIC </h2>
+             </div>
+           <p class="welcomeUser">¡Hola !</p>
+             <div class="modal-body">
+             <p>hoola </p>
+             </div>
+            
+        </div>
+    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => containerModal.innerHTML = '');
+};
 /* *******************************************REGISTRO ORDINARIO DEL USUARIO****************************** */
 window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => {
   let elmet = ''; // register()
@@ -18,6 +35,7 @@ window.registerUserFirebase = (email, password, name, errorName, errorEmail, err
     .then((result) => {
       window.sendEmailVerification();
       createUserInBd(result, name);
+      window.renderModalEmailVerified(document.getElementById('container-modal'));
       errorName.innerHTML = '';
       errorEmail.innerHTML = '';
       errorPassword.innerHTML = '';
@@ -36,7 +54,7 @@ window.registerUserFirebase = (email, password, name, errorName, errorEmail, err
 /* ***********************************************************Envia correo de confirmación****************************************************************************/
 window.sendEmailVerification = () => {
   var actionCodeSettings = {
-    url: 'http://127.0.0.1:8887/src/view/muro.html',
+    url: 'http://127.0.0.1:8887/src/view/wall.html',
     handleCodeInApp: false
   };
   const user = firebase.auth().currentUser;
@@ -98,6 +116,9 @@ const createUserInBd = (objectUser, name) => {
   }
   return objectUser;
 };
+
+
+
 /* *********************************************Registro con Facebook******************************** */
 window.registerUserFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
