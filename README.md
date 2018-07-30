@@ -156,8 +156,9 @@ pbaja2](src/view/assets/img/formularios_login.jpeg)
 ##  Backlog Tablero de Tareas.
 pbajax](src/view/assets/img/tablero.jpg)
 pbajaz](src/view/assets/img/ultimastareas.jpg)
-* [ ] Link/screenshots del prototipo de alta fidelidad.
-
+* Link/screenshots del prototipo de alta fidelidad.
+https://marvelapp.com/project/3226600/
+https://marvelapp.com/project/3238476/
 * [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
 * [ ] Conclusiones de testing con el producto en HTML.
 
