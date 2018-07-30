@@ -271,8 +271,9 @@ window.renderModal = (containerModalWelcome) => {
              </div>
            <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
              <div class="modal-body">
-             <p>Gracias por unirte. Las tecnologías y la educación son imprescindibles para transmititr conocimientos, 
-             en Edu Tic esperamos crear una red social trascendental y hermosa. Diviértete usandola</p>
+             Educadores apasionados y Amantes de la Tecnología aportando a la Educación.
+             <p>Gracias por unirte a nuestra Comunidad de  Educadores apasionados y Amantes de la Tecnología aportando a la Educación
+              <br>Compártenos tu Experiencia </p>
              </div>
             
         </div>
