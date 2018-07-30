@@ -124,17 +124,31 @@ window.initSessionFirebase = (emailLogin, passwordLogin) => {
     document.getElementById('form-sesion').reset();
     document.getElementById('div-label-msj-error-password-login').innerHTML = '';
   }).catch((error) => {
-    alert('error', error);
     document.getElementById('div-label-msj-error-password-login').innerHTML = '<em>Asegurate que el correo y contraseña sean correctos.</em>';
   });
 };
 
+/* ViewModal*/
+window.modalView = (reftexto, text, btn1, btn2) => {
+  return `
+    <div class="modal-contentView">
+      <a href="#modal-close" title="Cerrar" id="close" class="modal-close">Cerrar</a>
+      <h2 id="txtTitle">${reftexto}</h2>
+      <p>${text}</p>
+        <button id="accept" class="btnmodal">${btn1}</button>
+        <a href="#modal-close" title="${btn2}"><button class="btnmodal" id="close">${btn2}</button></a>
+    </div>
+  `;
+};
+
+/*Recuperar contraseña */
 window.recoverPassword = () => {
-  const emailAddress = document.getElementById('correo-sesion').value;
+  const auth = firebase.auth();
+  const emailAddress = document.getElementById('email-session').value;
   let modal = document.getElementById('mi-modal');
   let elmet = '';
   modal.classList.add('modalView');
-  window.sendPasswordResetEmail(emailAddress)
+  auth.sendPasswordResetEmail(emailAddress)
     .then(() => {
       elmet = window.modalView('Recuperar Contraseña', 'Se ha enviado un correo a su cuenta. SIGA LOS PASOS', 'Aceptar', 'Cerrar');
       modal.innerHTML = elmet;
