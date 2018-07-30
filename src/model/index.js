@@ -10,7 +10,10 @@ window.getDataUserSessionActiveLogin = () => { // observer()
   });
 };
 /* *******************************************REGISTRO ORDINARIO DEL USUARIO****************************** */
-window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => { // register()
+window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => {
+  let elmet = ''; // register()
+  let modal = document.getElementById('mi-modal');
+  modal.classList.add('modalView');
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
       window.sendEmailVerification();
@@ -23,8 +26,11 @@ window.registerUserFirebase = (email, password, name, errorName, errorEmail, err
       let errorCode = error.code;
       let errorMessage = error.message;
       alert(errorCode, errorMessage);
-      errorCode = 'La dirección de correo electrónico ya está registrada';
-      errorMessage = 'La contraseña debe tener una longitud de 6 caracteres o más .';
+      elmet = window.modalView('REGISTRO','La dirección de correo electrónico ya está registrada.','Aceptar','Aceptar')
+      modal.innerHTML = elmet;
+      console.log(elmet);
+      let register = document.getElementById('accept');
+      register.style.display = 'none';
     });
 };
 /* ***********************************************************Envia correo de confirmación****************************************************************************/
@@ -113,7 +119,7 @@ window.registerUserGmail = () => {
       createUserInBd(result, name);
     } else {
       alert('condicional');
-      window.directionalUrldirectionalUrl('../src/view/wall.html');
+      window.directionalUrl('../src/view/wall.html');
     }
   }).catch((error) => {
     alert('error', error);
@@ -157,7 +163,6 @@ window.recoverPassword = () => {
         window.location.href = 'https://outlook.live.com/owa/#';
       });
     }).catch((error) =>{
-      alert('error', error);
       elmet = window.modalView('Recuperar Contraseña', 'No se encuentra en nuestros registros', 'Registrarse', 'Cerrar');
       modal.innerHTML = elmet;
       let register = document.getElementById('accept');
