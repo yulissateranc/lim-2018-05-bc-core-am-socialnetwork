@@ -150,14 +150,11 @@ De las  entrevistas a los Docentes con perfil de  Inmigrantes Digitales se concl
 
 
 ##  Link/screenshots del prototipo de baja  fidelidad.
-pbaja1](src/view/assets/img/login.jpeg)
-pbaja2](src/view/assets/img/muro.jpeg)
-pbaja2](src/view/assets/img/formularios_login.jpeg)
 
 
+* https://www.dropbox.com/sh/h2q0aldqtzne33m/AABXuqVjjKvZXx0Nfc9ZJDI4a?dl=0
 ##  Backlog Tablero de Tareas.
-pbajax](src/view/assets/img/tablero.jpg)
-pbajaz](src/view/assets/img/ultimastareas.jpg)
+
 * Link/screenshots del prototipo de alta fidelidad.
 https://marvelapp.com/project/3226600/
 https://marvelapp.com/project/3238476/
