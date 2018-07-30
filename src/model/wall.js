@@ -72,6 +72,7 @@ window.showPostsInWall = () => {
               </select>
               <button type="button" class="icon-like" data-like="${key}" id="like"></button>
               <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
           </form>`;
@@ -100,6 +101,7 @@ window.showPostsInWall = () => {
              </select>
              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
              <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+
              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
              </form>`;
