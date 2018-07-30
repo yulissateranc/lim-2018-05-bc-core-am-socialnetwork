@@ -17,10 +17,21 @@ Sin embargo los Nativos Digitales entrevistados, mostraron un alto grado  de int
 ## Etapas del Proceso de Diseño de nuestra App EduTic
 # Empatizar 
 * Para lograr investigar y entender las necesidades, saber cuales son sus exectativas ,frustaciones  y motivaciones  de nuestros Docentes y Nativos Tecnológicos se realizó una amena conversación donde se encontraban dos docentes y un desarrollador  se realizó preguntas generales para lograr entender  cual eran los factores reales por el cual los docentes  se sentían inseguros al usar las TIC, información  que nació apartir de la encuesta realizada anteriormente, en la entrevista  se pudo observar que  los factores en realidad era varios , uno era la falta de motivación que uno puede sentir para no crear su propio autoaprendizaje, otras opiniones era por que se les brindaba capacitaciones de parte de las autoridades responsables  pero estas no era personalizadas, la explicaciones que se realizaban se hacian de forma muy apresurada sin lograr entender la capacitación acerca de TIC,mencionaron también que existen ONG que estan trabajando en un objetivo similar al nuestro , sin embargo   mencionaron no visitar con frecuencia estas plafatormas educativas,  otra docente mencionó  visitarla pero no entendía mucho como podía acceder a la información que se le mostraba, mencionarón también que frecuentemente usaban Whatsapp por que lo considerán facil de usar y de fácil acceso , también se les preguntó si conocían alguna otra aplicación relacionada a Tecnología y Educación y su respuesta fue que sí pero  no accedían con frecuencia.
-En conclusión aquí mostramos nuestro mapa de empatía donde podemos entender mejor que es lo que necesita nuestro público Objetivo.
+
+### Entrevistas 
+Se realizón la siguiente entrevista , con la finalidad de saber si realmente los docentes sentían inseguridad al usar Tics y con que frecuencia usaban  las mismas.
+
+
+Benchmark 
+
+
+Acontinuación mostramos nuestro mapa de Empatía
+* //link mapa de empatia excel
+
 
 
 # Definir
+
 # Idear
 # Prototipar
 # Testear
