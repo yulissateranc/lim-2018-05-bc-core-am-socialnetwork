@@ -32,7 +32,7 @@ window.registerUserFirebase = (email, password, name, errorName, errorEmail, err
     .then((result) => {
       window.sendEmailVerification();
       createUserInBd(result, name);
-      window.renderModalEmailVerified(document.getElementById('container-modal'));
+      window.renderModalEmailVerified(document.getElementById('container-modal'),'REGISTRO','Verifique su correo para iniciar sesion.');
       errorName.innerHTML = '';
       errorEmail.innerHTML = '';
       errorPassword.innerHTML = '';
