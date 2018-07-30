@@ -87,10 +87,10 @@ https://www.huffingtonpost.es/2014/12/02/tecnologia-inteligencias-multiples_n_62
 
  -Nativos Digitales :
  Los nativos digitales enfocan su trabajo, el aprendizaje y los juegos de nuevas maneras: navegan con fluidez; tienen habilidad en el uso del ratón; utilizan reproductores de audio y video digitales a diario; toman fotos digitales que manipulan y envían; y usan, además, sus ordenadores para crear videos, presentaciones multimedia, música, blogs, etc. Absorben rápidamente la información multimedia de imágenes y videos, igual o mejor que si fuera texto; consumen datos simultáneamente de múltiples fuentes; esperan respuestas instantáneas; permanecen comunicados permanentemente y crean también sus propios contenidos. A los nativos digitales les encanta hacer varias cosas al mismo tiempo: son multitarea.
-// link  [Nativos Digitales](src/view/assets/img/nativosdigitales.jpg)
+// link  Nativos Digitales](src/view/assets/img/nativosdigitales.jpg)
  -Docentes considerados Inmigrantes digitales 
  Las características de los Inmigrantes digitales son: Estructuras mentales moldeadas por los procesos paso a paso. Resolver un problema a la vez. Actuación basada en el análisis deductivo. Aprendizaje basado en conocimientos pre-adquiridos. Los migrantes digitales son mas relajados y les gusta entablar una conversación con una persona y para pasar a otra terminan la anterior
-  // link [Inmigrantes Digitales](src/view/assets/img/inmigrantes.jpg)
+  // link Inmigrantes Digitales](src/view/assets/img/inmigrantes.jpg)
       
 ## ¿Cómo descubriste las necesidades de los usuarios?.
 
@@ -98,11 +98,11 @@ Se descubrieron las necesidades de nuestro público objetivo a travéS de los pr
 Nos apoyamos en encuestas, entrevistas y mapas de empatía, continuación se detalla las necesidades decubriertas a través de Mapa de Empatía.
 Las entrevistas se hicieron de forma virtual con los docentes, por medio de video llamadas , pero capturando al mismo tiempo el audio de nuestros público objetivo.
 A los nativos digitales se les hizo una entrevista personal.
-//link [Design Thinking](src/view/assets/img/desing.png)
+//link Design Thinking](src/view/assets/img/desing.png)
 * Mapas de empatía 1 Nativos Digitales
-link [Nativos Digitales](src/view/assets/img/Imagen1.png)
+link Nativos Digitales](src/view/assets/img/Imagen1.png)
 * Mapas de empatía 2 Docentes
-link [Docentes](src/view/assets/img/Imagen2.png)
+link Docentes](src/view/assets/img/Imagen2.png)
 
 ##  ¿Qué problema resuelve el producto para estos usuarios?
 
@@ -154,8 +154,8 @@ pbaja2](src/view/assets/img/formularios_login.jpeg)
 
 
 ##  Backlog Tablero de Tareas.
-![pbajax](src/view/assets/img/tablero.jpg)
-![pbajaz](src/view/assets/img/ultimastareas.jpg)
+pbajax](src/view/assets/img/tablero.jpg)
+pbajaz](src/view/assets/img/ultimastareas.jpg)
 * [ ] Link/screenshots del prototipo de alta fidelidad.
 
 * [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
