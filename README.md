@@ -49,7 +49,7 @@ a nuestros usuarios o público objetivo una app que cumpliera con las sgt objeti
 * Que pueda ser usada  desde su móvil
 * Que pueda funcionar sin tener que poner datos a sus celulares.(Parecido a Whatsap)
  * // imagenes del prototipo de baja fidelidad ambas vistas celular y laptop
-# 4) Prototipa y  Testear
+## 4) Prototipa y  Testear
 
 Finalmente  diseñamos  en Marvel nuestro prototipo de alta fidelidad 
 // enlace marvel prototipo de altafidelidad 
