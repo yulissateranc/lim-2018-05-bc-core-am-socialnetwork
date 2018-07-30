@@ -15,7 +15,7 @@ Sin embargo los Nativos Digitales entrevistados, mostraron un alto grado  de int
  *Agenciar a los Nativos digitales sobre estrategias o técnicas para lograr el aprendizaje.
 
 ## Etapas del Proceso de Diseño la Red Social EduTic
-## Empatizar 
+## 1) Empatizar 
 
 ### Investigación del Problema 
 
@@ -30,14 +30,14 @@ Se realizón la siguiente entrevista , con la finalidad de saber si realmente lo
 ### Benchmark 
 Se realizó un Benchmark de las Redes Sociales más populares y  también a aquellas con similar Objetivo que el nuestro.
 * //link  excel de benchmark
-## Definir
+## 2) Definir
 ### Mapas de Empatía 
 Después de la entrevista  logramos empatizar un poco más con nuestro público objetivo logran  entender sus frustraciones, motivaciones y expectativas acerca de la problemática que estabamos tratando.
 Se realizó dos mapas de empatía tanto para los Docentes con perfil de Inmigrantes digitales como para los Nativos Digitales (Amantes de la Tecnología)
 
 * //link mapa de empatia excel
 
-## Idear
+## 3) Definir
 ### Propuesta de Valor
 En base al mapa de empatía  y las entrevistas las posibles soluciones a las que llegamos fueron ofrecerle 
 a nuestros usuarios o público objetivo una app que cumpliera con las sgt objetivos :
