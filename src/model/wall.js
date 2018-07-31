@@ -127,7 +127,8 @@ window.closeModalWelcome = () => {
   const userId = (firebase.auth().currentUser.uid);
   containerModalWelcome.innerHTML = '';
   (firebase.database().ref('/users/' + userId).update({
-    isNewUser: false
+    isNewUser: false,
+    emailVerified: true
   }));
 };
 
