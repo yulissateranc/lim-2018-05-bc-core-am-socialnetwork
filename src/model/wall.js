@@ -72,9 +72,9 @@ window.showPostsInWall = () => {
                 
               </select>
               <button type="button" class="icon-like" data-like="${key}" id="like"></button>
-              <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
+              <a href="#mi-modal"><button type="button" class="borrar icon-trash" data-message-delete=${key}></button></a>
 
-              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
+              <button type="button" id="btn-edit" class="editar icon-pencil" data-message-edit= ${key}></button>
           </form>`;
       } else if (datos[key].privacity === 'PUBLICO') {
         elementsView += `           
@@ -172,8 +172,8 @@ const showPostToEdit = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PRIVADO">PRIVADO</option>
               </select>
-            <button type="button" class="borrar" data-message-delete=${key}  onclick=showPostsInWall()>Cancelar</button>
-            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button> </div>
+            <button type="button" class="borrar icon-cancel" data-message-delete=${key}  onclick=showPostsInWall()></button>
+            <button type="button" id="btn-edit" class="save icon-floppy" data-message-save= ${key}></button> </div>
              </div>
             
         </div>
@@ -194,15 +194,26 @@ const showPostToEdit = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PUBLICO">PUBLICO</option>
               </select>
-            <button type="button" class="borrar" data-message-delete=${key}  onclick=showPostsInWall()>Cancelar</button>
-            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button> </div>
+            <button type="button" class="borrar icon-cancel" data-message-delete=${key}  onclick=showPostsInWall()></button>
+            <button type="button" id="btn-edit" class="save icon-floppy" data-message-save= ${key}></button> </div>
              </div>
             
         </div>
     </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => showPostsInWall());
         }
-
+      } else {
+        posts.innerHTML += `<form class="comentary">
+        <p class="users" >${datos[key].autor}</p>
+            <textarea name="postMessage" rows="4" cols="50" class="mensaje" readonly> ${datos[key].description} </textarea>
+            <input type="number" class="textValuefixed" value="${datos[key].likesCount}" readonly/>
+            <select disabled>
+                <option>${datos[key].privacity}</option>
+              </select>
+            <button type="button" class="icon-like"></button>
+        </form>
+ `;
       }
+
     }
     if (posts !== '') {
       const elementGuardar = document.getElementsByClassName('save');
