@@ -1,5 +1,3 @@
-
-
 const buttonRegister = document.getElementById('button-register');
 const email = document.getElementById('email');
 const nameUser = document.getElementById('name');

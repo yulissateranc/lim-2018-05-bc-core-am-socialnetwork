@@ -19,7 +19,7 @@ window.createPostInFirebase = (descriptionPost, privacity) => {
         descriptionPost.value = '';
         privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
           <option value="PRIVADO">PRIVADO 🔒</option>`;
-          document.getElementById('txterror').innerHTML = '¡Tu opinión se  publicó con exito 😉😊!';
+        document.getElementById('txterror').innerHTML = '¡Tu opinión se  publicó con exito 😉😊!';
       });
     }));
   } else {
@@ -73,7 +73,6 @@ window.showPostsInWall = () => {
               </select>
               <button type="button" class="icon-like" data-like="${key}" id="like"></button>
               <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
-
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
           </form>`;
@@ -102,7 +101,6 @@ window.showPostsInWall = () => {
              </select>
              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
              <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
-
              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
              </form>`;
@@ -129,7 +127,8 @@ window.closeModalWelcome = () => {
   const userId = (firebase.auth().currentUser.uid);
   containerModalWelcome.innerHTML = '';
   (firebase.database().ref('/users/' + userId).update({
-    isNewUser: false
+    isNewUser: false,
+    emailVerified: true
   }));
 };
 
@@ -203,7 +202,6 @@ const showPostToEdit = () => {
             <button type="button" class="borrar" data-message-delete=${key} onclick=showPostsInWall()>Cancelar</button>
             <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button>
             </div>
-
         </form>`;
         }
       } else {
@@ -307,4 +305,3 @@ window.getDataUserSessionActive = () => {
     }
   });
 };
-
