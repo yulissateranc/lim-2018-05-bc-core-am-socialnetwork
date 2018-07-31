@@ -1,4 +1,3 @@
-
 const buttonPublicPost = document.getElementById('btn-public-post');
 const btnLogOut = document.getElementById('log-out');
 const btnMenu = document.getElementById('menu');
