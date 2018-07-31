@@ -267,11 +267,10 @@ window.renderModal = (containerModalWelcome) => {
                 <span id="close-modal-welcome"  class="close">&times;</span>
                 <h2> Bienvenido a EDU TIC </h2>
              </div>
-           <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
+           <p class="welcomeUser">¡Bienvenidx ${snapshot.val().userName} !</p>
              <div class="modal-body">
-             Educadores apasionados y Amantes de la Tecnología aportando a la Educación.
-             <p>Gracias por unirte a nuestra Comunidad de  Educadores apasionados y Amantes de la Tecnología aportando a la Educación
-              <br>Compártenos tu Experiencia </p>
+             
+             <p>Gracias por unirte a nuestra Comunidad de Educadores apasionados y Amantes de la Tecnología.
              </div>
             
         </div>
