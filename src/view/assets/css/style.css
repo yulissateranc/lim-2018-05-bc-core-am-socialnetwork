@@ -26,9 +26,6 @@ body {
     float: left;
 }
 
-.icon-like {
-  font-size: 18px;
-}
 #nameUser{
     float: right;
     margin: 1%;
@@ -111,7 +108,7 @@ textarea {
 [type=button] {
     cursor: pointer;
     margin: 1%;
-    padding: 3%;
+    padding: 5%;
     border: none;
     border-radius: 7px;
     float: right;
