@@ -9,7 +9,7 @@ window.getDataUserSessionActiveLogin = () => { // observer()
     }
   });
 };
-window.renderModalEmailVerified = (containerModal,titulo,texto) => {
+window.renderModalEmailVerified = (containerModal, titulo, texto) => {
   containerModal.innerHTML =
     `
 	        <div id="modal-welcome" class="modal">
@@ -27,18 +27,18 @@ window.renderModalEmailVerified = (containerModal,titulo,texto) => {
 };
 /* *******************************************REGISTRO ORDINARIO DEL USUARIO****************************** */
 window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => {
- // register()
+  // register()
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
       window.sendEmailVerification();
       createUserInBd(result, name);
-      window.renderModalEmailVerified(document.getElementById('container-modal'),'REGISTRO','Verifique su correo para iniciar sesion.');
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'REGISTRO', 'Verifique su correo para iniciar sesion.');
       errorName.innerHTML = '';
       errorEmail.innerHTML = '';
       errorPassword.innerHTML = '';
       document.getElementById('form-registro').reset();
     }).catch(() => {
-   window.renderModalEmailVerified(document.getElementById('container-modal'),'REGISTRO','Esta direccion electronica, se encuentra registrada ');
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'REGISTRO', 'Esta direccion electronica, se encuentra registrada ');
       document.getElementById('form-registro').reset();
     });
 };
@@ -151,10 +151,10 @@ window.recoverPassword = () => {
   const emailAddress = document.getElementById('email-session').value;
   firebase.auth().sendPasswordResetEmail(emailAddress)
     .then(() => {
-      window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','Se ha enviado un correo a su cuenta. SIGA LOS PASOS');
-      
-    }).catch(() =>{
-      window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','No se encuentra en nuestros registros.');
-      
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'RECUPERAR CONTRASEÑA', 'Se ha enviado un correo a su cuenta. SIGA LOS PASOS');
+
+    }).catch(() => {
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'RECUPERAR CONTRASEÑA', 'No se encuentra en nuestros registros.');
+
     });
 };

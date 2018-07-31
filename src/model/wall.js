@@ -1,7 +1,7 @@
 /* global firebase */
 let refPost = (firebase.database().ref().child('POST'));
 const containerModalWelcome = document.getElementById('container-modal');
-/* Create / Edite/ Remove  de los Post**************************************************************** */
+/* Create / Edite/ Remove  de los Post */
 window.createPostInFirebase = (descriptionPost, privacity) => {
   const validatepublications = window.validateContentOfpublications(descriptionPost.value);
   if (validatepublications) {
@@ -23,7 +23,7 @@ window.createPostInFirebase = (descriptionPost, privacity) => {
       });
     }));
   } else {
-    document.getElementById('txterror').innerHTML = '¡ Ingrese texto para publicar !';
+    document.getElementById('txterror').innerHTML = '¡ Ingresa texto para publicar !';
   }
 };
 
