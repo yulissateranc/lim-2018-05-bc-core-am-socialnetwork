@@ -4,12 +4,21 @@
 /* global firebase */
 window.getDataUserSessionActiveLogin = () => { // observer()
   firebase.auth().onAuthStateChanged((user) => {
-    if (user && user.emailVerified) {
-      window.directionalUrl('../src/view/wall.html');
+  if (user) {  
+    console.log(user);
+     (firebase.database().ref('users/' + user.uid).once('value', (snapshot) =>  {
+      const isNewUser =   snapshot.val().isNewUser;
+      console.log(isNewUser);
+      if(!isNewUser) {
+        window.directionalUrl('../src/view/wall.html');
+      } 
+    }));    
+        // window.directionalUrl('../src/view/wall.html');
+  
     }
   });
 };
-window.renderModalEmailVerified = (containerModal,titulo,texto) => {
+window.renderModalEmailVerified = (containerModal, titulo, texto) => {
   containerModal.innerHTML =
     `
 	        <div id="modal-welcome" class="modal">
@@ -27,18 +36,17 @@ window.renderModalEmailVerified = (containerModal,titulo,texto) => {
 };
 /* *******************************************REGISTRO ORDINARIO DEL USUARIO****************************** */
 window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => {
- // register()
+  // register()
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((result) => {
-      window.sendEmailVerification();
+    .then((result) => {     
       createUserInBd(result, name);
-      window.renderModalEmailVerified(document.getElementById('container-modal'),'REGISTRO','Verifique su correo para iniciar sesion.');
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'REGISTRO', 'Verifique su correo para iniciar sesion.');
       errorName.innerHTML = '';
       errorEmail.innerHTML = '';
       errorPassword.innerHTML = '';
       document.getElementById('form-registro').reset();
     }).catch(() => {
-   window.renderModalEmailVerified(document.getElementById('container-modal'),'REGISTRO','Esta direccion electronica, se encuentra registrada ');
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'REGISTRO', 'Esta direccion electronica, se encuentra registrada ');
       document.getElementById('form-registro').reset();
     });
 };
@@ -50,8 +58,8 @@ window.sendEmailVerification = () => {
   };
   const user = firebase.auth().currentUser;
   user.sendEmailVerification(actionCodeSettings).then(() => {
-  }).catch((error) => {
-    alert('error', error);
+  }).catch(() => {
+    // console.log( error);
   });
 };
 
@@ -91,8 +99,8 @@ const createUserInBd = (objectUser, name) => {
       userEmail: objectUser.user.email,
       isNewUser: objectUser.additionalUserInfo.isNewUser,
       providerId: objectUser.additionalUserInfo.providerId,
-      emailVerified: objectUser.user.emailVerified
-    });
+      emailVerified: false
+    }), window.sendEmailVerification();
   } else {
     firebase.database().ref('users/' + objectUser.user.uid).set({
       userId: objectUser.user.uid,
@@ -100,10 +108,17 @@ const createUserInBd = (objectUser, name) => {
       userEmail: objectUser.user.email,
       isNewUser: objectUser.additionalUserInfo.isNewUser,
       userPhotoUrl: objectUser.user.photoURL,
-      providerId: objectUser.additionalUserInfo.providerId
-    }).then(() => {
-      window.directionalUrl('../src/view/wall.html');
-    });
+      providerId: objectUser.additionalUserInfo.providerId,
+      emailVerified: false
+    }).then(()=>{
+      (firebase.database().ref('/users/' + objectUser.user.uid).once('value', (snapshot) => {
+        const displayName = snapshot.val().userName;
+        console.log(displayName);
+        if(displayName) {
+          window.directionalUrl('../src/view/wall.html');
+        }
+       }) 
+    )});     
   }
   return objectUser;
 };
@@ -127,21 +142,23 @@ window.registerUserFacebook = () => {
 window.registerUserGmail = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then((result) => {
+    console.log(result);
     if (result.additionalUserInfo.isNewUser) {
       createUserInBd(result, name);
     } else {
-      alert('condicional');
       window.directionalUrl('../src/view/wall.html');
     }
   }).catch((error) => {
     alert('error', error);
   });
 };
+
+
 window.initSessionFirebase = (emailLogin, passwordLogin) => {
   firebase.auth().signInWithEmailAndPassword(emailLogin.value, passwordLogin.value).then(() => {
     document.getElementById('form-sesion').reset();
     document.getElementById('div-label-msj-error-password-login').innerHTML = '';
-  }).catch((error) => {
+  }).catch(() => {
     document.getElementById('div-label-msj-error-password-login').innerHTML = '<em>Asegurate que el correo y contraseña sean correctos.</em>';
   });
 };
@@ -151,10 +168,10 @@ window.recoverPassword = () => {
   const emailAddress = document.getElementById('email-session').value;
   firebase.auth().sendPasswordResetEmail(emailAddress)
     .then(() => {
-      window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','Se ha enviado un correo a su cuenta. SIGA LOS PASOS');
-      
-    }).catch((error) =>{
-      window.renderModalEmailVerified(document.getElementById('container-modal'),'RECUPERAR CONTRASEÑA','No se encuentra en nuestros registros.');
-      
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'RECUPERAR CONTRASEÑA', 'Se ha enviado un correo a su cuenta. SIGA LOS PASOS');
+
+    }).catch(() => {
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'RECUPERAR CONTRASEÑA', 'No se encuentra en nuestros registros.');
+
     });
 };

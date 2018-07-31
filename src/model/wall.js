@@ -19,11 +19,11 @@ window.createPostInFirebase = (descriptionPost, privacity) => {
         descriptionPost.value = '';
         privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
           <option value="PRIVADO">PRIVADO 🔒</option>`;
-          document.getElementById('txterror').innerHTML = '¡Tu opinión se  publicó con exito 😉😊!';
+        document.getElementById('txterror').innerHTML = '¡Tu opinión se  publicó con exito 😉😊!';
       });
     }));
   } else {
-    document.getElementById('txterror').innerHTML = '¡ Ingrese texto para publicar !';
+    document.getElementById('txterror').innerHTML = '¡ Ingresa texto para publicar !';
   }
 };
 
@@ -42,8 +42,6 @@ const createLikeInFirebase = () => {
         post.likes[uid] = null;
       } else {
         post.likesCount++;
-        like.classList.add('icon-like');
-        like.classList.remove('icon-notLike');
         if (!post.likes) {
           post.likes = {};
         }
@@ -52,6 +50,7 @@ const createLikeInFirebase = () => {
     }
     return post;
   });
+  like.classList.add('colornotlike');
 };
 
 window.showPostsInWall = () => {
@@ -61,38 +60,24 @@ window.showPostsInWall = () => {
     const viewPost = document.getElementById('posts');
     let elementsView = '';
     for (let key in datos) {
-      if (datos[key].privacity === 'PRIVADO') {
-        if (datos[key].userId === firebase.auth().currentUser.uid) {
-          elementsView += `           
+
+      if (datos[key].userId === firebase.auth().currentUser.uid) {
+        elementsView += `           
           <form class="comentary">
               <p class="users" >${datos[key].autor}</p>
               <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
               <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}" />
               <select disabled id="post-privacity-selector">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
+                
               </select>
               <button type="button" class="icon-like" data-like="${key}" id="like"></button>
               <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
 
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
-             </div>
           </form>`;
-        }
       } else if (datos[key].privacity === 'PUBLICO') {
-        if (datos[key].userId !== firebase.auth().currentUser.uid) {
-          elementsView += `           
-              <form class="comentary">
-              <p class="users" >${datos[key].autor}</p>
-              <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
-              <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
-              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
-              <select disabled id="post-privacity-selector">
-                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
-              </select>
-              </div>
-             </form>`;
-        } else {
-          elementsView += `           
+        elementsView += `           
              <form class="comentary">
              <p class="users" >${datos[key].autor}</p>
              <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
@@ -101,18 +86,15 @@ window.showPostsInWall = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
              </select>
              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
-             <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
-
-             <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
-             </div>
              </form>`;
-        }
       }
       viewPost.innerHTML = elementsView;
       if (elementsView !== '') {
         const elementDelete = document.getElementsByClassName('borrar');
         const elementEdit = document.getElementsByClassName('editar');
         const elementLike = document.getElementsByClassName('icon-like');
+        const like = document.getElementById('like');
+
         for (let i = 0; i < elementLike.length; i++) {
           elementLike[i].addEventListener('click', createLikeInFirebase, false);
         }
@@ -129,7 +111,8 @@ window.closeModalWelcome = () => {
   const userId = (firebase.auth().currentUser.uid);
   containerModalWelcome.innerHTML = '';
   (firebase.database().ref('/users/' + userId).update({
-    isNewUser: false
+    isNewUser: false,
+    emailVerified: true
   }));
 };
 
@@ -164,59 +147,61 @@ const deletePostFirebase = () => {
     modal.classList.remove('modalView');
   });
 };
+
+
 const showPostToEdit = () => {
   const posts = document.getElementById('posts');
   let keyDataEdit = event.target.getAttribute('data-message-edit');
   refPost.on('value', (snap) => {
     let datos = snap.val();
     posts.innerHTML = '';
-
-
     for (let key in datos) {
       if (key === keyDataEdit) {
         if (datos[key].privacity === 'PUBLICO') {
           posts.innerHTML +=
-            `<form class="comentary">
-            <p class="users" >${datos[key].autor}</p>
-            <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description}</textarea>
-            <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
-            <select id="postEdit-privacity-selector">
+            ` <div id="modal-welcome" class="modal">
+            <div class="modal-content">
+            <div class="modal-header">
+                <span id="close-modal-welcome"  class="close">&times;</span>
+                <h2> Editar </h2>
+             </div>
+             <div class="modal-body">
+                <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description} </textarea>
+<div>
+            <select id="postEdit-privacity-selector" class="editSelect">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PRIVADO">PRIVADO</option>
               </select>
             <button type="button" class="borrar" data-message-delete=${key}  onclick=showPostsInWall()>Cancelar</button>
-            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button>
-            </div>
-        </form>
-            `;
-        } else {
+            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button> </div>
+             </div>
+            
+        </div>
+    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => showPostsInWall());
+
+        } else if (datos[key].privacity === 'PRIVADO') {
           posts.innerHTML +=
-            `<form class="comentary">
-            <p class="users" >${datos[key].autor}</p>
-            <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description}</textarea>
-            <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
-            <select id="postEdit-privacity-selector">
+            ` <div id="modal-welcome" class="modal">
+            <div class="modal-content">
+            <div class="modal-header">
+                <span id="close-modal-welcome"  class="close">&times;</span>
+                <h2> Editar </h2>
+             </div>
+             <div class="modal-body">
+                <textarea name="postMessage" rows="4" cols="50" class="mensaje" id="text-save">  ${datos[key].description} </textarea>
+<div>
+            <select id="postEdit-privacity-selector" class="editSelect">
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PUBLICO">PUBLICO</option>
               </select>
-            <button type="button" class="icon-like"></button>
-            <button type="button" class="borrar" data-message-delete=${key} onclick=showPostsInWall()>Cancelar</button>
-            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button>
-            </div>
-
-        </form>`;
+            <button type="button" class="borrar" data-message-delete=${key}  onclick=showPostsInWall()>Cancelar</button>
+            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button> </div>
+             </div>
+            
+        </div>
+    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => showPostsInWall());
         }
-      } else {
-        posts.innerHTML += `<form class="comentary">
-        <p class="users" >${datos[key].autor}</p>
-            <textarea name="postMessage" rows="4" cols="50" class="mensaje" readonly> ${datos[key].description} </textarea>
-            <input type="number" class="textValuefixed" value="${datos[key].likesCount}" readonly/>
-            <select disabled id="postEdit-privacity-selector">
-                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
-              </select>
-            <button type="button" class="icon-like"></button>
-        </form>
- `;
+
       }
     }
     if (posts !== '') {
@@ -271,9 +256,9 @@ window.renderModal = (containerModalWelcome) => {
              </div>
            <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
              <div class="modal-body">
-             Educadores apasionados y Amantes de la Tecnología aportando a la Educación.
+             <p>Educadores apasionados y Amantes de la Tecnología aportando a la Educación.
              <p>Gracias por unirte a nuestra Comunidad de  Educadores apasionados y Amantes de la Tecnología aportando a la Educación
-              <br>Compártenos tu Experiencia </p>
+              <br>Compártenos tu Experiencia</p>
              </div>
             
         </div>
