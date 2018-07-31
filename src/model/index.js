@@ -5,13 +5,9 @@
 window.getDataUserSessionActiveLogin = () => { // observer()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      if(user.emailVerified || user.providerId !== 'password'){
-      //   firebase.database().ref('users/' + objectUser.user.uid + '/providerId') !== null) {
+      if (firebase.database().ref('users/' + user.uid + '/emailVerified' === true)) {
         window.directionalUrl('../src/view/wall.html');
-      // }
-      console.log('usuario activo');
-      // window.directionalUrl('../src/view/wall.html');
-    }
+      } 
     }
   });
 };
@@ -96,7 +92,7 @@ const createUserInBd = (objectUser, name) => {
       userEmail: objectUser.user.email,
       isNewUser: objectUser.additionalUserInfo.isNewUser,
       providerId: objectUser.additionalUserInfo.providerId,
-      emailVerified: objectUser.user.emailVerified
+      emailVerified: false
     }), window.sendEmailVerification();
   } else {
     firebase.database().ref('users/' + objectUser.user.uid).set({
@@ -105,9 +101,10 @@ const createUserInBd = (objectUser, name) => {
       userEmail: objectUser.user.email,
       isNewUser: objectUser.additionalUserInfo.isNewUser,
       userPhotoUrl: objectUser.user.photoURL,
-      providerId: objectUser.additionalUserInfo.providerId
+      providerId: objectUser.additionalUserInfo.providerId,
+      emailVerified: false
     }).then(()=>{
-      if (firebase.database().ref('users/' + objectUser.user.uid + '/providerId') !== null) {
+      if (firebase.database().ref('users/' + objectUser.user.uid + '/emailVerified') !== null) {
         window.directionalUrl('../src/view/wall.html');
       } 
     })
