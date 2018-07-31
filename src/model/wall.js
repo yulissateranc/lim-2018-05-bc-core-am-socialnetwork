@@ -259,7 +259,6 @@ window.renderModal = (containerModalWelcome) => {
              
              <p>Gracias por unirte a nuestra Comunidad de Educadores apasionados y Amantes de la Tecnología.
              </div>
-            
         </div>
     </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => window.closeModalWelcome());
     }
