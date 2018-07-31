@@ -4,40 +4,28 @@
 /* global firebase */
 window.getDataUserSessionActiveLogin = () => { // observer()
   firebase.auth().onAuthStateChanged((user) => {
-    if (user && user.emailVerified) {
-      window.directionalUrl('../src/view/wall.html');
+    if (user) {
+      if(user.emailVerified || user.providerId !== 'password'){
+      //   firebase.database().ref('users/' + objectUser.user.uid + '/providerId') !== null) {
+        window.directionalUrl('../src/view/wall.html');
+      // }
+      console.log('usuario activo');
+      // window.directionalUrl('../src/view/wall.html');
+    }
     }
   });
 };
-window.renderModalEmailVerified = (containerModal) => {
+window.renderModalEmailVerified = (containerModal, titulo, texto) => {
   containerModal.innerHTML =
     `
 	        <div id="modal-welcome" class="modal">
             <div class="modal-content">
             <div class="modal-header">
                 <span id="close-modal-welcome"  class="close">&times;</span>
-                <h2> Bienvenido a EDU TIC </h2>
+                <h2> ${titulo} </h2>
              </div>
-           <p class="welcomeUser">¡Hola !</p>
+           <p class="welcomeUser">${texto}</p>
              <div class="modal-body">
-             <p>hoola </p>
-             </div>
-            
-        </div>
-    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => containerModal.innerHTML = '');
-};
-window.renderModalEmailRepeated = (containerModal) => {
-  containerModal.innerHTML =
-    `
-	        <div id="modal-welcome" class="modal">
-            <div class="modal-content">
-            <div class="modal-header">
-                <span id="close-modal-welcome"  class="close">&times;</span>
-                <h2> Bienvenido a EDU TIC </h2>
-             </div>
-           <p class="welcomeUser">¡Hola !</p>
-             <div class="modal-body">
-             <p>este correo ya está registrado </p>
              </div>
             
         </div>
@@ -45,26 +33,18 @@ window.renderModalEmailRepeated = (containerModal) => {
 };
 /* *******************************************REGISTRO ORDINARIO DEL USUARIO****************************** */
 window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => {
-  // let elmet = ''; // register()
-  // let modal = document.getElementById('mi-modal');
-  // modal.classList.add('modalView');
+  // register()
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((result) => {
-      window.sendEmailVerification();
+    .then((result) => {     
       createUserInBd(result, name);
-      window.renderModalEmailVerified(document.getElementById('container-modal'));
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'REGISTRO', 'Verifique su correo para iniciar sesion.');
       errorName.innerHTML = '';
       errorEmail.innerHTML = '';
       errorPassword.innerHTML = '';
       document.getElementById('form-registro').reset();
     }).catch(() => {
-      window.renderModalEmailRepeated(document.getElementById('container-modal'));
-      // alert(errorCode, errorMessage);
-      // elmet = window.modalView('REGISTRO','La dirección de correo electrónico ya está registrada.','Aceptar','Aceptar')
-      // modal.innerHTML = elmet;
-      // console.log(elmet);
-      // let register = document.getElementById('accept');
-      // register.style.display = 'none';
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'REGISTRO', 'Esta direccion electronica, se encuentra registrada ');
+      document.getElementById('form-registro').reset();
     });
 };
 /* ***********************************************************Envia correo de confirmación****************************************************************************/
@@ -75,8 +55,8 @@ window.sendEmailVerification = () => {
   };
   const user = firebase.auth().currentUser;
   user.sendEmailVerification(actionCodeSettings).then(() => {
-  }).catch((error) => {
-    alert('error', error);
+  }).catch(() => {
+    // console.log( error);
   });
 };
 
@@ -117,7 +97,7 @@ const createUserInBd = (objectUser, name) => {
       isNewUser: objectUser.additionalUserInfo.isNewUser,
       providerId: objectUser.additionalUserInfo.providerId,
       emailVerified: objectUser.user.emailVerified
-    });
+    }), window.sendEmailVerification();
   } else {
     firebase.database().ref('users/' + objectUser.user.uid).set({
       userId: objectUser.user.uid,
@@ -126,12 +106,19 @@ const createUserInBd = (objectUser, name) => {
       isNewUser: objectUser.additionalUserInfo.isNewUser,
       userPhotoUrl: objectUser.user.photoURL,
       providerId: objectUser.additionalUserInfo.providerId
-    }).then(() => {
-      window.directionalUrl('../src/view/wall.html');
-    });
+    }).then(()=>{
+      if (firebase.database().ref('users/' + objectUser.user.uid + '/providerId') !== null) {
+        window.directionalUrl('../src/view/wall.html');
+      } 
+    })
+   
+   
   }
   return objectUser;
 };
+
+
+
 /* *********************************************Registro con Facebook******************************** */
 window.registerUserFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
@@ -149,6 +136,7 @@ window.registerUserFacebook = () => {
 window.registerUserGmail = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then((result) => {
+    console.log(result);
     if (result.additionalUserInfo.isNewUser) {
       createUserInBd(result, name);
     } else {
@@ -168,38 +156,15 @@ window.initSessionFirebase = (emailLogin, passwordLogin) => {
   });
 };
 
-/* ViewModal*/
-window.modalView = (reftexto, text, btn1, btn2) => {
-  return `
-    <div class="modal-contentView">
-      <a href="#modal-close" title="Cerrar" id="close" class="modal-close">Cerrar</a>
-      <h2 id="txtTitle">${reftexto}</h2>
-      <p>${text}</p>
-        <button id="accept" class="btnmodal">${btn1}</button>
-        <a href="#modal-close" title="${btn2}"><button class="btnmodal" id="close">${btn2}</button></a>
-    </div>
-  `;
-};
-
-/* Recuperar contraseña */
+/*Recuperar contraseña */
 window.recoverPassword = () => {
-  const auth = firebase.auth();
   const emailAddress = document.getElementById('email-session').value;
-  let modal = document.getElementById('mi-modal');
-  let elmet = '';
-  modal.classList.add('modalView');
-  auth.sendPasswordResetEmail(emailAddress)
+  firebase.auth().sendPasswordResetEmail(emailAddress)
     .then(() => {
-      elmet = window.modalView('Recuperar Contraseña', 'Se ha enviado un correo a su cuenta. SIGA LOS PASOS', 'Aceptar', 'Cerrar');
-      modal.innerHTML = elmet;
-      let accept = document.getElementById('accept');
-      accept.addEventListener('click', () => {
-        window.location.href = 'https://outlook.live.com/owa/#';
-      });
-    }).catch(() =>{
-      elmet = window.modalView('Recuperar Contraseña', 'No se encuentra en nuestros registros', 'Registrarse', 'Cerrar');
-      modal.innerHTML = elmet;
-      let register = document.getElementById('accept');
-      register.style.display = 'none';
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'RECUPERAR CONTRASEÑA', 'Se ha enviado un correo a su cuenta. SIGA LOS PASOS');
+
+    }).catch(() => {
+      window.renderModalEmailVerified(document.getElementById('container-modal'), 'RECUPERAR CONTRASEÑA', 'No se encuentra en nuestros registros.');
+
     });
 };

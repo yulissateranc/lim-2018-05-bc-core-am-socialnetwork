@@ -8,7 +8,6 @@ body {
       margin: 20% auto;
       position: relative;
     }
-  
     .modalView{
       background-color: rgba(0, 0, 0, 0.5);
       position:fixed;
@@ -37,6 +36,9 @@ body {
       opacity:1;
       pointer-events:auto;
     }
+h2 {
+    color: #2b485d;
+}
   .modal-close {
     color: #aaa;
     line-height: 50px;
@@ -57,8 +59,12 @@ body {
       outline: none;
       color: white;
       background: #f1a203;
-       display:inline-flex;
+    display:inline-flex;
   }
+
+.btnmodal:hover{
+    background: #44d9e6;
+}
  .btnAncla {
   background-color: #f1a203;
   border-radius: 3px;

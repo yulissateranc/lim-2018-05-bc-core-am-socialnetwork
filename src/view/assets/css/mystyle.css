@@ -7,6 +7,7 @@
 body,html{
   height: 100%;
   width: 100%;
+  font: 600 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 h1 {
@@ -32,7 +33,7 @@ font-size: 17px;
 font-weight: 600;
 text-transform: uppercase;
 display:inline-block;
-margin: 30px 8px 8px 8px; 
+margin: 8px; 
 color: #cccccc;
 }
 
@@ -137,6 +138,7 @@ display: block;
 .msjerror {
   font-size: 15px;
 }
+
 @media screen  and (min-width:600px) {
 #form-sesion,
 #form-registro {

@@ -19,7 +19,7 @@ window.createPostInFirebase = (descriptionPost, privacity) => {
         descriptionPost.value = '';
         privacity.innerHTML = `<option value="PUBLICO">PUBLICO 🌎 </option>
           <option value="PRIVADO">PRIVADO 🔒</option>`;
-        document.getElementById('txterror').innerHTML = '¡tu opinión se  publicó con exito 😉😊!';  
+        document.getElementById('txterror').innerHTML = '¡Tu opinión se  publicó con exito 😉😊!';
       });
     }));
   } else {
@@ -73,7 +73,6 @@ window.showPostsInWall = () => {
               </select>
               <button type="button" class="icon-like" data-like="${key}" id="like"></button>
               <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
-
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
           </form>`;
@@ -102,7 +101,6 @@ window.showPostsInWall = () => {
              </select>
              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
              <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
-
              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
              </div>
              </form>`;
@@ -203,7 +201,6 @@ const showPostToEdit = () => {
             <button type="button" class="borrar" data-message-delete=${key} onclick=showPostsInWall()>Cancelar</button>
             <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button>
             </div>
-
         </form>`;
         }
       } else {
@@ -271,8 +268,9 @@ window.renderModal = (containerModalWelcome) => {
              </div>
            <p class="welcomeUser">¡Hola ${snapshot.val().userName} !</p>
              <div class="modal-body">
-             <p>Gracias por unirte. Las tecnologías y la educación son imprescindibles para transmititr conocimientos, 
-             en Edu Tic esperamos crear una red social trascendental y hermosa. Diviértete usandola</p>
+             Educadores apasionados y Amantes de la Tecnología aportando a la Educación.
+             <p>Gracias por unirte a nuestra Comunidad de  Educadores apasionados y Amantes de la Tecnología aportando a la Educación
+              <br>Compártenos tu Experiencia </p>
              </div>
             
         </div>
@@ -306,4 +304,3 @@ window.getDataUserSessionActive = () => {
     }
   });
 };
-

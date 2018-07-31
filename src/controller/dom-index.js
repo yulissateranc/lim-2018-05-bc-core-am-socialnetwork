@@ -1,5 +1,3 @@
-
-
 const buttonRegister = document.getElementById('button-register');
 const email = document.getElementById('email');
 const nameUser = document.getElementById('name');
@@ -33,8 +31,6 @@ sesion.addEventListener('click', () => {
 });
 window.onload = () => {
   window.getDataUserSessionActiveLogin();
-  let modal = document.getElementById('mi-modal');
-  modal.classList.remove('modalView');
 };
 
 buttonRegister.addEventListener('click', (event) => {
