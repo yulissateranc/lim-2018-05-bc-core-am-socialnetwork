@@ -1,6 +1,4 @@
-// "no-unused-vars": "off",
-//     "no-use-before-define": "off",
-//         "no-undef": "off"
+
 /* global firebase */
 window.getDataUserSessionActiveLogin = () => { // observer()
   firebase.auth().onAuthStateChanged((user) => {
@@ -11,8 +9,6 @@ window.getDataUserSessionActiveLogin = () => { // observer()
         window.directionalUrl('../src/view/wall.html');
       } 
     }));    
-        // window.directionalUrl('../src/view/wall.html');
-  
     }
   });
 };
@@ -34,7 +30,6 @@ window.renderModalEmailVerified = (containerModal, titulo, texto) => {
 };
 /* *******************************************REGISTRO ORDINARIO DEL USUARIO****************************** */
 window.registerUserFirebase = (email, password, name, errorName, errorEmail, errorPassword) => {
-  // register()
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {     
       createUserInBd(result, name);
@@ -51,7 +46,7 @@ window.registerUserFirebase = (email, password, name, errorName, errorEmail, err
 /* ***********************************************************Envia correo de confirmación****************************************************************************/
 window.sendEmailVerification = () => {
   var actionCodeSettings = {
-    url: 'https://jossielinn.github.io/lim-2018-05-bc-core-am-socialnetwork/src/view/wall.html',
+    url: 'https://yulissateran.github.io/lim-2018-05-bc-core-am-socialnetwork/src/view/wall.html',
     handleCodeInApp: false
   };
   const user = firebase.auth().currentUser;
