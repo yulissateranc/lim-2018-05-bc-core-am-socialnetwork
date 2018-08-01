@@ -1,4 +1,3 @@
-
 window.validateContentOfpublications = (descriptionPostValue) => {
   if (/^(?!\s)/.test(descriptionPostValue) && /^([A-Za-z0-9\s]{1,})/g.test(descriptionPostValue)) {
     return true;
@@ -6,8 +5,7 @@ window.validateContentOfpublications = (descriptionPostValue) => {
     return false;
   }
 };
-/**************************************FUNCIONES DE VALIDACIÓN*******************************/
-
+/* *******************************************FUNCIONES DE VALIDACIÓN*******************************/
 window.validatorNameUser = (name) => {
   if ((/^([A-Za-z0-9\s]{8,})+$/g.test(name))) {
     return true;

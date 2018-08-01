@@ -10,10 +10,9 @@ const sesion = document.getElementById('sesion');
 const formRegistro = document.getElementById('form-registro');
 const formSesion = document.getElementById('form-sesion');
 const formFooter = document.getElementById('form-footer');
-
 registro.addEventListener('click', () => {
-  formSesion.style.display ='none';
-  formRegistro.style.display ='block';
+  formSesion.style.display = 'none';
+  formRegistro.style.display = 'block';
   formFooter.style.display = 'none';
   registro.classList.remove('inactive');
   registro.classList.add('active');
@@ -30,7 +29,6 @@ sesion.addEventListener('click', () => {
   registro.classList.remove('active');
   registro.classList.add('inactive');
 });
-
 window.onload = () => {
   window.getDataUserSessionActiveLogin();
 };
@@ -39,6 +37,7 @@ buttonRegister.addEventListener('click', (event) => {
   event.preventDefault();
   window.validatorFormRegister(email.value, password.value, nameUser.value);
 });
+
 btnFacebook.addEventListener('click', () => {
   window.registerUserFacebook();
 });
@@ -50,6 +49,7 @@ buttonSesion.addEventListener('click', () => {
   const passwordLogin = document.getElementById('password-session');
   window.initSessionFirebase(emailLogin, passwordLogin);
 });
+
 document.getElementById('forgot-passw').addEventListener('click', () => {
   window.recoverPassword();
 });

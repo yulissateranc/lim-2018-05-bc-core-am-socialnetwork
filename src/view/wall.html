@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="assets/css/style.modal.css" />
     <link rel="stylesheet" href="assets/css/modal.css" />
     <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link rel="stylesheet" href="../view/assets/cssbootstrapp/bootstrap.min.css">
+    <link rel="stylesheet" href="../view/assets/cssbootstrapp/bootstrap.css">
+    <script src="../view/assets/jsbootstrapp/jquery-3.3.1.slim.min.js"></script>
+    <script src="../view/assets/jsbootstrapp/bootstrap.min.js"></script>
     <title>Edu Tic</title>
 </head>
 
@@ -17,7 +21,7 @@
     <header class="wrapperMenu">
         <img src="../view/assets/img/icono.png" id="icono" />
         <img src="../view/assets/img/nombre%20tic.png" alt="logoTech" id="logoTech" />
-        <div id="menu" class="icon-menu">
+        <div id="menu" class="icon-cog-outline">
             <ul id="contenido">
                 <li id="li-menu">
                     <a href="#mi-modal" id="log-out">Cerrar Sesion</a>
@@ -37,7 +41,9 @@
             </select>
             <button type="button" id="btn-public-post" class="publish">PUBLICAR</button>
         </form>
-    </section>
+    </section>   
+      <section class="wrapper"></section>
+
 
     <div id="mi-modal" class="modalView"></div>
     <section id="posts" class="wrapper"></section>
@@ -46,6 +52,8 @@
     <script src="../model/functions-validation.js"></script>
     <script src="../model/wall.js"></script>
     <script src="../controller/dom-wall.js"></script>
+    <script src="../view/assets/jsbootstrapp/bootstrap.js"></script>
+    <script src="../view/assets/jsbootstrapp/popper.min.js"></script>
 
 </body>
 
