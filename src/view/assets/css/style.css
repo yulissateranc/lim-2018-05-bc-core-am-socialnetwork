@@ -16,14 +16,15 @@ body {
     padding: 10px;
     height: 70px;
     position: fixed;
+    box-sizing: border-box;
     
 }
 
-.icon-menu {
+.icon-down-open {
    font-size: 35px;
     color: aliceblue;
     cursor: pointer;
-    float: left;
+    float: right;
 }
 
 #nameUser{
@@ -40,6 +41,7 @@ body {
     padding: 0;
     background: #2b485d;
     height: auto;
+    margin-left: -45%;
 }
 
 #menu li {
@@ -164,6 +166,7 @@ textarea {
     }
     #contenido {
         width: 40%;
+        margin-left: -25%;
     }
     
     [type=button] {
@@ -176,7 +179,7 @@ textarea {
 
 @media screen and (min-width:600px) {
     #contenido {
-        margin: 2% 0% 0% -1%;
+        margin-left: -22%;
     }
 
     .comentary select {
@@ -189,7 +192,7 @@ textarea {
     }
     
     #logoTech {
-        width: 18%;
+        width: 20%;
     }
 }
 @media screen and (min-width:800px) {
@@ -198,8 +201,8 @@ textarea {
     }
 
     #contenido {
-        margin: 1% 0% 0% -0.5%;
         width: 20%;
+        margin-left: -10%;
     }
 
     .top {
@@ -215,7 +218,6 @@ textarea {
 @media screen and (min-width:900px) {
      #logoTech {
          width: 10%;
-         margin: -0.5%;
     }
 
     .top {
