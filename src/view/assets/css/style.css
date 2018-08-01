@@ -117,13 +117,13 @@ textarea {
     
 }
 .no-like{
-    background: #44d9e6;
+    background: #2b485d;;
 }
 .like{
     background: #f1a203; 
 }
 [type=button]:hover {
-    background: #44d9e6;
+    background: #ceecf0;
 }
 .publish {
     margin: 3%;

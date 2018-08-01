@@ -1,3 +1,54 @@
+/*funcion para postear imágenes */
+// const redimensionar = (srcData, width, height) => {
+//   let imageObj = new Image();
+//   let canvas = document.createElement("canvas");
+//   let ctx = canvas.getContext('2d');
+//   let xStart = 0;
+//   let yStart = 0;
+//   let aspectRadio;
+//   let newWidth;
+//   let newHeight;
+//   imageObj.src = srcData;
+//   canvas.width = width;
+//   canvas.height = height;
+//   aspectRadio = imageObj.height / imageObj.width;
+//   if (imageObj.height < imageObj.width) {
+//     aspectRadio = imageObj.width / imageObj.height;
+//     newHeight = height;
+//     newWidth = aspectRadio * height;
+//     xStart = -(newWidth - width) / 2;
+//   } else {
+//     newWidth = width,
+//       newHeight = aspectRadio * width;
+//     yStart = -(newHeight - height) / 2;
+//   }
+//   ctx.drawImage(imageObj, xStart, yStart, newWidth, newHeight);
+
+//   return canvas.toDataURL("image/jpeg", 0.75);
+// }
+// const getImg = () => {
+//   let TablaDeBaseDatos = firebase.database().ref('PICTURES');
+
+//   $('#upload-file-selector').change(function () {
+//     if (this.files && this.files[0]) {
+//       let archivo = new FileReader();
+//       archivo.onload = function (e) {
+
+//         let img = redimensionar(e.target.result, 165, 165);
+//         TablaDeBaseDatos.push({
+//           urlLarge: e.target.result,
+//           url: img
+//         });
+//         //visualizar la imagen en la etiqueta img 
+//         $('#img').attr('src', img);
+//       };
+
+//       archivo.readAsDataURL(this.files[0]);
+//     }
+//   });
+// }
+
+
 /* global firebase */
 let refPost = (firebase.database().ref().child('POST'));
 const containerModalWelcome = document.getElementById('container-modal');
@@ -53,14 +104,10 @@ const createLikeInFirebase = () => {
 
 const stateLikesObserver = (likesOfPost, currentUserId) => {
   const likes = likesOfPost;
-  console.log(currentUserId);
- 
   let stateLike = '';
   for (const like in likes) {
-    console.log(likes[like]);
     stateLike = likes[currentUserId] ? 'like' : 'no-like';
   }
-  // console.log(stateLike);
   return stateLike;
 };
 window.showPostsInWall = () => {
@@ -84,9 +131,10 @@ window.showPostsInWall = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 
               </select>
-              <button type="button" class="icon-like ${stateLikes2}" data-like="${key}" id="like"></button>
-              <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
-              <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
+              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
+              <a href="#mi-modal"><button type="button" class="borrar icon-trash" data-message-delete=${key}></button></a>
+
+              <button type="button" id="btn-edit" class="editar icon-pencil" data-message-edit= ${key}></button>
           </form>`;
       } else if (datos[key].privacity === 'PUBLICO') {
         const stateLikes = stateLikesObserver(datos[key].likes, currentUserId);
@@ -185,8 +233,8 @@ const showPostToEdit = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PRIVADO">PRIVADO</option>
               </select>
-            <button type="button" class="borrar" data-message-delete=${key}  onclick=showPostsInWall()>Cancelar</button>
-            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button> </div>
+            <button type="button" class="borrar icon-cancel" data-message-delete=${key}  onclick=showPostsInWall()></button>
+            <button type="button" id="btn-edit" class="save icon-floppy" data-message-save= ${key}></button> </div>
              </div>
             
         </div>
@@ -206,14 +254,26 @@ const showPostToEdit = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 <option value="PUBLICO">PUBLICO</option>
               </select>
-            <button type="button" class="borrar" data-message-delete=${key}  onclick=showPostsInWall()>Cancelar</button>
-            <button type="button" id="btn-edit" class="save" data-message-save= ${key}>Guardar</button> </div>
+            <button type="button" class="borrar icon-cancel" data-message-delete=${key}  onclick=showPostsInWall()></button>
+            <button type="button" id="btn-edit" class="save icon-floppy" data-message-save= ${key}></button> </div>
              </div>
             
         </div>
     </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => window.showPostsInWall());
         }
+      } else {
+        posts.innerHTML += `<form class="comentary">
+        <p class="users" >${datos[key].autor}</p>
+            <textarea name="postMessage" rows="4" cols="50" class="mensaje" readonly> ${datos[key].description} </textarea>
+            <input type="number" class="textValuefixed" value="${datos[key].likesCount}" readonly/>
+            <select disabled>
+                <option>${datos[key].privacity}</option>
+              </select>
+            <button type="button" class="icon-like"></button>
+        </form>
+ `;
       }
+
     }
     if (posts !== '') {
       const elementGuardar = document.getElementsByClassName('save');
@@ -271,7 +331,6 @@ window.renderModal = (containerModalWelcome) => {
              <p>Gracias por unirte a nuestra Comunidad de  Educadores apasionados y Amantes de la Tecnología aportando a la Educación
               <br>Compártenos tu Experiencia</p>
              </div>
-            
         </div>
     </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => window.closeModalWelcome());
     }
