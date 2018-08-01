@@ -1,9 +1,61 @@
+/*funcion para postear imágenes */
+// const redimensionar = (srcData, width, height) => {
+//   let imageObj = new Image();
+//   let canvas = document.createElement("canvas");
+//   let ctx = canvas.getContext('2d');
+//   let xStart = 0;
+//   let yStart = 0;
+//   let aspectRadio;
+//   let newWidth;
+//   let newHeight;
+//   imageObj.src = srcData;
+//   canvas.width = width;
+//   canvas.height = height;
+//   aspectRadio = imageObj.height / imageObj.width;
+//   if (imageObj.height < imageObj.width) {
+//     aspectRadio = imageObj.width / imageObj.height;
+//     newHeight = height;
+//     newWidth = aspectRadio * height;
+//     xStart = -(newWidth - width) / 2;
+//   } else {
+//     newWidth = width,
+//       newHeight = aspectRadio * width;
+//     yStart = -(newHeight - height) / 2;
+//   }
+//   ctx.drawImage(imageObj, xStart, yStart, newWidth, newHeight);
+
+//   return canvas.toDataURL("image/jpeg", 0.75);
+// }
+// const getImg = () => {
+//   let TablaDeBaseDatos = firebase.database().ref('PICTURES');
+
+//   $('#upload-file-selector').change(function () {
+//     if (this.files && this.files[0]) {
+//       let archivo = new FileReader();
+//       archivo.onload = function (e) {
+
+//         let img = redimensionar(e.target.result, 165, 165);
+//         TablaDeBaseDatos.push({
+//           urlLarge: e.target.result,
+//           url: img
+//         });
+//         //visualizar la imagen en la etiqueta img 
+//         $('#img').attr('src', img);
+//       };
+
+//       archivo.readAsDataURL(this.files[0]);
+//     }
+//   });
+// }
+
+
 /* global firebase */
 let refPost = (firebase.database().ref().child('POST'));
 const containerModalWelcome = document.getElementById('container-modal');
 /* Create / Edite/ Remove  de los Post**************************************************************** */
 window.createPostInFirebase = (descriptionPost, privacity) => {
   const validatepublications = window.validateContentOfpublications(descriptionPost.value);
+  console
   if (validatepublications) {
     const userId = firebase.auth().currentUser.uid;
     (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
@@ -26,7 +78,6 @@ window.createPostInFirebase = (descriptionPost, privacity) => {
     document.getElementById('txterror').innerHTML = '¡ Ingresa texto para publicar !';
   }
 };
-
 /* like*/
 const createLikeInFirebase = () => {
   const postId = event.target.getAttribute('data-like');
@@ -36,8 +87,6 @@ const createLikeInFirebase = () => {
   postRef.transaction((post) => {
     if (post) {
       if (post.likes && post.likes[uid]) {
-        like.classList.remove('icon-like');
-        like.classList.add('icon-notLike');
         post.likesCount--;
         post.likes[uid] = null;
       } else {
@@ -53,15 +102,27 @@ const createLikeInFirebase = () => {
   like.classList.add('colornotlike');
 };
 
+
+const stateLikesObserver = (likesOfPost, currentUserId) => {
+  const likes = likesOfPost;
+  let stateLike = '';
+  for (const like in likes) {
+    stateLike = likes[currentUserId] ? 'like' : 'no-like';
+  }
+  return stateLike;
+};
 window.showPostsInWall = () => {
   let refPost = (firebase.database().ref().child('POST'));
   refPost.on('value', (snap) => {
+    const currentUserId = firebase.auth().currentUser.uid;
     let datos = snap.val();
     const viewPost = document.getElementById('posts');
     let elementsView = '';
-    for (let key in datos) {
 
-      if (datos[key].userId === firebase.auth().currentUser.uid) {
+    for (let key in datos) {
+      if (datos[key].userId === currentUserId) {
+        const stateLikes = stateLikesObserver(datos[key].likes, currentUserId);
+        const stateLikes2 = stateLikes || 'no-like';
         elementsView += `           
           <form class="comentary">
               <p class="users" >${datos[key].autor}</p>
@@ -71,29 +132,30 @@ window.showPostsInWall = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 
               </select>
-              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
+              <button type="button" class="icon-like ${stateLikes2}" data-like="${key}" id="like"></button>
               <a href="#mi-modal"><button type="button" class="borrar icon-trash" data-message-delete=${key}></button></a>
 
               <button type="button" id="btn-edit" class="editar icon-pencil" data-message-edit= ${key}></button>
           </form>`;
       } else if (datos[key].privacity === 'PUBLICO') {
-        elementsView += `           
-             <form class="comentary">
-             <p class="users" >${datos[key].autor}</p>
-             <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
-             <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
-             <select disabled id="post-privacity-selector">
-                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
-             </select>
-             <button type="button" class="icon-like" data-like="${key}" id="like"></button>
-             </form>`;
+        const stateLikes = stateLikesObserver(datos[key].likes, currentUserId);
+        const stateLikes2 = stateLikes || 'no-like';
+        elementsView +=
+          `<form class="comentary">
+        <p class="users" >${datos[key].autor}</p>
+       <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
+        <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
+        <select disabled id="post-privacity-selector">
+           <option value="${datos[key].privacity}">${datos[key].privacity}</option>
+        </select>
+        <button type="button" class="icon-like ${stateLikes2}" data-like="${key}" id="like"></button>
+        </form>`;
       }
       viewPost.innerHTML = elementsView;
       if (elementsView !== '') {
         const elementDelete = document.getElementsByClassName('borrar');
         const elementEdit = document.getElementsByClassName('editar');
         const elementLike = document.getElementsByClassName('icon-like');
-        const like = document.getElementById('like');
 
         for (let i = 0; i < elementLike.length; i++) {
           elementLike[i].addEventListener('click', createLikeInFirebase, false);
@@ -177,8 +239,7 @@ const showPostToEdit = () => {
              </div>
             
         </div>
-    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => showPostsInWall());
-
+    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => window.showPostsInWall());
         } else if (datos[key].privacity === 'PRIVADO') {
           posts.innerHTML +=
             ` <div id="modal-welcome" class="modal">
@@ -199,7 +260,7 @@ const showPostToEdit = () => {
              </div>
             
         </div>
-    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => showPostsInWall());
+    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => window.showPostsInWall());
         }
       } else {
         posts.innerHTML += `<form class="comentary">
@@ -271,7 +332,6 @@ window.renderModal = (containerModalWelcome) => {
              <p>Gracias por unirte a nuestra Comunidad de  Educadores apasionados y Amantes de la Tecnología aportando a la Educación
               <br>Compártenos tu Experiencia</p>
              </div>
-            
         </div>
     </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => window.closeModalWelcome());
     }
@@ -303,4 +363,3 @@ window.getDataUserSessionActive = () => {
     }
   });
 };
-
