@@ -28,9 +28,7 @@ body {
 }
 
 #nameUser{
-    float: right;
-    margin: 1%;
-    color: white;
+    display: none;
 }
 /* Menu */
  #contenido {
@@ -116,17 +114,15 @@ textarea {
     float: right;
     outline: none;
     color: white;
-    
+    background:  #f1a203;
 }
 .no-like{
-    background: #2b485d;;
+    background: #2b485d;
 }
 .like{
     background: #f1a203; 
 }
-[type=button]:hover {
-    background: #ceecf0;
-}
+
 .publish {
     margin: 3%;
 }
@@ -184,6 +180,13 @@ textarea {
 }
 
 @media screen and (min-width:600px) {
+    #nameUser{
+        display: block;
+        float: right;
+        margin: 1%;
+        color: white;
+        }
+        
     #contenido {
         margin-left: -22%;
     }
