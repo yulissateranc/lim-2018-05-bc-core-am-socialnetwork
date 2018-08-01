@@ -5,10 +5,8 @@
 window.getDataUserSessionActiveLogin = () => { // observer()
   firebase.auth().onAuthStateChanged((user) => {
   if (user) {  
-    console.log(user);
      (firebase.database().ref('users/' + user.uid).once('value', (snapshot) =>  {
       const isNewUser =   snapshot.val().isNewUser;
-      console.log(isNewUser);
       if(!isNewUser) {
         window.directionalUrl('../src/view/wall.html');
       } 
@@ -113,7 +111,6 @@ const createUserInBd = (objectUser, name) => {
     }).then(()=>{
       (firebase.database().ref('/users/' + objectUser.user.uid).once('value', (snapshot) => {
         const displayName = snapshot.val().userName;
-        console.log(displayName);
         if(displayName) {
           window.directionalUrl('../src/view/wall.html');
         }
@@ -142,7 +139,6 @@ window.registerUserFacebook = () => {
 window.registerUserGmail = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then((result) => {
-    console.log(result);
     if (result.additionalUserInfo.isNewUser) {
       createUserInBd(result, name);
     } else {
