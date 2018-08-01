@@ -20,7 +20,7 @@ body {
     
 }
 
-.icon-down-open {
+.icon-cog-outline {
    font-size: 35px;
     color: aliceblue;
     cursor: pointer;
@@ -186,7 +186,7 @@ textarea {
         margin: 1%;
         color: white;
         }
-        
+
     #contenido {
         margin-left: -22%;
     }
