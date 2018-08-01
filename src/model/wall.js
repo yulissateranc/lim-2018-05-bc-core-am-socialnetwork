@@ -55,6 +55,7 @@ const containerModalWelcome = document.getElementById('container-modal');
 /* Create / Edite/ Remove  de los Post**************************************************************** */
 window.createPostInFirebase = (descriptionPost, privacity) => {
   const validatepublications = window.validateContentOfpublications(descriptionPost.value);
+  console
   if (validatepublications) {
     const userId = firebase.auth().currentUser.uid;
     (firebase.database().ref('/users/' + userId).once('value', (snapshot) => {
@@ -131,7 +132,7 @@ window.showPostsInWall = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 
               </select>
-              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
+              <button type="button" class="icon-like ${stateLikes2}" data-like="${key}" id="like"></button>
               <a href="#mi-modal"><button type="button" class="borrar icon-trash" data-message-delete=${key}></button></a>
 
               <button type="button" id="btn-edit" class="editar icon-pencil" data-message-edit= ${key}></button>

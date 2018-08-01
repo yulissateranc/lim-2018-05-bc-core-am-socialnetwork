@@ -22,11 +22,11 @@ window.onclick = () => {
 
 // inputFileSelector.addEventListener('click',()=>{
 //  getImg();
-// });
+// // });
 let contador = 0;
 
 btnMenu.addEventListener('click', () => {
-  if (contador === 1) {
+  if (contador === 0) {
     document.getElementById('contenido').style.display = 'none';
     contador = 0;
   } else {
