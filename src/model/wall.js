@@ -1,4 +1,31 @@
 /*funcion para postear imágenes */
+const redimensionar= (srcData,width,height) => {
+  let imageObj = new Image();
+  let canvas =document.createElement("canvas");
+  let ctx =canvas.getContext('2d');
+  let xStart= 0;
+  let yStart= 0;
+  let aspectRadio;
+ let  newWidth;
+ let  newHeight;
+  imageObj.src=srcData;
+  canvas.width=width;
+  canvas.height=height;
+  aspectRadio=imageObj.height / imageObj.width;
+  if (imageObj.height < imageObj.width) {
+    aspectRadio = imageObj.width / imageObj.height;
+    newHeight = height;
+    newWidth = aspectRadio*height;
+    xStart = -(newWidth-width)/2;
+  }else {
+    newWidth = width,
+    newHeight = aspectRadio*width;
+    yStart = -(newHeight-height)/2;
+  }
+  ctx.drawImage(imageObj,xStart,yStart,newWidth,newHeight);
+  
+  return canvas.toDataURL("image/jpeg",0.75);
+  } 
 const getImg =()=>{
  let TablaDeBaseDatos= firebase.database().ref('PICTURES');
 
@@ -6,9 +33,11 @@ $('#upload-file-selector').change(function(){
   if(this.files && this.files[0]){
     let archivo = new FileReader();
     archivo.onload = function(e){
-      let img = e.target.result;
+
+      let img = redimensionar(e.target.result,165,165);
    TablaDeBaseDatos.push({
-     description:img
+     urlLarge:e.target.result,
+     url: img
    });
    //visualizar la imagen en la etiqueta img 
    $('#img').attr('src',img);
@@ -18,7 +47,7 @@ $('#upload-file-selector').change(function(){
   }
 });
 }
-const redimensionar= ()=> {} 
+
 
 /* global firebase */
 let refPost = (firebase.database().ref().child('POST'));
