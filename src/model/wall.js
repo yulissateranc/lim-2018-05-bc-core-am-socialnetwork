@@ -26,7 +26,6 @@ window.createPostInFirebase = (descriptionPost, privacity) => {
     document.getElementById('txterror').innerHTML = '¡ Ingresa texto para publicar !';
   }
 };
-
 /* like*/
 const createLikeInFirebase = () => {
   const postId = event.target.getAttribute('data-like');
@@ -36,8 +35,6 @@ const createLikeInFirebase = () => {
   postRef.transaction((post) => {
     if (post) {
       if (post.likes && post.likes[uid]) {
-        like.classList.remove('icon-like');
-        like.classList.add('icon-notLike');
         post.likesCount--;
         post.likes[uid] = null;
       } else {
@@ -53,15 +50,31 @@ const createLikeInFirebase = () => {
   like.classList.add('colornotlike');
 };
 
+
+const stateLikesObserver = (likesOfPost, currentUserId) => {
+  const likes = likesOfPost;
+  console.log(currentUserId);
+ 
+  let stateLike = '';
+  for (const like in likes) {
+    console.log(likes[like]);
+    stateLike = likes[currentUserId] ? 'like' : 'no-like';
+  }
+  // console.log(stateLike);
+  return stateLike;
+};
 window.showPostsInWall = () => {
   let refPost = (firebase.database().ref().child('POST'));
   refPost.on('value', (snap) => {
+    const currentUserId = firebase.auth().currentUser.uid;
     let datos = snap.val();
     const viewPost = document.getElementById('posts');
     let elementsView = '';
-    for (let key in datos) {
 
-      if (datos[key].userId === firebase.auth().currentUser.uid) {
+    for (let key in datos) {
+      if (datos[key].userId === currentUserId) {
+        const stateLikes = stateLikesObserver(datos[key].likes, currentUserId);
+        const stateLikes2 = stateLikes || 'no-like';
         elementsView += `           
           <form class="comentary">
               <p class="users" >${datos[key].autor}</p>
@@ -71,28 +84,29 @@ window.showPostsInWall = () => {
                 <option value="${datos[key].privacity}">${datos[key].privacity}</option>
                 
               </select>
-              <button type="button" class="icon-like" data-like="${key}" id="like"></button>
+              <button type="button" class="icon-like ${stateLikes2}" data-like="${key}" id="like"></button>
               <a href="#mi-modal"><button type="button" class="borrar" data-message-delete=${key}>Eliminar</button></a>
               <button type="button" id="btn-edit" class="editar" data-message-edit= ${key}>Editar</button>
           </form>`;
       } else if (datos[key].privacity === 'PUBLICO') {
-        elementsView += `           
-             <form class="comentary">
-             <p class="users" >${datos[key].autor}</p>
-             <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
-             <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
-             <select disabled id="post-privacity-selector">
-                <option value="${datos[key].privacity}">${datos[key].privacity}</option>
-             </select>
-             <button type="button" class="icon-like" data-like="${key}" id="like"></button>
-             </form>`;
+        const stateLikes = stateLikesObserver(datos[key].likes, currentUserId);
+        const stateLikes2 = stateLikes || 'no-like';
+        elementsView +=
+          `<form class="comentary">
+        <p class="users" >${datos[key].autor}</p>
+       <textarea name="postMessage" rows="4" cols="50" readonly class="mensaje">  ${datos[key].description}</textarea>
+        <input type="number" class="textValuefixed" readonly value="${datos[key].likesCount}"/>
+        <select disabled id="post-privacity-selector">
+           <option value="${datos[key].privacity}">${datos[key].privacity}</option>
+        </select>
+        <button type="button" class="icon-like ${stateLikes2}" data-like="${key}" id="like"></button>
+        </form>`;
       }
       viewPost.innerHTML = elementsView;
       if (elementsView !== '') {
         const elementDelete = document.getElementsByClassName('borrar');
         const elementEdit = document.getElementsByClassName('editar');
         const elementLike = document.getElementsByClassName('icon-like');
-        const like = document.getElementById('like');
 
         for (let i = 0; i < elementLike.length; i++) {
           elementLike[i].addEventListener('click', createLikeInFirebase, false);
@@ -176,8 +190,7 @@ const showPostToEdit = () => {
              </div>
             
         </div>
-    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => showPostsInWall());
-
+    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => window.showPostsInWall());
         } else if (datos[key].privacity === 'PRIVADO') {
           posts.innerHTML +=
             ` <div id="modal-welcome" class="modal">
@@ -198,9 +211,8 @@ const showPostToEdit = () => {
              </div>
             
         </div>
-    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => showPostsInWall());
+    </div>`, document.getElementById('close-modal-welcome').addEventListener('click', () => window.showPostsInWall());
         }
-
       }
     }
     if (posts !== '') {

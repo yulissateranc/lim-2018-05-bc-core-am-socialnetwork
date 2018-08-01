@@ -114,7 +114,13 @@ textarea {
     float: right;
     outline: none;
     color: white;
-    background: #f1a203;
+    
+}
+.no-like{
+    background: #44d9e6;
+}
+.like{
+    background: #f1a203; 
 }
 [type=button]:hover {
     background: #44d9e6;
