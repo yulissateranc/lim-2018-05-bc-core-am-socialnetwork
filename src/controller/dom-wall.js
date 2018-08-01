@@ -1,7 +1,7 @@
 const buttonPublicPost = document.getElementById('btn-public-post');
 const btnLogOut = document.getElementById('log-out');
 const btnMenu = document.getElementById('menu');
-const inputFileSelector = document.getElementById('upload-file-selector');
+// const inputFileSelector = document.getElementById('upload-file-selector');
 
 window.onload = () => {
   window.getDataUserSessionActive();
@@ -26,7 +26,7 @@ window.onclick = () => {
 let contador = 0;
 
 btnMenu.addEventListener('click', () => {
-  if (contador === 1) {
+  if (contador === 0) {
     document.getElementById('contenido').style.display = 'none';
     contador = 0;
   } else {

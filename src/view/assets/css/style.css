@@ -108,16 +108,22 @@ textarea {
 [type=button] {
     cursor: pointer;
     margin: 1%;
-    padding: 3%;
+    padding: 5%;
     border: none;
     border-radius: 7px;
     float: right;
     outline: none;
     color: white;
-    background: #f1a203;
+    
+}
+.no-like{
+    background: #2b485d;;
+}
+.like{
+    background: #f1a203; 
 }
 [type=button]:hover {
-    background: #44d9e6;
+    background: #ceecf0;
 }
 .publish {
     margin: 3%;
