@@ -1,30 +1,24 @@
-// /*funcion para postear imágenes */
-// var TablaDeBaseDatos=firebas.database().ref('');const createLikeInFirebase = () => {
-//   // const postId = event.target.getAttribute('data-like');
-//   const uid = (firebase.auth().currentUser.uid);
-//   let userImgRef = firebase.database().ref('users/' + postId);
-//   let like = document.getElementById('like');
-//   postRef.transaction((post) => {
-//     if (post) {
-//       if (post.likes && post.likes[uid]) {
-//         like.classList.remove('icon-like');
-//         like.classList.add('icon-notLike');
-//         post.likesCount--;
-//         post.likes[uid] = null;
-//       } else {
-//         post.likesCount++;
-//         if (!post.likes) {
-//           post.likes = {};
-//         }
-//         post.likes[uid] = true;
-//       }
-//     }
-//     return post;
-//   });
-//   like.classList.add('colornotlike');
-// };
+/*funcion para postear imágenes */
+const getImg =()=>{
+ let TablaDeBaseDatos= firebase.database().ref('PICTURES');
 
-
+$('#upload-file-selector').change(function(){
+  if(this.files && this.files[0]){
+    let archivo = new FileReader();
+    archivo.onload = function(e){
+      let img = e.target.result;
+   TablaDeBaseDatos.push({
+     description:img
+   });
+   //visualizar la imagen en la etiqueta img 
+   $('#img').attr('src',img);
+    };
+  
+    archivo.readAsDataURL(this.files[0]);
+  }
+});
+}
+const redimensionar= ()=> {} 
 
 /* global firebase */
 let refPost = (firebase.database().ref().child('POST'));
