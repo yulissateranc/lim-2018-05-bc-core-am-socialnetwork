@@ -20,9 +20,9 @@ window.onclick = () => {
   }
 };
 
-inputFileSelector.addEventListener('click',()=>{
- getImg();
-});
+// inputFileSelector.addEventListener('click',()=>{
+//  getImg();
+// // });
 let contador = 0;
 
 btnMenu.addEventListener('click', () => {
